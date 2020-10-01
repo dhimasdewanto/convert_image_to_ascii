@@ -1,14 +1,15 @@
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image/image.dart' as img;
 
 import 'level.dart';
 
-class ImageProcessController {
-  ImageProcessController(this.fileImage);
+class ImageProcessController extends StateNotifier<StringBuffer> {
+  ImageProcessController() : super(null);
 
-  final File fileImage;
+  // final File fileImage;
 
   // static const _imagePath = 'assets/Photo by Ali Kazal on Unsplash.jpg';
   // static const _imagePath = 'assets/keanu.jpg';
@@ -23,10 +24,11 @@ class ImageProcessController {
 
   // String get imagePath => _imagePath;
 
-  Future<StringBuffer> setStringBuffer({
+  Future<void> setStringBuffer(
+    File fileImage, {
     bool convertToGrayscale = false,
   }) async {
-    final image = await _getImage(convertToGrayscale);
+    final image = await _getImage(convertToGrayscale, fileImage);
 
     final textBuffer = StringBuffer();
     for (var y = 0; y < image.height; y++) {
@@ -41,8 +43,8 @@ class ImageProcessController {
       textBuffer.writeln("");
     }
 
-    return textBuffer;
-    // state = textBuffer;
+    // return textBuffer;
+    state = textBuffer;
   }
 
   /// Write ASCII character from [StringBuffer].
@@ -76,8 +78,8 @@ class ImageProcessController {
     }
   }
 
-  Future<img.Image> _getImage(bool convertToGrayscale) async {
-    final bytes = await _getImageBytes();
+  Future<img.Image> _getImage(bool convertToGrayscale, File fileImage) async {
+    final bytes = await _getImageBytes(fileImage);
     final image = img.decodeImage(bytes);
     final resizedImage = img.copyResize(
       image,
@@ -93,7 +95,7 @@ class ImageProcessController {
     return jgpImage;
   }
 
-  Future<Uint8List> _getImageBytes() async {
+  Future<Uint8List> _getImageBytes(File fileImage) async {
     // final imageBytes = await rootBundle.load(_imagePath);
     // return imageBytes.buffer.asUint8List();
     return fileImage.readAsBytes();

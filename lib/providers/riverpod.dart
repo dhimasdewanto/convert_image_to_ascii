@@ -7,7 +7,6 @@ final getImageProvider = StateNotifierProvider((ref) {
   return GetImageController();
 });
 
-final imageProcessProvider = Provider((ref) {
-  final fileImage = ref.watch(getImageProvider.state);
-  return ImageProcessController(fileImage);
+final imageProcessProvider = StateNotifierProvider((ref) {
+  return ImageProcessController();
 });

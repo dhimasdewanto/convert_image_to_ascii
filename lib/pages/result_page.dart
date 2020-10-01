@@ -11,7 +11,6 @@ class ResultPage extends ConsumerWidget {
   Widget build(BuildContext context, ScopedReader watch) {
     final imageFile = watch(getImageProvider.state);
     final imageProcessController = watch(imageProcessProvider);
-    // final textBuffer = watch(imageProcessProvider.state);
 
     return Scaffold(
       appBar: AppBar(
@@ -24,23 +23,28 @@ class ResultPage extends ConsumerWidget {
             width: double.infinity,
             fit: BoxFit.contain,
           ),
-          FutureBuilder<StringBuffer>(
-            future: imageProcessController.setStringBuffer(),
+          FutureBuilder<void>(
+            future: imageProcessController.setStringBuffer(imageFile),
             builder: (context, snapshot) {
-              if (snapshot.hasData == false) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(
                   child: CircularProgressIndicator(),
                 );
               }
-              return SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Text(
-                  snapshot.data.toString(),
-                  style: GoogleFonts.robotoMono(
-                    fontSize: 2,
-                  ),
-                  softWrap: false,
-                ),
+              return Consumer(
+                builder: (context, watch, child) {
+                  final textBuffer = watch(imageProcessProvider.state);
+                  return SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Text(
+                      textBuffer.toString(),
+                      style: GoogleFonts.robotoMono(
+                        fontSize: 2,
+                      ),
+                      softWrap: false,
+                    ),
+                  );
+                },
               );
             },
           ),
