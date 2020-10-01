@@ -1,14 +1,18 @@
+import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:flutter/services.dart';
 import 'package:image/image.dart' as img;
 
 import 'level.dart';
 
 class ImageProcessController {
+  ImageProcessController(this.fileImage);
+
+  final File fileImage;
+
   // static const _imagePath = 'assets/Photo by Ali Kazal on Unsplash.jpg';
   // static const _imagePath = 'assets/keanu.jpg';
-  static const _imagePath = 'assets/bob_ross.jpg';
+  // static const _imagePath = 'assets/bob_ross.jpg';
   // static const _imagePath = 'assets/lincoln.jpeg';
   // static const _imagePath = 'assets/rhoma.jpg';
   // static const _imagePath = 'assets/dhimas2.jpg';
@@ -17,9 +21,9 @@ class ImageProcessController {
   // static const _imagePath = 'assets/kennedy.jpg';
   // static const _imagePath = 'assets/example_image.png';
 
-  String get imagePath => _imagePath;
+  // String get imagePath => _imagePath;
 
-  Future<StringBuffer> getStringBuffer({
+  Future<StringBuffer> setStringBuffer({
     bool convertToGrayscale = false,
   }) async {
     final image = await _getImage(convertToGrayscale);
@@ -38,6 +42,7 @@ class ImageProcessController {
     }
 
     return textBuffer;
+    // state = textBuffer;
   }
 
   /// Write ASCII character from [StringBuffer].
@@ -89,8 +94,9 @@ class ImageProcessController {
   }
 
   Future<Uint8List> _getImageBytes() async {
-    final imageBytes = await rootBundle.load(_imagePath);
-    return imageBytes.buffer.asUint8List();
+    // final imageBytes = await rootBundle.load(_imagePath);
+    // return imageBytes.buffer.asUint8List();
+    return fileImage.readAsBytes();
   }
 
   int _abgrToArgb(int argbColor) {

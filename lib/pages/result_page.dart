@@ -9,7 +9,9 @@ class ResultPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    final controller = watch(imageProcessProvider);
+    final imageFile = watch(getImageProvider.state);
+    final imageProcessController = watch(imageProcessProvider);
+    // final textBuffer = watch(imageProcessProvider.state);
 
     return Scaffold(
       appBar: AppBar(
@@ -17,22 +19,23 @@ class ResultPage extends ConsumerWidget {
       ),
       body: ListView(
         children: [
-          // Image.file(
-          //   File(controller.imagePath),
-          //   width: double.infinity,
-          //   fit: BoxFit.contain,
-          // ),
+          Image.file(
+            imageFile,
+            width: double.infinity,
+            fit: BoxFit.contain,
+          ),
           FutureBuilder<StringBuffer>(
-            future: controller.getStringBuffer(),
+            future: imageProcessController.setStringBuffer(),
             builder: (context, snapshot) {
               if (snapshot.hasData == false) {
-                return const Offstage();
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
               }
-              final textBuffer = snapshot.data;
               return SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Text(
-                  textBuffer.toString(),
+                  snapshot.data.toString(),
                   style: GoogleFonts.robotoMono(
                     fontSize: 2,
                   ),

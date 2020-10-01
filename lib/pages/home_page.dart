@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../providers/riverpod.dart';
 import 'result_page.dart';
 
 class HomePage extends ConsumerWidget {
@@ -16,6 +17,9 @@ class HomePage extends ConsumerWidget {
     final textThemeBig = textTheme.headline6;
     final textThemeSmall = textTheme.bodyText1;
 
+    final getImageController = watch(getImageProvider);
+    print("REBUILD HOME PAGE");
+
     return Scaffold(
       body: Center(
         child: Column(
@@ -24,18 +28,14 @@ class HomePage extends ConsumerWidget {
             InkWell(
               borderRadius: borderRadius,
               onTap: () {
-                // controller.setImage().then((isSuccess) {
-                //   if (isSuccess) {
-                //     final route = MaterialPageRoute(
-                //       builder: (_) => const ResultPage(),
-                //     );
-                //     Navigator.push(context, route);
-                //   }
-                // });
-                final route = MaterialPageRoute(
-                  builder: (_) => const ResultPage(),
-                );
-                Navigator.push(context, route);
+                getImageController.pickImage().then((isSuccess) {
+                  if (isSuccess) {
+                    final route = MaterialPageRoute(
+                      builder: (_) => const ResultPage(),
+                    );
+                    Navigator.push(context, route);
+                  }
+                });
               },
               child: Container(
                 height: sizeBig,
