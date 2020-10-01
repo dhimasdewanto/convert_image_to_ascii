@@ -18,9 +18,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'ASCII Image',
-      // themeMode: ThemeMode.dark,
-      // darkTheme: ThemeData.dark(),
-      home: HomePage(),
+      themeMode: ThemeMode.dark,
+      darkTheme: ThemeData.dark(),
+      home: const HomePage(),
     );
   }
 }
