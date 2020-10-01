@@ -52,7 +52,6 @@ class ImageProcessController {
     int y,
   }) {
     final convertedColor = argbColor;
-
     final chars = reversed ? levelChars.reversed : levelChars;
 
     const maxLevelColor = 4294000000;
@@ -77,44 +76,6 @@ class ImageProcessController {
         textBuffer.write(chars.first);
       }
     }
-
-    // BLACK = 4278190080
-    // if (convertedColor >= 4293000000 && convertedColor <= 4294000000) {
-    //   textBuffer.write("  "); // 1
-    // } else if (convertedColor >= 4292000000 && convertedColor <= 4293000000) {
-    //   textBuffer.write(".."); // 2
-    // } else if (convertedColor >= 4291000000 && convertedColor <= 4292000000) {
-    //   textBuffer.write(",,"); // 3
-    // } else if (convertedColor >= 4290000000 && convertedColor <= 4291000000) {
-    //   textBuffer.write("''"); // 4
-    // } else if (convertedColor >= 4289000000 && convertedColor <= 4290000000) {
-    //   textBuffer.write('""'); // 5
-    // } else if (convertedColor >= 4288000000 && convertedColor <= 4289000000) {
-    //   textBuffer.write(";;"); // 6
-    // } else if (convertedColor >= 4287000000 && convertedColor <= 4288000000) {
-    //   textBuffer.write("**"); // 7
-    // } else if (convertedColor >= 4286000000 && convertedColor <= 4287000000) {
-    //   textBuffer.write("//"); // 8
-    // } else if (convertedColor >= 4285000000 && convertedColor <= 4286000000) {
-    //   textBuffer.write("(("); // 9
-    // } else if (convertedColor >= 4284000000 && convertedColor <= 4285000000) {
-    //   textBuffer.write("[["); // 10
-    // } else if (convertedColor >= 4283000000 && convertedColor <= 4284000000) {
-    //   textBuffer.write("{{"); // 11
-    // } else if (convertedColor >= 4282000000 && convertedColor <= 4283000000) {
-    //   textBuffer.write("%%"); // 12
-    // } else if (convertedColor >= 4281000000 && convertedColor <= 4282000000) {
-    //   textBuffer.write("&&"); // 13
-    // } else if (convertedColor >= 4280000000 && convertedColor <= 4281000000) {
-    //   textBuffer.write("##"); // 14
-    // } else if (convertedColor >= 4270000000 && convertedColor <= 4280000000) {
-    //   textBuffer.write("@@"); // 15
-    // } else {
-    //   if (x != null && y != null && convertedColor > 0) {
-    //     print("($x, $y): $convertedColor = ${Color(convertedColor)}");
-    //   }
-    //   textBuffer.write("  ");
-    // }
   }
 
   Future<img.Image> _getImage(bool convertToGrayscale) async {
