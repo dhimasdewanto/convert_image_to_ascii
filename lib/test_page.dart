@@ -5,12 +5,14 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image/image.dart' as img;
 
+import 'providers/level.dart';
+
 class TestPage extends StatelessWidget {
   const TestPage({Key key}) : super(key: key);
 
   // static const _imagePath = 'assets/keanu.jpg';
-  static const _imagePath = 'assets/bob_ross.jpg';
-  // static const _imagePath = 'assets/lincoln.jpeg';
+  // static const _imagePath = 'assets/bob_ross.jpg';
+  static const _imagePath = 'assets/lincoln.jpeg';
   // static const _imagePath = 'assets/rhoma.jpg';
   // static const _imagePath = 'assets/dhimas2.jpg';
   // static const _imagePath = 'assets/sendiri.png';
@@ -37,16 +39,16 @@ class TestPage extends StatelessWidget {
           //     );
           //   },
           // ),
-          FutureBuilder<Widget>(
-            future: _getImageAscii(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData == false) {
-                return const Offstage();
-              }
-              final widget = snapshot.data;
-              return widget;
-            },
-          ),
+          // FutureBuilder<Widget>(
+          //   future: _getImageAscii(),
+          //   builder: (context, snapshot) {
+          //     if (snapshot.hasData == false) {
+          //       return const Offstage();
+          //     }
+          //     final widget = snapshot.data;
+          //     return widget;
+          //   },
+          // ),
           FutureBuilder<Widget>(
             future: _getImageAscii(
               version: 2,
@@ -74,9 +76,9 @@ class TestPage extends StatelessWidget {
     return img.decodeImage(bytes);
   }
 
-  Future<Uint8List> _getImageBytesResize({int resizeTo = 50}) async {
+  Future<Uint8List> _getImageBytesResize() async {
     final image = await _getImage();
-    final newImage = img.copyResize(image, width: resizeTo);
+    final newImage = img.copyResize(image, width: imageWidth);
     final newImage2 = img.encodePng(newImage);
     return newImage2;
   }
@@ -124,10 +126,14 @@ class TestPage extends StatelessWidget {
     await Clipboard.setData(ClipboardData(text: textBuffer.toString()));
     return Container(
       width: width,
-      child: Text(
-        textBuffer.toString(),
-        style: GoogleFonts.robotoMono(
-          fontSize: 6,
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Text(
+          textBuffer.toString(),
+          style: GoogleFonts.robotoMono(
+            fontSize: 5,
+          ),
+          softWrap: false,
         ),
       ),
     );

@@ -97,11 +97,25 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_riverpod:
+    dependency: "direct main"
+    description:
+      name: flutter_riverpod
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.11.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
     source: sdk
     version: "0.0.0"
+  freezed_annotation:
+    dependency: transitive
+    description:
+      name: freezed_annotation
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.12.0"
   google_fonts:
     dependency: "direct main"
     description:
@@ -137,6 +151,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.16.1"
+  json_annotation:
+    dependency: transitive
+    description:
+      name: json_annotation
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.1.0"
   matcher:
     dependency: transitive
     description:
@@ -228,6 +249,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.13"
+  riverpod:
+    dependency: transitive
+    description:
+      name: riverpod
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.11.0"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -247,6 +275,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.9.5"
+  state_notifier:
+    dependency: transitive
+    description:
+      name: state_notifier
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.6.0"
   stream_channel:
     dependency: transitive
     description:
