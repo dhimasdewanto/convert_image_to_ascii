@@ -6,12 +6,12 @@ import 'package:image/image.dart' as img;
 import 'level.dart';
 
 class ImageProcessController {
-  static const _imagePath = 'assets/Photo by Ali Kazal on Unsplash.jpg';
+  // static const _imagePath = 'assets/Photo by Ali Kazal on Unsplash.jpg';
   // static const _imagePath = 'assets/keanu.jpg';
   // static const _imagePath = 'assets/bob_ross.jpg';
   // static const _imagePath = 'assets/lincoln.jpeg';
   // static const _imagePath = 'assets/rhoma.jpg';
-  // static const _imagePath = 'assets/dhimas2.jpg';
+  static const _imagePath = 'assets/dhimas2.jpg';
   // static const _imagePath = 'assets/sendiri.png';
   // static const _imagePath = 'assets/hitler.jpg';
   // static const _imagePath = 'assets/kennedy.jpg';
@@ -32,8 +32,6 @@ class ImageProcessController {
         _writeTextBuffer(
           argbColor,
           textBuffer,
-          x: x,
-          y: y,
         );
       }
       textBuffer.writeln("");
@@ -47,17 +45,17 @@ class ImageProcessController {
   /// Note: [argbColor] 4278190080 = #000000.
   void _writeTextBuffer(
     int argbColor,
-    StringBuffer textBuffer, {
-    int x,
-    int y,
-  }) {
+    StringBuffer textBuffer,
+  ) {
     final convertedColor = argbColor;
-    final chars = reversed ? levelChars.reversed : levelChars;
+    final chars = reversed ? levelChars.reversed.toList() : levelChars;
 
     const maxLevelColor = 4294000000;
     var levelColor = maxLevelColor;
     const reducer = 1000000;
-    for (final char in chars) {
+
+    for (var i = 0; i < chars.length; i++) {
+      final char = chars[i];
       if (convertedColor >= (levelColor - reducer) &&
           convertedColor <= levelColor) {
         for (var i = 0; i < repeat; i++) {
@@ -69,11 +67,11 @@ class ImageProcessController {
 
     if (convertedColor >= maxLevelColor) {
       for (var i = 0; i < repeat; i++) {
-        textBuffer.write(chars.last);
+        textBuffer.write(chars.first);
       }
     } else if (convertedColor <= levelColor) {
       for (var i = 0; i < repeat; i++) {
-        textBuffer.write(chars.first);
+        textBuffer.write(chars.last);
       }
     }
   }

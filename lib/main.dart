@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'result_page.dart';
+import 'pages/home_page.dart';
 
 void main() {
   runApp(
@@ -18,9 +18,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'ASCII Image',
-      themeMode: ThemeMode.dark,
-      darkTheme: ThemeData.dark(),
-      home: const ResultPage(),
+      // themeMode: ThemeMode.dark,
+      // darkTheme: ThemeData.dark(),
+      home: HomePage(),
     );
   }
 }

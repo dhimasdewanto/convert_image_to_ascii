@@ -1,8 +1,8 @@
-const imageWidth = 300;
+const imageWidth = 200;
 
 const repeat = 2;
 
-const reversed = true;
+const reversed = false;
 
 const levelChars = [
   " ",
@@ -21,5 +21,3 @@ const levelChars = [
   "#",
   "@",
 ];
-
-const levelColor1 = 4294000000;

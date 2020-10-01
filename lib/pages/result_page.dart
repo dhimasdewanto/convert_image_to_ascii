@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/all.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'providers/riverpod.dart';
+import '../providers/riverpod.dart';
 
 class ResultPage extends ConsumerWidget {
   const ResultPage({Key key}) : super(key: key);
@@ -17,11 +17,11 @@ class ResultPage extends ConsumerWidget {
       ),
       body: ListView(
         children: [
-          Image.asset(
-            controller.imagePath,
-            width: double.infinity,
-            fit: BoxFit.contain,
-          ),
+          // Image.file(
+          //   File(controller.imagePath),
+          //   width: double.infinity,
+          //   fit: BoxFit.contain,
+          // ),
           FutureBuilder<StringBuffer>(
             future: controller.getStringBuffer(),
             builder: (context, snapshot) {
@@ -34,7 +34,7 @@ class ResultPage extends ConsumerWidget {
                 child: Text(
                   textBuffer.toString(),
                   style: GoogleFonts.robotoMono(
-                    fontSize: 3,
+                    fontSize: 2,
                   ),
                   softWrap: false,
                 ),
