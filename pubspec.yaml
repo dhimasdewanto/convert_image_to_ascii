@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.9.2 <3.0.0"
+  sdk: ">=2.10.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -35,7 +35,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  build_runner: ^1.10.1
+  build_runner: ^1.10.2
   freezed: ^0.12.1
 
 # The following section is specific to Flutter.
