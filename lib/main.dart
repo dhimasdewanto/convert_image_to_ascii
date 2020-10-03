@@ -32,7 +32,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'ASCII Image',
       themeMode: ThemeMode.dark,
-      darkTheme: ThemeData.dark(),
+      darkTheme: ThemeData.dark().copyWith(
+        tabBarTheme: ThemeData.dark().tabBarTheme.copyWith(
+              indicator: const BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    color: Colors.white,
+                    width: 2,
+                  ),
+                ),
+              ),
+            ),
+      ),
       home: const HomePage(),
       builder: (context, child) {
         return BlocProvider(
