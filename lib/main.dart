@@ -29,14 +29,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => imageProcessBloc,
-      child: MaterialApp(
-        title: 'ASCII Image',
-        themeMode: ThemeMode.dark,
-        darkTheme: ThemeData.dark(),
-        home: const HomePage(),
-      ),
+    return MaterialApp(
+      title: 'ASCII Image',
+      themeMode: ThemeMode.dark,
+      darkTheme: ThemeData.dark(),
+      home: const HomePage(),
+      builder: (context, child) {
+        return BlocProvider(
+          create: (context) => imageProcessBloc,
+          child: child,
+        );
+      },
     );
   }
 }

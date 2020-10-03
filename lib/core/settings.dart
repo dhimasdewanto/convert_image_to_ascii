@@ -1,8 +1,10 @@
-const imageWidth = 200;
+const imageWidth = 300;
 
 const repeat = 2;
 
 const reversed = true;
+
+const letterSpacing = 0.2;
 
 const levelChars = [
   " ",
