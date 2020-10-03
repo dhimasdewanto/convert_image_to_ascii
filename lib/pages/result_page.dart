@@ -48,20 +48,21 @@ class ResultPage extends StatelessWidget {
                 body: TabBarView(
                   physics: const NeverScrollableScrollPhysics(),
                   children: [
-                    SingleChildScrollView(
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Text(
-                          textBuffer.toString(),
-                          style: GoogleFonts.robotoMono(
-                            fontSize: 2,
-                            letterSpacing: letterSpacing,
-                          ),
-                          softWrap: false,
+                    InteractiveViewer(
+                      minScale: 0.1,
+                      maxScale: 5,
+                      constrained: false,
+                      boundaryMargin: const EdgeInsets.all(300),
+                      child: Text(
+                        textBuffer.toString(),
+                        style: GoogleFonts.robotoMono(
+                          fontSize: fontSize,
+                          letterSpacing: letterSpacing,
                         ),
+                        softWrap: false,
                       ),
                     ),
-                    SingleChildScrollView(
+                    InteractiveViewer(
                       child: Image.file(
                         imageFile,
                         width: double.infinity,
