@@ -1,17 +1,11 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ResultPage extends StatelessWidget {
-  const ResultPage({
-    Key key,
-    @required this.imageFile,
-    @required this.textBuffer,
-  }) : super(key: key);
+import '../blocs/image_process/image_process_bloc.dart';
 
-  final File imageFile;
-  final StringBuffer textBuffer;
+class ResultPage extends StatelessWidget {
+  const ResultPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,24 +13,38 @@ class ResultPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Result"),
       ),
-      body: ListView(
-        children: [
-          Image.file(
-            imageFile,
-            width: double.infinity,
-            fit: BoxFit.contain,
-          ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Text(
-              textBuffer.toString(),
-              style: GoogleFonts.robotoMono(
-                fontSize: 2,
-              ),
-              softWrap: false,
-            ),
-          ),
-        ],
+      body: BlocBuilder<ImageProcessBloc, ImageProcessState>(
+        builder: (context, state) {
+          return state.maybeWhen(
+            orElse: () => const Offstage(),
+            loading: () {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            },
+            show: (imageFile, textBuffer) {
+              return ListView(
+                children: [
+                  Image.file(
+                    imageFile,
+                    width: double.infinity,
+                    fit: BoxFit.contain,
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Text(
+                      textBuffer.toString(),
+                      style: GoogleFonts.robotoMono(
+                        fontSize: 2,
+                      ),
+                      softWrap: false,
+                    ),
+                  ),
+                ],
+              );
+            },
+          );
+        },
       ),
     );
   }
