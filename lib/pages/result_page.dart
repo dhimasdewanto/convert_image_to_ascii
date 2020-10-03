@@ -1,17 +1,20 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/all.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../providers/riverpod.dart';
+class ResultPage extends StatelessWidget {
+  const ResultPage({
+    Key key,
+    @required this.imageFile,
+    @required this.textBuffer,
+  }) : super(key: key);
 
-class ResultPage extends ConsumerWidget {
-  const ResultPage({Key key}) : super(key: key);
+  final File imageFile;
+  final StringBuffer textBuffer;
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final imageFile = watch(getImageProvider.state);
-    final imageProcessController = watch(imageProcessProvider);
-
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Result"),
@@ -23,30 +26,15 @@ class ResultPage extends ConsumerWidget {
             width: double.infinity,
             fit: BoxFit.contain,
           ),
-          FutureBuilder<void>(
-            future: imageProcessController.setStringBuffer(imageFile),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-              return Consumer(
-                builder: (context, watch, child) {
-                  final textBuffer = watch(imageProcessProvider.state);
-                  return SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Text(
-                      textBuffer.toString(),
-                      style: GoogleFonts.robotoMono(
-                        fontSize: 2,
-                      ),
-                      softWrap: false,
-                    ),
-                  );
-                },
-              );
-            },
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Text(
+              textBuffer.toString(),
+              style: GoogleFonts.robotoMono(
+                fontSize: 2,
+              ),
+              softWrap: false,
+            ),
           ),
         ],
       ),

@@ -30,6 +30,11 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
   }
 
   Stream<ImageProcessState> _pickAndProcessImage() async* {
+    if (state is _LoadingState) {
+      return;
+    }
+    yield const ImageProcessState.loading();
+
     final imageFile = await _pickImage();
     if (imageFile == null) {
       yield const ImageProcessState.error();

@@ -3,7 +3,7 @@ import 'dart:typed_data';
 
 import 'package:image/image.dart' as img;
 
-import '../providers/level.dart';
+import '../core/settings.dart';
 
 class GetStringBuffer {
   Future<StringBuffer> call(
