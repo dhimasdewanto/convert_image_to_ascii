@@ -3,10 +3,10 @@ import 'dart:typed_data';
 
 import 'package:image/image.dart' as img;
 
-import '../../providers/level.dart';
+import '../providers/level.dart';
 
-mixin ImageProcessMixin {
-  Future<StringBuffer> getStringBuffer(
+class GetStringBuffer {
+  Future<StringBuffer> call(
     File fileImage, {
     bool convertToGrayscale = false,
   }) async {
