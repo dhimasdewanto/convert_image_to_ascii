@@ -14,8 +14,13 @@ class _$ImageProcessEventTearOff {
   const _$ImageProcessEventTearOff();
 
 // ignore: unused_element
-  _PickAndProcessImageEvent pickAndProcessImage() {
-    return const _PickAndProcessImageEvent();
+  _PickImageEvent pickImage() {
+    return const _PickImageEvent();
+  }
+
+// ignore: unused_element
+  _ProcessImageEvent processImage() {
+    return const _ProcessImageEvent();
   }
 }
 
@@ -27,20 +32,24 @@ const $ImageProcessEvent = _$ImageProcessEventTearOff();
 mixin _$ImageProcessEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result pickAndProcessImage(),
+    @required Result pickImage(),
+    @required Result processImage(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result pickAndProcessImage(),
+    Result pickImage(),
+    Result processImage(),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result pickAndProcessImage(_PickAndProcessImageEvent value),
+    @required Result pickImage(_PickImageEvent value),
+    @required Result processImage(_ProcessImageEvent value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result pickAndProcessImage(_PickAndProcessImageEvent value),
+    Result pickImage(_PickImageEvent value),
+    Result processImage(_ProcessImageEvent value),
     @required Result orElse(),
   });
 }
@@ -63,37 +72,36 @@ class _$ImageProcessEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$PickAndProcessImageEventCopyWith<$Res> {
-  factory _$PickAndProcessImageEventCopyWith(_PickAndProcessImageEvent value,
-          $Res Function(_PickAndProcessImageEvent) then) =
-      __$PickAndProcessImageEventCopyWithImpl<$Res>;
+abstract class _$PickImageEventCopyWith<$Res> {
+  factory _$PickImageEventCopyWith(
+          _PickImageEvent value, $Res Function(_PickImageEvent) then) =
+      __$PickImageEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$PickAndProcessImageEventCopyWithImpl<$Res>
+class __$PickImageEventCopyWithImpl<$Res>
     extends _$ImageProcessEventCopyWithImpl<$Res>
-    implements _$PickAndProcessImageEventCopyWith<$Res> {
-  __$PickAndProcessImageEventCopyWithImpl(_PickAndProcessImageEvent _value,
-      $Res Function(_PickAndProcessImageEvent) _then)
-      : super(_value, (v) => _then(v as _PickAndProcessImageEvent));
+    implements _$PickImageEventCopyWith<$Res> {
+  __$PickImageEventCopyWithImpl(
+      _PickImageEvent _value, $Res Function(_PickImageEvent) _then)
+      : super(_value, (v) => _then(v as _PickImageEvent));
 
   @override
-  _PickAndProcessImageEvent get _value =>
-      super._value as _PickAndProcessImageEvent;
+  _PickImageEvent get _value => super._value as _PickImageEvent;
 }
 
 /// @nodoc
-class _$_PickAndProcessImageEvent implements _PickAndProcessImageEvent {
-  const _$_PickAndProcessImageEvent();
+class _$_PickImageEvent implements _PickImageEvent {
+  const _$_PickImageEvent();
 
   @override
   String toString() {
-    return 'ImageProcessEvent.pickAndProcessImage()';
+    return 'ImageProcessEvent.pickImage()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _PickAndProcessImageEvent);
+    return identical(this, other) || (other is _PickImageEvent);
   }
 
   @override
@@ -102,21 +110,24 @@ class _$_PickAndProcessImageEvent implements _PickAndProcessImageEvent {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result pickAndProcessImage(),
+    @required Result pickImage(),
+    @required Result processImage(),
   }) {
-    assert(pickAndProcessImage != null);
-    return pickAndProcessImage();
+    assert(pickImage != null);
+    assert(processImage != null);
+    return pickImage();
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result pickAndProcessImage(),
+    Result pickImage(),
+    Result processImage(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (pickAndProcessImage != null) {
-      return pickAndProcessImage();
+    if (pickImage != null) {
+      return pickImage();
     }
     return orElse();
   }
@@ -124,28 +135,122 @@ class _$_PickAndProcessImageEvent implements _PickAndProcessImageEvent {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result pickAndProcessImage(_PickAndProcessImageEvent value),
+    @required Result pickImage(_PickImageEvent value),
+    @required Result processImage(_ProcessImageEvent value),
   }) {
-    assert(pickAndProcessImage != null);
-    return pickAndProcessImage(this);
+    assert(pickImage != null);
+    assert(processImage != null);
+    return pickImage(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result pickAndProcessImage(_PickAndProcessImageEvent value),
+    Result pickImage(_PickImageEvent value),
+    Result processImage(_ProcessImageEvent value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (pickAndProcessImage != null) {
-      return pickAndProcessImage(this);
+    if (pickImage != null) {
+      return pickImage(this);
     }
     return orElse();
   }
 }
 
-abstract class _PickAndProcessImageEvent implements ImageProcessEvent {
-  const factory _PickAndProcessImageEvent() = _$_PickAndProcessImageEvent;
+abstract class _PickImageEvent implements ImageProcessEvent {
+  const factory _PickImageEvent() = _$_PickImageEvent;
+}
+
+/// @nodoc
+abstract class _$ProcessImageEventCopyWith<$Res> {
+  factory _$ProcessImageEventCopyWith(
+          _ProcessImageEvent value, $Res Function(_ProcessImageEvent) then) =
+      __$ProcessImageEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ProcessImageEventCopyWithImpl<$Res>
+    extends _$ImageProcessEventCopyWithImpl<$Res>
+    implements _$ProcessImageEventCopyWith<$Res> {
+  __$ProcessImageEventCopyWithImpl(
+      _ProcessImageEvent _value, $Res Function(_ProcessImageEvent) _then)
+      : super(_value, (v) => _then(v as _ProcessImageEvent));
+
+  @override
+  _ProcessImageEvent get _value => super._value as _ProcessImageEvent;
+}
+
+/// @nodoc
+class _$_ProcessImageEvent implements _ProcessImageEvent {
+  const _$_ProcessImageEvent();
+
+  @override
+  String toString() {
+    return 'ImageProcessEvent.processImage()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _ProcessImageEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result pickImage(),
+    @required Result processImage(),
+  }) {
+    assert(pickImage != null);
+    assert(processImage != null);
+    return processImage();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result pickImage(),
+    Result processImage(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (processImage != null) {
+      return processImage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result pickImage(_PickImageEvent value),
+    @required Result processImage(_ProcessImageEvent value),
+  }) {
+    assert(pickImage != null);
+    assert(processImage != null);
+    return processImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result pickImage(_PickImageEvent value),
+    Result processImage(_ProcessImageEvent value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (processImage != null) {
+      return processImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ProcessImageEvent implements ImageProcessEvent {
+  const factory _ProcessImageEvent() = _$_ProcessImageEvent;
 }
 
 /// @nodoc
@@ -170,9 +275,16 @@ class _$ImageProcessStateTearOff {
   }
 
 // ignore: unused_element
-  _ShowState show(
+  _ImagePickedState imagePicked({@required File imageFile}) {
+    return _ImagePickedState(
+      imageFile: imageFile,
+    );
+  }
+
+// ignore: unused_element
+  _ShowResultState showResult(
       {@required File imageFile, @required StringBuffer textBuffer}) {
-    return _ShowState(
+    return _ShowResultState(
       imageFile: imageFile,
       textBuffer: textBuffer,
     );
@@ -190,14 +302,16 @@ mixin _$ImageProcessState {
     @required Result initial(),
     @required Result loading(),
     @required Result error(String message),
-    @required Result show(File imageFile, StringBuffer textBuffer),
+    @required Result imagePicked(File imageFile),
+    @required Result showResult(File imageFile, StringBuffer textBuffer),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loading(),
     Result error(String message),
-    Result show(File imageFile, StringBuffer textBuffer),
+    Result imagePicked(File imageFile),
+    Result showResult(File imageFile, StringBuffer textBuffer),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -205,14 +319,16 @@ mixin _$ImageProcessState {
     @required Result initial(_InitialState value),
     @required Result loading(_LoadingState value),
     @required Result error(_ErrorState value),
-    @required Result show(_ShowState value),
+    @required Result imagePicked(_ImagePickedState value),
+    @required Result showResult(_ShowResultState value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_InitialState value),
     Result loading(_LoadingState value),
     Result error(_ErrorState value),
-    Result show(_ShowState value),
+    Result imagePicked(_ImagePickedState value),
+    Result showResult(_ShowResultState value),
     @required Result orElse(),
   });
 }
@@ -276,12 +392,14 @@ class _$_InitialState implements _InitialState {
     @required Result initial(),
     @required Result loading(),
     @required Result error(String message),
-    @required Result show(File imageFile, StringBuffer textBuffer),
+    @required Result imagePicked(File imageFile),
+    @required Result showResult(File imageFile, StringBuffer textBuffer),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(error != null);
-    assert(show != null);
+    assert(imagePicked != null);
+    assert(showResult != null);
     return initial();
   }
 
@@ -291,7 +409,8 @@ class _$_InitialState implements _InitialState {
     Result initial(),
     Result loading(),
     Result error(String message),
-    Result show(File imageFile, StringBuffer textBuffer),
+    Result imagePicked(File imageFile),
+    Result showResult(File imageFile, StringBuffer textBuffer),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -307,12 +426,14 @@ class _$_InitialState implements _InitialState {
     @required Result initial(_InitialState value),
     @required Result loading(_LoadingState value),
     @required Result error(_ErrorState value),
-    @required Result show(_ShowState value),
+    @required Result imagePicked(_ImagePickedState value),
+    @required Result showResult(_ShowResultState value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(error != null);
-    assert(show != null);
+    assert(imagePicked != null);
+    assert(showResult != null);
     return initial(this);
   }
 
@@ -322,7 +443,8 @@ class _$_InitialState implements _InitialState {
     Result initial(_InitialState value),
     Result loading(_LoadingState value),
     Result error(_ErrorState value),
-    Result show(_ShowState value),
+    Result imagePicked(_ImagePickedState value),
+    Result showResult(_ShowResultState value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -379,12 +501,14 @@ class _$_LoadingState implements _LoadingState {
     @required Result initial(),
     @required Result loading(),
     @required Result error(String message),
-    @required Result show(File imageFile, StringBuffer textBuffer),
+    @required Result imagePicked(File imageFile),
+    @required Result showResult(File imageFile, StringBuffer textBuffer),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(error != null);
-    assert(show != null);
+    assert(imagePicked != null);
+    assert(showResult != null);
     return loading();
   }
 
@@ -394,7 +518,8 @@ class _$_LoadingState implements _LoadingState {
     Result initial(),
     Result loading(),
     Result error(String message),
-    Result show(File imageFile, StringBuffer textBuffer),
+    Result imagePicked(File imageFile),
+    Result showResult(File imageFile, StringBuffer textBuffer),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -410,12 +535,14 @@ class _$_LoadingState implements _LoadingState {
     @required Result initial(_InitialState value),
     @required Result loading(_LoadingState value),
     @required Result error(_ErrorState value),
-    @required Result show(_ShowState value),
+    @required Result imagePicked(_ImagePickedState value),
+    @required Result showResult(_ShowResultState value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(error != null);
-    assert(show != null);
+    assert(imagePicked != null);
+    assert(showResult != null);
     return loading(this);
   }
 
@@ -425,7 +552,8 @@ class _$_LoadingState implements _LoadingState {
     Result initial(_InitialState value),
     Result loading(_LoadingState value),
     Result error(_ErrorState value),
-    Result show(_ShowState value),
+    Result imagePicked(_ImagePickedState value),
+    Result showResult(_ShowResultState value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -504,12 +632,14 @@ class _$_ErrorState implements _ErrorState {
     @required Result initial(),
     @required Result loading(),
     @required Result error(String message),
-    @required Result show(File imageFile, StringBuffer textBuffer),
+    @required Result imagePicked(File imageFile),
+    @required Result showResult(File imageFile, StringBuffer textBuffer),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(error != null);
-    assert(show != null);
+    assert(imagePicked != null);
+    assert(showResult != null);
     return error(message);
   }
 
@@ -519,7 +649,8 @@ class _$_ErrorState implements _ErrorState {
     Result initial(),
     Result loading(),
     Result error(String message),
-    Result show(File imageFile, StringBuffer textBuffer),
+    Result imagePicked(File imageFile),
+    Result showResult(File imageFile, StringBuffer textBuffer),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -535,12 +666,14 @@ class _$_ErrorState implements _ErrorState {
     @required Result initial(_InitialState value),
     @required Result loading(_LoadingState value),
     @required Result error(_ErrorState value),
-    @required Result show(_ShowState value),
+    @required Result imagePicked(_ImagePickedState value),
+    @required Result showResult(_ShowResultState value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(error != null);
-    assert(show != null);
+    assert(imagePicked != null);
+    assert(showResult != null);
     return error(this);
   }
 
@@ -550,7 +683,8 @@ class _$_ErrorState implements _ErrorState {
     Result initial(_InitialState value),
     Result loading(_LoadingState value),
     Result error(_ErrorState value),
-    Result show(_ShowState value),
+    Result imagePicked(_ImagePickedState value),
+    Result showResult(_ShowResultState value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -569,29 +703,166 @@ abstract class _ErrorState implements ImageProcessState {
 }
 
 /// @nodoc
-abstract class _$ShowStateCopyWith<$Res> {
-  factory _$ShowStateCopyWith(
-          _ShowState value, $Res Function(_ShowState) then) =
-      __$ShowStateCopyWithImpl<$Res>;
+abstract class _$ImagePickedStateCopyWith<$Res> {
+  factory _$ImagePickedStateCopyWith(
+          _ImagePickedState value, $Res Function(_ImagePickedState) then) =
+      __$ImagePickedStateCopyWithImpl<$Res>;
+  $Res call({File imageFile});
+}
+
+/// @nodoc
+class __$ImagePickedStateCopyWithImpl<$Res>
+    extends _$ImageProcessStateCopyWithImpl<$Res>
+    implements _$ImagePickedStateCopyWith<$Res> {
+  __$ImagePickedStateCopyWithImpl(
+      _ImagePickedState _value, $Res Function(_ImagePickedState) _then)
+      : super(_value, (v) => _then(v as _ImagePickedState));
+
+  @override
+  _ImagePickedState get _value => super._value as _ImagePickedState;
+
+  @override
+  $Res call({
+    Object imageFile = freezed,
+  }) {
+    return _then(_ImagePickedState(
+      imageFile: imageFile == freezed ? _value.imageFile : imageFile as File,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_ImagePickedState implements _ImagePickedState {
+  const _$_ImagePickedState({@required this.imageFile})
+      : assert(imageFile != null);
+
+  @override
+  final File imageFile;
+
+  @override
+  String toString() {
+    return 'ImageProcessState.imagePicked(imageFile: $imageFile)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ImagePickedState &&
+            (identical(other.imageFile, imageFile) ||
+                const DeepCollectionEquality()
+                    .equals(other.imageFile, imageFile)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(imageFile);
+
+  @override
+  _$ImagePickedStateCopyWith<_ImagePickedState> get copyWith =>
+      __$ImagePickedStateCopyWithImpl<_ImagePickedState>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result initial(),
+    @required Result loading(),
+    @required Result error(String message),
+    @required Result imagePicked(File imageFile),
+    @required Result showResult(File imageFile, StringBuffer textBuffer),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(error != null);
+    assert(imagePicked != null);
+    assert(showResult != null);
+    return imagePicked(imageFile);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result initial(),
+    Result loading(),
+    Result error(String message),
+    Result imagePicked(File imageFile),
+    Result showResult(File imageFile, StringBuffer textBuffer),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (imagePicked != null) {
+      return imagePicked(imageFile);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result initial(_InitialState value),
+    @required Result loading(_LoadingState value),
+    @required Result error(_ErrorState value),
+    @required Result imagePicked(_ImagePickedState value),
+    @required Result showResult(_ShowResultState value),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(error != null);
+    assert(imagePicked != null);
+    assert(showResult != null);
+    return imagePicked(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result initial(_InitialState value),
+    Result loading(_LoadingState value),
+    Result error(_ErrorState value),
+    Result imagePicked(_ImagePickedState value),
+    Result showResult(_ShowResultState value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (imagePicked != null) {
+      return imagePicked(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ImagePickedState implements ImageProcessState {
+  const factory _ImagePickedState({@required File imageFile}) =
+      _$_ImagePickedState;
+
+  File get imageFile;
+  _$ImagePickedStateCopyWith<_ImagePickedState> get copyWith;
+}
+
+/// @nodoc
+abstract class _$ShowResultStateCopyWith<$Res> {
+  factory _$ShowResultStateCopyWith(
+          _ShowResultState value, $Res Function(_ShowResultState) then) =
+      __$ShowResultStateCopyWithImpl<$Res>;
   $Res call({File imageFile, StringBuffer textBuffer});
 }
 
 /// @nodoc
-class __$ShowStateCopyWithImpl<$Res>
+class __$ShowResultStateCopyWithImpl<$Res>
     extends _$ImageProcessStateCopyWithImpl<$Res>
-    implements _$ShowStateCopyWith<$Res> {
-  __$ShowStateCopyWithImpl(_ShowState _value, $Res Function(_ShowState) _then)
-      : super(_value, (v) => _then(v as _ShowState));
+    implements _$ShowResultStateCopyWith<$Res> {
+  __$ShowResultStateCopyWithImpl(
+      _ShowResultState _value, $Res Function(_ShowResultState) _then)
+      : super(_value, (v) => _then(v as _ShowResultState));
 
   @override
-  _ShowState get _value => super._value as _ShowState;
+  _ShowResultState get _value => super._value as _ShowResultState;
 
   @override
   $Res call({
     Object imageFile = freezed,
     Object textBuffer = freezed,
   }) {
-    return _then(_ShowState(
+    return _then(_ShowResultState(
       imageFile: imageFile == freezed ? _value.imageFile : imageFile as File,
       textBuffer: textBuffer == freezed
           ? _value.textBuffer
@@ -601,8 +872,9 @@ class __$ShowStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$_ShowState implements _ShowState {
-  const _$_ShowState({@required this.imageFile, @required this.textBuffer})
+class _$_ShowResultState implements _ShowResultState {
+  const _$_ShowResultState(
+      {@required this.imageFile, @required this.textBuffer})
       : assert(imageFile != null),
         assert(textBuffer != null);
 
@@ -613,13 +885,13 @@ class _$_ShowState implements _ShowState {
 
   @override
   String toString() {
-    return 'ImageProcessState.show(imageFile: $imageFile, textBuffer: $textBuffer)';
+    return 'ImageProcessState.showResult(imageFile: $imageFile, textBuffer: $textBuffer)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ShowState &&
+        (other is _ShowResultState &&
             (identical(other.imageFile, imageFile) ||
                 const DeepCollectionEquality()
                     .equals(other.imageFile, imageFile)) &&
@@ -635,8 +907,8 @@ class _$_ShowState implements _ShowState {
       const DeepCollectionEquality().hash(textBuffer);
 
   @override
-  _$ShowStateCopyWith<_ShowState> get copyWith =>
-      __$ShowStateCopyWithImpl<_ShowState>(this, _$identity);
+  _$ShowResultStateCopyWith<_ShowResultState> get copyWith =>
+      __$ShowResultStateCopyWithImpl<_ShowResultState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -644,13 +916,15 @@ class _$_ShowState implements _ShowState {
     @required Result initial(),
     @required Result loading(),
     @required Result error(String message),
-    @required Result show(File imageFile, StringBuffer textBuffer),
+    @required Result imagePicked(File imageFile),
+    @required Result showResult(File imageFile, StringBuffer textBuffer),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(error != null);
-    assert(show != null);
-    return show(imageFile, textBuffer);
+    assert(imagePicked != null);
+    assert(showResult != null);
+    return showResult(imageFile, textBuffer);
   }
 
   @override
@@ -659,12 +933,13 @@ class _$_ShowState implements _ShowState {
     Result initial(),
     Result loading(),
     Result error(String message),
-    Result show(File imageFile, StringBuffer textBuffer),
+    Result imagePicked(File imageFile),
+    Result showResult(File imageFile, StringBuffer textBuffer),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (show != null) {
-      return show(imageFile, textBuffer);
+    if (showResult != null) {
+      return showResult(imageFile, textBuffer);
     }
     return orElse();
   }
@@ -675,13 +950,15 @@ class _$_ShowState implements _ShowState {
     @required Result initial(_InitialState value),
     @required Result loading(_LoadingState value),
     @required Result error(_ErrorState value),
-    @required Result show(_ShowState value),
+    @required Result imagePicked(_ImagePickedState value),
+    @required Result showResult(_ShowResultState value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(error != null);
-    assert(show != null);
-    return show(this);
+    assert(imagePicked != null);
+    assert(showResult != null);
+    return showResult(this);
   }
 
   @override
@@ -690,23 +967,24 @@ class _$_ShowState implements _ShowState {
     Result initial(_InitialState value),
     Result loading(_LoadingState value),
     Result error(_ErrorState value),
-    Result show(_ShowState value),
+    Result imagePicked(_ImagePickedState value),
+    Result showResult(_ShowResultState value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (show != null) {
-      return show(this);
+    if (showResult != null) {
+      return showResult(this);
     }
     return orElse();
   }
 }
 
-abstract class _ShowState implements ImageProcessState {
-  const factory _ShowState(
+abstract class _ShowResultState implements ImageProcessState {
+  const factory _ShowResultState(
       {@required File imageFile,
-      @required StringBuffer textBuffer}) = _$_ShowState;
+      @required StringBuffer textBuffer}) = _$_ShowResultState;
 
   File get imageFile;
   StringBuffer get textBuffer;
-  _$ShowStateCopyWith<_ShowState> get copyWith;
+  _$ShowResultStateCopyWith<_ShowResultState> get copyWith;
 }

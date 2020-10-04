@@ -26,30 +26,42 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
     ImageProcessEvent event,
   ) async* {
     yield* event.when(
-      pickAndProcessImage: _pickAndProcessImage,
+      pickImage: () async* {
+        yield* state.maybeWhen(
+          loading: () async* {},
+          orElse: () async* {
+            yield const ImageProcessState.loading();
+            final imageFile = await _pickImage();
+            if (imageFile == null) {
+              yield const ImageProcessState.error();
+            } else {
+              yield ImageProcessState.imagePicked(
+                imageFile: imageFile,
+              );
+              add(const ImageProcessEvent.processImage());
+            }
+          },
+        );
+      },
+      processImage: () async* {
+        yield* state.maybeWhen(
+          orElse: () async* {},
+          loading: () async* {},
+          imagePicked: (imageFile) async* {
+            yield const ImageProcessState.loading();
+            final textBuffer = await getStringBuffer(
+              ImageProcessModel(
+                imageFile: imageFile,
+              ),
+            );
+            yield ImageProcessState.showResult(
+              imageFile: imageFile,
+              textBuffer: textBuffer,
+            );
+          },
+        );
+      },
     );
-  }
-
-  Stream<ImageProcessState> _pickAndProcessImage() async* {
-    if (state is _LoadingState) {
-      return;
-    }
-    yield const ImageProcessState.loading();
-
-    final imageFile = await _pickImage();
-    if (imageFile == null) {
-      yield const ImageProcessState.error();
-    } else {
-      final textBuffer = await getStringBuffer(
-        ImageProcessModel(
-          imageFile: imageFile,
-        ),
-      );
-      yield ImageProcessState.show(
-        imageFile: imageFile,
-        textBuffer: textBuffer,
-      );
-    }
   }
 
   Future<File> _pickImage() async {

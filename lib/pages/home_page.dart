@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
               borderRadius: borderRadius,
               onTap: () {
                 imageProcessBloc.add(
-                  const ImageProcessEvent.pickAndProcessImage(),
+                  const ImageProcessEvent.pickImage(),
                 );
 
                 final route = MaterialPageRoute(

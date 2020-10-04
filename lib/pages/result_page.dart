@@ -28,7 +28,7 @@ class ResultPage extends StatelessWidget {
               ),
             );
           },
-          show: (imageFile, textBuffer) {
+          showResult: (imageFile, textBuffer) {
             return DefaultTabController(
               length: 2,
               child: Scaffold(
