@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../blocs/image_process/image_process_bloc.dart';
-import 'result_page.dart';
+import '../widgets/my_scaffold.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key key}) : super(key: key);
@@ -17,9 +17,7 @@ class HomePage extends StatelessWidget {
     final textThemeBig = textTheme.headline6;
     final textThemeSmall = textTheme.bodyText1;
 
-    final imageProcessBloc = context.bloc<ImageProcessBloc>();
-
-    return Scaffold(
+    return MyScaffold(
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -27,14 +25,10 @@ class HomePage extends StatelessWidget {
             InkWell(
               borderRadius: borderRadius,
               onTap: () {
+                final imageProcessBloc = context.bloc<ImageProcessBloc>();
                 imageProcessBloc.add(
                   const ImageProcessEvent.pickImage(),
                 );
-
-                final route = MaterialPageRoute(
-                  builder: (context) => const ResultPage(),
-                );
-                Navigator.push(context, route);
               },
               child: Container(
                 height: sizeBig,
