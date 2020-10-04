@@ -13,7 +13,9 @@ class ResultPage extends StatelessWidget {
     return BlocBuilder<ImageProcessBloc, ImageProcessState>(
       builder: (context, state) {
         return state.maybeWhen(
-          orElse: () => const Offstage(),
+          orElse: () => const Scaffold(
+            body: Offstage(),
+          ),
           loading: () {
             return Scaffold(
               body: Center(

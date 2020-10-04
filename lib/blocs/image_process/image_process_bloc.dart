@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -31,15 +32,18 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
           loading: () async* {},
           orElse: () async* {
             yield const ImageProcessState.loading();
-            final imageFile = await _pickImage();
-            if (imageFile == null) {
-              yield const ImageProcessState.error();
-            } else {
-              yield ImageProcessState.imagePicked(
-                imageFile: imageFile,
-              );
-              add(const ImageProcessEvent.processImage());
-            }
+            final optionImageFile = await _pickImage();
+            yield* optionImageFile.fold(
+              () async* {
+                yield const ImageProcessState.error();
+              },
+              (imageFile) async* {
+                yield ImageProcessState.imagePicked(
+                  imageFile: imageFile,
+                );
+                add(const ImageProcessEvent.processImage());
+              },
+            );
           },
         );
       },
@@ -64,13 +68,13 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
     );
   }
 
-  Future<File> _pickImage() async {
+  Future<Option<File>> _pickImage() async {
     final pickedFile = await imagePicker.getImage(
       source: ImageSource.gallery,
     );
     if (pickedFile == null) {
-      return null;
+      return none();
     }
-    return File(pickedFile.path);
+    return some(File(pickedFile.path));
   }
 }
