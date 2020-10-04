@@ -23,13 +23,13 @@ class HomePage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             InkWell(
-              borderRadius: borderRadius,
               onTap: () {
                 final imageProcessBloc = context.bloc<ImageProcessBloc>();
                 imageProcessBloc.add(
                   const ImageProcessEvent.pickImage(),
                 );
               },
+              borderRadius: borderRadius,
               child: Container(
                 height: sizeBig,
                 width: sizeBig,
@@ -67,6 +67,7 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 20),
             InkWell(
               onTap: () {},
+              borderRadius: borderRadius,
               child: Container(
                 height: sizeSmall,
                 width: sizeSmall,
