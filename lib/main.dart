@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'blocs/image_process/image_process_bloc.dart';
@@ -9,9 +8,7 @@ import 'use_cases/get_string_buffer.dart';
 
 void main() {
   runApp(
-    const ProviderScope(
-      child: MyApp(),
-    ),
+    const MyApp(),
   );
 }
 
