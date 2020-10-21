@@ -27,8 +27,10 @@ const levelChars = [
 ];
 
 /// Length must be equals [levelChars]
+/// 
+/// White = 4294967295.
+/// Black = 4278190080.
 const levelColors = [
-  // 4294000000,
   4293000000,
   4292000000,
   4291000000,
@@ -43,5 +45,5 @@ const levelColors = [
   4282000000,
   4281000000,
   4280000000,
-  4270000000,
+  4278190080, // 4270000000
 ];
