@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc_listeners/image_process/image_picked_listener.dart';
 import '../blocs/image_process/image_process_bloc.dart';
+import 'settings_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key key}) : super(key: key);
@@ -70,7 +71,12 @@ class HomePage extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  final route = MaterialPageRoute(
+                    builder: (_) => const SettingsPage(),
+                  );
+                  Navigator.of(context).push(route);
+                },
                 borderRadius: borderRadius,
                 child: Container(
                   height: sizeSmall,
