@@ -22,8 +22,11 @@ class MyApp extends StatelessWidget with Injections {
       darkTheme: themeDark,
       home: const HomePage(),
       builder: (context, child) {
-        return BlocProvider(
-          create: (context) => imageProcessBloc,
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider(create: (context) => imageProcessBloc),
+            BlocProvider(create: (context) => settingsBloc),
+          ],
           child: child,
         );
       },
