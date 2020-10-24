@@ -21,6 +21,8 @@ Future<StringBuffer> _process(ImageProcessModel model) async {
       writeTextBuffer(
         argbColor: argbColor,
         textBuffer: textBuffer,
+        listCharacters: model.listCharacters,
+        listColorValues: model.listColorValues,
       );
     }
     textBuffer.writeln("");

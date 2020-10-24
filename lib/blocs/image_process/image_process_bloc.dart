@@ -27,7 +27,10 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
     ImageProcessEvent event,
   ) async* {
     yield* event.when(
-      pickImage: () async* {
+      pickImage: (
+        listColorValues,
+        listCharacters,
+      ) async* {
         yield* state.maybeWhen(
           loading: () async* {},
           orElse: () async* {
@@ -41,13 +44,21 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
                 yield ImageProcessState.imagePicked(
                   imageFile: imageFile,
                 );
-                add(const ImageProcessEvent.processImage());
+                add(
+                  ImageProcessEvent.processImage(
+                    listColorValues: listColorValues,
+                    listCharacters: listCharacters,
+                  ),
+                );
               },
             );
           },
         );
       },
-      processImage: () async* {
+      processImage: (
+        listColorValues,
+        listCharacters,
+      ) async* {
         yield* state.maybeWhen(
           orElse: () async* {},
           loading: () async* {},
@@ -56,6 +67,8 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
             final textBuffer = await getStringBuffer(
               ImageProcessModel(
                 imageFile: imageFile,
+                listCharacters: listCharacters,
+                listColorValues: listColorValues,
               ),
             );
             yield ImageProcessState.showResult(

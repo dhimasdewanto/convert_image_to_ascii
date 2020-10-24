@@ -1,25 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../blocs/settings/settings_bloc.dart';
 import 'character_settings_page.dart';
 import 'color_settings_page.dart';
 
-class SettingsPage extends StatefulWidget {
+class SettingsPage extends StatelessWidget {
   const SettingsPage({Key key}) : super(key: key);
-
-  @override
-  _SettingsPageState createState() => _SettingsPageState();
-}
-
-class _SettingsPageState extends State<SettingsPage> {
-  @override
-  void initState() {
-    super.initState();
-    context.bloc<SettingsBloc>().add(
-          const SettingsEvent.initialize(),
-        );
-  }
 
   @override
   Widget build(BuildContext context) {

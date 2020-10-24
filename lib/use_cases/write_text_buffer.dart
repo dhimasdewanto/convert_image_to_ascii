@@ -6,16 +6,20 @@ import '../core/settings.dart';
 void writeTextBuffer({
   @required int argbColor,
   @required StringBuffer textBuffer,
+  @required List<int> listColorValues,
+  @required List<String> listCharacters,
 }) {
   final convertedColor = argbColor;
-  final chars = _getListChars();
+  final chars = _getListChars(
+    listCharacters: listCharacters,
+  );
 
-  if (convertedColor >= levelColors2.first) {
+  if (convertedColor >= listColorValues.first) {
     _writeOverValueTextBuffer(
       chars: chars,
       textBuffer: textBuffer,
     );
-  } else if (convertedColor <= levelColors2.last) {
+  } else if (convertedColor <= listColorValues.last) {
     _writeUnderValueTextBuffer(
       chars: chars,
       textBuffer: textBuffer,
@@ -25,6 +29,7 @@ void writeTextBuffer({
       convertedColor: convertedColor,
       chars: chars,
       textBuffer: textBuffer,
+      listColorValues: listColorValues,
     );
   }
 }
@@ -33,10 +38,11 @@ void _writeInValueTextBuffer({
   @required int convertedColor,
   @required StringBuffer textBuffer,
   @required List<String> chars,
+  @required List<int> listColorValues,
 }) {
-  for (var index = 1; index < levelColors2.length; index++) {
-    final thisColor = levelColors2[index];
-    final prevColor = levelColors2[index - 1];
+  for (var index = 1; index < listColorValues.length; index++) {
+    final thisColor = listColorValues[index];
+    final prevColor = listColorValues[index - 1];
     if (convertedColor > thisColor && convertedColor <= prevColor) {
       for (var i = 0; i < repeatCharacter; i++) {
         textBuffer.write(chars[index]);
@@ -63,9 +69,11 @@ void _writeUnderValueTextBuffer({
   }
 }
 
-List<String> _getListChars() {
+List<String> _getListChars({
+  @required List<String> listCharacters,
+}) {
   if (reverseColor) {
-    return levelChars.reversed.toList();
+    return listCharacters.reversed.toList();
   }
-  return levelChars;
+  return listCharacters;
 }

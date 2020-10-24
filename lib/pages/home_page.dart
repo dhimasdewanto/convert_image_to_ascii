@@ -3,10 +3,25 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc_listeners/image_process/image_picked_listener.dart';
 import '../blocs/image_process/image_process_bloc.dart';
+import '../blocs/settings/settings_bloc.dart';
 import 'settings_page.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    final settingsBloc = context.bloc<SettingsBloc>();
+    settingsBloc.add(
+      const SettingsEvent.initialize(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +44,18 @@ class HomePage extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () {
+                  final settingsBloc = context.bloc<SettingsBloc>();
                   final imageProcessBloc = context.bloc<ImageProcessBloc>();
-                  imageProcessBloc.add(
-                    const ImageProcessEvent.pickImage(),
+                  settingsBloc.state.maybeWhen(
+                    orElse: () {},
+                    show: (listCharacters, listColorValues) {
+                      imageProcessBloc.add(
+                        ImageProcessEvent.pickImage(
+                          listCharacters: listCharacters,
+                          listColorValues: listColorValues,
+                        ),
+                      );
+                    },
                   );
                 },
                 borderRadius: borderRadius,
