@@ -6,22 +6,8 @@ import '../../../image_process/presentation/blocs/image_process/image_process_bl
 import '../../../settings/presentation/blocs/settings/settings_bloc.dart';
 import '../../../settings/presentation/pages/settings_page.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({Key key}) : super(key: key);
-
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  void initState() {
-    super.initState();
-    final settingsBloc = context.bloc<SettingsBloc>();
-    settingsBloc.add(
-      const SettingsEvent.initialize(),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {

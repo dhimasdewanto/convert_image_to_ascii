@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/injections.dart';
 import 'core/theme_data.dart';
-import 'features/main/presentation/pages/home_page.dart';
+import 'features/main/presentation/pages/splash_page.dart';
 
 void main() {
   runApp(
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget with Injections {
       title: 'ASCII Image',
       themeMode: ThemeMode.dark,
       darkTheme: themeDark,
-      home: const HomePage(),
+      home: const SplashPage(),
       builder: (context, child) {
         return MultiBlocProvider(
           providers: [
