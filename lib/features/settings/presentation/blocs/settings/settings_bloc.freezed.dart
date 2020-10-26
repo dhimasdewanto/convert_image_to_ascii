@@ -164,12 +164,9 @@ class _$SettingsStateTearOff {
   }
 
 // ignore: unused_element
-  _ShowState show(
-      {@required List<String> listCharacters,
-      @required List<int> listColorValues}) {
+  _ShowState show({@required SettingsModel settingsModel}) {
     return _ShowState(
-      listCharacters: listCharacters,
-      listColorValues: listColorValues,
+      settingsModel: settingsModel,
     );
   }
 }
@@ -184,14 +181,13 @@ mixin _$SettingsState {
   Result when<Result extends Object>({
     @required Result initial(),
     @required Result error(String message),
-    @required
-        Result show(List<String> listCharacters, List<int> listColorValues),
+    @required Result show(SettingsModel settingsModel),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result error(String message),
-    Result show(List<String> listCharacters, List<int> listColorValues),
+    Result show(SettingsModel settingsModel),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -267,8 +263,7 @@ class _$_InitialState implements _InitialState {
   Result when<Result extends Object>({
     @required Result initial(),
     @required Result error(String message),
-    @required
-        Result show(List<String> listCharacters, List<int> listColorValues),
+    @required Result show(SettingsModel settingsModel),
   }) {
     assert(initial != null);
     assert(error != null);
@@ -281,7 +276,7 @@ class _$_InitialState implements _InitialState {
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result error(String message),
-    Result show(List<String> listCharacters, List<int> listColorValues),
+    Result show(SettingsModel settingsModel),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -386,8 +381,7 @@ class _$_ErrorState implements _ErrorState {
   Result when<Result extends Object>({
     @required Result initial(),
     @required Result error(String message),
-    @required
-        Result show(List<String> listCharacters, List<int> listColorValues),
+    @required Result show(SettingsModel settingsModel),
   }) {
     assert(initial != null);
     assert(error != null);
@@ -400,7 +394,7 @@ class _$_ErrorState implements _ErrorState {
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result error(String message),
-    Result show(List<String> listCharacters, List<int> listColorValues),
+    Result show(SettingsModel settingsModel),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -451,7 +445,7 @@ abstract class _$ShowStateCopyWith<$Res> {
   factory _$ShowStateCopyWith(
           _ShowState value, $Res Function(_ShowState) then) =
       __$ShowStateCopyWithImpl<$Res>;
-  $Res call({List<String> listCharacters, List<int> listColorValues});
+  $Res call({SettingsModel settingsModel});
 }
 
 /// @nodoc
@@ -465,54 +459,41 @@ class __$ShowStateCopyWithImpl<$Res> extends _$SettingsStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object listCharacters = freezed,
-    Object listColorValues = freezed,
+    Object settingsModel = freezed,
   }) {
     return _then(_ShowState(
-      listCharacters: listCharacters == freezed
-          ? _value.listCharacters
-          : listCharacters as List<String>,
-      listColorValues: listColorValues == freezed
-          ? _value.listColorValues
-          : listColorValues as List<int>,
+      settingsModel: settingsModel == freezed
+          ? _value.settingsModel
+          : settingsModel as SettingsModel,
     ));
   }
 }
 
 /// @nodoc
 class _$_ShowState implements _ShowState {
-  const _$_ShowState(
-      {@required this.listCharacters, @required this.listColorValues})
-      : assert(listCharacters != null),
-        assert(listColorValues != null);
+  const _$_ShowState({@required this.settingsModel})
+      : assert(settingsModel != null);
 
   @override
-  final List<String> listCharacters;
-  @override
-  final List<int> listColorValues;
+  final SettingsModel settingsModel;
 
   @override
   String toString() {
-    return 'SettingsState.show(listCharacters: $listCharacters, listColorValues: $listColorValues)';
+    return 'SettingsState.show(settingsModel: $settingsModel)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _ShowState &&
-            (identical(other.listCharacters, listCharacters) ||
+            (identical(other.settingsModel, settingsModel) ||
                 const DeepCollectionEquality()
-                    .equals(other.listCharacters, listCharacters)) &&
-            (identical(other.listColorValues, listColorValues) ||
-                const DeepCollectionEquality()
-                    .equals(other.listColorValues, listColorValues)));
+                    .equals(other.settingsModel, settingsModel)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(listCharacters) ^
-      const DeepCollectionEquality().hash(listColorValues);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(settingsModel);
 
   @override
   _$ShowStateCopyWith<_ShowState> get copyWith =>
@@ -523,13 +504,12 @@ class _$_ShowState implements _ShowState {
   Result when<Result extends Object>({
     @required Result initial(),
     @required Result error(String message),
-    @required
-        Result show(List<String> listCharacters, List<int> listColorValues),
+    @required Result show(SettingsModel settingsModel),
   }) {
     assert(initial != null);
     assert(error != null);
     assert(show != null);
-    return show(listCharacters, listColorValues);
+    return show(settingsModel);
   }
 
   @override
@@ -537,12 +517,12 @@ class _$_ShowState implements _ShowState {
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result error(String message),
-    Result show(List<String> listCharacters, List<int> listColorValues),
+    Result show(SettingsModel settingsModel),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if (show != null) {
-      return show(listCharacters, listColorValues);
+      return show(settingsModel);
     }
     return orElse();
   }
@@ -577,11 +557,9 @@ class _$_ShowState implements _ShowState {
 }
 
 abstract class _ShowState implements SettingsState {
-  const factory _ShowState(
-      {@required List<String> listCharacters,
-      @required List<int> listColorValues}) = _$_ShowState;
+  const factory _ShowState({@required SettingsModel settingsModel}) =
+      _$_ShowState;
 
-  List<String> get listCharacters;
-  List<int> get listColorValues;
+  SettingsModel get settingsModel;
   _$ShowStateCopyWith<_ShowState> get copyWith;
 }

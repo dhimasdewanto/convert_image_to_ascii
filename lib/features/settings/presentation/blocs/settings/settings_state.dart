@@ -7,7 +7,6 @@ abstract class SettingsState with _$SettingsState {
     @Default("Error") String message,
   }) = _ErrorState;
   const factory SettingsState.show({
-    @required List<String> listCharacters,
-    @required List<int> listColorValues,
+    @required SettingsModel settingsModel,
   }) = _ShowState;
 }

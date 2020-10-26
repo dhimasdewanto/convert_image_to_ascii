@@ -19,7 +19,8 @@ class ColorSettingsPage extends StatelessWidget {
         builder: (context, state) {
           return state.maybeWhen(
             orElse: () => const Offstage(),
-            show: (listCharacters, listColorValues) {
+            show: (settingsModel) {
+              final listColorValues = settingsModel.listColorValues;
               return ListView.separated(
                 itemCount: listColorValues.length,
                 separatorBuilder: (context, index) {

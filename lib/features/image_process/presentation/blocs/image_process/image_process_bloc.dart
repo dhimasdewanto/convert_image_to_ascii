@@ -6,6 +6,7 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../../../settings/domain/models/settings_model.dart';
 import '../../../domain/use_cases/get_string_buffer.dart';
 
 part 'image_process_bloc.freezed.dart';
@@ -26,10 +27,7 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
     ImageProcessEvent event,
   ) async* {
     yield* event.when(
-      pickImage: (
-        listColorValues,
-        listCharacters,
-      ) async* {
+      pickImage: (settingsModel) async* {
         yield* state.maybeWhen(
           loading: () async* {},
           orElse: () async* {
@@ -45,8 +43,7 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
                 );
                 add(
                   ImageProcessEvent.processImage(
-                    listColorValues: listColorValues,
-                    listCharacters: listCharacters,
+                    settingsModel: settingsModel,
                   ),
                 );
               },
@@ -54,10 +51,7 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
           },
         );
       },
-      processImage: (
-        listColorValues,
-        listCharacters,
-      ) async* {
+      processImage: (settingsModel) async* {
         yield* state.maybeWhen(
           orElse: () async* {},
           loading: () async* {},
@@ -66,8 +60,8 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
             final textBuffer = await getStringBuffer(
               GetStringBufferParams(
                 imageFile: imageFile,
-                listCharacters: listCharacters,
-                listColorValues: listColorValues,
+                listCharacters: settingsModel.listCharacters,
+                listColorValues: settingsModel.listColorValues,
               ),
             );
             yield ImageProcessState.showResult(

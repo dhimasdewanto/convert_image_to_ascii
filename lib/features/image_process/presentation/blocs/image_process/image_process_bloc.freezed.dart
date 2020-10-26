@@ -14,22 +14,16 @@ class _$ImageProcessEventTearOff {
   const _$ImageProcessEventTearOff();
 
 // ignore: unused_element
-  _PickImageEvent pickImage(
-      {@required List<int> listColorValues,
-      @required List<String> listCharacters}) {
+  _PickImageEvent pickImage({@required SettingsModel settingsModel}) {
     return _PickImageEvent(
-      listColorValues: listColorValues,
-      listCharacters: listCharacters,
+      settingsModel: settingsModel,
     );
   }
 
 // ignore: unused_element
-  _ProcessImageEvent processImage(
-      {@required List<int> listColorValues,
-      @required List<String> listCharacters}) {
+  _ProcessImageEvent processImage({@required SettingsModel settingsModel}) {
     return _ProcessImageEvent(
-      listColorValues: listColorValues,
-      listCharacters: listCharacters,
+      settingsModel: settingsModel,
     );
   }
 }
@@ -40,22 +34,17 @@ const $ImageProcessEvent = _$ImageProcessEventTearOff();
 
 /// @nodoc
 mixin _$ImageProcessEvent {
-  List<int> get listColorValues;
-  List<String> get listCharacters;
+  SettingsModel get settingsModel;
 
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required
-        Result pickImage(
-            List<int> listColorValues, List<String> listCharacters),
-    @required
-        Result processImage(
-            List<int> listColorValues, List<String> listCharacters),
+    @required Result pickImage(SettingsModel settingsModel),
+    @required Result processImage(SettingsModel settingsModel),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result pickImage(List<int> listColorValues, List<String> listCharacters),
-    Result processImage(List<int> listColorValues, List<String> listCharacters),
+    Result pickImage(SettingsModel settingsModel),
+    Result processImage(SettingsModel settingsModel),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -78,7 +67,7 @@ abstract class $ImageProcessEventCopyWith<$Res> {
   factory $ImageProcessEventCopyWith(
           ImageProcessEvent value, $Res Function(ImageProcessEvent) then) =
       _$ImageProcessEventCopyWithImpl<$Res>;
-  $Res call({List<int> listColorValues, List<String> listCharacters});
+  $Res call({SettingsModel settingsModel});
 }
 
 /// @nodoc
@@ -92,16 +81,12 @@ class _$ImageProcessEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object listColorValues = freezed,
-    Object listCharacters = freezed,
+    Object settingsModel = freezed,
   }) {
     return _then(_value.copyWith(
-      listColorValues: listColorValues == freezed
-          ? _value.listColorValues
-          : listColorValues as List<int>,
-      listCharacters: listCharacters == freezed
-          ? _value.listCharacters
-          : listCharacters as List<String>,
+      settingsModel: settingsModel == freezed
+          ? _value.settingsModel
+          : settingsModel as SettingsModel,
     ));
   }
 }
@@ -113,7 +98,7 @@ abstract class _$PickImageEventCopyWith<$Res>
           _PickImageEvent value, $Res Function(_PickImageEvent) then) =
       __$PickImageEventCopyWithImpl<$Res>;
   @override
-  $Res call({List<int> listColorValues, List<String> listCharacters});
+  $Res call({SettingsModel settingsModel});
 }
 
 /// @nodoc
@@ -129,54 +114,41 @@ class __$PickImageEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object listColorValues = freezed,
-    Object listCharacters = freezed,
+    Object settingsModel = freezed,
   }) {
     return _then(_PickImageEvent(
-      listColorValues: listColorValues == freezed
-          ? _value.listColorValues
-          : listColorValues as List<int>,
-      listCharacters: listCharacters == freezed
-          ? _value.listCharacters
-          : listCharacters as List<String>,
+      settingsModel: settingsModel == freezed
+          ? _value.settingsModel
+          : settingsModel as SettingsModel,
     ));
   }
 }
 
 /// @nodoc
 class _$_PickImageEvent implements _PickImageEvent {
-  const _$_PickImageEvent(
-      {@required this.listColorValues, @required this.listCharacters})
-      : assert(listColorValues != null),
-        assert(listCharacters != null);
+  const _$_PickImageEvent({@required this.settingsModel})
+      : assert(settingsModel != null);
 
   @override
-  final List<int> listColorValues;
-  @override
-  final List<String> listCharacters;
+  final SettingsModel settingsModel;
 
   @override
   String toString() {
-    return 'ImageProcessEvent.pickImage(listColorValues: $listColorValues, listCharacters: $listCharacters)';
+    return 'ImageProcessEvent.pickImage(settingsModel: $settingsModel)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _PickImageEvent &&
-            (identical(other.listColorValues, listColorValues) ||
+            (identical(other.settingsModel, settingsModel) ||
                 const DeepCollectionEquality()
-                    .equals(other.listColorValues, listColorValues)) &&
-            (identical(other.listCharacters, listCharacters) ||
-                const DeepCollectionEquality()
-                    .equals(other.listCharacters, listCharacters)));
+                    .equals(other.settingsModel, settingsModel)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(listColorValues) ^
-      const DeepCollectionEquality().hash(listCharacters);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(settingsModel);
 
   @override
   _$PickImageEventCopyWith<_PickImageEvent> get copyWith =>
@@ -185,28 +157,24 @@ class _$_PickImageEvent implements _PickImageEvent {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required
-        Result pickImage(
-            List<int> listColorValues, List<String> listCharacters),
-    @required
-        Result processImage(
-            List<int> listColorValues, List<String> listCharacters),
+    @required Result pickImage(SettingsModel settingsModel),
+    @required Result processImage(SettingsModel settingsModel),
   }) {
     assert(pickImage != null);
     assert(processImage != null);
-    return pickImage(listColorValues, listCharacters);
+    return pickImage(settingsModel);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result pickImage(List<int> listColorValues, List<String> listCharacters),
-    Result processImage(List<int> listColorValues, List<String> listCharacters),
+    Result pickImage(SettingsModel settingsModel),
+    Result processImage(SettingsModel settingsModel),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if (pickImage != null) {
-      return pickImage(listColorValues, listCharacters);
+      return pickImage(settingsModel);
     }
     return orElse();
   }
@@ -238,14 +206,11 @@ class _$_PickImageEvent implements _PickImageEvent {
 }
 
 abstract class _PickImageEvent implements ImageProcessEvent {
-  const factory _PickImageEvent(
-      {@required List<int> listColorValues,
-      @required List<String> listCharacters}) = _$_PickImageEvent;
+  const factory _PickImageEvent({@required SettingsModel settingsModel}) =
+      _$_PickImageEvent;
 
   @override
-  List<int> get listColorValues;
-  @override
-  List<String> get listCharacters;
+  SettingsModel get settingsModel;
   @override
   _$PickImageEventCopyWith<_PickImageEvent> get copyWith;
 }
@@ -257,7 +222,7 @@ abstract class _$ProcessImageEventCopyWith<$Res>
           _ProcessImageEvent value, $Res Function(_ProcessImageEvent) then) =
       __$ProcessImageEventCopyWithImpl<$Res>;
   @override
-  $Res call({List<int> listColorValues, List<String> listCharacters});
+  $Res call({SettingsModel settingsModel});
 }
 
 /// @nodoc
@@ -273,54 +238,41 @@ class __$ProcessImageEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object listColorValues = freezed,
-    Object listCharacters = freezed,
+    Object settingsModel = freezed,
   }) {
     return _then(_ProcessImageEvent(
-      listColorValues: listColorValues == freezed
-          ? _value.listColorValues
-          : listColorValues as List<int>,
-      listCharacters: listCharacters == freezed
-          ? _value.listCharacters
-          : listCharacters as List<String>,
+      settingsModel: settingsModel == freezed
+          ? _value.settingsModel
+          : settingsModel as SettingsModel,
     ));
   }
 }
 
 /// @nodoc
 class _$_ProcessImageEvent implements _ProcessImageEvent {
-  const _$_ProcessImageEvent(
-      {@required this.listColorValues, @required this.listCharacters})
-      : assert(listColorValues != null),
-        assert(listCharacters != null);
+  const _$_ProcessImageEvent({@required this.settingsModel})
+      : assert(settingsModel != null);
 
   @override
-  final List<int> listColorValues;
-  @override
-  final List<String> listCharacters;
+  final SettingsModel settingsModel;
 
   @override
   String toString() {
-    return 'ImageProcessEvent.processImage(listColorValues: $listColorValues, listCharacters: $listCharacters)';
+    return 'ImageProcessEvent.processImage(settingsModel: $settingsModel)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _ProcessImageEvent &&
-            (identical(other.listColorValues, listColorValues) ||
+            (identical(other.settingsModel, settingsModel) ||
                 const DeepCollectionEquality()
-                    .equals(other.listColorValues, listColorValues)) &&
-            (identical(other.listCharacters, listCharacters) ||
-                const DeepCollectionEquality()
-                    .equals(other.listCharacters, listCharacters)));
+                    .equals(other.settingsModel, settingsModel)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(listColorValues) ^
-      const DeepCollectionEquality().hash(listCharacters);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(settingsModel);
 
   @override
   _$ProcessImageEventCopyWith<_ProcessImageEvent> get copyWith =>
@@ -329,28 +281,24 @@ class _$_ProcessImageEvent implements _ProcessImageEvent {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required
-        Result pickImage(
-            List<int> listColorValues, List<String> listCharacters),
-    @required
-        Result processImage(
-            List<int> listColorValues, List<String> listCharacters),
+    @required Result pickImage(SettingsModel settingsModel),
+    @required Result processImage(SettingsModel settingsModel),
   }) {
     assert(pickImage != null);
     assert(processImage != null);
-    return processImage(listColorValues, listCharacters);
+    return processImage(settingsModel);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result pickImage(List<int> listColorValues, List<String> listCharacters),
-    Result processImage(List<int> listColorValues, List<String> listCharacters),
+    Result pickImage(SettingsModel settingsModel),
+    Result processImage(SettingsModel settingsModel),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if (processImage != null) {
-      return processImage(listColorValues, listCharacters);
+      return processImage(settingsModel);
     }
     return orElse();
   }
@@ -382,14 +330,11 @@ class _$_ProcessImageEvent implements _ProcessImageEvent {
 }
 
 abstract class _ProcessImageEvent implements ImageProcessEvent {
-  const factory _ProcessImageEvent(
-      {@required List<int> listColorValues,
-      @required List<String> listCharacters}) = _$_ProcessImageEvent;
+  const factory _ProcessImageEvent({@required SettingsModel settingsModel}) =
+      _$_ProcessImageEvent;
 
   @override
-  List<int> get listColorValues;
-  @override
-  List<String> get listCharacters;
+  SettingsModel get settingsModel;
   @override
   _$ProcessImageEventCopyWith<_ProcessImageEvent> get copyWith;
 }

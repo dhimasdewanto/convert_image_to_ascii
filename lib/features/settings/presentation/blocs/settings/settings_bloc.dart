@@ -3,9 +3,8 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../../core/default_values.dart';
-import '../../../../../core/failures/failures.dart';
-import '../../../domain/repositories/settings_repo.dart';
+import '../../../domain/models/settings_model.dart';
+import '../../../domain/use_cases/initialize_settings.dart';
 
 part 'settings_bloc.freezed.dart';
 part 'settings_event.dart';
@@ -13,12 +12,12 @@ part 'settings_state.dart';
 
 class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   SettingsBloc({
-    @required this.settingsRepo,
+    @required this.initializeSettings,
   }) : super(
           const SettingsState.initial(),
         );
 
-  final SettingsRepo settingsRepo;
+  final InitializeSettings initializeSettings;
 
   @override
   Stream<SettingsState> mapEventToState(
@@ -26,43 +25,17 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   ) async* {
     yield* event.when(
       initialize: () async* {
-        final resultCharacters = await settingsRepo.getListCharacters();
-        final resultListColorValues = await settingsRepo.getListColors();
-
-        Failures failures;
-        final listCharacters = resultCharacters.fold(
-          (f) {
-            failures = f;
-            return null;
+        final result = await initializeSettings();
+        yield* result.fold(
+          (failures) async* {
+            yield const SettingsState.error();
           },
-          (list) {
-            if (list == null) {
-              return defaultListCharacters;
-            }
-            return list;
+          (settingsModel) async* {
+            yield SettingsState.show(
+              settingsModel: settingsModel,
+            );
           },
         );
-        final listColorValues = resultListColorValues.fold(
-          (f) {
-            failures = f;
-            return null;
-          },
-          (list) {
-            if (list == null) {
-              return defaultListColors;
-            }
-            return list;
-          },
-        );
-
-        if (failures != null) {
-          yield const SettingsState.error();
-        } else {
-          yield SettingsState.show(
-            listCharacters: listCharacters,
-            listColorValues: listColorValues,
-          );
-        }
       },
     );
   }

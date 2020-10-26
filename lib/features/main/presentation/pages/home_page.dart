@@ -48,11 +48,10 @@ class _HomePageState extends State<HomePage> {
                   final imageProcessBloc = context.bloc<ImageProcessBloc>();
                   settingsBloc.state.maybeWhen(
                     orElse: () {},
-                    show: (listCharacters, listColorValues) {
+                    show: (settingsModel) {
                       imageProcessBloc.add(
                         ImageProcessEvent.pickImage(
-                          listCharacters: listCharacters,
-                          listColorValues: listColorValues,
+                          settingsModel: settingsModel,
                         ),
                       );
                     },

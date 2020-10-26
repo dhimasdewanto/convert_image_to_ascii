@@ -16,7 +16,8 @@ class CharacterSettingsPage extends StatelessWidget {
         builder: (context, state) {
           return state.maybeWhen(
             orElse: () => const Offstage(),
-            show: (listCharacters, listColorValues) {
+            show: (settingsModel) {
+              final listCharacters = settingsModel.listCharacters;
               return ListView.separated(
                 itemCount: listCharacters.length,
                 separatorBuilder: (context, index) {
