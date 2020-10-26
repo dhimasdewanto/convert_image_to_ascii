@@ -5,7 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../core/default_values.dart';
 import '../../../../../core/failures/failures.dart';
-import '../../../data/repositories/settings_repo.dart';
+import '../../../domain/repositories/settings_repo.dart';
 
 part 'settings_bloc.freezed.dart';
 part 'settings_event.dart';
