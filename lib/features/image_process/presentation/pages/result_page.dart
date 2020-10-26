@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../core/default_values.dart';
 import '../blocs/image_process/image_process_bloc.dart';
+import '../widgets/ascii_image_view.dart';
 
 class ResultPage extends StatelessWidget {
   const ResultPage({Key key}) : super(key: key);
@@ -50,20 +49,8 @@ class ResultPage extends StatelessWidget {
                 body: TabBarView(
                   physics: const NeverScrollableScrollPhysics(),
                   children: [
-                    InteractiveViewer(
-                      minScale: 0.1,
-                      maxScale: 5,
-                      constrained: false,
-                      boundaryMargin: const EdgeInsets.all(300),
-                      child: Text(
-                        textBuffer.toString(),
-                        // TODO(dhimasdewanto): Integrate to settings feature.
-                        style: GoogleFonts.robotoMono(
-                          fontSize: defaultFontSize.toDouble(),
-                          letterSpacing: defaultLetterSpacing,
-                        ),
-                        softWrap: false,
-                      ),
+                    AsciiImageView(
+                      imageTextBuffer: textBuffer,
                     ),
                     InteractiveViewer(
                       child: Image.file(
