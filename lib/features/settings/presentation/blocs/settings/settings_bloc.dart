@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../core/default_values.dart';
-import '../../failures/failures.dart';
-import '../../repositories/settings/settings_repo.dart';
+import '../../../../../core/default_values.dart';
+import '../../../../../core/failures/failures.dart';
+import '../../../data/repositories/settings_repo.dart';
 
 part 'settings_bloc.freezed.dart';
 part 'settings_event.dart';

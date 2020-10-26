@@ -1,6 +1,6 @@
 import 'package:meta/meta.dart';
 
-import '../core/settings.dart';
+import '../../../../core/settings.dart';
 
 /// Write character from available colors.
 void writeTextBuffer({

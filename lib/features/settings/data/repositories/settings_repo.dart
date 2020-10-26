@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../failures/failures.dart';
+import '../../../../core/failures/failures.dart';
 
 abstract class SettingsRepo {
   Future<Either<Failures, List<String>>> getListCharacters();

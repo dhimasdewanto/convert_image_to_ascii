@@ -3,7 +3,7 @@ import 'dart:typed_data';
 
 import 'package:image/image.dart' as img;
 
-import '../core/settings.dart';
+import '../../../../core/settings.dart';
 import '../models/image_process_model.dart';
 
 /// Get image from File.

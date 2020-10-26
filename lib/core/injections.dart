@@ -1,9 +1,9 @@
 import 'package:image_picker/image_picker.dart';
 
-import '../blocs/image_process/image_process_bloc.dart';
-import '../blocs/settings/settings_bloc.dart';
-import '../repositories/settings/settings_repo.dart';
-import '../use_cases/get_string_buffer.dart';
+import '../features/image_process/domain/use_cases/get_string_buffer.dart';
+import '../features/image_process/presentation/blocs/image_process/image_process_bloc.dart';
+import '../features/settings/data/repositories/settings_repo.dart';
+import '../features/settings/presentation/blocs/settings/settings_bloc.dart';
 
 mixin Injections {
   ImageProcessBloc get imageProcessBloc {

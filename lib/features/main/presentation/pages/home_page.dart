@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../bloc_listeners/image_process/image_picked_listener.dart';
-import '../blocs/image_process/image_process_bloc.dart';
-import '../blocs/settings/settings_bloc.dart';
-import 'settings_page.dart';
+import '../../../image_process/presentation/bloc_listeners/image_picked_listener.dart';
+import '../../../image_process/presentation/blocs/image_process/image_process_bloc.dart';
+import '../../../settings/presentation/blocs/settings/settings_bloc.dart';
+import '../../../settings/presentation/pages/settings_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
