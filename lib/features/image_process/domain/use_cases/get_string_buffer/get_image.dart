@@ -3,22 +3,21 @@ import 'dart:typed_data';
 
 import 'package:image/image.dart' as img;
 
-import '../../../../core/settings.dart';
-import '../models/image_process_model.dart';
+import '../get_string_buffer.dart';
 
 /// Get image from File.
-Future<img.Image> getImage(ImageProcessModel model) async {
-  final bytes = await _getImageBytes(model.imageFile);
+Future<img.Image> getImage(GetStringBufferParams params) async {
+  final bytes = await _getImageBytes(params.imageFile);
   final image = img.decodeImage(bytes);
   final resizedImage = img.copyResize(
     image,
-    width: imageWidth,
+    width: params.imageWidth,
   );
   final jgpImage = img.decodeImage(
     img.encodeJpg(resizedImage),
   );
 
-  if (model.convertToGrayscale) {
+  if (params.convertToGrayscale) {
     return img.grayscale(jgpImage);
   }
   return jgpImage;

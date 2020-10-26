@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../core/settings.dart';
+import '../../../../core/default_values.dart';
 import '../blocs/image_process/image_process_bloc.dart';
 
 class ResultPage extends StatelessWidget {
@@ -57,9 +57,10 @@ class ResultPage extends StatelessWidget {
                       boundaryMargin: const EdgeInsets.all(300),
                       child: Text(
                         textBuffer.toString(),
+                        // TODO(dhimasdewanto): Integrate to settings feature.
                         style: GoogleFonts.robotoMono(
-                          fontSize: fontSize,
-                          letterSpacing: letterSpacing,
+                          fontSize: defaultFontSize,
+                          letterSpacing: defaultLetterSpacing,
                         ),
                         softWrap: false,
                       ),

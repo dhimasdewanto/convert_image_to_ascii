@@ -1,3 +1,13 @@
+const defaultImageWidth = 200;
+
+const defaultRepeatCharacter = 2;
+
+const defaultReverseColor = true;
+
+const defaultLetterSpacing = 0.2;
+
+const defaultFontSize = 3.0;
+
 /// Length must be equals [defaultListCharacters]
 const defaultListColors = [
   4294967295, // 0xffffffff

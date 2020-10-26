@@ -6,7 +6,6 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../../../domain/models/image_process_model.dart';
 import '../../../domain/use_cases/get_string_buffer.dart';
 
 part 'image_process_bloc.freezed.dart';
@@ -65,7 +64,7 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
           imagePicked: (imageFile) async* {
             yield const ImageProcessState.loading();
             final textBuffer = await getStringBuffer(
-              ImageProcessModel(
+              GetStringBufferParams(
                 imageFile: imageFile,
                 listCharacters: listCharacters,
                 listColorValues: listColorValues,

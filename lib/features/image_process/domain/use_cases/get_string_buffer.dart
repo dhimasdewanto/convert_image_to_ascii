@@ -1,38 +1,32 @@
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 
-import '../models/image_process_model.dart';
-import 'get_image.dart';
-import 'write_text_buffer.dart';
+import '../../../../core/default_values.dart';
+import 'get_string_buffer/process_string_buffer.dart';
 
 class GetStringBuffer {
-  Future<StringBuffer> call(ImageProcessModel model) async {
-    return compute(_process, model);
+  Future<StringBuffer> call(GetStringBufferParams params) async {
+    return compute(processStringBuffer, params);
   }
 }
 
-Future<StringBuffer> _process(ImageProcessModel model) async {
-  final image = await getImage(model);
+class GetStringBufferParams {
+  GetStringBufferParams({
+    @required this.imageFile,
+    @required this.listColorValues,
+    @required this.listCharacters,
+    this.repeatedCharacters = defaultRepeatCharacter,
+    this.imageWidth = defaultImageWidth,
+    this.isColorReversed = defaultReverseColor,
+    this.convertToGrayscale = true,
+  });
 
-  final textBuffer = StringBuffer();
-  for (var y = 0; y < image.height; y++) {
-    for (var x = 0; x < image.width; x++) {
-      final pixel = image.getPixelSafe(x, y);
-      final argbColor = _abgrToArgb(pixel);
-      writeTextBuffer(
-        argbColor: argbColor,
-        textBuffer: textBuffer,
-        listCharacters: model.listCharacters,
-        listColorValues: model.listColorValues,
-      );
-    }
-    textBuffer.writeln("");
-  }
-
-  return textBuffer;
-}
-
-int _abgrToArgb(int argbColor) {
-  final r = (argbColor >> 16) & 0xFF;
-  final b = argbColor & 0xFF;
-  return (argbColor & 0xFF00FF00) | (b << 16) | r;
+  final bool convertToGrayscale;
+  final File imageFile;
+  final List<int> listColorValues;
+  final List<String> listCharacters;
+  final int repeatedCharacters;
+  final bool isColorReversed;
+  final int imageWidth;
 }
