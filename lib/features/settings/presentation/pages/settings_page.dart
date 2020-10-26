@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../blocs/settings/settings_bloc.dart';
 import 'character_settings_page.dart';
 import 'color_settings_page.dart';
 
@@ -34,29 +36,43 @@ class SettingsPage extends StatelessWidget {
             },
           ),
           const Divider(),
-          const ListTile(
-            title: Text("Image Width"),
-            subtitle: Text("200"),
-          ),
-          const Divider(),
-          const ListTile(
-            title: Text("Repeat Character"),
-            subtitle: Text("2x"),
-          ),
-          const Divider(),
-          const ListTile(
-            title: Text("Is Color Reversed"),
-            subtitle: Text("True"),
-          ),
-          const Divider(),
-          const ListTile(
-            title: Text("Letter Spacing"),
-            subtitle: Text("0.2"),
-          ),
-          const Divider(),
-          const ListTile(
-            title: Text("Font Size"),
-            subtitle: Text("3"),
+          BlocBuilder<SettingsBloc, SettingsState>(
+            builder: (context, state) {
+              return state.maybeWhen(
+                orElse: () => const Offstage(),
+                show: (settingsModel) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ListTile(
+                        title: const Text("Image Width"),
+                        subtitle: Text("${settingsModel.imageWidth}"),
+                      ),
+                      const Divider(),
+                      ListTile(
+                        title: const Text("Repeat Character"),
+                        subtitle: Text("${settingsModel.repeatedCharacters}x"),
+                      ),
+                      const Divider(),
+                      ListTile(
+                        title: const Text("Is Color Reversed"),
+                        subtitle: Text("${settingsModel.isColorReversed}"),
+                      ),
+                      const Divider(),
+                      ListTile(
+                        title: const Text("Letter Spacing"),
+                        subtitle: Text("${settingsModel.letterSpacing}"),
+                      ),
+                      const Divider(),
+                      ListTile(
+                        title: const Text("Font Size"),
+                        subtitle: Text("${settingsModel.fontSize}"),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
           ),
           const Divider(),
         ],

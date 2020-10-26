@@ -59,7 +59,7 @@ class ResultPage extends StatelessWidget {
                         textBuffer.toString(),
                         // TODO(dhimasdewanto): Integrate to settings feature.
                         style: GoogleFonts.robotoMono(
-                          fontSize: defaultFontSize,
+                          fontSize: defaultFontSize.toDouble(),
                           letterSpacing: defaultLetterSpacing,
                         ),
                         softWrap: false,

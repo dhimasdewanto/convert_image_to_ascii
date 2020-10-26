@@ -6,7 +6,7 @@ const defaultReverseColor = true;
 
 const defaultLetterSpacing = 0.2;
 
-const defaultFontSize = 3.0;
+const defaultFontSize = 3;
 
 /// Length must be equals [defaultListCharacters]
 const defaultListColors = [
