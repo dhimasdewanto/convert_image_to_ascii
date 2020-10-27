@@ -17,6 +17,13 @@ class _$SettingsEventTearOff {
   _InitializeEvent initialize() {
     return const _InitializeEvent();
   }
+
+// ignore: unused_element
+  _UpdateSettingsEvent updateSettings({int imageWidth}) {
+    return _UpdateSettingsEvent(
+      imageWidth: imageWidth,
+    );
+  }
 }
 
 /// @nodoc
@@ -28,19 +35,23 @@ mixin _$SettingsEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initialize(),
+    @required Result updateSettings(int imageWidth),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initialize(),
+    Result updateSettings(int imageWidth),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initialize(_InitializeEvent value),
+    @required Result updateSettings(_UpdateSettingsEvent value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initialize(_InitializeEvent value),
+    Result updateSettings(_UpdateSettingsEvent value),
     @required Result orElse(),
   });
 }
@@ -102,8 +113,10 @@ class _$_InitializeEvent implements _InitializeEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initialize(),
+    @required Result updateSettings(int imageWidth),
   }) {
     assert(initialize != null);
+    assert(updateSettings != null);
     return initialize();
   }
 
@@ -111,6 +124,7 @@ class _$_InitializeEvent implements _InitializeEvent {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initialize(),
+    Result updateSettings(int imageWidth),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -124,8 +138,10 @@ class _$_InitializeEvent implements _InitializeEvent {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initialize(_InitializeEvent value),
+    @required Result updateSettings(_UpdateSettingsEvent value),
   }) {
     assert(initialize != null);
+    assert(updateSettings != null);
     return initialize(this);
   }
 
@@ -133,6 +149,7 @@ class _$_InitializeEvent implements _InitializeEvent {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initialize(_InitializeEvent value),
+    Result updateSettings(_UpdateSettingsEvent value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -145,6 +162,123 @@ class _$_InitializeEvent implements _InitializeEvent {
 
 abstract class _InitializeEvent implements SettingsEvent {
   const factory _InitializeEvent() = _$_InitializeEvent;
+}
+
+/// @nodoc
+abstract class _$UpdateSettingsEventCopyWith<$Res> {
+  factory _$UpdateSettingsEventCopyWith(_UpdateSettingsEvent value,
+          $Res Function(_UpdateSettingsEvent) then) =
+      __$UpdateSettingsEventCopyWithImpl<$Res>;
+  $Res call({int imageWidth});
+}
+
+/// @nodoc
+class __$UpdateSettingsEventCopyWithImpl<$Res>
+    extends _$SettingsEventCopyWithImpl<$Res>
+    implements _$UpdateSettingsEventCopyWith<$Res> {
+  __$UpdateSettingsEventCopyWithImpl(
+      _UpdateSettingsEvent _value, $Res Function(_UpdateSettingsEvent) _then)
+      : super(_value, (v) => _then(v as _UpdateSettingsEvent));
+
+  @override
+  _UpdateSettingsEvent get _value => super._value as _UpdateSettingsEvent;
+
+  @override
+  $Res call({
+    Object imageWidth = freezed,
+  }) {
+    return _then(_UpdateSettingsEvent(
+      imageWidth: imageWidth == freezed ? _value.imageWidth : imageWidth as int,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_UpdateSettingsEvent implements _UpdateSettingsEvent {
+  const _$_UpdateSettingsEvent({this.imageWidth});
+
+  @override
+  final int imageWidth;
+
+  @override
+  String toString() {
+    return 'SettingsEvent.updateSettings(imageWidth: $imageWidth)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _UpdateSettingsEvent &&
+            (identical(other.imageWidth, imageWidth) ||
+                const DeepCollectionEquality()
+                    .equals(other.imageWidth, imageWidth)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(imageWidth);
+
+  @override
+  _$UpdateSettingsEventCopyWith<_UpdateSettingsEvent> get copyWith =>
+      __$UpdateSettingsEventCopyWithImpl<_UpdateSettingsEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result initialize(),
+    @required Result updateSettings(int imageWidth),
+  }) {
+    assert(initialize != null);
+    assert(updateSettings != null);
+    return updateSettings(imageWidth);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result initialize(),
+    Result updateSettings(int imageWidth),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (updateSettings != null) {
+      return updateSettings(imageWidth);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result initialize(_InitializeEvent value),
+    @required Result updateSettings(_UpdateSettingsEvent value),
+  }) {
+    assert(initialize != null);
+    assert(updateSettings != null);
+    return updateSettings(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result initialize(_InitializeEvent value),
+    Result updateSettings(_UpdateSettingsEvent value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (updateSettings != null) {
+      return updateSettings(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateSettingsEvent implements SettingsEvent {
+  const factory _UpdateSettingsEvent({int imageWidth}) = _$_UpdateSettingsEvent;
+
+  int get imageWidth;
+  _$UpdateSettingsEventCopyWith<_UpdateSettingsEvent> get copyWith;
 }
 
 /// @nodoc

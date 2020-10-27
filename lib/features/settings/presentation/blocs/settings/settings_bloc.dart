@@ -37,6 +37,16 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
           },
         );
       },
+      updateSettings: (imageWidth) async* {
+        yield* state.maybeWhen(
+          orElse: () async* {},
+          show: (settingsModel) async* {
+            if (imageWidth != null) {
+              
+            }
+          },
+        );
+      },
     );
   }
 }
