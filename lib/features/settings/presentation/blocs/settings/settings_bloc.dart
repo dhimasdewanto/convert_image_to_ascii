@@ -5,6 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../domain/models/settings_model.dart';
 import '../../../domain/use_cases/initialize_settings.dart';
+import '../../../domain/use_cases/update_settings.dart';
 
 part 'settings_bloc.freezed.dart';
 part 'settings_event.dart';
@@ -13,11 +14,13 @@ part 'settings_state.dart';
 class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   SettingsBloc({
     @required this.initializeSettings,
+    @required this.updateSettings,
   }) : super(
           const SettingsState.initial(),
         );
 
   final InitializeSettings initializeSettings;
+  final UpdateSettings updateSettings;
 
   @override
   Stream<SettingsState> mapEventToState(
@@ -42,7 +45,19 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
           orElse: () async* {},
           show: (settingsModel) async* {
             if (imageWidth != null) {
-              
+              final result = await updateSettings(
+                UpdateSettingsParams(
+                  imageWidth: imageWidth,
+                ),
+              );
+              yield* result.fold(
+                () async* {
+                  add(const SettingsEvent.initialize());
+                },
+                (failures) async* {
+                  yield const SettingsState.error();
+                },
+              );
             }
           },
         );

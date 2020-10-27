@@ -51,7 +51,9 @@ class SettingsPage extends StatelessWidget {
                         onTap: () {
                           showDialog(
                             context: context,
-                            child: const ImageWidthDialog(),
+                            child: ImageWidthDialog(
+                              initialValue: settingsModel.imageWidth,
+                            ),
                           );
                         },
                       ),

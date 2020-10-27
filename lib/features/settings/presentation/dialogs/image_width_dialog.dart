@@ -1,19 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/default_values.dart';
 import '../../../../core/limit_values.dart';
 import '../blocs/settings/settings_bloc.dart';
 
 class ImageWidthDialog extends StatefulWidget {
-  const ImageWidthDialog({Key key}) : super(key: key);
+  const ImageWidthDialog({
+    Key key,
+    @required this.initialValue,
+  }) : super(key: key);
+
+  final int initialValue;
 
   @override
   _ImageWidthDialogState createState() => _ImageWidthDialogState();
 }
 
 class _ImageWidthDialogState extends State<ImageWidthDialog> {
-  var _value = defaultImageWidth;
+  var _value = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _value = widget.initialValue;
+  }
 
   void _onConfirm() {
     final settingsBloc = context.bloc<SettingsBloc>();
