@@ -62,6 +62,9 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
                 imageFile: imageFile,
                 listCharacters: settingsModel.listCharacters,
                 listColorValues: settingsModel.listColorValues,
+                imageWidth: settingsModel.imageWidth,
+                isColorReversed: settingsModel.isColorReversed,
+                repeatedCharacters: settingsModel.repeatedCharacters,
               ),
             );
             yield ImageProcessState.showResult(
