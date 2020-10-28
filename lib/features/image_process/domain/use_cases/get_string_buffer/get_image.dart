@@ -11,13 +11,13 @@ Future<img.Image> getImage(GetStringBufferParams params) async {
   final image = img.decodeImage(bytes);
   final resizedImage = img.copyResize(
     image,
-    width: params.imageWidth,
+    width: params.settings.imageWidth,
   );
   final jgpImage = img.decodeImage(
     img.encodeJpg(resizedImage),
   );
 
-  if (params.convertToGrayscale) {
+  if (params.settings.convertToGrayscale) {
     return img.grayscale(jgpImage);
   }
   return jgpImage;

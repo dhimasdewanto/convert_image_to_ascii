@@ -60,11 +60,7 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
             final textBuffer = await getStringBuffer(
               GetStringBufferParams(
                 imageFile: imageFile,
-                listCharacters: settingsModel.listCharacters,
-                listColorValues: settingsModel.listColorValues,
-                imageWidth: settingsModel.imageWidth,
-                isColorReversed: settingsModel.isColorReversed,
-                repeatedCharacters: settingsModel.repeatedCharacters,
+                settings: settingsModel,
               ),
             );
             yield ImageProcessState.showResult(

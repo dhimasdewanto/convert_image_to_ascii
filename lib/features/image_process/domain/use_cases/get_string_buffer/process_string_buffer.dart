@@ -14,10 +14,10 @@ Future<StringBuffer> processStringBuffer(GetStringBufferParams params) async {
       writeTextBuffer(
         argbColor: argbColor,
         textBuffer: textBuffer,
-        listCharacters: params.listCharacters,
-        listColorValues: params.listColorValues,
-        repeatedCharacters: params.repeatedCharacters,
-        isColorReversed: params.isColorReversed,
+        listCharacters: params.settings.listCharacters,
+        listColorValues: params.settings.listColorValues,
+        repeatedCharacters: params.settings.repeatedCharacters,
+        isColorReversed: params.settings.isColorReversed,
       );
     }
     textBuffer.writeln("");
