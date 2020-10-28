@@ -1,9 +1,11 @@
+import '../../models/image_result_model.dart';
 import '../get_string_buffer.dart';
 import 'abgr_to_argb.dart';
 import 'get_image.dart';
 import 'write_text_buffer.dart';
 
-Future<StringBuffer> processStringBuffer(GetStringBufferParams params) async {
+Future<ImageResultModel> processStringBuffer(
+    GetStringBufferParams params) async {
   final image = await getImage(params);
 
   final textBuffer = StringBuffer();
@@ -23,5 +25,8 @@ Future<StringBuffer> processStringBuffer(GetStringBufferParams params) async {
     textBuffer.writeln("");
   }
 
-  return textBuffer;
+  return ImageResultModel(
+    imageStringBuffer: textBuffer,
+    convertedImage: image,
+  );
 }

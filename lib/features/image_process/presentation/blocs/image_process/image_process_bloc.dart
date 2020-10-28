@@ -1,12 +1,15 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:image/image.dart' as img;
 import 'package:image_picker/image_picker.dart';
 
 import '../../../../settings/domain/models/settings_model.dart';
+import '../../../domain/models/image_result_model.dart';
 import '../../../domain/use_cases/get_string_buffer.dart';
 
 part 'image_process_bloc.freezed.dart';
@@ -42,9 +45,9 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
               () async* {
                 yield const ImageProcessState.error();
               },
-              (imageFile) async* {
+              (imageSource) async* {
                 yield ImageProcessState.imagePicked(
-                  imageFile: imageFile,
+                  imageSource: imageSource,
                 );
                 add(
                   const ImageProcessEvent.processImage(),
@@ -58,17 +61,18 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
         yield* state.maybeWhen(
           orElse: () async* {},
           loading: () async* {},
-          imagePicked: (imageFile) async* {
+          imagePicked: (imageSource) async* {
             yield const ImageProcessState.loading();
-            final textBuffer = await getStringBuffer(
+            final imageResult = await getStringBuffer(
               GetStringBufferParams(
-                imageFile: imageFile,
+                imageFile: imageSource,
                 settings: settingsData,
               ),
             );
             yield ImageProcessState.showResult(
-              imageFile: imageFile,
-              textBuffer: textBuffer,
+              imageSource: imageSource,
+              imageResult: imageResult,
+              convertedImageBytes: img.encodeJpg(imageResult.convertedImage),
             );
           },
         );
