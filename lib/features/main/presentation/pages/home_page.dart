@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/navigators.dart';
 import '../../../image_process/presentation/bloc_listeners/image_picked_listener.dart';
 import '../../../image_process/presentation/blocs/image_process/image_process_bloc.dart';
 import '../../../settings/presentation/blocs/settings/settings_bloc.dart';
@@ -81,10 +82,10 @@ class HomePage extends StatelessWidget {
               const SizedBox(height: 20),
               InkWell(
                 onTap: () {
-                  final route = MaterialPageRoute(
-                    builder: (_) => const SettingsPage(),
+                  push(
+                    context: context,
+                    page: const SettingsPage(),
                   );
-                  Navigator.of(context).push(route);
                 },
                 borderRadius: borderRadius,
                 child: Container(

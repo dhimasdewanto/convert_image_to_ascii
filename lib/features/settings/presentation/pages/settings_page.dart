@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/navigators.dart';
 import '../blocs/settings/settings_bloc.dart';
 import '../dialogs/image_width_dialog.dart';
 import 'character_settings_page.dart';
@@ -20,20 +21,20 @@ class SettingsPage extends StatelessWidget {
           ListTile(
             title: const Text("Characters"),
             onTap: () {
-              final route = MaterialPageRoute(
-                builder: (_) => const CharacterSettingsPage(),
+              push(
+                context: context,
+                page: const CharacterSettingsPage(),
               );
-              Navigator.push(context, route);
             },
           ),
           const Divider(),
           ListTile(
             title: const Text("Colors"),
             onTap: () {
-              final route = MaterialPageRoute(
-                builder: (_) => const ColorSettingsPage(),
+              push(
+                context: context,
+                page: const ColorSettingsPage(),
               );
-              Navigator.push(context, route);
             },
           ),
           const Divider(),

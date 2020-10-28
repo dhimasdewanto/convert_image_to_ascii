@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/limit_values.dart';
+import '../../../../core/navigators.dart';
 import '../blocs/settings/settings_bloc.dart';
 
 class ImageWidthDialog extends StatefulWidget {
@@ -32,7 +33,7 @@ class _ImageWidthDialogState extends State<ImageWidthDialog> {
         imageWidth: _value,
       ),
     );
-    Navigator.pop(context);
+    pop(context: context);
   }
 
   @override
