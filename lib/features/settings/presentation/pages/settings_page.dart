@@ -47,6 +47,11 @@ class SettingsPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ListTile(
+                        title: const Text("Convert to Grayscale"),
+                        subtitle: Text("${settingsModel.convertToGrayscale}"),
+                      ),
+                      const Divider(),
+                      ListTile(
                         title: const Text("Image Width"),
                         subtitle: Text("${settingsModel.imageWidth}"),
                         onTap: () {

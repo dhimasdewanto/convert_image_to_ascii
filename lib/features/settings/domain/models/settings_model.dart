@@ -4,13 +4,14 @@ import 'package:flutter/foundation.dart';
 
 class SettingsModel {
   SettingsModel({
+    @required this.fontSize,
+    @required this.imageWidth,
+    @required this.isColorReversed,
+    @required this.convertToGrayscale,
+    @required this.letterSpacing,
     @required this.listCharacters,
     @required this.listColorValues,
-    @required this.imageWidth,
     @required this.repeatedCharacters,
-    @required this.isColorReversed,
-    @required this.letterSpacing,
-    @required this.fontSize,
   });
 
   factory SettingsModel.fromJson(String source) =>
@@ -20,19 +21,21 @@ class SettingsModel {
     if (map == null) return null;
 
     return SettingsModel(
+      fontSize: map['fontSize'],
+      imageWidth: map['imageWidth'],
+      isColorReversed: map['isColorReversed'],
+      convertToGrayscale: map['convertToGrayscale'],
+      letterSpacing: map['letterSpacing'],
       listCharacters: List<String>.from(map['listCharacters']),
       listColorValues: List<int>.from(map['listColorValues']),
-      imageWidth: map['imageWidth'],
       repeatedCharacters: map['repeatedCharacters'],
-      isColorReversed: map['isColorReversed'],
-      letterSpacing: map['letterSpacing'],
-      fontSize: map['fontSize'],
     );
   }
 
   final int fontSize;
   final int imageWidth;
   final bool isColorReversed;
+  final bool convertToGrayscale;
   final double letterSpacing;
   final List<String> listCharacters;
   final List<int> listColorValues;
@@ -40,13 +43,14 @@ class SettingsModel {
 
   @override
   int get hashCode {
-    return listCharacters.hashCode ^
-        listColorValues.hashCode ^
+    return fontSize.hashCode ^
         imageWidth.hashCode ^
-        repeatedCharacters.hashCode ^
         isColorReversed.hashCode ^
+        convertToGrayscale.hashCode ^
         letterSpacing.hashCode ^
-        fontSize.hashCode;
+        listCharacters.hashCode ^
+        listColorValues.hashCode ^
+        repeatedCharacters.hashCode;
   }
 
   @override
@@ -54,49 +58,53 @@ class SettingsModel {
     if (identical(this, o)) return true;
 
     return o is SettingsModel &&
+        o.fontSize == fontSize &&
+        o.imageWidth == imageWidth &&
+        o.isColorReversed == isColorReversed &&
+        o.convertToGrayscale == convertToGrayscale &&
+        o.letterSpacing == letterSpacing &&
         listEquals(o.listCharacters, listCharacters) &&
         listEquals(o.listColorValues, listColorValues) &&
-        o.imageWidth == imageWidth &&
-        o.repeatedCharacters == repeatedCharacters &&
-        o.isColorReversed == isColorReversed &&
-        o.letterSpacing == letterSpacing &&
-        o.fontSize == fontSize;
+        o.repeatedCharacters == repeatedCharacters;
   }
 
   @override
   String toString() {
-    return 'SettingsModel(listCharacters: $listCharacters, listColorValues: $listColorValues, imageWidth: $imageWidth, repeatedCharacters: $repeatedCharacters, isColorReversed: $isColorReversed, letterSpacing: $letterSpacing, fontSize: $fontSize)';
+    return 'SettingsModel(fontSize: $fontSize, imageWidth: $imageWidth, isColorReversed: $isColorReversed, convertToGrayscale: $convertToGrayscale, letterSpacing: $letterSpacing, listCharacters: $listCharacters, listColorValues: $listColorValues, repeatedCharacters: $repeatedCharacters)';
   }
 
   SettingsModel copyWith({
+    int fontSize,
+    int imageWidth,
+    bool isColorReversed,
+    bool convertToGrayscale,
+    double letterSpacing,
     List<String> listCharacters,
     List<int> listColorValues,
-    int imageWidth,
     int repeatedCharacters,
-    bool isColorReversed,
-    double letterSpacing,
-    int fontSize,
   }) {
     return SettingsModel(
+      fontSize: fontSize ?? this.fontSize,
+      imageWidth: imageWidth ?? this.imageWidth,
+      isColorReversed: isColorReversed ?? this.isColorReversed,
+      convertToGrayscale: convertToGrayscale ?? this.convertToGrayscale,
+      letterSpacing: letterSpacing ?? this.letterSpacing,
       listCharacters: listCharacters ?? this.listCharacters,
       listColorValues: listColorValues ?? this.listColorValues,
-      imageWidth: imageWidth ?? this.imageWidth,
       repeatedCharacters: repeatedCharacters ?? this.repeatedCharacters,
-      isColorReversed: isColorReversed ?? this.isColorReversed,
-      letterSpacing: letterSpacing ?? this.letterSpacing,
-      fontSize: fontSize ?? this.fontSize,
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
+      'fontSize': fontSize,
+      'imageWidth': imageWidth,
+      'isColorReversed': isColorReversed,
+      'convertToGrayscale': convertToGrayscale,
+      'letterSpacing': letterSpacing,
       'listCharacters': listCharacters,
       'listColorValues': listColorValues,
-      'imageWidth': imageWidth,
       'repeatedCharacters': repeatedCharacters,
-      'isColorReversed': isColorReversed,
-      'letterSpacing': letterSpacing,
-      'fontSize': fontSize,
     };
   }
 

@@ -8,6 +8,8 @@ const defaultLetterSpacing = 0.2;
 
 const defaultFontSize = 3;
 
+const defaultToGrayscale = true;
+
 /// Length must be equals [defaultListCharacters]
 const defaultListColors = [
   4294967295, // 0xffffffff

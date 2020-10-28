@@ -25,6 +25,7 @@ class SettingsRepoImpl implements SettingsRepo {
             isColorReversed: defaultReverseColor,
             letterSpacing: defaultLetterSpacing,
             fontSize: defaultFontSize,
+            convertToGrayscale: defaultToGrayscale,
           ),
         );
       }
@@ -40,6 +41,8 @@ class SettingsRepoImpl implements SettingsRepo {
           isColorReversed: settingsRaw.isColorReversed ?? defaultReverseColor,
           letterSpacing: settingsRaw.letterSpacing ?? defaultLetterSpacing,
           fontSize: settingsRaw.fontSize ?? defaultFontSize,
+          convertToGrayscale:
+              settingsRaw.convertToGrayscale ?? defaultToGrayscale,
         ),
       );
     } catch (e) {
