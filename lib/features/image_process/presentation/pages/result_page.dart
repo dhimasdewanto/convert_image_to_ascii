@@ -31,17 +31,24 @@ class ResultPage extends StatelessWidget {
           },
           showResult: (imageFile, textBuffer) {
             return DefaultTabController(
-              length: 2,
+              length: 4,
               child: Scaffold(
                 appBar: AppBar(
                   title: const Text("Image Result"),
                   bottom: const TabBar(
+                    isScrollable: true,
                     tabs: <Tab>[
                       Tab(
                         child: Text("ASCII Image"),
                       ),
                       Tab(
-                        child: Text("Image Source"),
+                        child: Text("Converted to Grayscale"),
+                      ),
+                      Tab(
+                        child: Text("Converted Size"),
+                      ),
+                      Tab(
+                        child: Text("Original Image"),
                       ),
                     ],
                   ),
@@ -51,6 +58,20 @@ class ResultPage extends StatelessWidget {
                   children: [
                     AsciiImageView(
                       imageTextBuffer: textBuffer,
+                    ),
+                    InteractiveViewer(
+                      child: Image.file(
+                        imageFile,
+                        width: double.infinity,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    InteractiveViewer(
+                      child: Image.file(
+                        imageFile,
+                        width: double.infinity,
+                        fit: BoxFit.contain,
+                      ),
                     ),
                     InteractiveViewer(
                       child: Image.file(
