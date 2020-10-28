@@ -14,15 +14,18 @@ class _$ImageProcessEventTearOff {
   const _$ImageProcessEventTearOff();
 
 // ignore: unused_element
-  _PickImageEvent pickImage({@required SettingsModel settingsModel}) {
-    return _PickImageEvent(
-      settingsModel: settingsModel,
-    );
+  _PickImageEvent pickImage() {
+    return const _PickImageEvent();
   }
 
 // ignore: unused_element
-  _ProcessImageEvent processImage({@required SettingsModel settingsModel}) {
-    return _ProcessImageEvent(
+  _ProcessImageEvent processImage() {
+    return const _ProcessImageEvent();
+  }
+
+// ignore: unused_element
+  _UpdateSettingsEvent updateSettings({@required SettingsModel settingsModel}) {
+    return _UpdateSettingsEvent(
       settingsModel: settingsModel,
     );
   }
@@ -34,32 +37,32 @@ const $ImageProcessEvent = _$ImageProcessEventTearOff();
 
 /// @nodoc
 mixin _$ImageProcessEvent {
-  SettingsModel get settingsModel;
-
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result pickImage(SettingsModel settingsModel),
-    @required Result processImage(SettingsModel settingsModel),
+    @required Result pickImage(),
+    @required Result processImage(),
+    @required Result updateSettings(SettingsModel settingsModel),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result pickImage(SettingsModel settingsModel),
-    Result processImage(SettingsModel settingsModel),
+    Result pickImage(),
+    Result processImage(),
+    Result updateSettings(SettingsModel settingsModel),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result pickImage(_PickImageEvent value),
     @required Result processImage(_ProcessImageEvent value),
+    @required Result updateSettings(_UpdateSettingsEvent value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result pickImage(_PickImageEvent value),
     Result processImage(_ProcessImageEvent value),
+    Result updateSettings(_UpdateSettingsEvent value),
     @required Result orElse(),
   });
-
-  $ImageProcessEventCopyWith<ImageProcessEvent> get copyWith;
 }
 
 /// @nodoc
@@ -67,7 +70,6 @@ abstract class $ImageProcessEventCopyWith<$Res> {
   factory $ImageProcessEventCopyWith(
           ImageProcessEvent value, $Res Function(ImageProcessEvent) then) =
       _$ImageProcessEventCopyWithImpl<$Res>;
-  $Res call({SettingsModel settingsModel});
 }
 
 /// @nodoc
@@ -78,27 +80,13 @@ class _$ImageProcessEventCopyWithImpl<$Res>
   final ImageProcessEvent _value;
   // ignore: unused_field
   final $Res Function(ImageProcessEvent) _then;
-
-  @override
-  $Res call({
-    Object settingsModel = freezed,
-  }) {
-    return _then(_value.copyWith(
-      settingsModel: settingsModel == freezed
-          ? _value.settingsModel
-          : settingsModel as SettingsModel,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class _$PickImageEventCopyWith<$Res>
-    implements $ImageProcessEventCopyWith<$Res> {
+abstract class _$PickImageEventCopyWith<$Res> {
   factory _$PickImageEventCopyWith(
           _PickImageEvent value, $Res Function(_PickImageEvent) then) =
       __$PickImageEventCopyWithImpl<$Res>;
-  @override
-  $Res call({SettingsModel settingsModel});
 }
 
 /// @nodoc
@@ -111,70 +99,49 @@ class __$PickImageEventCopyWithImpl<$Res>
 
   @override
   _PickImageEvent get _value => super._value as _PickImageEvent;
-
-  @override
-  $Res call({
-    Object settingsModel = freezed,
-  }) {
-    return _then(_PickImageEvent(
-      settingsModel: settingsModel == freezed
-          ? _value.settingsModel
-          : settingsModel as SettingsModel,
-    ));
-  }
 }
 
 /// @nodoc
 class _$_PickImageEvent implements _PickImageEvent {
-  const _$_PickImageEvent({@required this.settingsModel})
-      : assert(settingsModel != null);
-
-  @override
-  final SettingsModel settingsModel;
+  const _$_PickImageEvent();
 
   @override
   String toString() {
-    return 'ImageProcessEvent.pickImage(settingsModel: $settingsModel)';
+    return 'ImageProcessEvent.pickImage()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _PickImageEvent &&
-            (identical(other.settingsModel, settingsModel) ||
-                const DeepCollectionEquality()
-                    .equals(other.settingsModel, settingsModel)));
+    return identical(this, other) || (other is _PickImageEvent);
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(settingsModel);
-
-  @override
-  _$PickImageEventCopyWith<_PickImageEvent> get copyWith =>
-      __$PickImageEventCopyWithImpl<_PickImageEvent>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result pickImage(SettingsModel settingsModel),
-    @required Result processImage(SettingsModel settingsModel),
+    @required Result pickImage(),
+    @required Result processImage(),
+    @required Result updateSettings(SettingsModel settingsModel),
   }) {
     assert(pickImage != null);
     assert(processImage != null);
-    return pickImage(settingsModel);
+    assert(updateSettings != null);
+    return pickImage();
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result pickImage(SettingsModel settingsModel),
-    Result processImage(SettingsModel settingsModel),
+    Result pickImage(),
+    Result processImage(),
+    Result updateSettings(SettingsModel settingsModel),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if (pickImage != null) {
-      return pickImage(settingsModel);
+      return pickImage();
     }
     return orElse();
   }
@@ -184,9 +151,11 @@ class _$_PickImageEvent implements _PickImageEvent {
   Result map<Result extends Object>({
     @required Result pickImage(_PickImageEvent value),
     @required Result processImage(_ProcessImageEvent value),
+    @required Result updateSettings(_UpdateSettingsEvent value),
   }) {
     assert(pickImage != null);
     assert(processImage != null);
+    assert(updateSettings != null);
     return pickImage(this);
   }
 
@@ -195,6 +164,7 @@ class _$_PickImageEvent implements _PickImageEvent {
   Result maybeMap<Result extends Object>({
     Result pickImage(_PickImageEvent value),
     Result processImage(_ProcessImageEvent value),
+    Result updateSettings(_UpdateSettingsEvent value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -206,23 +176,14 @@ class _$_PickImageEvent implements _PickImageEvent {
 }
 
 abstract class _PickImageEvent implements ImageProcessEvent {
-  const factory _PickImageEvent({@required SettingsModel settingsModel}) =
-      _$_PickImageEvent;
-
-  @override
-  SettingsModel get settingsModel;
-  @override
-  _$PickImageEventCopyWith<_PickImageEvent> get copyWith;
+  const factory _PickImageEvent() = _$_PickImageEvent;
 }
 
 /// @nodoc
-abstract class _$ProcessImageEventCopyWith<$Res>
-    implements $ImageProcessEventCopyWith<$Res> {
+abstract class _$ProcessImageEventCopyWith<$Res> {
   factory _$ProcessImageEventCopyWith(
           _ProcessImageEvent value, $Res Function(_ProcessImageEvent) then) =
       __$ProcessImageEventCopyWithImpl<$Res>;
-  @override
-  $Res call({SettingsModel settingsModel});
 }
 
 /// @nodoc
@@ -235,70 +196,49 @@ class __$ProcessImageEventCopyWithImpl<$Res>
 
   @override
   _ProcessImageEvent get _value => super._value as _ProcessImageEvent;
-
-  @override
-  $Res call({
-    Object settingsModel = freezed,
-  }) {
-    return _then(_ProcessImageEvent(
-      settingsModel: settingsModel == freezed
-          ? _value.settingsModel
-          : settingsModel as SettingsModel,
-    ));
-  }
 }
 
 /// @nodoc
 class _$_ProcessImageEvent implements _ProcessImageEvent {
-  const _$_ProcessImageEvent({@required this.settingsModel})
-      : assert(settingsModel != null);
-
-  @override
-  final SettingsModel settingsModel;
+  const _$_ProcessImageEvent();
 
   @override
   String toString() {
-    return 'ImageProcessEvent.processImage(settingsModel: $settingsModel)';
+    return 'ImageProcessEvent.processImage()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _ProcessImageEvent &&
-            (identical(other.settingsModel, settingsModel) ||
-                const DeepCollectionEquality()
-                    .equals(other.settingsModel, settingsModel)));
+    return identical(this, other) || (other is _ProcessImageEvent);
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(settingsModel);
-
-  @override
-  _$ProcessImageEventCopyWith<_ProcessImageEvent> get copyWith =>
-      __$ProcessImageEventCopyWithImpl<_ProcessImageEvent>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result pickImage(SettingsModel settingsModel),
-    @required Result processImage(SettingsModel settingsModel),
+    @required Result pickImage(),
+    @required Result processImage(),
+    @required Result updateSettings(SettingsModel settingsModel),
   }) {
     assert(pickImage != null);
     assert(processImage != null);
-    return processImage(settingsModel);
+    assert(updateSettings != null);
+    return processImage();
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result pickImage(SettingsModel settingsModel),
-    Result processImage(SettingsModel settingsModel),
+    Result pickImage(),
+    Result processImage(),
+    Result updateSettings(SettingsModel settingsModel),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if (processImage != null) {
-      return processImage(settingsModel);
+      return processImage();
     }
     return orElse();
   }
@@ -308,9 +248,11 @@ class _$_ProcessImageEvent implements _ProcessImageEvent {
   Result map<Result extends Object>({
     @required Result pickImage(_PickImageEvent value),
     @required Result processImage(_ProcessImageEvent value),
+    @required Result updateSettings(_UpdateSettingsEvent value),
   }) {
     assert(pickImage != null);
     assert(processImage != null);
+    assert(updateSettings != null);
     return processImage(this);
   }
 
@@ -319,6 +261,7 @@ class _$_ProcessImageEvent implements _ProcessImageEvent {
   Result maybeMap<Result extends Object>({
     Result pickImage(_PickImageEvent value),
     Result processImage(_ProcessImageEvent value),
+    Result updateSettings(_UpdateSettingsEvent value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -330,13 +273,134 @@ class _$_ProcessImageEvent implements _ProcessImageEvent {
 }
 
 abstract class _ProcessImageEvent implements ImageProcessEvent {
-  const factory _ProcessImageEvent({@required SettingsModel settingsModel}) =
-      _$_ProcessImageEvent;
+  const factory _ProcessImageEvent() = _$_ProcessImageEvent;
+}
+
+/// @nodoc
+abstract class _$UpdateSettingsEventCopyWith<$Res> {
+  factory _$UpdateSettingsEventCopyWith(_UpdateSettingsEvent value,
+          $Res Function(_UpdateSettingsEvent) then) =
+      __$UpdateSettingsEventCopyWithImpl<$Res>;
+  $Res call({SettingsModel settingsModel});
+}
+
+/// @nodoc
+class __$UpdateSettingsEventCopyWithImpl<$Res>
+    extends _$ImageProcessEventCopyWithImpl<$Res>
+    implements _$UpdateSettingsEventCopyWith<$Res> {
+  __$UpdateSettingsEventCopyWithImpl(
+      _UpdateSettingsEvent _value, $Res Function(_UpdateSettingsEvent) _then)
+      : super(_value, (v) => _then(v as _UpdateSettingsEvent));
 
   @override
-  SettingsModel get settingsModel;
+  _UpdateSettingsEvent get _value => super._value as _UpdateSettingsEvent;
+
   @override
-  _$ProcessImageEventCopyWith<_ProcessImageEvent> get copyWith;
+  $Res call({
+    Object settingsModel = freezed,
+  }) {
+    return _then(_UpdateSettingsEvent(
+      settingsModel: settingsModel == freezed
+          ? _value.settingsModel
+          : settingsModel as SettingsModel,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_UpdateSettingsEvent implements _UpdateSettingsEvent {
+  const _$_UpdateSettingsEvent({@required this.settingsModel})
+      : assert(settingsModel != null);
+
+  @override
+  final SettingsModel settingsModel;
+
+  @override
+  String toString() {
+    return 'ImageProcessEvent.updateSettings(settingsModel: $settingsModel)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _UpdateSettingsEvent &&
+            (identical(other.settingsModel, settingsModel) ||
+                const DeepCollectionEquality()
+                    .equals(other.settingsModel, settingsModel)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(settingsModel);
+
+  @override
+  _$UpdateSettingsEventCopyWith<_UpdateSettingsEvent> get copyWith =>
+      __$UpdateSettingsEventCopyWithImpl<_UpdateSettingsEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result pickImage(),
+    @required Result processImage(),
+    @required Result updateSettings(SettingsModel settingsModel),
+  }) {
+    assert(pickImage != null);
+    assert(processImage != null);
+    assert(updateSettings != null);
+    return updateSettings(settingsModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result pickImage(),
+    Result processImage(),
+    Result updateSettings(SettingsModel settingsModel),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (updateSettings != null) {
+      return updateSettings(settingsModel);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result pickImage(_PickImageEvent value),
+    @required Result processImage(_ProcessImageEvent value),
+    @required Result updateSettings(_UpdateSettingsEvent value),
+  }) {
+    assert(pickImage != null);
+    assert(processImage != null);
+    assert(updateSettings != null);
+    return updateSettings(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result pickImage(_PickImageEvent value),
+    Result processImage(_ProcessImageEvent value),
+    Result updateSettings(_UpdateSettingsEvent value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (updateSettings != null) {
+      return updateSettings(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateSettingsEvent implements ImageProcessEvent {
+  const factory _UpdateSettingsEvent({@required SettingsModel settingsModel}) =
+      _$_UpdateSettingsEvent;
+
+  SettingsModel get settingsModel;
+  _$UpdateSettingsEventCopyWith<_UpdateSettingsEvent> get copyWith;
 }
 
 /// @nodoc

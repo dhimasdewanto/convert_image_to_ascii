@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/navigators.dart';
 import '../../../image_process/presentation/bloc_listeners/image_picked_listener.dart';
 import '../../../image_process/presentation/blocs/image_process/image_process_bloc.dart';
-import '../../../settings/presentation/blocs/settings/settings_bloc.dart';
 import '../../../settings/presentation/pages/settings_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -31,17 +30,9 @@ class HomePage extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () {
-                  final settingsBloc = context.bloc<SettingsBloc>();
                   final imageProcessBloc = context.bloc<ImageProcessBloc>();
-                  settingsBloc.state.maybeWhen(
-                    orElse: () {},
-                    show: (settingsModel) {
-                      imageProcessBloc.add(
-                        ImageProcessEvent.pickImage(
-                          settingsModel: settingsModel,
-                        ),
-                      );
-                    },
+                  imageProcessBloc.add(
+                    const ImageProcessEvent.pickImage(),
                   );
                 },
                 borderRadius: borderRadius,

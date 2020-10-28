@@ -22,12 +22,17 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
   final GetStringBuffer getStringBuffer;
   final ImagePicker imagePicker;
 
+  SettingsModel settingsData;
+
   @override
   Stream<ImageProcessState> mapEventToState(
     ImageProcessEvent event,
   ) async* {
     yield* event.when(
-      pickImage: (settingsModel) async* {
+      updateSettings: (settingsModel) async* {
+        settingsData = settingsModel;
+      },
+      pickImage: () async* {
         yield* state.maybeWhen(
           loading: () async* {},
           orElse: () async* {
@@ -42,16 +47,14 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
                   imageFile: imageFile,
                 );
                 add(
-                  ImageProcessEvent.processImage(
-                    settingsModel: settingsModel,
-                  ),
+                  const ImageProcessEvent.processImage(),
                 );
               },
             );
           },
         );
       },
-      processImage: (settingsModel) async* {
+      processImage: () async* {
         yield* state.maybeWhen(
           orElse: () async* {},
           loading: () async* {},
@@ -60,7 +63,7 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
             final textBuffer = await getStringBuffer(
               GetStringBufferParams(
                 imageFile: imageFile,
-                settings: settingsModel,
+                settings: settingsData,
               ),
             );
             yield ImageProcessState.showResult(
