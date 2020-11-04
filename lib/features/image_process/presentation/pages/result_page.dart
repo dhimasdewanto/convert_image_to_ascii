@@ -33,6 +33,46 @@ class ResultPage extends StatelessWidget {
             return DefaultTabController(
               length: 3,
               child: Scaffold(
+                floatingActionButtonLocation:
+                    FloatingActionButtonLocation.centerFloat,
+                floatingActionButton: Builder(
+                  builder: (context) => FloatingActionButton(
+                    onPressed: () {
+                      showBottomSheet(
+                        context: context,
+                        builder: (context) => BottomSheet(
+                          onClosing: () {},
+                          builder: (context) {
+                            return Card(
+                              margin: EdgeInsets.zero,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  ListTile(
+                                    leading: const Icon(Icons.copy_rounded),
+                                    title: const Text("Copy Text"),
+                                    onTap: () {},
+                                  ),
+                                  ListTile(
+                                    leading: const Icon(Icons.save_alt_rounded),
+                                    title: const Text("Save Image"),
+                                    onTap: () {},
+                                  ),
+                                  ListTile(
+                                    leading: const Icon(Icons.share_rounded),
+                                    title: const Text("Share Image"),
+                                    onTap: () {},
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        ),
+                      );
+                    },
+                    child: const Icon(Icons.arrow_upward_rounded),
+                  ),
+                ),
                 appBar: AppBar(
                   title: const Text("Image Result"),
                   bottom: const TabBar(
