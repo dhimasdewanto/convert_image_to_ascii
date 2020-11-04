@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../blocs/image_process/image_process_bloc.dart';
 import '../widgets/ascii_image_view.dart';
+import '../widgets/bottom_sheet_scaffold.dart';
+import '../widgets/result_tabs_widget.dart';
 
 class ResultPage extends StatelessWidget {
   const ResultPage({Key key}) : super(key: key);
@@ -30,89 +32,35 @@ class ResultPage extends StatelessWidget {
             );
           },
           showResult: (imageFile, imageResult, convertedImageBytes) {
-            return DefaultTabController(
-              length: 3,
-              child: Scaffold(
-                floatingActionButtonLocation:
-                    FloatingActionButtonLocation.centerFloat,
-                floatingActionButton: Builder(
-                  builder: (context) => FloatingActionButton(
-                    onPressed: () {
-                      showBottomSheet(
-                        context: context,
-                        builder: (context) => BottomSheet(
-                          onClosing: () {},
-                          builder: (context) {
-                            return Card(
-                              margin: EdgeInsets.zero,
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  ListTile(
-                                    leading: const Icon(Icons.copy_rounded),
-                                    title: const Text("Copy Text"),
-                                    onTap: () {},
-                                  ),
-                                  ListTile(
-                                    leading: const Icon(Icons.save_alt_rounded),
-                                    title: const Text("Save Image"),
-                                    onTap: () {},
-                                  ),
-                                  ListTile(
-                                    leading: const Icon(Icons.share_rounded),
-                                    title: const Text("Share Image"),
-                                    onTap: () {},
-                                  ),
-                                ],
-                              ),
-                            );
-                          },
-                        ),
-                      );
-                    },
-                    child: const Icon(Icons.arrow_upward_rounded),
+            return ResultTabsWidget(
+              builder: (context, tabBar, tabBarView) {
+                return BottomSheetScaffold(
+                  appBar: AppBar(
+                    title: const Text("Image Result"),
+                    bottom: tabBar,
+                  ),
+                  body: tabBarView,
+                );
+              },
+              children: [
+                AsciiImageView(
+                  imageTextBuffer: imageResult.imageStringBuffer,
+                ),
+                InteractiveViewer(
+                  child: Image.memory(
+                    convertedImageBytes,
+                    width: double.infinity,
+                    fit: BoxFit.contain,
                   ),
                 ),
-                appBar: AppBar(
-                  title: const Text("Image Result"),
-                  bottom: const TabBar(
-                    isScrollable: true,
-                    tabs: <Tab>[
-                      Tab(
-                        child: Text("ASCII Image"),
-                      ),
-                      Tab(
-                        child: Text("Converted Image"),
-                      ),
-                      Tab(
-                        child: Text("Original Image"),
-                      ),
-                    ],
+                InteractiveViewer(
+                  child: Image.file(
+                    imageFile,
+                    width: double.infinity,
+                    fit: BoxFit.contain,
                   ),
                 ),
-                body: TabBarView(
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: [
-                    AsciiImageView(
-                      imageTextBuffer: imageResult.imageStringBuffer,
-                    ),
-                    InteractiveViewer(
-                      child: Image.memory(
-                        convertedImageBytes,
-                        width: double.infinity,
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                    InteractiveViewer(
-                      child: Image.file(
-                        imageFile,
-                        width: double.infinity,
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              ],
             );
           },
         );
