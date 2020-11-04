@@ -20,6 +20,8 @@ class UpdateSettings {
       (prevSettings) async {
         final currentSettings = prevSettings.copyWith(
           imageWidth: params.imageWidth ?? prevSettings.imageWidth,
+          repeatedCharacters:
+              params.repeatCharacters ?? prevSettings.repeatedCharacters,
         );
         final result = await settingsRepo.setSettingsData(currentSettings);
         return result;
@@ -31,7 +33,9 @@ class UpdateSettings {
 class UpdateSettingsParams {
   UpdateSettingsParams({
     this.imageWidth,
+    this.repeatCharacters,
   });
 
   final int imageWidth;
+  final int repeatCharacters;
 }

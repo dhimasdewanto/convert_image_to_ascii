@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/navigators.dart';
 import '../bloc_listeners/settings_listeners.dart';
 import '../blocs/settings/settings_bloc.dart';
+import '../dialogs/image_repeat_characters_dialog.dart';
 import '../dialogs/image_width_dialog.dart';
 import 'character_settings_page.dart';
 import 'color_settings_page.dart';
@@ -73,6 +74,14 @@ class SettingsPage extends StatelessWidget {
                           title: const Text("Repeat Character"),
                           subtitle:
                               Text("${settingsModel.repeatedCharacters}x"),
+                          onTap: () {
+                            showDialog(
+                              context: context,
+                              child: ImageRepeatCharactersDialog(
+                                initialValue: settingsModel.repeatedCharacters,
+                              ),
+                            );
+                          },
                         ),
                         const Divider(),
                         ListTile(

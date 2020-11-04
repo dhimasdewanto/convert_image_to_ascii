@@ -19,9 +19,10 @@ class _$SettingsEventTearOff {
   }
 
 // ignore: unused_element
-  _UpdateSettingsEvent updateSettings({int imageWidth}) {
+  _UpdateSettingsEvent updateSettings({int imageWidth, int repeatCharacters}) {
     return _UpdateSettingsEvent(
       imageWidth: imageWidth,
+      repeatCharacters: repeatCharacters,
     );
   }
 }
@@ -35,12 +36,12 @@ mixin _$SettingsEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initialize(),
-    @required Result updateSettings(int imageWidth),
+    @required Result updateSettings(int imageWidth, int repeatCharacters),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initialize(),
-    Result updateSettings(int imageWidth),
+    Result updateSettings(int imageWidth, int repeatCharacters),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -113,7 +114,7 @@ class _$_InitializeEvent implements _InitializeEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initialize(),
-    @required Result updateSettings(int imageWidth),
+    @required Result updateSettings(int imageWidth, int repeatCharacters),
   }) {
     assert(initialize != null);
     assert(updateSettings != null);
@@ -124,7 +125,7 @@ class _$_InitializeEvent implements _InitializeEvent {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initialize(),
-    Result updateSettings(int imageWidth),
+    Result updateSettings(int imageWidth, int repeatCharacters),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -169,7 +170,7 @@ abstract class _$UpdateSettingsEventCopyWith<$Res> {
   factory _$UpdateSettingsEventCopyWith(_UpdateSettingsEvent value,
           $Res Function(_UpdateSettingsEvent) then) =
       __$UpdateSettingsEventCopyWithImpl<$Res>;
-  $Res call({int imageWidth});
+  $Res call({int imageWidth, int repeatCharacters});
 }
 
 /// @nodoc
@@ -186,23 +187,29 @@ class __$UpdateSettingsEventCopyWithImpl<$Res>
   @override
   $Res call({
     Object imageWidth = freezed,
+    Object repeatCharacters = freezed,
   }) {
     return _then(_UpdateSettingsEvent(
       imageWidth: imageWidth == freezed ? _value.imageWidth : imageWidth as int,
+      repeatCharacters: repeatCharacters == freezed
+          ? _value.repeatCharacters
+          : repeatCharacters as int,
     ));
   }
 }
 
 /// @nodoc
 class _$_UpdateSettingsEvent implements _UpdateSettingsEvent {
-  const _$_UpdateSettingsEvent({this.imageWidth});
+  const _$_UpdateSettingsEvent({this.imageWidth, this.repeatCharacters});
 
   @override
   final int imageWidth;
+  @override
+  final int repeatCharacters;
 
   @override
   String toString() {
-    return 'SettingsEvent.updateSettings(imageWidth: $imageWidth)';
+    return 'SettingsEvent.updateSettings(imageWidth: $imageWidth, repeatCharacters: $repeatCharacters)';
   }
 
   @override
@@ -211,12 +218,17 @@ class _$_UpdateSettingsEvent implements _UpdateSettingsEvent {
         (other is _UpdateSettingsEvent &&
             (identical(other.imageWidth, imageWidth) ||
                 const DeepCollectionEquality()
-                    .equals(other.imageWidth, imageWidth)));
+                    .equals(other.imageWidth, imageWidth)) &&
+            (identical(other.repeatCharacters, repeatCharacters) ||
+                const DeepCollectionEquality()
+                    .equals(other.repeatCharacters, repeatCharacters)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(imageWidth);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(imageWidth) ^
+      const DeepCollectionEquality().hash(repeatCharacters);
 
   @override
   _$UpdateSettingsEventCopyWith<_UpdateSettingsEvent> get copyWith =>
@@ -227,23 +239,23 @@ class _$_UpdateSettingsEvent implements _UpdateSettingsEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initialize(),
-    @required Result updateSettings(int imageWidth),
+    @required Result updateSettings(int imageWidth, int repeatCharacters),
   }) {
     assert(initialize != null);
     assert(updateSettings != null);
-    return updateSettings(imageWidth);
+    return updateSettings(imageWidth, repeatCharacters);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initialize(),
-    Result updateSettings(int imageWidth),
+    Result updateSettings(int imageWidth, int repeatCharacters),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if (updateSettings != null) {
-      return updateSettings(imageWidth);
+      return updateSettings(imageWidth, repeatCharacters);
     }
     return orElse();
   }
@@ -275,9 +287,11 @@ class _$_UpdateSettingsEvent implements _UpdateSettingsEvent {
 }
 
 abstract class _UpdateSettingsEvent implements SettingsEvent {
-  const factory _UpdateSettingsEvent({int imageWidth}) = _$_UpdateSettingsEvent;
+  const factory _UpdateSettingsEvent({int imageWidth, int repeatCharacters}) =
+      _$_UpdateSettingsEvent;
 
   int get imageWidth;
+  int get repeatCharacters;
   _$UpdateSettingsEventCopyWith<_UpdateSettingsEvent> get copyWith;
 }
 
