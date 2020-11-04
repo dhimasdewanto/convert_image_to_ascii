@@ -1,25 +1,54 @@
 import 'package:flutter/material.dart';
 
-class ResultTabsWidget extends StatelessWidget {
+import 'bottom_sheet_scaffold.dart';
+
+class ResultTabsWidget extends StatefulWidget {
   const ResultTabsWidget({
     Key key,
-    @required this.builder,
     @required this.children,
   }) : super(key: key);
-
-  final Widget Function(
-    BuildContext context,
-    TabBar tabBar,
-    TabBarView tabBarView,
-  ) builder;
 
   final List<Widget> children;
 
   @override
+  _ResultTabsWidgetState createState() => _ResultTabsWidgetState();
+}
+
+class _ResultTabsWidgetState extends State<ResultTabsWidget>
+    with SingleTickerProviderStateMixin {
+  TabController _tabController;
+  var _isOnAsciiImageTab = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(
+      length: 3,
+      vsync: this,
+    );
+    _tabController.addListener(() { 
+      setState(() {
+        _isOnAsciiImageTab = _setOnAsciiImageTab();
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  bool _setOnAsciiImageTab() {
+    return _tabController.index == 0;
+  }
+
+  @override
   Widget build(BuildContext context) {
-    const tabBar = TabBar(
+    final tabBar = TabBar(
+      controller: _tabController,
       isScrollable: true,
-      tabs: <Tab>[
+      tabs: const <Tab>[
         Tab(
           child: Text("ASCII Image"),
         ),
@@ -33,17 +62,18 @@ class ResultTabsWidget extends StatelessWidget {
     );
 
     final tabBarView = TabBarView(
+      controller: _tabController,
       physics: const NeverScrollableScrollPhysics(),
-      children: children,
+      children: widget.children,
     );
 
-    return DefaultTabController(
-      length: 3,
-      child: Builder(
-        builder: (context) {
-          return builder(context, tabBar, tabBarView);
-        },
+    return BottomSheetScaffold(
+      isFloatingButtonVisible: _isOnAsciiImageTab,
+      appBar: AppBar(
+        title: const Text("Image Result"),
+        bottom: tabBar,
       ),
+      body: tabBarView,
     );
   }
 }
