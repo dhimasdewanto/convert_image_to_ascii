@@ -81,18 +81,14 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
   }
 
   Future<Option<File>> _pickImage() async {
-    final task = await Task(
-      () => imagePicker.getImage(
+    try {
+      final pickedFile = await imagePicker.getImage(
         source: ImageSource.gallery,
-      ),
-    ).attempt().mapNullToFailure().run();
-
-    return task.fold(
-      (failure) => none(),
-      (pickedFile) => some(
-        File(pickedFile.path),
-      ),
-    );
+      );
+      return some(File(pickedFile.path));
+    } catch (e) {
+      return none();
+    }
   }
 }
 
