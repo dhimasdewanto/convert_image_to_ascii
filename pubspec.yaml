@@ -29,7 +29,9 @@ dependencies:
   freezed_annotation: ^0.12.0
   google_fonts: ^1.1.1
   image: ^2.1.18
+  gallery_saver: ^2.0.1
   image_picker: ^0.6.7+14
+  screenshot: ^0.2.0
   shared_preferences: ^0.5.12+4
 
 dev_dependencies:
