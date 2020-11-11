@@ -25,6 +25,8 @@ class _AsciiImageViewState extends State<AsciiImageView> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Column(
       children: [
         ElevatedButton(
@@ -42,25 +44,28 @@ class _AsciiImageViewState extends State<AsciiImageView> {
             maxScale: 5,
             constrained: false,
             boundaryMargin: const EdgeInsets.all(300),
-            child: BlocBuilder<SettingsBloc, SettingsState>(
-              builder: (context, state) {
-                return state.maybeWhen(
-                  orElse: () => const Offstage(),
-                  show: (settingsModel) {
-                    return Screenshot(
-                      controller: _screenshotController,
-                      child: Text(
-                        widget.imageTextBuffer.toString(),
-                        style: GoogleFonts.robotoMono(
-                          fontSize: settingsModel.fontSize.toDouble(),
-                          letterSpacing: settingsModel.letterSpacing,
+            child: Container(
+              color: theme.canvasColor,
+              child: BlocBuilder<SettingsBloc, SettingsState>(
+                builder: (context, state) {
+                  return state.maybeWhen(
+                    orElse: () => const Offstage(),
+                    show: (settingsModel) {
+                      return Screenshot(
+                        controller: _screenshotController,
+                        child: Text(
+                          widget.imageTextBuffer.toString(),
+                          style: GoogleFonts.robotoMono(
+                            fontSize: settingsModel.fontSize.toDouble(),
+                            letterSpacing: settingsModel.letterSpacing,
+                          ),
+                          softWrap: false,
                         ),
-                        softWrap: false,
-                      ),
-                    );
-                  },
-                );
-              },
+                      );
+                    },
+                  );
+                },
+              ),
             ),
           ),
         ),
