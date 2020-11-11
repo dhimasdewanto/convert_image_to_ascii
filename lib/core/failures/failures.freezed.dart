@@ -19,6 +19,11 @@ class _$FailuresTearOff {
   }
 
 // ignore: unused_element
+  _SaveImageFailed saveImageFailed() {
+    return const _SaveImageFailed();
+  }
+
+// ignore: unused_element
   _UnexpectedFailure unexpected() {
     return const _UnexpectedFailure();
   }
@@ -33,22 +38,26 @@ mixin _$Failures {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result copyClipboardFailed(),
+    @required Result saveImageFailed(),
     @required Result unexpected(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result copyClipboardFailed(),
+    Result saveImageFailed(),
     Result unexpected(),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result copyClipboardFailed(_CopyClipboardFailed value),
+    @required Result saveImageFailed(_SaveImageFailed value),
     @required Result unexpected(_UnexpectedFailure value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result copyClipboardFailed(_CopyClipboardFailed value),
+    Result saveImageFailed(_SaveImageFailed value),
     Result unexpected(_UnexpectedFailure value),
     @required Result orElse(),
   });
@@ -109,9 +118,11 @@ class _$_CopyClipboardFailed implements _CopyClipboardFailed {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result copyClipboardFailed(),
+    @required Result saveImageFailed(),
     @required Result unexpected(),
   }) {
     assert(copyClipboardFailed != null);
+    assert(saveImageFailed != null);
     assert(unexpected != null);
     return copyClipboardFailed();
   }
@@ -120,6 +131,7 @@ class _$_CopyClipboardFailed implements _CopyClipboardFailed {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result copyClipboardFailed(),
+    Result saveImageFailed(),
     Result unexpected(),
     @required Result orElse(),
   }) {
@@ -134,9 +146,11 @@ class _$_CopyClipboardFailed implements _CopyClipboardFailed {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result copyClipboardFailed(_CopyClipboardFailed value),
+    @required Result saveImageFailed(_SaveImageFailed value),
     @required Result unexpected(_UnexpectedFailure value),
   }) {
     assert(copyClipboardFailed != null);
+    assert(saveImageFailed != null);
     assert(unexpected != null);
     return copyClipboardFailed(this);
   }
@@ -145,6 +159,7 @@ class _$_CopyClipboardFailed implements _CopyClipboardFailed {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result copyClipboardFailed(_CopyClipboardFailed value),
+    Result saveImageFailed(_SaveImageFailed value),
     Result unexpected(_UnexpectedFailure value),
     @required Result orElse(),
   }) {
@@ -158,6 +173,102 @@ class _$_CopyClipboardFailed implements _CopyClipboardFailed {
 
 abstract class _CopyClipboardFailed implements Failures {
   const factory _CopyClipboardFailed() = _$_CopyClipboardFailed;
+}
+
+/// @nodoc
+abstract class _$SaveImageFailedCopyWith<$Res> {
+  factory _$SaveImageFailedCopyWith(
+          _SaveImageFailed value, $Res Function(_SaveImageFailed) then) =
+      __$SaveImageFailedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$SaveImageFailedCopyWithImpl<$Res> extends _$FailuresCopyWithImpl<$Res>
+    implements _$SaveImageFailedCopyWith<$Res> {
+  __$SaveImageFailedCopyWithImpl(
+      _SaveImageFailed _value, $Res Function(_SaveImageFailed) _then)
+      : super(_value, (v) => _then(v as _SaveImageFailed));
+
+  @override
+  _SaveImageFailed get _value => super._value as _SaveImageFailed;
+}
+
+/// @nodoc
+class _$_SaveImageFailed implements _SaveImageFailed {
+  const _$_SaveImageFailed();
+
+  @override
+  String toString() {
+    return 'Failures.saveImageFailed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _SaveImageFailed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result copyClipboardFailed(),
+    @required Result saveImageFailed(),
+    @required Result unexpected(),
+  }) {
+    assert(copyClipboardFailed != null);
+    assert(saveImageFailed != null);
+    assert(unexpected != null);
+    return saveImageFailed();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result copyClipboardFailed(),
+    Result saveImageFailed(),
+    Result unexpected(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (saveImageFailed != null) {
+      return saveImageFailed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result copyClipboardFailed(_CopyClipboardFailed value),
+    @required Result saveImageFailed(_SaveImageFailed value),
+    @required Result unexpected(_UnexpectedFailure value),
+  }) {
+    assert(copyClipboardFailed != null);
+    assert(saveImageFailed != null);
+    assert(unexpected != null);
+    return saveImageFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result copyClipboardFailed(_CopyClipboardFailed value),
+    Result saveImageFailed(_SaveImageFailed value),
+    Result unexpected(_UnexpectedFailure value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (saveImageFailed != null) {
+      return saveImageFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SaveImageFailed implements Failures {
+  const factory _SaveImageFailed() = _$_SaveImageFailed;
 }
 
 /// @nodoc
@@ -200,9 +311,11 @@ class _$_UnexpectedFailure implements _UnexpectedFailure {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result copyClipboardFailed(),
+    @required Result saveImageFailed(),
     @required Result unexpected(),
   }) {
     assert(copyClipboardFailed != null);
+    assert(saveImageFailed != null);
     assert(unexpected != null);
     return unexpected();
   }
@@ -211,6 +324,7 @@ class _$_UnexpectedFailure implements _UnexpectedFailure {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result copyClipboardFailed(),
+    Result saveImageFailed(),
     Result unexpected(),
     @required Result orElse(),
   }) {
@@ -225,9 +339,11 @@ class _$_UnexpectedFailure implements _UnexpectedFailure {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result copyClipboardFailed(_CopyClipboardFailed value),
+    @required Result saveImageFailed(_SaveImageFailed value),
     @required Result unexpected(_UnexpectedFailure value),
   }) {
     assert(copyClipboardFailed != null);
+    assert(saveImageFailed != null);
     assert(unexpected != null);
     return unexpected(this);
   }
@@ -236,6 +352,7 @@ class _$_UnexpectedFailure implements _UnexpectedFailure {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result copyClipboardFailed(_CopyClipboardFailed value),
+    Result saveImageFailed(_SaveImageFailed value),
     Result unexpected(_UnexpectedFailure value),
     @required Result orElse(),
   }) {

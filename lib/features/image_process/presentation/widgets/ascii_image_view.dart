@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gallery_saver/gallery_saver.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:screenshot/screenshot.dart';
 
 import '../../../settings/presentation/blocs/settings/settings_bloc.dart';
+import '../blocs/image_actions/image_actions_bloc.dart';
 
-/// Save image button to galery is only temp.
-/// Should be in bloc instead.
 class AsciiImageView extends StatefulWidget {
   const AsciiImageView({
     Key key,
@@ -31,10 +29,12 @@ class _AsciiImageViewState extends State<AsciiImageView> {
       children: [
         ElevatedButton(
           onPressed: () async {
-            final image = await _screenshotController.capture(
-              pixelRatio: 1.5,
+            final imageActionBloc = context.read<ImageActionsBloc>();
+            imageActionBloc.add(
+              ImageActionsEvent.saveImage(
+                screenshotController: _screenshotController,
+              ),
             );
-            await GallerySaver.saveImage(image.path);
           },
           child: const Text("Save to Gallery"),
         ),
@@ -44,15 +44,15 @@ class _AsciiImageViewState extends State<AsciiImageView> {
             maxScale: 5,
             constrained: false,
             boundaryMargin: const EdgeInsets.all(300),
-            child: Container(
-              color: theme.canvasColor,
-              child: BlocBuilder<SettingsBloc, SettingsState>(
-                builder: (context, state) {
-                  return state.maybeWhen(
-                    orElse: () => const Offstage(),
-                    show: (settingsModel) {
-                      return Screenshot(
-                        controller: _screenshotController,
+            child: BlocBuilder<SettingsBloc, SettingsState>(
+              builder: (context, state) {
+                return state.maybeWhen(
+                  orElse: () => const Offstage(),
+                  show: (settingsModel) {
+                    return Screenshot(
+                      controller: _screenshotController,
+                      child: Container(
+                        color: theme.canvasColor,
                         child: Text(
                           widget.imageTextBuffer.toString(),
                           style: GoogleFonts.robotoMono(
@@ -61,11 +61,11 @@ class _AsciiImageViewState extends State<AsciiImageView> {
                           ),
                           softWrap: false,
                         ),
-                      );
-                    },
-                  );
-                },
-              ),
+                      ),
+                    );
+                  },
+                );
+              },
             ),
           ),
         ),

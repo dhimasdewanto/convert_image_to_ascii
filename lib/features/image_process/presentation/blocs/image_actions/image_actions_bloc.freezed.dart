@@ -19,8 +19,11 @@ class _$ImageActionsEventTearOff {
   }
 
 // ignore: unused_element
-  _SaveImageEvent saveImage() {
-    return const _SaveImageEvent();
+  _SaveImageEvent saveImage(
+      {@required ScreenshotController screenshotController}) {
+    return _SaveImageEvent(
+      screenshotController: screenshotController,
+    );
   }
 
 // ignore: unused_element
@@ -45,7 +48,7 @@ mixin _$ImageActionsEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result copyImageText(),
-    @required Result saveImage(),
+    @required Result saveImage(ScreenshotController screenshotController),
     @required
         Result listenImageProcess(File imageSource,
             ImageResultModel imageResult, Uint8List convertedImageBytes),
@@ -53,7 +56,7 @@ mixin _$ImageActionsEvent {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result copyImageText(),
-    Result saveImage(),
+    Result saveImage(ScreenshotController screenshotController),
     Result listenImageProcess(File imageSource, ImageResultModel imageResult,
         Uint8List convertedImageBytes),
     @required Result orElse(),
@@ -130,7 +133,7 @@ class _$_CopyImageTextEvent implements _CopyImageTextEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result copyImageText(),
-    @required Result saveImage(),
+    @required Result saveImage(ScreenshotController screenshotController),
     @required
         Result listenImageProcess(File imageSource,
             ImageResultModel imageResult, Uint8List convertedImageBytes),
@@ -145,7 +148,7 @@ class _$_CopyImageTextEvent implements _CopyImageTextEvent {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result copyImageText(),
-    Result saveImage(),
+    Result saveImage(ScreenshotController screenshotController),
     Result listenImageProcess(File imageSource, ImageResultModel imageResult,
         Uint8List convertedImageBytes),
     @required Result orElse(),
@@ -195,6 +198,7 @@ abstract class _$SaveImageEventCopyWith<$Res> {
   factory _$SaveImageEventCopyWith(
           _SaveImageEvent value, $Res Function(_SaveImageEvent) then) =
       __$SaveImageEventCopyWithImpl<$Res>;
+  $Res call({ScreenshotController screenshotController});
 }
 
 /// @nodoc
@@ -207,30 +211,55 @@ class __$SaveImageEventCopyWithImpl<$Res>
 
   @override
   _SaveImageEvent get _value => super._value as _SaveImageEvent;
+
+  @override
+  $Res call({
+    Object screenshotController = freezed,
+  }) {
+    return _then(_SaveImageEvent(
+      screenshotController: screenshotController == freezed
+          ? _value.screenshotController
+          : screenshotController as ScreenshotController,
+    ));
+  }
 }
 
 /// @nodoc
 class _$_SaveImageEvent implements _SaveImageEvent {
-  const _$_SaveImageEvent();
+  const _$_SaveImageEvent({@required this.screenshotController})
+      : assert(screenshotController != null);
+
+  @override
+  final ScreenshotController screenshotController;
 
   @override
   String toString() {
-    return 'ImageActionsEvent.saveImage()';
+    return 'ImageActionsEvent.saveImage(screenshotController: $screenshotController)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _SaveImageEvent);
+    return identical(this, other) ||
+        (other is _SaveImageEvent &&
+            (identical(other.screenshotController, screenshotController) ||
+                const DeepCollectionEquality()
+                    .equals(other.screenshotController, screenshotController)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(screenshotController);
+
+  @override
+  _$SaveImageEventCopyWith<_SaveImageEvent> get copyWith =>
+      __$SaveImageEventCopyWithImpl<_SaveImageEvent>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result copyImageText(),
-    @required Result saveImage(),
+    @required Result saveImage(ScreenshotController screenshotController),
     @required
         Result listenImageProcess(File imageSource,
             ImageResultModel imageResult, Uint8List convertedImageBytes),
@@ -238,21 +267,21 @@ class _$_SaveImageEvent implements _SaveImageEvent {
     assert(copyImageText != null);
     assert(saveImage != null);
     assert(listenImageProcess != null);
-    return saveImage();
+    return saveImage(screenshotController);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result copyImageText(),
-    Result saveImage(),
+    Result saveImage(ScreenshotController screenshotController),
     Result listenImageProcess(File imageSource, ImageResultModel imageResult,
         Uint8List convertedImageBytes),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if (saveImage != null) {
-      return saveImage();
+      return saveImage(screenshotController);
     }
     return orElse();
   }
@@ -287,7 +316,12 @@ class _$_SaveImageEvent implements _SaveImageEvent {
 }
 
 abstract class _SaveImageEvent implements ImageActionsEvent {
-  const factory _SaveImageEvent() = _$_SaveImageEvent;
+  const factory _SaveImageEvent(
+          {@required ScreenshotController screenshotController}) =
+      _$_SaveImageEvent;
+
+  ScreenshotController get screenshotController;
+  _$SaveImageEventCopyWith<_SaveImageEvent> get copyWith;
 }
 
 /// @nodoc
@@ -385,7 +419,7 @@ class _$_ListenImageProcessEvent implements _ListenImageProcessEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result copyImageText(),
-    @required Result saveImage(),
+    @required Result saveImage(ScreenshotController screenshotController),
     @required
         Result listenImageProcess(File imageSource,
             ImageResultModel imageResult, Uint8List convertedImageBytes),
@@ -400,7 +434,7 @@ class _$_ListenImageProcessEvent implements _ListenImageProcessEvent {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result copyImageText(),
-    Result saveImage(),
+    Result saveImage(ScreenshotController screenshotController),
     Result listenImageProcess(File imageSource, ImageResultModel imageResult,
         Uint8List convertedImageBytes),
     @required Result orElse(),
