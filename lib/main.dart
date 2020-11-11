@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget with Injections {
       builder: (context, child) {
         return MultiBlocProvider(
           providers: [
+            BlocProvider(create: (context) => imageActionsBloc),
             BlocProvider(create: (context) => imageProcessBloc),
             BlocProvider(create: (context) => settingsBloc),
           ],
