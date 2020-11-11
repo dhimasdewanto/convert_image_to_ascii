@@ -3,17 +3,21 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:bloc/bloc.dart';
-import 'package:flutter/services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../domain/models/image_result_model.dart';
+import '../../../domain/use_cases/copy_text_to_clipboard.dart';
 
 part 'image_actions_bloc.freezed.dart';
 part 'image_actions_event.dart';
 part 'image_actions_state.dart';
 
 class ImageActionsBloc extends Bloc<ImageActionsEvent, ImageActionsState> {
-  ImageActionsBloc() : super(const ImageActionsState.initial());
+  ImageActionsBloc({
+    @required this.copyTextToClipboard,
+  }) : super(const ImageActionsState.initial());
+
+  final CopyTextToClipboard copyTextToClipboard;
 
   ImageResultModel _imageResult;
 
@@ -30,17 +34,17 @@ class ImageActionsBloc extends Bloc<ImageActionsEvent, ImageActionsState> {
         _imageResult = imageResult;
       },
       copyImageText: () async* {
-        try {
-          await Clipboard.setData(
-            ClipboardData(
-              text: _imageResult.imageStringBuffer.toString(),
-            ),
-          );
-          yield const ImageActionsState.successCopyText();
-        } catch (e) {
-          print(e);
-        }
+        final result = await copyTextToClipboard(
+          _imageResult.imageStringBuffer.toString(),
+        );
+        yield* result.fold(
+          () async* {
+            yield const ImageActionsState.successCopyText();
+          },
+          (failure) async* {},
+        );
       },
+      saveImage: () async* {},
     );
   }
 }

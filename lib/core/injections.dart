@@ -1,5 +1,6 @@
 import 'package:image_picker/image_picker.dart';
 
+import '../features/image_process/domain/use_cases/copy_text_to_clipboard.dart';
 import '../features/image_process/domain/use_cases/get_string_buffer.dart';
 import '../features/image_process/presentation/blocs/image_actions/image_actions_bloc.dart';
 import '../features/image_process/presentation/blocs/image_process/image_process_bloc.dart';
@@ -10,7 +11,10 @@ import '../features/settings/presentation/blocs/settings/settings_bloc.dart';
 
 mixin Injections {
   ImageActionsBloc get imageActionsBloc {
-    return ImageActionsBloc();
+    final copyTextToClipboard = CopyTextToClipboard();
+    return ImageActionsBloc(
+      copyTextToClipboard: copyTextToClipboard,
+    );
   }
 
   ImageProcessBloc get imageProcessBloc {
