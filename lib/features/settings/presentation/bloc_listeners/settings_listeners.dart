@@ -43,7 +43,7 @@ void _addSettingsToImageProcessBloc({
   @required BuildContext context,
   @required SettingsModel settingsModel,
 }) {
-  final imageProcessBloc = context.bloc<ImageProcessBloc>();
+  final imageProcessBloc = context.read<ImageProcessBloc>();
   imageProcessBloc.add(
     ImageProcessEvent.updateSettings(
       settingsModel: settingsModel,

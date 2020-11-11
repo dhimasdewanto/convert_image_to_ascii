@@ -27,7 +27,7 @@ class _ImageWidthDialogState extends State<ImageWidthDialog> {
   }
 
   void _onConfirm() {
-    final settingsBloc = context.bloc<SettingsBloc>();
+    final settingsBloc = context.read<SettingsBloc>();
     settingsBloc.add(
       SettingsEvent.updateSettings(
         imageWidth: _value,

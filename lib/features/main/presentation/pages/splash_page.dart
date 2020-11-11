@@ -19,7 +19,7 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   void _initializeSettingsBloc() {
-    final settingsBloc = context.bloc<SettingsBloc>();
+    final settingsBloc = context.read<SettingsBloc>();
     settingsBloc.add(
       const SettingsEvent.initialize(),
     );

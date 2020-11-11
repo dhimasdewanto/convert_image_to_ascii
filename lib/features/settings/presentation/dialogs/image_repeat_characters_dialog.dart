@@ -29,7 +29,7 @@ class _ImageRepeatCharactersDialogState
   }
 
   void _onConfirm() {
-    final settingsBloc = context.bloc<SettingsBloc>();
+    final settingsBloc = context.read<SettingsBloc>();
     settingsBloc.add(
       SettingsEvent.updateSettings(
         repeatCharacters: _value,

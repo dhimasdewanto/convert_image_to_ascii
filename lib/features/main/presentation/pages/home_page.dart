@@ -30,7 +30,7 @@ class HomePage extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () {
-                  final imageProcessBloc = context.bloc<ImageProcessBloc>();
+                  final imageProcessBloc = context.read<ImageProcessBloc>();
                   imageProcessBloc.add(
                     const ImageProcessEvent.pickImage(),
                   );
