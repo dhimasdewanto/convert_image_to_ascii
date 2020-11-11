@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/navigators.dart';
+import '../blocs/image_actions/image_actions_bloc.dart';
 
 class BottomSheetScaffold extends StatefulWidget {
   const BottomSheetScaffold({
@@ -50,7 +52,13 @@ class _BottomSheetScaffoldState extends State<BottomSheetScaffold> {
                                   ListTile(
                                     leading: const Icon(Icons.copy_rounded),
                                     title: const Text("Copy Text"),
-                                    onTap: () {},
+                                    onTap: () {
+                                      final imageActionsBloc =
+                                          context.read<ImageActionsBloc>();
+                                      imageActionsBloc.add(
+                                        const ImageActionsEvent.copyImageText(),
+                                      );
+                                    },
                                   ),
                                   ListTile(
                                     leading: const Icon(Icons.save_alt_rounded),

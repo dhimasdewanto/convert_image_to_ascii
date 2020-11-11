@@ -17,6 +17,18 @@ class _$ImageActionsEventTearOff {
   _CopyImageTextEvent copyImageText() {
     return const _CopyImageTextEvent();
   }
+
+// ignore: unused_element
+  _ListenImageProcessEvent listenImageProcess(
+      {@required File imageSource,
+      @required ImageResultModel imageResult,
+      @required Uint8List convertedImageBytes}) {
+    return _ListenImageProcessEvent(
+      imageSource: imageSource,
+      imageResult: imageResult,
+      convertedImageBytes: convertedImageBytes,
+    );
+  }
 }
 
 /// @nodoc
@@ -28,19 +40,26 @@ mixin _$ImageActionsEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result copyImageText(),
+    @required
+        Result listenImageProcess(File imageSource,
+            ImageResultModel imageResult, Uint8List convertedImageBytes),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result copyImageText(),
+    Result listenImageProcess(File imageSource, ImageResultModel imageResult,
+        Uint8List convertedImageBytes),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result copyImageText(_CopyImageTextEvent value),
+    @required Result listenImageProcess(_ListenImageProcessEvent value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result copyImageText(_CopyImageTextEvent value),
+    Result listenImageProcess(_ListenImageProcessEvent value),
     @required Result orElse(),
   });
 }
@@ -102,8 +121,12 @@ class _$_CopyImageTextEvent implements _CopyImageTextEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result copyImageText(),
+    @required
+        Result listenImageProcess(File imageSource,
+            ImageResultModel imageResult, Uint8List convertedImageBytes),
   }) {
     assert(copyImageText != null);
+    assert(listenImageProcess != null);
     return copyImageText();
   }
 
@@ -111,6 +134,8 @@ class _$_CopyImageTextEvent implements _CopyImageTextEvent {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result copyImageText(),
+    Result listenImageProcess(File imageSource, ImageResultModel imageResult,
+        Uint8List convertedImageBytes),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -124,8 +149,10 @@ class _$_CopyImageTextEvent implements _CopyImageTextEvent {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result copyImageText(_CopyImageTextEvent value),
+    @required Result listenImageProcess(_ListenImageProcessEvent value),
   }) {
     assert(copyImageText != null);
+    assert(listenImageProcess != null);
     return copyImageText(this);
   }
 
@@ -133,6 +160,7 @@ class _$_CopyImageTextEvent implements _CopyImageTextEvent {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result copyImageText(_CopyImageTextEvent value),
+    Result listenImageProcess(_ListenImageProcessEvent value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -148,12 +176,174 @@ abstract class _CopyImageTextEvent implements ImageActionsEvent {
 }
 
 /// @nodoc
+abstract class _$ListenImageProcessEventCopyWith<$Res> {
+  factory _$ListenImageProcessEventCopyWith(_ListenImageProcessEvent value,
+          $Res Function(_ListenImageProcessEvent) then) =
+      __$ListenImageProcessEventCopyWithImpl<$Res>;
+  $Res call(
+      {File imageSource,
+      ImageResultModel imageResult,
+      Uint8List convertedImageBytes});
+}
+
+/// @nodoc
+class __$ListenImageProcessEventCopyWithImpl<$Res>
+    extends _$ImageActionsEventCopyWithImpl<$Res>
+    implements _$ListenImageProcessEventCopyWith<$Res> {
+  __$ListenImageProcessEventCopyWithImpl(_ListenImageProcessEvent _value,
+      $Res Function(_ListenImageProcessEvent) _then)
+      : super(_value, (v) => _then(v as _ListenImageProcessEvent));
+
+  @override
+  _ListenImageProcessEvent get _value =>
+      super._value as _ListenImageProcessEvent;
+
+  @override
+  $Res call({
+    Object imageSource = freezed,
+    Object imageResult = freezed,
+    Object convertedImageBytes = freezed,
+  }) {
+    return _then(_ListenImageProcessEvent(
+      imageSource:
+          imageSource == freezed ? _value.imageSource : imageSource as File,
+      imageResult: imageResult == freezed
+          ? _value.imageResult
+          : imageResult as ImageResultModel,
+      convertedImageBytes: convertedImageBytes == freezed
+          ? _value.convertedImageBytes
+          : convertedImageBytes as Uint8List,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_ListenImageProcessEvent implements _ListenImageProcessEvent {
+  const _$_ListenImageProcessEvent(
+      {@required this.imageSource,
+      @required this.imageResult,
+      @required this.convertedImageBytes})
+      : assert(imageSource != null),
+        assert(imageResult != null),
+        assert(convertedImageBytes != null);
+
+  @override
+  final File imageSource;
+  @override
+  final ImageResultModel imageResult;
+  @override
+  final Uint8List convertedImageBytes;
+
+  @override
+  String toString() {
+    return 'ImageActionsEvent.listenImageProcess(imageSource: $imageSource, imageResult: $imageResult, convertedImageBytes: $convertedImageBytes)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ListenImageProcessEvent &&
+            (identical(other.imageSource, imageSource) ||
+                const DeepCollectionEquality()
+                    .equals(other.imageSource, imageSource)) &&
+            (identical(other.imageResult, imageResult) ||
+                const DeepCollectionEquality()
+                    .equals(other.imageResult, imageResult)) &&
+            (identical(other.convertedImageBytes, convertedImageBytes) ||
+                const DeepCollectionEquality()
+                    .equals(other.convertedImageBytes, convertedImageBytes)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(imageSource) ^
+      const DeepCollectionEquality().hash(imageResult) ^
+      const DeepCollectionEquality().hash(convertedImageBytes);
+
+  @override
+  _$ListenImageProcessEventCopyWith<_ListenImageProcessEvent> get copyWith =>
+      __$ListenImageProcessEventCopyWithImpl<_ListenImageProcessEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result copyImageText(),
+    @required
+        Result listenImageProcess(File imageSource,
+            ImageResultModel imageResult, Uint8List convertedImageBytes),
+  }) {
+    assert(copyImageText != null);
+    assert(listenImageProcess != null);
+    return listenImageProcess(imageSource, imageResult, convertedImageBytes);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result copyImageText(),
+    Result listenImageProcess(File imageSource, ImageResultModel imageResult,
+        Uint8List convertedImageBytes),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (listenImageProcess != null) {
+      return listenImageProcess(imageSource, imageResult, convertedImageBytes);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result copyImageText(_CopyImageTextEvent value),
+    @required Result listenImageProcess(_ListenImageProcessEvent value),
+  }) {
+    assert(copyImageText != null);
+    assert(listenImageProcess != null);
+    return listenImageProcess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result copyImageText(_CopyImageTextEvent value),
+    Result listenImageProcess(_ListenImageProcessEvent value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (listenImageProcess != null) {
+      return listenImageProcess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ListenImageProcessEvent implements ImageActionsEvent {
+  const factory _ListenImageProcessEvent(
+      {@required File imageSource,
+      @required ImageResultModel imageResult,
+      @required Uint8List convertedImageBytes}) = _$_ListenImageProcessEvent;
+
+  File get imageSource;
+  ImageResultModel get imageResult;
+  Uint8List get convertedImageBytes;
+  _$ListenImageProcessEventCopyWith<_ListenImageProcessEvent> get copyWith;
+}
+
+/// @nodoc
 class _$ImageActionsStateTearOff {
   const _$ImageActionsStateTearOff();
 
 // ignore: unused_element
   _InitialState initial() {
     return const _InitialState();
+  }
+
+// ignore: unused_element
+  _SuccessCopyTextState successCopyText() {
+    return const _SuccessCopyTextState();
   }
 }
 
@@ -166,19 +356,23 @@ mixin _$ImageActionsState {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
+    @required Result successCopyText(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
+    Result successCopyText(),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_InitialState value),
+    @required Result successCopyText(_SuccessCopyTextState value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_InitialState value),
+    Result successCopyText(_SuccessCopyTextState value),
     @required Result orElse(),
   });
 }
@@ -240,8 +434,10 @@ class _$_InitialState implements _InitialState {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
+    @required Result successCopyText(),
   }) {
     assert(initial != null);
+    assert(successCopyText != null);
     return initial();
   }
 
@@ -249,6 +445,7 @@ class _$_InitialState implements _InitialState {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
+    Result successCopyText(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -262,8 +459,10 @@ class _$_InitialState implements _InitialState {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_InitialState value),
+    @required Result successCopyText(_SuccessCopyTextState value),
   }) {
     assert(initial != null);
+    assert(successCopyText != null);
     return initial(this);
   }
 
@@ -271,6 +470,7 @@ class _$_InitialState implements _InitialState {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_InitialState value),
+    Result successCopyText(_SuccessCopyTextState value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -283,4 +483,95 @@ class _$_InitialState implements _InitialState {
 
 abstract class _InitialState implements ImageActionsState {
   const factory _InitialState() = _$_InitialState;
+}
+
+/// @nodoc
+abstract class _$SuccessCopyTextStateCopyWith<$Res> {
+  factory _$SuccessCopyTextStateCopyWith(_SuccessCopyTextState value,
+          $Res Function(_SuccessCopyTextState) then) =
+      __$SuccessCopyTextStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$SuccessCopyTextStateCopyWithImpl<$Res>
+    extends _$ImageActionsStateCopyWithImpl<$Res>
+    implements _$SuccessCopyTextStateCopyWith<$Res> {
+  __$SuccessCopyTextStateCopyWithImpl(
+      _SuccessCopyTextState _value, $Res Function(_SuccessCopyTextState) _then)
+      : super(_value, (v) => _then(v as _SuccessCopyTextState));
+
+  @override
+  _SuccessCopyTextState get _value => super._value as _SuccessCopyTextState;
+}
+
+/// @nodoc
+class _$_SuccessCopyTextState implements _SuccessCopyTextState {
+  const _$_SuccessCopyTextState();
+
+  @override
+  String toString() {
+    return 'ImageActionsState.successCopyText()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _SuccessCopyTextState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result initial(),
+    @required Result successCopyText(),
+  }) {
+    assert(initial != null);
+    assert(successCopyText != null);
+    return successCopyText();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result initial(),
+    Result successCopyText(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successCopyText != null) {
+      return successCopyText();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result initial(_InitialState value),
+    @required Result successCopyText(_SuccessCopyTextState value),
+  }) {
+    assert(initial != null);
+    assert(successCopyText != null);
+    return successCopyText(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result initial(_InitialState value),
+    Result successCopyText(_SuccessCopyTextState value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successCopyText != null) {
+      return successCopyText(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SuccessCopyTextState implements ImageActionsState {
+  const factory _SuccessCopyTextState() = _$_SuccessCopyTextState;
 }

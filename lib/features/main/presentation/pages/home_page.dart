@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/navigators.dart';
-import '../../../image_process/presentation/bloc_listeners/image_picked_listener.dart';
+import '../../../image_process/presentation/bloc_listeners/image_process_listener.dart';
 import '../../../image_process/presentation/blocs/image_process/image_process_bloc.dart';
 import '../../../settings/presentation/pages/settings_page.dart';
 
@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: MultiBlocListener(
         listeners: [
-          imagePickedListener,
+          imageProcessListener,
         ],
         child: Center(
           child: Column(
