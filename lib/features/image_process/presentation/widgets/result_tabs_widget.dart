@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:screenshot/screenshot.dart';
 
 import 'bottom_sheet_scaffold.dart';
 
@@ -6,9 +7,11 @@ class ResultTabsWidget extends StatefulWidget {
   const ResultTabsWidget({
     Key key,
     @required this.children,
+    @required this.screenshotController,
   }) : super(key: key);
 
   final List<Widget> children;
+  final ScreenshotController screenshotController;
 
   @override
   _ResultTabsWidgetState createState() => _ResultTabsWidgetState();
@@ -69,6 +72,7 @@ class _ResultTabsWidgetState extends State<ResultTabsWidget>
 
     return BottomSheetScaffold(
       isFloatingButtonVisible: _isOnAsciiImageTab,
+      screenshotController: widget.screenshotController,
       appBar: AppBar(
         title: const Text("Image Result"),
         bottom: tabBar,

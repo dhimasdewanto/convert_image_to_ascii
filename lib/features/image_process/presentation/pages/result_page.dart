@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:screenshot/screenshot.dart';
 
 import '../blocs/image_process/image_process_bloc.dart';
 import '../widgets/ascii_image_view.dart';
 import '../widgets/result_tabs_widget.dart';
 
-class ResultPage extends StatelessWidget {
+class ResultPage extends StatefulWidget {
   const ResultPage({Key key}) : super(key: key);
 
+  @override
+  _ResultPageState createState() => _ResultPageState();
+}
+
+class _ResultPageState extends State<ResultPage> {
+  final _screenshotController = ScreenshotController();
+  
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ImageProcessBloc, ImageProcessState>(
@@ -32,9 +40,11 @@ class ResultPage extends StatelessWidget {
           },
           showResult: (imageFile, imageResult, convertedImageBytes) {
             return ResultTabsWidget(
+              screenshotController: _screenshotController,
               children: [
                 AsciiImageView(
                   imageTextBuffer: imageResult.imageStringBuffer,
+                  screenshotController: _screenshotController,
                 ),
                 InteractiveViewer(
                   child: Image.memory(
