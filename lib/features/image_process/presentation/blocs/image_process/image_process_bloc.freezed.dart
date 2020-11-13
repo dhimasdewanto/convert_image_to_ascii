@@ -435,11 +435,13 @@ class _$ImageProcessStateTearOff {
   _ShowResultState showResult(
       {@required File imageSource,
       @required ImageResultModel imageResult,
-      @required Uint8List convertedImageBytes}) {
+      @required Uint8List convertedImageBytes,
+      @required ScreenshotController screenshotController}) {
     return _ShowResultState(
       imageSource: imageSource,
       imageResult: imageResult,
       convertedImageBytes: convertedImageBytes,
+      screenshotController: screenshotController,
     );
   }
 }
@@ -457,8 +459,11 @@ mixin _$ImageProcessState {
     @required Result error(String message),
     @required Result imagePicked(File imageSource),
     @required
-        Result showResult(File imageSource, ImageResultModel imageResult,
-            Uint8List convertedImageBytes),
+        Result showResult(
+            File imageSource,
+            ImageResultModel imageResult,
+            Uint8List convertedImageBytes,
+            ScreenshotController screenshotController),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
@@ -466,8 +471,11 @@ mixin _$ImageProcessState {
     Result loading(),
     Result error(String message),
     Result imagePicked(File imageSource),
-    Result showResult(File imageSource, ImageResultModel imageResult,
-        Uint8List convertedImageBytes),
+    Result showResult(
+        File imageSource,
+        ImageResultModel imageResult,
+        Uint8List convertedImageBytes,
+        ScreenshotController screenshotController),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -550,8 +558,11 @@ class _$_InitialState implements _InitialState {
     @required Result error(String message),
     @required Result imagePicked(File imageSource),
     @required
-        Result showResult(File imageSource, ImageResultModel imageResult,
-            Uint8List convertedImageBytes),
+        Result showResult(
+            File imageSource,
+            ImageResultModel imageResult,
+            Uint8List convertedImageBytes,
+            ScreenshotController screenshotController),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -568,8 +579,11 @@ class _$_InitialState implements _InitialState {
     Result loading(),
     Result error(String message),
     Result imagePicked(File imageSource),
-    Result showResult(File imageSource, ImageResultModel imageResult,
-        Uint8List convertedImageBytes),
+    Result showResult(
+        File imageSource,
+        ImageResultModel imageResult,
+        Uint8List convertedImageBytes,
+        ScreenshotController screenshotController),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -662,8 +676,11 @@ class _$_LoadingState implements _LoadingState {
     @required Result error(String message),
     @required Result imagePicked(File imageSource),
     @required
-        Result showResult(File imageSource, ImageResultModel imageResult,
-            Uint8List convertedImageBytes),
+        Result showResult(
+            File imageSource,
+            ImageResultModel imageResult,
+            Uint8List convertedImageBytes,
+            ScreenshotController screenshotController),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -680,8 +697,11 @@ class _$_LoadingState implements _LoadingState {
     Result loading(),
     Result error(String message),
     Result imagePicked(File imageSource),
-    Result showResult(File imageSource, ImageResultModel imageResult,
-        Uint8List convertedImageBytes),
+    Result showResult(
+        File imageSource,
+        ImageResultModel imageResult,
+        Uint8List convertedImageBytes,
+        ScreenshotController screenshotController),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -796,8 +816,11 @@ class _$_ErrorState implements _ErrorState {
     @required Result error(String message),
     @required Result imagePicked(File imageSource),
     @required
-        Result showResult(File imageSource, ImageResultModel imageResult,
-            Uint8List convertedImageBytes),
+        Result showResult(
+            File imageSource,
+            ImageResultModel imageResult,
+            Uint8List convertedImageBytes,
+            ScreenshotController screenshotController),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -814,8 +837,11 @@ class _$_ErrorState implements _ErrorState {
     Result loading(),
     Result error(String message),
     Result imagePicked(File imageSource),
-    Result showResult(File imageSource, ImageResultModel imageResult,
-        Uint8List convertedImageBytes),
+    Result showResult(
+        File imageSource,
+        ImageResultModel imageResult,
+        Uint8List convertedImageBytes,
+        ScreenshotController screenshotController),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -935,8 +961,11 @@ class _$_ImagePickedState implements _ImagePickedState {
     @required Result error(String message),
     @required Result imagePicked(File imageSource),
     @required
-        Result showResult(File imageSource, ImageResultModel imageResult,
-            Uint8List convertedImageBytes),
+        Result showResult(
+            File imageSource,
+            ImageResultModel imageResult,
+            Uint8List convertedImageBytes,
+            ScreenshotController screenshotController),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -953,8 +982,11 @@ class _$_ImagePickedState implements _ImagePickedState {
     Result loading(),
     Result error(String message),
     Result imagePicked(File imageSource),
-    Result showResult(File imageSource, ImageResultModel imageResult,
-        Uint8List convertedImageBytes),
+    Result showResult(
+        File imageSource,
+        ImageResultModel imageResult,
+        Uint8List convertedImageBytes,
+        ScreenshotController screenshotController),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1015,7 +1047,8 @@ abstract class _$ShowResultStateCopyWith<$Res> {
   $Res call(
       {File imageSource,
       ImageResultModel imageResult,
-      Uint8List convertedImageBytes});
+      Uint8List convertedImageBytes,
+      ScreenshotController screenshotController});
 }
 
 /// @nodoc
@@ -1034,6 +1067,7 @@ class __$ShowResultStateCopyWithImpl<$Res>
     Object imageSource = freezed,
     Object imageResult = freezed,
     Object convertedImageBytes = freezed,
+    Object screenshotController = freezed,
   }) {
     return _then(_ShowResultState(
       imageSource:
@@ -1044,6 +1078,9 @@ class __$ShowResultStateCopyWithImpl<$Res>
       convertedImageBytes: convertedImageBytes == freezed
           ? _value.convertedImageBytes
           : convertedImageBytes as Uint8List,
+      screenshotController: screenshotController == freezed
+          ? _value.screenshotController
+          : screenshotController as ScreenshotController,
     ));
   }
 }
@@ -1053,10 +1090,12 @@ class _$_ShowResultState implements _ShowResultState {
   const _$_ShowResultState(
       {@required this.imageSource,
       @required this.imageResult,
-      @required this.convertedImageBytes})
+      @required this.convertedImageBytes,
+      @required this.screenshotController})
       : assert(imageSource != null),
         assert(imageResult != null),
-        assert(convertedImageBytes != null);
+        assert(convertedImageBytes != null),
+        assert(screenshotController != null);
 
   @override
   final File imageSource;
@@ -1064,10 +1103,12 @@ class _$_ShowResultState implements _ShowResultState {
   final ImageResultModel imageResult;
   @override
   final Uint8List convertedImageBytes;
+  @override
+  final ScreenshotController screenshotController;
 
   @override
   String toString() {
-    return 'ImageProcessState.showResult(imageSource: $imageSource, imageResult: $imageResult, convertedImageBytes: $convertedImageBytes)';
+    return 'ImageProcessState.showResult(imageSource: $imageSource, imageResult: $imageResult, convertedImageBytes: $convertedImageBytes, screenshotController: $screenshotController)';
   }
 
   @override
@@ -1082,7 +1123,10 @@ class _$_ShowResultState implements _ShowResultState {
                     .equals(other.imageResult, imageResult)) &&
             (identical(other.convertedImageBytes, convertedImageBytes) ||
                 const DeepCollectionEquality()
-                    .equals(other.convertedImageBytes, convertedImageBytes)));
+                    .equals(other.convertedImageBytes, convertedImageBytes)) &&
+            (identical(other.screenshotController, screenshotController) ||
+                const DeepCollectionEquality()
+                    .equals(other.screenshotController, screenshotController)));
   }
 
   @override
@@ -1090,7 +1134,8 @@ class _$_ShowResultState implements _ShowResultState {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(imageSource) ^
       const DeepCollectionEquality().hash(imageResult) ^
-      const DeepCollectionEquality().hash(convertedImageBytes);
+      const DeepCollectionEquality().hash(convertedImageBytes) ^
+      const DeepCollectionEquality().hash(screenshotController);
 
   @override
   _$ShowResultStateCopyWith<_ShowResultState> get copyWith =>
@@ -1104,15 +1149,19 @@ class _$_ShowResultState implements _ShowResultState {
     @required Result error(String message),
     @required Result imagePicked(File imageSource),
     @required
-        Result showResult(File imageSource, ImageResultModel imageResult,
-            Uint8List convertedImageBytes),
+        Result showResult(
+            File imageSource,
+            ImageResultModel imageResult,
+            Uint8List convertedImageBytes,
+            ScreenshotController screenshotController),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(error != null);
     assert(imagePicked != null);
     assert(showResult != null);
-    return showResult(imageSource, imageResult, convertedImageBytes);
+    return showResult(
+        imageSource, imageResult, convertedImageBytes, screenshotController);
   }
 
   @override
@@ -1122,13 +1171,17 @@ class _$_ShowResultState implements _ShowResultState {
     Result loading(),
     Result error(String message),
     Result imagePicked(File imageSource),
-    Result showResult(File imageSource, ImageResultModel imageResult,
-        Uint8List convertedImageBytes),
+    Result showResult(
+        File imageSource,
+        ImageResultModel imageResult,
+        Uint8List convertedImageBytes,
+        ScreenshotController screenshotController),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if (showResult != null) {
-      return showResult(imageSource, imageResult, convertedImageBytes);
+      return showResult(
+          imageSource, imageResult, convertedImageBytes, screenshotController);
     }
     return orElse();
   }
@@ -1170,12 +1223,15 @@ class _$_ShowResultState implements _ShowResultState {
 
 abstract class _ShowResultState implements ImageProcessState {
   const factory _ShowResultState(
-      {@required File imageSource,
-      @required ImageResultModel imageResult,
-      @required Uint8List convertedImageBytes}) = _$_ShowResultState;
+          {@required File imageSource,
+          @required ImageResultModel imageResult,
+          @required Uint8List convertedImageBytes,
+          @required ScreenshotController screenshotController}) =
+      _$_ShowResultState;
 
   File get imageSource;
   ImageResultModel get imageResult;
   Uint8List get convertedImageBytes;
+  ScreenshotController get screenshotController;
   _$ShowResultStateCopyWith<_ShowResultState> get copyWith;
 }

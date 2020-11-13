@@ -14,5 +14,6 @@ abstract class ImageProcessState with _$ImageProcessState {
     @required File imageSource,
     @required ImageResultModel imageResult,
     @required Uint8List convertedImageBytes,
+    @required ScreenshotController screenshotController,
   }) = _ShowResultState;
 }

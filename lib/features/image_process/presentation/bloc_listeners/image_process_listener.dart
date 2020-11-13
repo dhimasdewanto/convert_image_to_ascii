@@ -19,6 +19,7 @@ final imageProcessListener = BlocListener<ImageProcessBloc, ImageProcessState>(
         imageSource,
         imageResult,
         convertedImageBytes,
+        screenshotController,
       ) {
         final imageActionBloc = context.read<ImageActionsBloc>();
         imageActionBloc.add(

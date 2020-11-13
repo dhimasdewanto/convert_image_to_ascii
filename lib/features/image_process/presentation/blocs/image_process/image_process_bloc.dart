@@ -7,6 +7,7 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image/image.dart' as img;
 import 'package:image_picker/image_picker.dart';
+import 'package:screenshot/screenshot.dart';
 
 import '../../../../settings/domain/models/settings_model.dart';
 import '../../../domain/models/image_result_model.dart';
@@ -20,10 +21,12 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
   ImageProcessBloc({
     @required this.getStringBuffer,
     @required this.imagePicker,
+    @required this.screenshotController,
   }) : super(const ImageProcessState.initial());
 
   final GetStringBuffer getStringBuffer;
   final ImagePicker imagePicker;
+  final ScreenshotController screenshotController;
 
   SettingsModel settingsData;
 
@@ -73,6 +76,7 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
               imageSource: imageSource,
               imageResult: imageResult,
               convertedImageBytes: img.encodeJpg(imageResult.convertedImage),
+              screenshotController: screenshotController,
             );
           },
         );

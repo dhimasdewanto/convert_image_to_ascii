@@ -1,4 +1,5 @@
 import 'package:image_picker/image_picker.dart';
+import 'package:screenshot/screenshot.dart';
 
 import '../features/image_process/domain/use_cases/copy_text_to_clipboard.dart';
 import '../features/image_process/domain/use_cases/get_string_buffer.dart';
@@ -23,9 +24,11 @@ mixin Injections {
   ImageProcessBloc get imageProcessBloc {
     final getStringBuffer = GetStringBuffer();
     final imagePicker = ImagePicker();
+    final screenshotController = ScreenshotController();
     return ImageProcessBloc(
       getStringBuffer: getStringBuffer,
       imagePicker: imagePicker,
+      screenshotController: screenshotController,
     );
   }
 
