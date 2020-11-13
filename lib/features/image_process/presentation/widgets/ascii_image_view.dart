@@ -35,11 +35,7 @@ class AsciiImageView extends StatelessWidget {
                   color: theme.canvasColor,
                   child: Text(
                     imageTextBuffer.toString(),
-                    style: GoogleFonts.robotoMono(
-                      fontSize: settingsModel.fontSize.toDouble(),
-                      letterSpacing: settingsModel.letterSpacing,
-                    ),
-                    softWrap: false,
+                    style: GoogleFonts.robotoMono(),
                   ),
                 ),
               );
