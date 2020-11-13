@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../blocs/image_process/image_process_bloc.dart';
 import '../widgets/ascii_image_view.dart';
-import '../widgets/result_tabs_widget.dart';
+import '../widgets/bottom_sheet_scaffold.dart';
 
 class ResultPage extends StatelessWidget {
   const ResultPage({Key key}) : super(key: key);
@@ -36,28 +36,15 @@ class ResultPage extends StatelessWidget {
             convertedImageBytes,
             screenshotController,
           ) {
-            return ResultTabsWidget(
+            return BottomSheetScaffold(
               screenshotController: screenshotController,
-              children: [
-                AsciiImageView(
-                  imageTextBuffer: imageResult.imageStringBuffer,
-                  screenshotController: screenshotController,
-                ),
-                InteractiveViewer(
-                  child: Image.memory(
-                    convertedImageBytes,
-                    width: double.infinity,
-                    fit: BoxFit.contain,
-                  ),
-                ),
-                InteractiveViewer(
-                  child: Image.file(
-                    imageFile,
-                    width: double.infinity,
-                    fit: BoxFit.contain,
-                  ),
-                ),
-              ],
+              appBar: AppBar(
+                title: const Text("Image Result"),
+              ),
+              body: AsciiImageView(
+                imageTextBuffer: imageResult.imageStringBuffer,
+                screenshotController: screenshotController,
+              ),
             );
           },
         );
