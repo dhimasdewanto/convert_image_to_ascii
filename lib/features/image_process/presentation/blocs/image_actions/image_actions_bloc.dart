@@ -4,16 +4,18 @@ import 'dart:typed_data';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:screenshot/screenshot.dart';
 
 import '../../../domain/models/image_result_model.dart';
-import '../../../domain/use_cases/copy_text_to_clipboard.dart';
-import '../../../domain/use_cases/save_image.dart';
+import '../../../domain/use_cases/image_actions/copy_text_to_clipboard.dart';
+import '../../../domain/use_cases/image_actions/save_image.dart';
 
 part 'image_actions_bloc.freezed.dart';
 part 'image_actions_event.dart';
 part 'image_actions_state.dart';
 
+@injectable
 class ImageActionsBloc extends Bloc<ImageActionsEvent, ImageActionsState> {
   ImageActionsBloc({
     @required this.copyTextToClipboard,

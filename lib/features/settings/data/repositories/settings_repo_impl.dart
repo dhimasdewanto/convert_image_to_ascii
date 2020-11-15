@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/default_values.dart';
@@ -6,6 +7,7 @@ import '../../../../core/failures/failures.dart';
 import '../../domain/models/settings_model.dart';
 import '../../domain/repositories/settings_repo.dart';
 
+@LazySingleton(as: SettingsRepo)
 class SettingsRepoImpl implements SettingsRepo {
   static const _keySettingsData = "settings_data";
 

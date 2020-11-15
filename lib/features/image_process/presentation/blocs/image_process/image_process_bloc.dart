@@ -7,16 +7,18 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image/image.dart' as img;
 import 'package:image_picker/image_picker.dart';
+import 'package:injectable/injectable.dart';
 import 'package:screenshot/screenshot.dart';
 
 import '../../../../settings/domain/models/settings_model.dart';
 import '../../../domain/models/image_result_model.dart';
-import '../../../domain/use_cases/get_string_buffer.dart';
+import '../../../domain/use_cases/image_process/get_string_buffer.dart';
 
 part 'image_process_bloc.freezed.dart';
 part 'image_process_event.dart';
 part 'image_process_state.dart';
 
+@injectable
 class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
   ImageProcessBloc({
     @required this.getStringBuffer,

@@ -1,4 +1,4 @@
-import '../../models/image_result_model.dart';
+import '../../../models/image_result_model.dart';
 import '../get_string_buffer.dart';
 import 'abgr_to_argb.dart';
 import 'get_image.dart';
