@@ -88,16 +88,6 @@ class SettingsPage extends StatelessWidget {
                           title: const Text("Is Color Reversed"),
                           subtitle: Text("${settingsModel.isColorReversed}"),
                         ),
-                        const Divider(),
-                        ListTile(
-                          title: const Text("Letter Spacing"),
-                          subtitle: Text("${settingsModel.letterSpacing}"),
-                        ),
-                        const Divider(),
-                        ListTile(
-                          title: const Text("Font Size"),
-                          subtitle: Text("${settingsModel.fontSize}"),
-                        ),
                       ],
                     );
                   },

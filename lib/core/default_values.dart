@@ -4,10 +4,6 @@ const defaultRepeatCharacter = 2;
 
 const defaultReverseColor = true;
 
-const defaultLetterSpacing = 0.2;
-
-const defaultFontSize = 3;
-
 const defaultToGrayscale = true;
 
 /// Length must be equals [defaultListCharacters]
