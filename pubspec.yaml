@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   dartz: ^0.9.2
+  flushbar: ^1.10.4
   flutter_bloc: ^6.1.1
   flutter_colorpicker: ^0.3.4
   freezed_annotation: ^0.12.0
