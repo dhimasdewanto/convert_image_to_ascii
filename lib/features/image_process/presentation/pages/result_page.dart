@@ -35,16 +35,9 @@ class ResultPage extends StatelessWidget {
               ),
             );
           },
-          showResult: (
-            imageFile,
-            imageResult,
-            convertedImageBytes,
-            screenshotController,
-          ) {
+          showResult: (imageResult) {
             return BottomSheetScaffold(
-              bottomSheet: ActionsBottonSheet(
-                screenshotController: screenshotController,
-              ),
+              bottomSheet: const ActionsBottonSheet(),
               appBar: AppBar(
                 automaticallyImplyLeading: false, // Hide back button
                 title: TextButton.icon(
@@ -76,7 +69,6 @@ class ResultPage extends StatelessWidget {
                 ],
                 child: AsciiImageView(
                   imageTextBuffer: imageResult.imageStringBuffer,
-                  screenshotController: screenshotController,
                 ),
               ),
             );

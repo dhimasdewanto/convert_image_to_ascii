@@ -1,11 +1,9 @@
 import 'dart:async';
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:image/image.dart' as img;
 import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
 import 'package:screenshot/screenshot.dart';
@@ -75,10 +73,7 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
               ),
             );
             yield ImageProcessState.showResult(
-              imageSource: imageSource,
               imageResult: imageResult,
-              convertedImageBytes: img.encodeJpg(imageResult.convertedImage),
-              screenshotController: screenshotController,
             );
           },
         );

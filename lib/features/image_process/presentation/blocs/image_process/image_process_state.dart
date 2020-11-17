@@ -11,9 +11,6 @@ abstract class ImageProcessState with _$ImageProcessState {
     @required File imageSource,
   }) = _ImagePickedState;
   const factory ImageProcessState.showResult({
-    @required File imageSource,
     @required ImageResultModel imageResult,
-    @required Uint8List convertedImageBytes,
-    @required ScreenshotController screenshotController,
   }) = _ShowResultState;
 }
