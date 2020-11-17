@@ -10,7 +10,7 @@ final imageProcessListener = BlocListener<ImageProcessBloc, ImageProcessState>(
     state.maybeWhen(
       orElse: () {},
       imagePicked: (imageFile) {
-        push(
+        pushAndRemoveAll(
           context: context,
           page: const ResultPage(),
         );

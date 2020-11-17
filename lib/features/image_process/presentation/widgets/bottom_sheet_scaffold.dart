@@ -30,69 +30,73 @@ class _BottomSheetScaffoldState extends State<BottomSheetScaffold> {
       appBar: widget.appBar,
       body: widget.body,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          if (_isOpen) {
-            pop(context: context);
-          } else {
-            showBottomSheet(
-              context: context,
-              builder: (context) => WillPopScope(
-                onWillPop: () async => false,
-                child: BottomSheet(
-                  onClosing: () {},
-                  builder: (context) {
-                    return Card(
-                      margin: EdgeInsets.zero,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          ListTile(
-                            leading: const Icon(Icons.copy_rounded),
-                            title: const Text("Copy Text"),
-                            onTap: () {
-                              final imageActionsBloc =
-                                  context.read<ImageActionsBloc>();
-                              imageActionsBloc.add(
-                                const ImageActionsEvent.copyImageText(),
-                              );
-                            },
+      floatingActionButton: Builder(
+        builder: (context) {
+          return FloatingActionButton(
+            onPressed: () {
+              if (_isOpen) {
+                pop(context: context);
+              } else {
+                showBottomSheet(
+                  context: context,
+                  builder: (context) => WillPopScope(
+                    onWillPop: () async => false,
+                    child: BottomSheet(
+                      onClosing: () {},
+                      builder: (context) {
+                        return Card(
+                          margin: EdgeInsets.zero,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              ListTile(
+                                leading: const Icon(Icons.copy_rounded),
+                                title: const Text("Copy Text"),
+                                onTap: () {
+                                  final imageActionsBloc =
+                                      context.read<ImageActionsBloc>();
+                                  imageActionsBloc.add(
+                                    const ImageActionsEvent.copyImageText(),
+                                  );
+                                },
+                              ),
+                              ListTile(
+                                leading: const Icon(Icons.save_alt_rounded),
+                                title: const Text("Save Image"),
+                                onTap: () {
+                                  final imageActionBloc =
+                                      context.read<ImageActionsBloc>();
+                                  imageActionBloc.add(
+                                    ImageActionsEvent.saveImage(
+                                      screenshotController:
+                                          widget.screenshotController,
+                                    ),
+                                  );
+                                },
+                              ),
+                              ListTile(
+                                leading: const Icon(Icons.share_rounded),
+                                title: const Text("Share Image"),
+                                onTap: () {},
+                              ),
+                            ],
                           ),
-                          ListTile(
-                            leading: const Icon(Icons.save_alt_rounded),
-                            title: const Text("Save Image"),
-                            onTap: () {
-                              final imageActionBloc =
-                                  context.read<ImageActionsBloc>();
-                              imageActionBloc.add(
-                                ImageActionsEvent.saveImage(
-                                  screenshotController:
-                                      widget.screenshotController,
-                                ),
-                              );
-                            },
-                          ),
-                          ListTile(
-                            leading: const Icon(Icons.share_rounded),
-                            title: const Text("Share Image"),
-                            onTap: () {},
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                ),
-              ),
-            );
-          }
+                        );
+                      },
+                    ),
+                  ),
+                );
+              }
 
-          setState(() {
-            _isOpen = !_isOpen;
-          });
-        },
-        child: _isOpen
-            ? const Icon(Icons.arrow_downward_rounded)
-            : const Icon(Icons.arrow_upward_rounded),
+              setState(() {
+                _isOpen = !_isOpen;
+              });
+            },
+            child: _isOpen
+                ? const Icon(Icons.arrow_downward_rounded)
+                : const Icon(Icons.arrow_upward_rounded),
+          );
+        }
       ),
     );
   }

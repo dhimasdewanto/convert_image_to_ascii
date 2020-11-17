@@ -24,7 +24,23 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'ASCII Image',
       themeMode: ThemeMode.dark,
-      darkTheme: themeDark,
+      darkTheme: themeDark.copyWith(
+        textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+            foregroundColor: MaterialStateProperty.resolveWith<Color>(
+              (states) => Colors.white,
+            ),
+            overlayColor: MaterialStateProperty.resolveWith<Color>(
+              (states) => Colors.white.withOpacity(0.1),
+            ),
+            shape:  MaterialStateProperty.resolveWith<OutlinedBorder>(
+              (states) => RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(50),
+              ),
+            ),
+          ),
+        ),
+      ),
       home: const SplashPage(),
       builder: (context, child) {
         return MultiBlocProvider(
