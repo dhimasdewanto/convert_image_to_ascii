@@ -3,7 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/navigators.dart';
 import '../../../settings/presentation/pages/settings_page.dart';
+import '../bloc_listeners/image_actions/image_action_listener.dart';
+import '../bloc_listeners/image_process/image_process_listener.dart';
 import '../blocs/image_process/image_process_bloc.dart';
+import '../widgets/actions_bottom_sheet.dart';
 import '../widgets/ascii_image_view.dart';
 import '../widgets/bottom_sheet_scaffold.dart';
 
@@ -39,11 +42,18 @@ class ResultPage extends StatelessWidget {
             screenshotController,
           ) {
             return BottomSheetScaffold(
-              screenshotController: screenshotController,
+              bottomSheet: ActionsBottonSheet(
+                screenshotController: screenshotController,
+              ),
               appBar: AppBar(
                 automaticallyImplyLeading: false, // Hide back button
                 title: TextButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    final imageProcessBloc = context.read<ImageProcessBloc>();
+                    imageProcessBloc.add(
+                      const ImageProcessEvent.pickImage(),
+                    );
+                  },
                   icon: const Icon(Icons.create),
                   label: const Text("Convert"),
                 ),
@@ -59,9 +69,15 @@ class ResultPage extends StatelessWidget {
                   ),
                 ],
               ),
-              body: AsciiImageView(
-                imageTextBuffer: imageResult.imageStringBuffer,
-                screenshotController: screenshotController,
+              body: MultiBlocListener(
+                listeners: [
+                  imageActionListener,
+                  imageProcessListener,
+                ],
+                child: AsciiImageView(
+                  imageTextBuffer: imageResult.imageStringBuffer,
+                  screenshotController: screenshotController,
+                ),
               ),
             );
           },
