@@ -99,3 +99,6 @@ linter:
     # Sometime, you need to cache first 
     # the return value to use it later.
     join_return_with_assignment: false
+
+    # Flutter dependency should be first.
+    sort_pub_dependencies: false

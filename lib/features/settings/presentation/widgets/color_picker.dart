@@ -20,7 +20,7 @@ class _ColorPickerState extends State<ColorPicker> {
           onPressed: () {
             showDialog(
               context: context,
-              child: Dialog(
+              builder: (_) => Dialog(
                 child: SingleChildScrollView(
                   child: picker.ColorPicker(
                     pickerColor: _color,

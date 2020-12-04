@@ -34,26 +34,26 @@ const $SettingsEvent = _$SettingsEventTearOff();
 /// @nodoc
 mixin _$SettingsEvent {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initialize(),
-    @required Result updateSettings(int imageWidth, int repeatCharacters),
+  TResult when<TResult extends Object>({
+    @required TResult initialize(),
+    @required TResult updateSettings(int imageWidth, int repeatCharacters),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initialize(),
-    Result updateSettings(int imageWidth, int repeatCharacters),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialize(),
+    TResult updateSettings(int imageWidth, int repeatCharacters),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initialize(_InitializeEvent value),
-    @required Result updateSettings(_UpdateSettingsEvent value),
+  TResult map<TResult extends Object>({
+    @required TResult initialize(_InitializeEvent value),
+    @required TResult updateSettings(_UpdateSettingsEvent value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initialize(_InitializeEvent value),
-    Result updateSettings(_UpdateSettingsEvent value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initialize(_InitializeEvent value),
+    TResult updateSettings(_UpdateSettingsEvent value),
+    @required TResult orElse(),
   });
 }
 
@@ -112,9 +112,9 @@ class _$_InitializeEvent implements _InitializeEvent {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initialize(),
-    @required Result updateSettings(int imageWidth, int repeatCharacters),
+  TResult when<TResult extends Object>({
+    @required TResult initialize(),
+    @required TResult updateSettings(int imageWidth, int repeatCharacters),
   }) {
     assert(initialize != null);
     assert(updateSettings != null);
@@ -123,10 +123,10 @@ class _$_InitializeEvent implements _InitializeEvent {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initialize(),
-    Result updateSettings(int imageWidth, int repeatCharacters),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialize(),
+    TResult updateSettings(int imageWidth, int repeatCharacters),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (initialize != null) {
@@ -137,9 +137,9 @@ class _$_InitializeEvent implements _InitializeEvent {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initialize(_InitializeEvent value),
-    @required Result updateSettings(_UpdateSettingsEvent value),
+  TResult map<TResult extends Object>({
+    @required TResult initialize(_InitializeEvent value),
+    @required TResult updateSettings(_UpdateSettingsEvent value),
   }) {
     assert(initialize != null);
     assert(updateSettings != null);
@@ -148,10 +148,10 @@ class _$_InitializeEvent implements _InitializeEvent {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initialize(_InitializeEvent value),
-    Result updateSettings(_UpdateSettingsEvent value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initialize(_InitializeEvent value),
+    TResult updateSettings(_UpdateSettingsEvent value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (initialize != null) {
@@ -237,9 +237,9 @@ class _$_UpdateSettingsEvent implements _UpdateSettingsEvent {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initialize(),
-    @required Result updateSettings(int imageWidth, int repeatCharacters),
+  TResult when<TResult extends Object>({
+    @required TResult initialize(),
+    @required TResult updateSettings(int imageWidth, int repeatCharacters),
   }) {
     assert(initialize != null);
     assert(updateSettings != null);
@@ -248,10 +248,10 @@ class _$_UpdateSettingsEvent implements _UpdateSettingsEvent {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initialize(),
-    Result updateSettings(int imageWidth, int repeatCharacters),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialize(),
+    TResult updateSettings(int imageWidth, int repeatCharacters),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (updateSettings != null) {
@@ -262,9 +262,9 @@ class _$_UpdateSettingsEvent implements _UpdateSettingsEvent {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initialize(_InitializeEvent value),
-    @required Result updateSettings(_UpdateSettingsEvent value),
+  TResult map<TResult extends Object>({
+    @required TResult initialize(_InitializeEvent value),
+    @required TResult updateSettings(_UpdateSettingsEvent value),
   }) {
     assert(initialize != null);
     assert(updateSettings != null);
@@ -273,10 +273,10 @@ class _$_UpdateSettingsEvent implements _UpdateSettingsEvent {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initialize(_InitializeEvent value),
-    Result updateSettings(_UpdateSettingsEvent value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initialize(_InitializeEvent value),
+    TResult updateSettings(_UpdateSettingsEvent value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (updateSettings != null) {
@@ -326,30 +326,30 @@ const $SettingsState = _$SettingsStateTearOff();
 /// @nodoc
 mixin _$SettingsState {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result error(String message),
-    @required Result show(SettingsModel settingsModel),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult error(String message),
+    @required TResult show(SettingsModel settingsModel),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result error(String message),
-    Result show(SettingsModel settingsModel),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult error(String message),
+    TResult show(SettingsModel settingsModel),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_InitialState value),
-    @required Result error(_ErrorState value),
-    @required Result show(_ShowState value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_InitialState value),
+    @required TResult error(_ErrorState value),
+    @required TResult show(_ShowState value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_InitialState value),
-    Result error(_ErrorState value),
-    Result show(_ShowState value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_InitialState value),
+    TResult error(_ErrorState value),
+    TResult show(_ShowState value),
+    @required TResult orElse(),
   });
 }
 
@@ -408,10 +408,10 @@ class _$_InitialState implements _InitialState {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result error(String message),
-    @required Result show(SettingsModel settingsModel),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult error(String message),
+    @required TResult show(SettingsModel settingsModel),
   }) {
     assert(initial != null);
     assert(error != null);
@@ -421,11 +421,11 @@ class _$_InitialState implements _InitialState {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result error(String message),
-    Result show(SettingsModel settingsModel),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult error(String message),
+    TResult show(SettingsModel settingsModel),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (initial != null) {
@@ -436,10 +436,10 @@ class _$_InitialState implements _InitialState {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_InitialState value),
-    @required Result error(_ErrorState value),
-    @required Result show(_ShowState value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_InitialState value),
+    @required TResult error(_ErrorState value),
+    @required TResult show(_ShowState value),
   }) {
     assert(initial != null);
     assert(error != null);
@@ -449,11 +449,11 @@ class _$_InitialState implements _InitialState {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_InitialState value),
-    Result error(_ErrorState value),
-    Result show(_ShowState value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_InitialState value),
+    TResult error(_ErrorState value),
+    TResult show(_ShowState value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (initial != null) {
@@ -526,10 +526,10 @@ class _$_ErrorState implements _ErrorState {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result error(String message),
-    @required Result show(SettingsModel settingsModel),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult error(String message),
+    @required TResult show(SettingsModel settingsModel),
   }) {
     assert(initial != null);
     assert(error != null);
@@ -539,11 +539,11 @@ class _$_ErrorState implements _ErrorState {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result error(String message),
-    Result show(SettingsModel settingsModel),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult error(String message),
+    TResult show(SettingsModel settingsModel),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (error != null) {
@@ -554,10 +554,10 @@ class _$_ErrorState implements _ErrorState {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_InitialState value),
-    @required Result error(_ErrorState value),
-    @required Result show(_ShowState value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_InitialState value),
+    @required TResult error(_ErrorState value),
+    @required TResult show(_ShowState value),
   }) {
     assert(initial != null);
     assert(error != null);
@@ -567,11 +567,11 @@ class _$_ErrorState implements _ErrorState {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_InitialState value),
-    Result error(_ErrorState value),
-    Result show(_ShowState value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_InitialState value),
+    TResult error(_ErrorState value),
+    TResult show(_ShowState value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (error != null) {
@@ -649,10 +649,10 @@ class _$_ShowState implements _ShowState {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result error(String message),
-    @required Result show(SettingsModel settingsModel),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult error(String message),
+    @required TResult show(SettingsModel settingsModel),
   }) {
     assert(initial != null);
     assert(error != null);
@@ -662,11 +662,11 @@ class _$_ShowState implements _ShowState {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result error(String message),
-    Result show(SettingsModel settingsModel),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult error(String message),
+    TResult show(SettingsModel settingsModel),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (show != null) {
@@ -677,10 +677,10 @@ class _$_ShowState implements _ShowState {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_InitialState value),
-    @required Result error(_ErrorState value),
-    @required Result show(_ShowState value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_InitialState value),
+    @required TResult error(_ErrorState value),
+    @required TResult show(_ShowState value),
   }) {
     assert(initial != null);
     assert(error != null);
@@ -690,11 +690,11 @@ class _$_ShowState implements _ShowState {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_InitialState value),
-    Result error(_ErrorState value),
-    Result show(_ShowState value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_InitialState value),
+    TResult error(_ErrorState value),
+    TResult show(_ShowState value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (show != null) {

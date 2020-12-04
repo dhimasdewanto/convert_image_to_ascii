@@ -63,7 +63,7 @@ class SettingsPage extends StatelessWidget {
                           onTap: () {
                             showDialog(
                               context: context,
-                              child: ImageWidthDialog(
+                              builder: (_) => ImageWidthDialog(
                                 initialValue: settingsModel.imageWidth,
                               ),
                             );
@@ -77,7 +77,7 @@ class SettingsPage extends StatelessWidget {
                           onTap: () {
                             showDialog(
                               context: context,
-                              child: ImageRepeatCharactersDialog(
+                              builder: (_) => ImageRepeatCharactersDialog(
                                 initialValue: settingsModel.repeatedCharacters,
                               ),
                             );
