@@ -1,9 +1,6 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+part of 'image_actions_bloc.dart';
 
-import '../../../../../core/flushbars.dart';
-import '../../blocs/image_actions/image_actions_bloc.dart';
-
-final imageActionListener = BlocListener<ImageActionsBloc, ImageActionsState>(
+final imageActionsListener = BlocListener<ImageActionsBloc, ImageActionsState>(
   listener: (context, state) {
     state.maybeWhen(
       orElse: () {},

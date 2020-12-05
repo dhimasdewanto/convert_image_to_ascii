@@ -3,8 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/navigators.dart';
 import '../../../settings/presentation/pages/settings_page.dart';
-import '../bloc_listeners/image_actions/image_action_listener.dart';
-import '../bloc_listeners/image_process/image_process_listener.dart';
+import '../blocs/image_actions/image_actions_bloc.dart';
 import '../blocs/image_process/image_process_bloc.dart';
 import '../widgets/actions_bottom_sheet.dart';
 import '../widgets/ascii_image_view.dart';
@@ -64,7 +63,7 @@ class ResultPage extends StatelessWidget {
               ),
               body: MultiBlocListener(
                 listeners: [
-                  imageActionListener,
+                  imageActionsListener,
                   imageProcessListener,
                 ],
                 child: AsciiImageView(

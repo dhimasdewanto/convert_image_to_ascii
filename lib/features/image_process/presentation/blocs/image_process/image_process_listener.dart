@@ -1,8 +1,4 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../../core/navigators.dart';
-import '../../blocs/image_process/image_process_bloc.dart';
-import '../../pages/result_page.dart';
+part of 'image_process_bloc.dart';
 
 final imageProcessListener = BlocListener<ImageProcessBloc, ImageProcessState>(
   listener: (context, state) {

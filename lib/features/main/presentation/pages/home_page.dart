@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/navigators.dart';
-import '../../../image_process/presentation/bloc_listeners/image_process/image_process_listener.dart';
 import '../../../image_process/presentation/blocs/image_process/image_process_bloc.dart';
 import '../../../settings/presentation/pages/settings_page.dart';
 

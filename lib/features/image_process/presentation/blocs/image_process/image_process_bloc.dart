@@ -1,19 +1,22 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
 import 'package:screenshot/screenshot.dart';
 
+import '../../../../../core/navigators.dart';
 import '../../../../settings/domain/models/settings_model.dart';
 import '../../../domain/models/image_result_model.dart';
 import '../../../domain/use_cases/image_process/get_string_buffer.dart';
+import '../../pages/result_page.dart';
 
 part 'image_process_bloc.freezed.dart';
 part 'image_process_event.dart';
+part 'image_process_listener.dart';
 part 'image_process_state.dart';
 
 @injectable
