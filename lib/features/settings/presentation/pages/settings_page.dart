@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/navigators.dart';
-import '../bloc_listeners/settings_listeners.dart';
 import '../blocs/settings/settings_bloc.dart';
 import '../dialogs/image_repeat_characters_dialog.dart';
 import '../dialogs/image_width_dialog.dart';
@@ -14,89 +13,83 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocListener(
-      listeners: [
-        onSuccessUpdatedSettings,
-      ],
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text("Settings"),
-        ),
-        body: ListView(
-          children: [
-            ListTile(
-              title: const Text("Characters"),
-              onTap: () {
-                push(
-                  context: context,
-                  page: const CharacterSettingsPage(),
-                );
-              },
-            ),
-            const Divider(),
-            ListTile(
-              title: const Text("Colors"),
-              onTap: () {
-                push(
-                  context: context,
-                  page: const ColorSettingsPage(),
-                );
-              },
-            ),
-            const Divider(),
-            BlocBuilder<SettingsBloc, SettingsState>(
-              builder: (context, state) {
-                return state.maybeWhen(
-                  orElse: () => const Offstage(),
-                  show: (settingsModel) {
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ListTile(
-                          title: const Text("Convert to Grayscale"),
-                          subtitle: Text("${settingsModel.convertToGrayscale}"),
-                        ),
-                        const Divider(),
-                        ListTile(
-                          title: const Text("Image Width"),
-                          subtitle: Text("${settingsModel.imageWidth}"),
-                          onTap: () {
-                            showDialog(
-                              context: context,
-                              builder: (_) => ImageWidthDialog(
-                                initialValue: settingsModel.imageWidth,
-                              ),
-                            );
-                          },
-                        ),
-                        const Divider(),
-                        ListTile(
-                          title: const Text("Repeat Character"),
-                          subtitle:
-                              Text("${settingsModel.repeatedCharacters}x"),
-                          onTap: () {
-                            showDialog(
-                              context: context,
-                              builder: (_) => ImageRepeatCharactersDialog(
-                                initialValue: settingsModel.repeatedCharacters,
-                              ),
-                            );
-                          },
-                        ),
-                        const Divider(),
-                        ListTile(
-                          title: const Text("Is Color Reversed"),
-                          subtitle: Text("${settingsModel.isColorReversed}"),
-                        ),
-                      ],
-                    );
-                  },
-                );
-              },
-            ),
-            const Divider(),
-          ],
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Settings"),
+      ),
+      body: ListView(
+        children: [
+          ListTile(
+            title: const Text("Characters"),
+            onTap: () {
+              push(
+                context: context,
+                page: const CharacterSettingsPage(),
+              );
+            },
+          ),
+          const Divider(),
+          ListTile(
+            title: const Text("Colors"),
+            onTap: () {
+              push(
+                context: context,
+                page: const ColorSettingsPage(),
+              );
+            },
+          ),
+          const Divider(),
+          BlocBuilder<SettingsBloc, SettingsState>(
+            builder: (context, state) {
+              return state.maybeWhen(
+                orElse: () => const Offstage(),
+                show: (settingsModel) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ListTile(
+                        title: const Text("Convert to Grayscale"),
+                        subtitle: Text("${settingsModel.convertToGrayscale}"),
+                      ),
+                      const Divider(),
+                      ListTile(
+                        title: const Text("Image Width"),
+                        subtitle: Text("${settingsModel.imageWidth}"),
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            builder: (_) => ImageWidthDialog(
+                              initialValue: settingsModel.imageWidth,
+                            ),
+                          );
+                        },
+                      ),
+                      const Divider(),
+                      ListTile(
+                        title: const Text("Repeat Character"),
+                        subtitle: Text("${settingsModel.repeatedCharacters}x"),
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            builder: (_) => ImageRepeatCharactersDialog(
+                              initialValue: settingsModel.repeatedCharacters,
+                            ),
+                          );
+                        },
+                      ),
+                      const Divider(),
+                      ListTile(
+                        title: const Text("Is Color Reversed"),
+                        subtitle: Text("${settingsModel.isColorReversed}"),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+          ),
+          const Divider(),
+        ],
       ),
     );
   }

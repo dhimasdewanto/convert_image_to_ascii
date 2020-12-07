@@ -22,13 +22,6 @@ class _$ImageProcessEventTearOff {
   _ProcessImageEvent processImage() {
     return const _ProcessImageEvent();
   }
-
-// ignore: unused_element
-  _UpdateSettingsEvent updateSettings({@required SettingsModel settingsModel}) {
-    return _UpdateSettingsEvent(
-      settingsModel: settingsModel,
-    );
-  }
 }
 
 /// @nodoc
@@ -41,26 +34,22 @@ mixin _$ImageProcessEvent {
   TResult when<TResult extends Object>({
     @required TResult pickImage(),
     @required TResult processImage(),
-    @required TResult updateSettings(SettingsModel settingsModel),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult pickImage(),
     TResult processImage(),
-    TResult updateSettings(SettingsModel settingsModel),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult pickImage(_PickImageEvent value),
     @required TResult processImage(_ProcessImageEvent value),
-    @required TResult updateSettings(_UpdateSettingsEvent value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult pickImage(_PickImageEvent value),
     TResult processImage(_ProcessImageEvent value),
-    TResult updateSettings(_UpdateSettingsEvent value),
     @required TResult orElse(),
   });
 }
@@ -123,11 +112,9 @@ class _$_PickImageEvent implements _PickImageEvent {
   TResult when<TResult extends Object>({
     @required TResult pickImage(),
     @required TResult processImage(),
-    @required TResult updateSettings(SettingsModel settingsModel),
   }) {
     assert(pickImage != null);
     assert(processImage != null);
-    assert(updateSettings != null);
     return pickImage();
   }
 
@@ -136,7 +123,6 @@ class _$_PickImageEvent implements _PickImageEvent {
   TResult maybeWhen<TResult extends Object>({
     TResult pickImage(),
     TResult processImage(),
-    TResult updateSettings(SettingsModel settingsModel),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -151,11 +137,9 @@ class _$_PickImageEvent implements _PickImageEvent {
   TResult map<TResult extends Object>({
     @required TResult pickImage(_PickImageEvent value),
     @required TResult processImage(_ProcessImageEvent value),
-    @required TResult updateSettings(_UpdateSettingsEvent value),
   }) {
     assert(pickImage != null);
     assert(processImage != null);
-    assert(updateSettings != null);
     return pickImage(this);
   }
 
@@ -164,7 +148,6 @@ class _$_PickImageEvent implements _PickImageEvent {
   TResult maybeMap<TResult extends Object>({
     TResult pickImage(_PickImageEvent value),
     TResult processImage(_ProcessImageEvent value),
-    TResult updateSettings(_UpdateSettingsEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -220,11 +203,9 @@ class _$_ProcessImageEvent implements _ProcessImageEvent {
   TResult when<TResult extends Object>({
     @required TResult pickImage(),
     @required TResult processImage(),
-    @required TResult updateSettings(SettingsModel settingsModel),
   }) {
     assert(pickImage != null);
     assert(processImage != null);
-    assert(updateSettings != null);
     return processImage();
   }
 
@@ -233,7 +214,6 @@ class _$_ProcessImageEvent implements _ProcessImageEvent {
   TResult maybeWhen<TResult extends Object>({
     TResult pickImage(),
     TResult processImage(),
-    TResult updateSettings(SettingsModel settingsModel),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -248,11 +228,9 @@ class _$_ProcessImageEvent implements _ProcessImageEvent {
   TResult map<TResult extends Object>({
     @required TResult pickImage(_PickImageEvent value),
     @required TResult processImage(_ProcessImageEvent value),
-    @required TResult updateSettings(_UpdateSettingsEvent value),
   }) {
     assert(pickImage != null);
     assert(processImage != null);
-    assert(updateSettings != null);
     return processImage(this);
   }
 
@@ -261,7 +239,6 @@ class _$_ProcessImageEvent implements _ProcessImageEvent {
   TResult maybeMap<TResult extends Object>({
     TResult pickImage(_PickImageEvent value),
     TResult processImage(_ProcessImageEvent value),
-    TResult updateSettings(_UpdateSettingsEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -274,133 +251,6 @@ class _$_ProcessImageEvent implements _ProcessImageEvent {
 
 abstract class _ProcessImageEvent implements ImageProcessEvent {
   const factory _ProcessImageEvent() = _$_ProcessImageEvent;
-}
-
-/// @nodoc
-abstract class _$UpdateSettingsEventCopyWith<$Res> {
-  factory _$UpdateSettingsEventCopyWith(_UpdateSettingsEvent value,
-          $Res Function(_UpdateSettingsEvent) then) =
-      __$UpdateSettingsEventCopyWithImpl<$Res>;
-  $Res call({SettingsModel settingsModel});
-}
-
-/// @nodoc
-class __$UpdateSettingsEventCopyWithImpl<$Res>
-    extends _$ImageProcessEventCopyWithImpl<$Res>
-    implements _$UpdateSettingsEventCopyWith<$Res> {
-  __$UpdateSettingsEventCopyWithImpl(
-      _UpdateSettingsEvent _value, $Res Function(_UpdateSettingsEvent) _then)
-      : super(_value, (v) => _then(v as _UpdateSettingsEvent));
-
-  @override
-  _UpdateSettingsEvent get _value => super._value as _UpdateSettingsEvent;
-
-  @override
-  $Res call({
-    Object settingsModel = freezed,
-  }) {
-    return _then(_UpdateSettingsEvent(
-      settingsModel: settingsModel == freezed
-          ? _value.settingsModel
-          : settingsModel as SettingsModel,
-    ));
-  }
-}
-
-/// @nodoc
-class _$_UpdateSettingsEvent implements _UpdateSettingsEvent {
-  const _$_UpdateSettingsEvent({@required this.settingsModel})
-      : assert(settingsModel != null);
-
-  @override
-  final SettingsModel settingsModel;
-
-  @override
-  String toString() {
-    return 'ImageProcessEvent.updateSettings(settingsModel: $settingsModel)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _UpdateSettingsEvent &&
-            (identical(other.settingsModel, settingsModel) ||
-                const DeepCollectionEquality()
-                    .equals(other.settingsModel, settingsModel)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(settingsModel);
-
-  @override
-  _$UpdateSettingsEventCopyWith<_UpdateSettingsEvent> get copyWith =>
-      __$UpdateSettingsEventCopyWithImpl<_UpdateSettingsEvent>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult pickImage(),
-    @required TResult processImage(),
-    @required TResult updateSettings(SettingsModel settingsModel),
-  }) {
-    assert(pickImage != null);
-    assert(processImage != null);
-    assert(updateSettings != null);
-    return updateSettings(settingsModel);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult pickImage(),
-    TResult processImage(),
-    TResult updateSettings(SettingsModel settingsModel),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (updateSettings != null) {
-      return updateSettings(settingsModel);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult pickImage(_PickImageEvent value),
-    @required TResult processImage(_ProcessImageEvent value),
-    @required TResult updateSettings(_UpdateSettingsEvent value),
-  }) {
-    assert(pickImage != null);
-    assert(processImage != null);
-    assert(updateSettings != null);
-    return updateSettings(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult pickImage(_PickImageEvent value),
-    TResult processImage(_ProcessImageEvent value),
-    TResult updateSettings(_UpdateSettingsEvent value),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (updateSettings != null) {
-      return updateSettings(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _UpdateSettingsEvent implements ImageProcessEvent {
-  const factory _UpdateSettingsEvent({@required SettingsModel settingsModel}) =
-      _$_UpdateSettingsEvent;
-
-  SettingsModel get settingsModel;
-  _$UpdateSettingsEventCopyWith<_UpdateSettingsEvent> get copyWith;
 }
 
 /// @nodoc
@@ -418,7 +268,7 @@ class _$ImageProcessStateTearOff {
   }
 
 // ignore: unused_element
-  _ErrorState error({String message = 'Error'}) {
+  _ErrorState error({String message = "Error"}) {
     return _ErrorState(
       message: message,
     );
@@ -747,9 +597,9 @@ class __$ErrorStateCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_ErrorState implements _ErrorState {
-  const _$_ErrorState({this.message = 'Error'}) : assert(message != null);
+  const _$_ErrorState({this.message = "Error"}) : assert(message != null);
 
-  @JsonKey(defaultValue: 'Error')
+  @JsonKey(defaultValue: "Error")
   @override
   final String message;
 

@@ -7,8 +7,8 @@ import '../models/settings_model.dart';
 import '../repositories/settings_repo.dart';
 
 @lazySingleton
-class InitializeSettings {
-  InitializeSettings({
+class GetSettings {
+  GetSettings({
     @required this.settingsRepo,
   });
 

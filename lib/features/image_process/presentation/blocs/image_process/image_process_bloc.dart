@@ -9,7 +9,7 @@ import 'package:injectable/injectable.dart';
 import 'package:screenshot/screenshot.dart';
 
 import '../../../../../core/navigators.dart';
-import '../../../../settings/domain/models/settings_model.dart';
+import '../../../../settings/domain/use_cases/get_settings.dart';
 import '../../../domain/models/image_result_model.dart';
 import '../../../domain/use_cases/image_process/get_string_buffer.dart';
 import '../../pages/result_page.dart';
@@ -22,25 +22,22 @@ part 'image_process_state.dart';
 @injectable
 class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
   ImageProcessBloc({
+    @required this.getSettings,
     @required this.getStringBuffer,
     @required this.imagePicker,
     @required this.screenshotController,
   }) : super(const ImageProcessState.initial());
 
+  final GetSettings getSettings;
   final GetStringBuffer getStringBuffer;
   final ImagePicker imagePicker;
   final ScreenshotController screenshotController;
-
-  SettingsModel settingsData;
 
   @override
   Stream<ImageProcessState> mapEventToState(
     ImageProcessEvent event,
   ) async* {
     yield* event.when(
-      updateSettings: (settingsModel) async* {
-        settingsData = settingsModel;
-      },
       pickImage: () async* {
         yield* state.maybeWhen(
           loading: () async* {},
@@ -69,14 +66,21 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
           loading: () async* {},
           imagePicked: (imageSource) async* {
             yield const ImageProcessState.loading();
-            final imageResult = await getStringBuffer(
-              GetStringBufferParams(
-                imageFile: imageSource,
-                settings: settingsData,
-              ),
-            );
-            yield ImageProcessState.showResult(
-              imageResult: imageResult,
+
+            final resultSettings = await getSettings();
+            yield* resultSettings.fold(
+              (failure) async* {},
+              (settings) async* {
+                final imageResult = await getStringBuffer(
+                  GetStringBufferParams(
+                    imageFile: imageSource,
+                    settings: settings,
+                  ),
+                );
+                yield ImageProcessState.showResult(
+                  imageResult: imageResult,
+                );
+              },
             );
           },
         );

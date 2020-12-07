@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../settings/presentation/bloc_listeners/settings_listeners.dart';
 import '../../../settings/presentation/blocs/settings/settings_bloc.dart';
 
 class SplashPage extends StatefulWidget {
