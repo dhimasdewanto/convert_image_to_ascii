@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/navigators.dart';
-import '../../../settings/presentation/pages/settings_page.dart';
 import '../blocs/image_actions/image_actions_bloc.dart';
 import '../blocs/image_process/image_process_bloc.dart';
 import '../widgets/actions_bottom_sheet.dart';
@@ -38,28 +36,7 @@ class ResultPage extends StatelessWidget {
             return BottomSheetScaffold(
               bottomSheet: const ActionsBottonSheet(),
               appBar: AppBar(
-                automaticallyImplyLeading: false, // Hide back button
-                title: TextButton.icon(
-                  onPressed: () {
-                    final imageProcessBloc = context.read<ImageProcessBloc>();
-                    imageProcessBloc.add(
-                      const ImageProcessEvent.pickImage(),
-                    );
-                  },
-                  icon: const Icon(Icons.create),
-                  label: const Text("Convert"),
-                ),
-                actions: [
-                  IconButton(
-                    icon: const Icon(Icons.settings),
-                    onPressed: () {
-                      push(
-                        context: context,
-                        page: const SettingsPage(),
-                      );
-                    },
-                  ),
-                ],
+                title: const Text("Result"),
               ),
               body: MultiBlocListener(
                 listeners: [
