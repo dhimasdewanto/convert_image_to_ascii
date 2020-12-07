@@ -27,6 +27,7 @@ const defaultListColors = [
 ];
 
 /// Length must be equals [defaultListColors]
+// TODO(dhimasdewanto): Fix = and +
 const defaultListCharacters = [
   " ",
   ".",
