@@ -20,6 +20,11 @@ class SettingsPage extends StatelessWidget {
       body: ListView(
         children: [
           ListTile(
+            title: const Text("Characters Count"),
+            onTap: () {},
+          ),
+          const Divider(),
+          ListTile(
             title: const Text("Characters"),
             onTap: () {
               push(
@@ -87,6 +92,11 @@ class SettingsPage extends StatelessWidget {
                 },
               );
             },
+          ),
+          const Divider(),
+          ListTile(
+            title: const Text("Font"),
+            onTap: () {},
           ),
           const Divider(),
         ],
