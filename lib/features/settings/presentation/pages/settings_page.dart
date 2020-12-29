@@ -17,89 +17,78 @@ class SettingsPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Settings"),
       ),
-      body: ListView(
-        children: [
-          ListTile(
-            title: const Text("Characters Count"),
-            onTap: () {},
-          ),
-          const Divider(),
-          ListTile(
-            title: const Text("Characters"),
-            onTap: () {
-              push(
-                context: context,
-                page: const CharacterSettingsPage(),
+      body: BlocBuilder<SettingsBloc, SettingsState>(
+        builder: (context, state) {
+          return state.maybeWhen(
+            orElse: () => const Offstage(),
+            show: (settingsModel) {
+              return ListView(
+                children: [
+                  ListTile(
+                    title: const Text("Characters Total"),
+                    onTap: () {},
+                  ),
+                  const Divider(),
+                  ListTile(
+                    title: const Text("Characters"),
+                    onTap: () {
+                      push(
+                        context: context,
+                        page: const CharacterSettingsPage(),
+                      );
+                    },
+                  ),
+                  const Divider(),
+                  ListTile(
+                    title: const Text("Colors"),
+                    onTap: () {
+                      push(
+                        context: context,
+                        page: const ColorSettingsPage(),
+                      );
+                    },
+                  ),
+                  const Divider(),
+                  ListTile(
+                    title: const Text("Convert to Grayscale"),
+                    subtitle: Text("${settingsModel.convertToGrayscale}"),
+                  ),
+                  const Divider(),
+                  ListTile(
+                    title: const Text("Image Width"),
+                    subtitle: Text("${settingsModel.imageWidth}"),
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (_) => ImageWidthDialog(
+                          initialValue: settingsModel.imageWidth,
+                        ),
+                      );
+                    },
+                  ),
+                  const Divider(),
+                  ListTile(
+                    title: const Text("Repeat Characters Count"),
+                    subtitle: Text("${settingsModel.repeatedCharacters}x"),
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (_) => ImageRepeatCharactersDialog(
+                          initialValue: settingsModel.repeatedCharacters,
+                        ),
+                      );
+                    },
+                  ),
+                  const Divider(),
+                  ListTile(
+                    title: const Text("Is Color Reversed"),
+                    subtitle: Text("${settingsModel.isColorReversed}"),
+                  ),
+                ],
               );
             },
-          ),
-          const Divider(),
-          ListTile(
-            title: const Text("Colors"),
-            onTap: () {
-              push(
-                context: context,
-                page: const ColorSettingsPage(),
-              );
-            },
-          ),
-          const Divider(),
-          BlocBuilder<SettingsBloc, SettingsState>(
-            builder: (context, state) {
-              return state.maybeWhen(
-                orElse: () => const Offstage(),
-                show: (settingsModel) {
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ListTile(
-                        title: const Text("Convert to Grayscale"),
-                        subtitle: Text("${settingsModel.convertToGrayscale}"),
-                      ),
-                      const Divider(),
-                      ListTile(
-                        title: const Text("Image Width"),
-                        subtitle: Text("${settingsModel.imageWidth}"),
-                        onTap: () {
-                          showDialog(
-                            context: context,
-                            builder: (_) => ImageWidthDialog(
-                              initialValue: settingsModel.imageWidth,
-                            ),
-                          );
-                        },
-                      ),
-                      const Divider(),
-                      ListTile(
-                        title: const Text("Repeat Character"),
-                        subtitle: Text("${settingsModel.repeatedCharacters}x"),
-                        onTap: () {
-                          showDialog(
-                            context: context,
-                            builder: (_) => ImageRepeatCharactersDialog(
-                              initialValue: settingsModel.repeatedCharacters,
-                            ),
-                          );
-                        },
-                      ),
-                      const Divider(),
-                      ListTile(
-                        title: const Text("Is Color Reversed"),
-                        subtitle: Text("${settingsModel.isColorReversed}"),
-                      ),
-                    ],
-                  );
-                },
-              );
-            },
-          ),
-          const Divider(),
-          ListTile(
-            title: const Text("Font"),
-            onTap: () {},
-          ),
-          const Divider(),
-        ],
+          );
+        },
       ),
     );
   }
