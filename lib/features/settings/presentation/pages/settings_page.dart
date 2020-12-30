@@ -50,11 +50,6 @@ class SettingsPage extends StatelessWidget {
                   ),
                   const Divider(),
                   ListTile(
-                    title: const Text("Convert to Grayscale"),
-                    subtitle: Text("${settingsModel.convertToGrayscale}"),
-                  ),
-                  const Divider(),
-                  ListTile(
                     title: const Text("Image Width"),
                     subtitle: Text("${settingsModel.imageWidth}"),
                     onTap: () {
