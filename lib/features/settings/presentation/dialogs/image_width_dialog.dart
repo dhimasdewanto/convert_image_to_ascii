@@ -18,7 +18,29 @@ class ImageWidthDialog extends StatefulWidget {
 }
 
 class _ImageWidthDialogState extends State<ImageWidthDialog> {
-  var _value = 0;
+  final _fieldController = TextEditingController();
+
+  static const _minValue = 20;
+  static const _maxValue = 200;
+
+  bool get _isFormValid {
+    final value = int.tryParse(_fieldController.text);
+    if (value != null) {
+      if (value < _minValue || value > _maxValue) {
+        return false;
+      }
+      return true;
+    }
+    return false;
+  }
+
+  int get _value {
+    return int.parse(_fieldController.text);
+  }
+
+  set _value(int value) {
+    _fieldController.text = value.toString();
+  }
 
   @override
   void initState() {
@@ -27,6 +49,18 @@ class _ImageWidthDialogState extends State<ImageWidthDialog> {
   }
 
   void _onConfirm() {
+    if (_isFormValid == false) {
+      showDialog(
+        context: context,
+        builder: (_) => const AlertDialog(
+          content: Text(
+            "Min width is $_minValue character and max width $_maxValue character",
+          ),
+        ),
+      );
+      return;
+    }
+
     final settingsBloc = context.read<SettingsBloc>();
     settingsBloc.add(
       SettingsEvent.updateSettings(
@@ -38,15 +72,21 @@ class _ImageWidthDialogState extends State<ImageWidthDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    final textStyle = Theme.of(context).textTheme.headline6;
 
     return SimpleDialog(
       title: const Text("Image Width"),
       children: [
-        Center(
-          child: Text(
-            "$_value",
-            style: textTheme.headline6,
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 100,
+            vertical: 10,
+          ),
+          child: TextField(
+            controller: _fieldController,
+            textAlign: TextAlign.center,
+            style: textStyle,
+            keyboardType: TextInputType.number,
           ),
         ),
         Slider(
@@ -67,9 +107,9 @@ class _ImageWidthDialogState extends State<ImageWidthDialog> {
               onPressed: () {},
               child: const Text("Default"),
             ),
-            ElevatedButton(
+            OutlinedButton(
               onPressed: _onConfirm,
-              child: const Text("OK"),
+              child: const Text("Ok"),
             ),
           ],
         ),

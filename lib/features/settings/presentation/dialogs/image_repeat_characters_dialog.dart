@@ -69,9 +69,9 @@ class _ImageRepeatCharactersDialogState
               onPressed: () {},
               child: const Text("Default"),
             ),
-            ElevatedButton(
+            OutlinedButton(
               onPressed: _onConfirm,
-              child: const Text("OK"),
+              child: const Text("Ok"),
             ),
           ],
         ),
