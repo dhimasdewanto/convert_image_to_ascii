@@ -28,13 +28,9 @@ class _$ImageActionsEventTearOff {
 
 // ignore: unused_element
   _ListenImageProcessEvent listenImageProcess(
-      {@required File imageSource,
-      @required ImageResultModel imageResult,
-      @required Uint8List convertedImageBytes}) {
+      {@required ImageResultModel imageResult}) {
     return _ListenImageProcessEvent(
-      imageSource: imageSource,
       imageResult: imageResult,
-      convertedImageBytes: convertedImageBytes,
     );
   }
 }
@@ -49,16 +45,13 @@ mixin _$ImageActionsEvent {
   TResult when<TResult extends Object>({
     @required TResult copyImageText(),
     @required TResult saveImage(ScreenshotController screenshotController),
-    @required
-        TResult listenImageProcess(File imageSource,
-            ImageResultModel imageResult, Uint8List convertedImageBytes),
+    @required TResult listenImageProcess(ImageResultModel imageResult),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult copyImageText(),
     TResult saveImage(ScreenshotController screenshotController),
-    TResult listenImageProcess(File imageSource, ImageResultModel imageResult,
-        Uint8List convertedImageBytes),
+    TResult listenImageProcess(ImageResultModel imageResult),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -134,9 +127,7 @@ class _$_CopyImageTextEvent implements _CopyImageTextEvent {
   TResult when<TResult extends Object>({
     @required TResult copyImageText(),
     @required TResult saveImage(ScreenshotController screenshotController),
-    @required
-        TResult listenImageProcess(File imageSource,
-            ImageResultModel imageResult, Uint8List convertedImageBytes),
+    @required TResult listenImageProcess(ImageResultModel imageResult),
   }) {
     assert(copyImageText != null);
     assert(saveImage != null);
@@ -149,8 +140,7 @@ class _$_CopyImageTextEvent implements _CopyImageTextEvent {
   TResult maybeWhen<TResult extends Object>({
     TResult copyImageText(),
     TResult saveImage(ScreenshotController screenshotController),
-    TResult listenImageProcess(File imageSource, ImageResultModel imageResult,
-        Uint8List convertedImageBytes),
+    TResult listenImageProcess(ImageResultModel imageResult),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -260,9 +250,7 @@ class _$_SaveImageEvent implements _SaveImageEvent {
   TResult when<TResult extends Object>({
     @required TResult copyImageText(),
     @required TResult saveImage(ScreenshotController screenshotController),
-    @required
-        TResult listenImageProcess(File imageSource,
-            ImageResultModel imageResult, Uint8List convertedImageBytes),
+    @required TResult listenImageProcess(ImageResultModel imageResult),
   }) {
     assert(copyImageText != null);
     assert(saveImage != null);
@@ -275,8 +263,7 @@ class _$_SaveImageEvent implements _SaveImageEvent {
   TResult maybeWhen<TResult extends Object>({
     TResult copyImageText(),
     TResult saveImage(ScreenshotController screenshotController),
-    TResult listenImageProcess(File imageSource, ImageResultModel imageResult,
-        Uint8List convertedImageBytes),
+    TResult listenImageProcess(ImageResultModel imageResult),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -329,10 +316,7 @@ abstract class _$ListenImageProcessEventCopyWith<$Res> {
   factory _$ListenImageProcessEventCopyWith(_ListenImageProcessEvent value,
           $Res Function(_ListenImageProcessEvent) then) =
       __$ListenImageProcessEventCopyWithImpl<$Res>;
-  $Res call(
-      {File imageSource,
-      ImageResultModel imageResult,
-      Uint8List convertedImageBytes});
+  $Res call({ImageResultModel imageResult});
 }
 
 /// @nodoc
@@ -349,66 +333,41 @@ class __$ListenImageProcessEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object imageSource = freezed,
     Object imageResult = freezed,
-    Object convertedImageBytes = freezed,
   }) {
     return _then(_ListenImageProcessEvent(
-      imageSource:
-          imageSource == freezed ? _value.imageSource : imageSource as File,
       imageResult: imageResult == freezed
           ? _value.imageResult
           : imageResult as ImageResultModel,
-      convertedImageBytes: convertedImageBytes == freezed
-          ? _value.convertedImageBytes
-          : convertedImageBytes as Uint8List,
     ));
   }
 }
 
 /// @nodoc
 class _$_ListenImageProcessEvent implements _ListenImageProcessEvent {
-  const _$_ListenImageProcessEvent(
-      {@required this.imageSource,
-      @required this.imageResult,
-      @required this.convertedImageBytes})
-      : assert(imageSource != null),
-        assert(imageResult != null),
-        assert(convertedImageBytes != null);
+  const _$_ListenImageProcessEvent({@required this.imageResult})
+      : assert(imageResult != null);
 
   @override
-  final File imageSource;
-  @override
   final ImageResultModel imageResult;
-  @override
-  final Uint8List convertedImageBytes;
 
   @override
   String toString() {
-    return 'ImageActionsEvent.listenImageProcess(imageSource: $imageSource, imageResult: $imageResult, convertedImageBytes: $convertedImageBytes)';
+    return 'ImageActionsEvent.listenImageProcess(imageResult: $imageResult)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _ListenImageProcessEvent &&
-            (identical(other.imageSource, imageSource) ||
-                const DeepCollectionEquality()
-                    .equals(other.imageSource, imageSource)) &&
             (identical(other.imageResult, imageResult) ||
                 const DeepCollectionEquality()
-                    .equals(other.imageResult, imageResult)) &&
-            (identical(other.convertedImageBytes, convertedImageBytes) ||
-                const DeepCollectionEquality()
-                    .equals(other.convertedImageBytes, convertedImageBytes)));
+                    .equals(other.imageResult, imageResult)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(imageSource) ^
-      const DeepCollectionEquality().hash(imageResult) ^
-      const DeepCollectionEquality().hash(convertedImageBytes);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(imageResult);
 
   @override
   _$ListenImageProcessEventCopyWith<_ListenImageProcessEvent> get copyWith =>
@@ -420,14 +379,12 @@ class _$_ListenImageProcessEvent implements _ListenImageProcessEvent {
   TResult when<TResult extends Object>({
     @required TResult copyImageText(),
     @required TResult saveImage(ScreenshotController screenshotController),
-    @required
-        TResult listenImageProcess(File imageSource,
-            ImageResultModel imageResult, Uint8List convertedImageBytes),
+    @required TResult listenImageProcess(ImageResultModel imageResult),
   }) {
     assert(copyImageText != null);
     assert(saveImage != null);
     assert(listenImageProcess != null);
-    return listenImageProcess(imageSource, imageResult, convertedImageBytes);
+    return listenImageProcess(imageResult);
   }
 
   @override
@@ -435,13 +392,12 @@ class _$_ListenImageProcessEvent implements _ListenImageProcessEvent {
   TResult maybeWhen<TResult extends Object>({
     TResult copyImageText(),
     TResult saveImage(ScreenshotController screenshotController),
-    TResult listenImageProcess(File imageSource, ImageResultModel imageResult,
-        Uint8List convertedImageBytes),
+    TResult listenImageProcess(ImageResultModel imageResult),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (listenImageProcess != null) {
-      return listenImageProcess(imageSource, imageResult, convertedImageBytes);
+      return listenImageProcess(imageResult);
     }
     return orElse();
   }
@@ -477,13 +433,9 @@ class _$_ListenImageProcessEvent implements _ListenImageProcessEvent {
 
 abstract class _ListenImageProcessEvent implements ImageActionsEvent {
   const factory _ListenImageProcessEvent(
-      {@required File imageSource,
-      @required ImageResultModel imageResult,
-      @required Uint8List convertedImageBytes}) = _$_ListenImageProcessEvent;
+      {@required ImageResultModel imageResult}) = _$_ListenImageProcessEvent;
 
-  File get imageSource;
   ImageResultModel get imageResult;
-  Uint8List get convertedImageBytes;
   _$ListenImageProcessEventCopyWith<_ListenImageProcessEvent> get copyWith;
 }
 

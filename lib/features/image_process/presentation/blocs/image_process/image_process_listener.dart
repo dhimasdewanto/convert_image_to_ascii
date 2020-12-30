@@ -11,15 +11,12 @@ final imageProcessListener = BlocListener<ImageProcessBloc, ImageProcessState>(
         );
       },
       showResult: (imageResult) {
-        // TODO(dhimasdewanto): Coming soon
-        // final imageActionBloc = context.read<ImageActionsBloc>();
-        // imageActionBloc.add(
-        //   ImageActionsEvent.listenImageProcess(
-        //     imageSource: imageSource,
-        //     imageResult: imageResult,
-        //     convertedImageBytes: convertedImageBytes,
-        //   ),
-        // );
+        final imageActionBloc = context.read<ImageActionsBloc>();
+        imageActionBloc.add(
+          ImageActionsEvent.listenImageProcess(
+            imageResult: imageResult,
+          ),
+        );
       },
     );
   },

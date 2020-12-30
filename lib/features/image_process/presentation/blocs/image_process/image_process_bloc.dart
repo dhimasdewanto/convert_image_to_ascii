@@ -13,6 +13,7 @@ import '../../../../settings/domain/use_cases/get_settings.dart';
 import '../../../domain/models/image_result_model.dart';
 import '../../../domain/use_cases/image_process/get_string_buffer.dart';
 import '../../pages/result_page.dart';
+import '../image_actions/image_actions_bloc.dart';
 
 part 'image_process_bloc.freezed.dart';
 part 'image_process_event.dart';

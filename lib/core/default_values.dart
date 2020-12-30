@@ -1,4 +1,4 @@
-const defaultImageWidth = 200;
+const defaultImageWidth = 100;
 
 const defaultRepeatCharacter = 2;
 

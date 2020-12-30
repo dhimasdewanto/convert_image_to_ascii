@@ -8,11 +8,11 @@ class AsciiImageView extends StatelessWidget {
   const AsciiImageView({
     Key key,
     @required this.imageTextBuffer,
-    // @required this.screenshotController,
+    @required this.screenshotController,
   }) : super(key: key);
 
   final StringBuffer imageTextBuffer;
-  // final ScreenshotController screenshotController;
+  final ScreenshotController screenshotController;
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +29,7 @@ class AsciiImageView extends StatelessWidget {
             orElse: () => const Offstage(),
             show: (settingsModel) {
               return Screenshot(
-                // TODO(dhimasdewanto): Coming soon
-                // controller: screenshotController,
+                controller: screenshotController,
                 child: Container(
                   color: theme.canvasColor,
                   child: Text(

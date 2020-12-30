@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -35,9 +33,7 @@ class ImageActionsBloc extends Bloc<ImageActionsEvent, ImageActionsState> {
   ) async* {
     yield* event.when(
       listenImageProcess: (
-        imageSource,
         imageResult,
-        convertedImageBytes,
       ) async* {
         _imageResult = imageResult;
       },

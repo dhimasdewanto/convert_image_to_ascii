@@ -10,6 +10,12 @@ final imageActionsListener = BlocListener<ImageActionsBloc, ImageActionsState>(
           message: "Success copy text",
         );
       },
+      successSaveImage:  () {
+        showSuccessFlushbar(
+          context: context,
+          message: "Saved to gallery",
+        );
+      },
     );
   },
 );

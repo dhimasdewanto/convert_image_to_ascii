@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:screenshot/screenshot.dart';
 
+import '../../../../core/dependency_injections/configure_dependencies.dart';
 import '../blocs/image_actions/image_actions_bloc.dart';
 import '../blocs/image_process/image_process_bloc.dart';
 import '../widgets/actions_bottom_sheet.dart';
@@ -12,6 +14,8 @@ class ResultPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenshotController = getIt<ScreenshotController>();
+
     return BlocBuilder<ImageProcessBloc, ImageProcessState>(
       builder: (context, state) {
         return state.maybeWhen(
@@ -34,16 +38,18 @@ class ResultPage extends StatelessWidget {
           },
           showResult: (imageResult) {
             return BottomSheetScaffold(
-              bottomSheet: const ActionsBottonSheet(),
+              bottomSheet: ActionsBottonSheet(
+                screenshotController: screenshotController,
+              ),
               appBar: AppBar(
                 title: const Text("Result"),
               ),
               body: MultiBlocListener(
                 listeners: [
                   imageActionsListener,
-                  imageProcessListener,
                 ],
                 child: AsciiImageView(
+                  screenshotController: screenshotController,
                   imageTextBuffer: imageResult.imageStringBuffer,
                 ),
               ),
