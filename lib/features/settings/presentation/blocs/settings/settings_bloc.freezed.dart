@@ -305,7 +305,7 @@ class _$SettingsStateTearOff {
   }
 
 // ignore: unused_element
-  _ErrorState error({String message = 'Error'}) {
+  _ErrorState error({String message = "Error"}) {
     return _ErrorState(
       message: message,
     );
@@ -497,9 +497,9 @@ class __$ErrorStateCopyWithImpl<$Res> extends _$SettingsStateCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_ErrorState implements _ErrorState {
-  const _$_ErrorState({this.message = 'Error'}) : assert(message != null);
+  const _$_ErrorState({this.message = "Error"}) : assert(message != null);
 
-  @JsonKey(defaultValue: 'Error')
+  @JsonKey(defaultValue: "Error")
   @override
   final String message;
 

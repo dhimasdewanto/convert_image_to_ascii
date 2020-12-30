@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:screenshot/screenshot.dart';
 
 import '../../../../core/dependency_injections/configure_dependencies.dart';
-import '../blocs/image_actions/image_actions_bloc.dart';
 import '../blocs/image_process/image_process_bloc.dart';
 import '../widgets/actions_bottom_sheet.dart';
 import '../widgets/ascii_image_view.dart';
@@ -44,14 +43,9 @@ class ResultPage extends StatelessWidget {
               appBar: AppBar(
                 title: const Text("Result"),
               ),
-              body: MultiBlocListener(
-                listeners: [
-                  imageActionsListener,
-                ],
-                child: AsciiImageView(
-                  screenshotController: screenshotController,
-                  imageTextBuffer: imageResult.imageStringBuffer,
-                ),
+              body: AsciiImageView(
+                screenshotController: screenshotController,
+                imageTextBuffer: imageResult.imageStringBuffer,
               ),
             );
           },
