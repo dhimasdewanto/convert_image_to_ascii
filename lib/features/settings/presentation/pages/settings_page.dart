@@ -3,9 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/navigators.dart';
 import '../blocs/settings/settings_bloc.dart';
+import '../dialogs/default_settings_dialog.dart';
 import '../dialogs/image_repeat_characters_dialog.dart';
 import '../dialogs/image_width_dialog.dart';
 import '../dialogs/is_reversed_dialog.dart';
+import '../dialogs/total_characters_dialog.dart';
 import 'character_settings_page.dart';
 import 'color_settings_page.dart';
 
@@ -26,8 +28,16 @@ class SettingsPage extends StatelessWidget {
               return ListView(
                 children: [
                   ListTile(
-                    title: const Text("Characters Total"),
-                    onTap: () {},
+                    title: const Text("Total Characters"),
+                    subtitle: Text("${settingsModel.listCharacters.length}"),
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (_) => TotalCharactersDialog(
+                          listCharacters: settingsModel.listCharacters,
+                        ),
+                      );
+                    },
                   ),
                   const Divider(),
                   ListTile(
@@ -84,6 +94,16 @@ class SettingsPage extends StatelessWidget {
                       showDialog(
                         context: context,
                         builder: (_) => const IsReversedDialog(),
+                      );
+                    },
+                  ),
+                  const Divider(),
+                  ListTile(
+                    title: const Text("Default Settings"),
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (_) => const DefaultSettingsDialog(),
                       );
                     },
                   ),
