@@ -22,15 +22,12 @@ class ImageWidthDialog extends StatefulWidget {
 class _ImageWidthDialogState extends State<ImageWidthDialog> {
   final _fieldController = TextEditingController();
 
-  static const _minValue = 20;
-  static const _maxValue = 200;
-
   bool get _isFormValid {
     final value = int.tryParse(_fieldController.text);
     if (value == null) {
       return false;
     }
-    return value >= _minValue && value <= _maxValue;
+    return value >= minImageWidth && value <= maxImageWidth;
   }
 
   int get _value {
@@ -77,7 +74,7 @@ class _ImageWidthDialogState extends State<ImageWidthDialog> {
       context: context,
       builder: (_) => const AlertDialog(
         content: Text(
-          "Min width is $_minValue character and max width $_maxValue character",
+          "Min width is $minImageWidth character and max width is $maxImageWidth character",
         ),
       ),
     );

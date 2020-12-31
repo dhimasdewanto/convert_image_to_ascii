@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/default_values.dart';
 import '../../../../core/limit_values.dart';
 import '../../../../core/navigators.dart';
 import '../../domain/use_cases/update_settings.dart';
@@ -21,7 +22,23 @@ class ImageRepeatCharactersDialog extends StatefulWidget {
 
 class _ImageRepeatCharactersDialogState
     extends State<ImageRepeatCharactersDialog> {
-  var _value = 0;
+  final _fieldController = TextEditingController();
+
+  bool get _isFormValid {
+    final value = int.tryParse(_fieldController.text);
+    if (value == null) {
+      return false;
+    }
+    return value >= minRepeatCharacters && value <= maxRepeatCharacters;
+  }
+
+  int get _value {
+    return int.parse(_fieldController.text);
+  }
+
+  set _value(int value) {
+    _fieldController.text = value.toString();
+  }
 
   @override
   void initState() {
@@ -30,28 +47,58 @@ class _ImageRepeatCharactersDialogState
   }
 
   void _onConfirm() {
+    if (_isFormValid == false) {
+      _showErrorDialog();
+      return;
+    }
+
+    _updateSettings(_value);
+  }
+
+  void _onDefault() {
+    _updateSettings(defaultRepeatCharacter);
+  }
+
+  void _updateSettings(int repeatedCharacters) {
     final settingsBloc = context.read<SettingsBloc>();
     settingsBloc.add(
       SettingsEvent.updateSettings(
         newSettings: UpdateSettingsParams(
-          repeatedCharacters: _value,
+          repeatedCharacters: repeatedCharacters,
         ),
       ),
     );
     pop(context: context);
   }
 
+  void _showErrorDialog() {
+    showDialog(
+      context: context,
+      builder: (_) => const AlertDialog(
+        content: Text(
+          "Min value is $minRepeatCharacters and max value is $maxRepeatCharacters",
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    final textStyle = Theme.of(context).textTheme.headline6;
 
     return SimpleDialog(
-      title: const Text("Image Width"),
+      title: const Text("Repeat Characters Count"),
       children: [
-        Center(
-          child: Text(
-            "${_value}x",
-            style: textTheme.headline6,
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 100,
+            vertical: 10,
+          ),
+          child: TextField(
+            controller: _fieldController,
+            textAlign: TextAlign.center,
+            style: textStyle,
+            keyboardType: TextInputType.number,
           ),
         ),
         Slider(
@@ -69,7 +116,7 @@ class _ImageRepeatCharactersDialogState
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             TextButton(
-              onPressed: () {},
+              onPressed: _onDefault,
               child: const Text("Default"),
             ),
             OutlinedButton(
