@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/default_values.dart';
 import '../../../../core/limit_values.dart';
 import '../../../../core/navigators.dart';
 import '../../domain/use_cases/update_settings.dart';
@@ -26,13 +27,10 @@ class _ImageWidthDialogState extends State<ImageWidthDialog> {
 
   bool get _isFormValid {
     final value = int.tryParse(_fieldController.text);
-    if (value != null) {
-      if (value < _minValue || value > _maxValue) {
-        return false;
-      }
-      return true;
+    if (value == null) {
+      return false;
     }
-    return false;
+    return value >= _minValue && value <= _maxValue;
   }
 
   int get _value {
@@ -51,26 +49,38 @@ class _ImageWidthDialogState extends State<ImageWidthDialog> {
 
   void _onConfirm() {
     if (_isFormValid == false) {
-      showDialog(
-        context: context,
-        builder: (_) => const AlertDialog(
-          content: Text(
-            "Min width is $_minValue character and max width $_maxValue character",
-          ),
-        ),
-      );
+      _showErrorDialog();
       return;
     }
 
+    _updateSettings(_value);
+  }
+
+  void _onDefault() {
+    _updateSettings(defaultImageWidth);
+  }
+
+  void _updateSettings(int imageWidth) {
     final settingsBloc = context.read<SettingsBloc>();
     settingsBloc.add(
       SettingsEvent.updateSettings(
         newSettings: UpdateSettingsParams(
-          imageWidth: _value,
+          imageWidth: imageWidth,
         ),
       ),
     );
     pop(context: context);
+  }
+
+  void _showErrorDialog() {
+    showDialog(
+      context: context,
+      builder: (_) => const AlertDialog(
+        content: Text(
+          "Min width is $_minValue character and max width $_maxValue character",
+        ),
+      ),
+    );
   }
 
   @override
@@ -107,7 +117,7 @@ class _ImageWidthDialogState extends State<ImageWidthDialog> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             TextButton(
-              onPressed: () {},
+              onPressed: _onDefault,
               child: const Text("Default"),
             ),
             OutlinedButton(
