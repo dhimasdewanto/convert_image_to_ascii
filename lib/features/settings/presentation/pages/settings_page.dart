@@ -5,6 +5,7 @@ import '../../../../core/navigators.dart';
 import '../blocs/settings/settings_bloc.dart';
 import '../dialogs/image_repeat_characters_dialog.dart';
 import '../dialogs/image_width_dialog.dart';
+import '../dialogs/is_reversed_dialog.dart';
 import 'character_settings_page.dart';
 import 'color_settings_page.dart';
 
@@ -77,8 +78,16 @@ class SettingsPage extends StatelessWidget {
                   const Divider(),
                   ListTile(
                     title: const Text("Is Color Reversed"),
-                    subtitle: Text("${settingsModel.isColorReversed}"),
+                    subtitle:
+                        Text("${settingsModel.isColorReversed}".capitalize()),
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (_) => const IsReversedDialog(),
+                      );
+                    },
                   ),
+                  const Divider(),
                 ],
               );
             },
@@ -86,5 +95,11 @@ class SettingsPage extends StatelessWidget {
         },
       ),
     );
+  }
+}
+
+extension StringExtension on String {
+  String capitalize() {
+    return "${this[0].toUpperCase()}${substring(1)}";
   }
 }
