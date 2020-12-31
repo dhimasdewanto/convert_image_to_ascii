@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../blocs/settings/settings_bloc.dart';
+import '../dialogs/color_dialog.dart';
 
 class ColorSettingsPage extends StatelessWidget {
   const ColorSettingsPage({Key key}) : super(key: key);
@@ -37,6 +38,15 @@ class ColorSettingsPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(50),
                       ),
                     ),
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (_) => ColorDialog(
+                          indexValue: index,
+                          listColorValues: listColorValues,
+                        ),
+                      );
+                    },
                   );
                 },
               );

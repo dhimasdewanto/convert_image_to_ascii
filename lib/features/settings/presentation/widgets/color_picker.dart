@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_colorpicker/flutter_colorpicker.dart' as picker;
 
 class ColorPicker extends StatefulWidget {
-  const ColorPicker({Key key}) : super(key: key);
+  const ColorPicker({
+    Key key,
+    @required this.initialValue,
+    @required this.onPicked,
+    @required this.onDefault,
+  }) : super(key: key);
+
+  final int initialValue;
+  final void Function(Color color) onPicked;
+  final void Function() onDefault;
 
   @override
   _ColorPickerState createState() => _ColorPickerState();
@@ -10,44 +18,47 @@ class ColorPicker extends StatefulWidget {
 
 class _ColorPickerState extends State<ColorPicker> {
   var _valueColor = 0;
-  var _color = Colors.black;
+
+  @override
+  void initState() {
+    super.initState();
+    final initialColor = Color(widget.initialValue);
+    _valueColor = initialColor.red;
+  }
+
+  Color get _color => Color.fromARGB(
+        255,
+        _valueColor,
+        _valueColor,
+        _valueColor,
+      );
 
   @override
   Widget build(BuildContext context) {
+    final textStyle = Theme.of(context).textTheme.bodyText1;
+
     return Column(
       children: [
-        ElevatedButton(
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (_) => Dialog(
-                child: SingleChildScrollView(
-                  child: picker.ColorPicker(
-                    pickerColor: _color,
-                    onColorChanged: (value) {
-                      setState(() {
-                        _color = value;
-                      });
-                    },
-                    pickerAreaHeightPercent: 0.8,
-                    enableAlpha: false,
-                  ),
-                ),
+        const SizedBox(height: 10),
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              height: 30,
+              width: 30,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: _color,
               ),
-            );
-          },
-          child: const Text("Open Color"),
+            ),
+            const SizedBox(width: 10),
+            Text(
+              _color.toHex(),
+              style: textStyle,
+            ),
+          ],
         ),
-        Container(
-          height: 20,
-          width: 20,
-          color: Color.fromARGB(
-            255,
-            _valueColor,
-            _valueColor,
-            _valueColor,
-          ),
-        ),
+        const SizedBox(height: 20),
         Stack(
           children: [
             Padding(
@@ -71,16 +82,11 @@ class _ColorPickerState extends State<ColorPicker> {
             Theme(
               data: Theme.of(context).copyWith(
                 sliderTheme: SliderTheme.of(context).copyWith(
-                  thumbColor: Color.fromARGB(
-                    255,
-                    _valueColor,
-                    _valueColor,
-                    _valueColor,
-                  ),
+                  thumbColor: _color,
                   activeTrackColor: Colors.transparent,
                   inactiveTrackColor: Colors.transparent,
                   thumbShape: const RoundSliderThumbShape(
-                    enabledThumbRadius: 20,
+                    enabledThumbRadius: 15,
                   ),
                 ),
               ),
@@ -93,6 +99,21 @@ class _ColorPickerState extends State<ColorPicker> {
                   });
                 },
               ),
+            ),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            TextButton(
+              onPressed: widget.onDefault,
+              child: const Text("Default"),
+            ),
+            OutlinedButton(
+              onPressed: () {
+                widget.onPicked(_color);
+              },
+              child: const Text("Ok"),
             ),
           ],
         ),
