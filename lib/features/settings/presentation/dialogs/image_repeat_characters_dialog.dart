@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/limit_values.dart';
 import '../../../../core/navigators.dart';
+import '../../domain/use_cases/update_settings.dart';
 import '../blocs/settings/settings_bloc.dart';
 
 class ImageRepeatCharactersDialog extends StatefulWidget {
@@ -32,7 +33,9 @@ class _ImageRepeatCharactersDialogState
     final settingsBloc = context.read<SettingsBloc>();
     settingsBloc.add(
       SettingsEvent.updateSettings(
-        repeatCharacters: _value,
+        newSettings: UpdateSettingsParams(
+          repeatedCharacters: _value,
+        ),
       ),
     );
     pop(context: context);

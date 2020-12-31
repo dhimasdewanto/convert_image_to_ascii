@@ -33,7 +33,8 @@ class CharacterSettingsPage extends StatelessWidget {
                       showDialog(
                         context: context,
                         builder: (_) => CharacterDialog(
-                          initialValue: character,
+                          indexCharacter: index,
+                          listCharacters: listCharacters,
                         ),
                       );
                     },

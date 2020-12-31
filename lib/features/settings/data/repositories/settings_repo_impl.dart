@@ -17,11 +17,14 @@ class SettingsRepoImpl implements SettingsRepo {
       final prefs = await SharedPreferences.getInstance();
       final result = prefs.getString(_keySettingsData);
 
+      final dListCharacters = List<String>.from(defaultListCharacters);
+      final dListColors = List<int>.from(defaultListColors);
+
       if (result == null) {
         return right(
           SettingsModel(
-            listCharacters: defaultListCharacters,
-            listColorValues: defaultListColors,
+            listCharacters: dListCharacters,
+            listColorValues: dListColors,
             imageWidth: defaultImageWidth,
             repeatedCharacters: defaultRepeatCharacter,
             isColorReversed: defaultReverseColor,
@@ -33,8 +36,8 @@ class SettingsRepoImpl implements SettingsRepo {
       final settingsRaw = SettingsModel.fromJson(result);
       return right(
         SettingsModel(
-          listCharacters: settingsRaw.listCharacters ?? defaultListCharacters,
-          listColorValues: settingsRaw.listColorValues ?? defaultListColors,
+          listCharacters: settingsRaw.listCharacters ?? dListCharacters,
+          listColorValues: settingsRaw.listColorValues ?? dListColors,
           imageWidth: settingsRaw.imageWidth ?? defaultImageWidth,
           repeatedCharacters:
               settingsRaw.repeatedCharacters ?? defaultRepeatCharacter,

@@ -45,40 +45,19 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
           },
         );
       },
-      updateSettings: (imageWidth, repeatCharacters) async* {
+      updateSettings: (newSettings) async* {
         yield* state.maybeWhen(
           orElse: () async* {},
-          show: (settingsModel) async* {
-            if (imageWidth != null) {
-              final result = await updateSettings(
-                UpdateSettingsParams(
-                  imageWidth: imageWidth,
-                ),
-              );
-              yield* result.fold(
-                () async* {
-                  add(const SettingsEvent.initialize());
-                },
-                (failures) async* {
-                  yield const SettingsState.error();
-                },
-              );
-            }
-            if (repeatCharacters != null) {
-              final result = await updateSettings(
-                UpdateSettingsParams(
-                  repeatCharacters: repeatCharacters,
-                ),
-              );
-              yield* result.fold(
-                () async* {
-                  add(const SettingsEvent.initialize());
-                },
-                (failures) async* {
-                  yield const SettingsState.error();
-                },
-              );
-            }
+          show: (settings) async* {
+            final result = await updateSettings(newSettings);
+            yield* result.fold(
+              () async* {
+                add(const SettingsEvent.initialize());
+              },
+              (failures) async* {
+                yield const SettingsState.error();
+              },
+            );
           },
         );
       },

@@ -19,10 +19,10 @@ class _$SettingsEventTearOff {
   }
 
 // ignore: unused_element
-  _UpdateSettingsEvent updateSettings({int imageWidth, int repeatCharacters}) {
+  _UpdateSettingsEvent updateSettings(
+      {@required UpdateSettingsParams newSettings}) {
     return _UpdateSettingsEvent(
-      imageWidth: imageWidth,
-      repeatCharacters: repeatCharacters,
+      newSettings: newSettings,
     );
   }
 }
@@ -36,12 +36,12 @@ mixin _$SettingsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initialize(),
-    @required TResult updateSettings(int imageWidth, int repeatCharacters),
+    @required TResult updateSettings(UpdateSettingsParams newSettings),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initialize(),
-    TResult updateSettings(int imageWidth, int repeatCharacters),
+    TResult updateSettings(UpdateSettingsParams newSettings),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -114,7 +114,7 @@ class _$_InitializeEvent implements _InitializeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initialize(),
-    @required TResult updateSettings(int imageWidth, int repeatCharacters),
+    @required TResult updateSettings(UpdateSettingsParams newSettings),
   }) {
     assert(initialize != null);
     assert(updateSettings != null);
@@ -125,7 +125,7 @@ class _$_InitializeEvent implements _InitializeEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initialize(),
-    TResult updateSettings(int imageWidth, int repeatCharacters),
+    TResult updateSettings(UpdateSettingsParams newSettings),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -170,7 +170,7 @@ abstract class _$UpdateSettingsEventCopyWith<$Res> {
   factory _$UpdateSettingsEventCopyWith(_UpdateSettingsEvent value,
           $Res Function(_UpdateSettingsEvent) then) =
       __$UpdateSettingsEventCopyWithImpl<$Res>;
-  $Res call({int imageWidth, int repeatCharacters});
+  $Res call({UpdateSettingsParams newSettings});
 }
 
 /// @nodoc
@@ -186,49 +186,41 @@ class __$UpdateSettingsEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object imageWidth = freezed,
-    Object repeatCharacters = freezed,
+    Object newSettings = freezed,
   }) {
     return _then(_UpdateSettingsEvent(
-      imageWidth: imageWidth == freezed ? _value.imageWidth : imageWidth as int,
-      repeatCharacters: repeatCharacters == freezed
-          ? _value.repeatCharacters
-          : repeatCharacters as int,
+      newSettings: newSettings == freezed
+          ? _value.newSettings
+          : newSettings as UpdateSettingsParams,
     ));
   }
 }
 
 /// @nodoc
 class _$_UpdateSettingsEvent implements _UpdateSettingsEvent {
-  const _$_UpdateSettingsEvent({this.imageWidth, this.repeatCharacters});
+  const _$_UpdateSettingsEvent({@required this.newSettings})
+      : assert(newSettings != null);
 
   @override
-  final int imageWidth;
-  @override
-  final int repeatCharacters;
+  final UpdateSettingsParams newSettings;
 
   @override
   String toString() {
-    return 'SettingsEvent.updateSettings(imageWidth: $imageWidth, repeatCharacters: $repeatCharacters)';
+    return 'SettingsEvent.updateSettings(newSettings: $newSettings)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _UpdateSettingsEvent &&
-            (identical(other.imageWidth, imageWidth) ||
+            (identical(other.newSettings, newSettings) ||
                 const DeepCollectionEquality()
-                    .equals(other.imageWidth, imageWidth)) &&
-            (identical(other.repeatCharacters, repeatCharacters) ||
-                const DeepCollectionEquality()
-                    .equals(other.repeatCharacters, repeatCharacters)));
+                    .equals(other.newSettings, newSettings)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(imageWidth) ^
-      const DeepCollectionEquality().hash(repeatCharacters);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(newSettings);
 
   @override
   _$UpdateSettingsEventCopyWith<_UpdateSettingsEvent> get copyWith =>
@@ -239,23 +231,23 @@ class _$_UpdateSettingsEvent implements _UpdateSettingsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initialize(),
-    @required TResult updateSettings(int imageWidth, int repeatCharacters),
+    @required TResult updateSettings(UpdateSettingsParams newSettings),
   }) {
     assert(initialize != null);
     assert(updateSettings != null);
-    return updateSettings(imageWidth, repeatCharacters);
+    return updateSettings(newSettings);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initialize(),
-    TResult updateSettings(int imageWidth, int repeatCharacters),
+    TResult updateSettings(UpdateSettingsParams newSettings),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (updateSettings != null) {
-      return updateSettings(imageWidth, repeatCharacters);
+      return updateSettings(newSettings);
     }
     return orElse();
   }
@@ -287,11 +279,10 @@ class _$_UpdateSettingsEvent implements _UpdateSettingsEvent {
 }
 
 abstract class _UpdateSettingsEvent implements SettingsEvent {
-  const factory _UpdateSettingsEvent({int imageWidth, int repeatCharacters}) =
-      _$_UpdateSettingsEvent;
+  const factory _UpdateSettingsEvent(
+      {@required UpdateSettingsParams newSettings}) = _$_UpdateSettingsEvent;
 
-  int get imageWidth;
-  int get repeatCharacters;
+  UpdateSettingsParams get newSettings;
   _$UpdateSettingsEventCopyWith<_UpdateSettingsEvent> get copyWith;
 }
 
@@ -305,7 +296,7 @@ class _$SettingsStateTearOff {
   }
 
 // ignore: unused_element
-  _ErrorState error({String message = "Error"}) {
+  _ErrorState error({String message = 'Error'}) {
     return _ErrorState(
       message: message,
     );
@@ -497,9 +488,9 @@ class __$ErrorStateCopyWithImpl<$Res> extends _$SettingsStateCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_ErrorState implements _ErrorState {
-  const _$_ErrorState({this.message = "Error"}) : assert(message != null);
+  const _$_ErrorState({this.message = 'Error'}) : assert(message != null);
 
-  @JsonKey(defaultValue: "Error")
+  @JsonKey(defaultValue: 'Error')
   @override
   final String message;
 

@@ -23,7 +23,14 @@ class UpdateSettings {
         final currentSettings = prevSettings.copyWith(
           imageWidth: params.imageWidth ?? prevSettings.imageWidth,
           repeatedCharacters:
-              params.repeatCharacters ?? prevSettings.repeatedCharacters,
+              params.repeatedCharacters ?? prevSettings.repeatedCharacters,
+          convertToGrayscale:
+              params.convertToGrayscale ?? prevSettings.convertToGrayscale,
+          isColorReversed:
+              params.isColorReversed ?? prevSettings.isColorReversed,
+          listCharacters: params.listCharacters ?? prevSettings.listCharacters,
+          listColorValues:
+              params.listColorValues ?? prevSettings.listColorValues,
         );
         final result = await settingsRepo.setSettingsData(currentSettings);
         return result;
@@ -35,9 +42,17 @@ class UpdateSettings {
 class UpdateSettingsParams {
   UpdateSettingsParams({
     this.imageWidth,
-    this.repeatCharacters,
+    this.repeatedCharacters,
+    this.convertToGrayscale,
+    this.isColorReversed,
+    this.listCharacters,
+    this.listColorValues,
   });
 
   final int imageWidth;
-  final int repeatCharacters;
+  final bool isColorReversed;
+  final bool convertToGrayscale;
+  final List<String> listCharacters;
+  final List<int> listColorValues;
+  final int repeatedCharacters;
 }

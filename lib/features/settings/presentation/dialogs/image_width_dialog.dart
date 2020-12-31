@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/limit_values.dart';
 import '../../../../core/navigators.dart';
+import '../../domain/use_cases/update_settings.dart';
 import '../blocs/settings/settings_bloc.dart';
 
 class ImageWidthDialog extends StatefulWidget {
@@ -64,7 +65,9 @@ class _ImageWidthDialogState extends State<ImageWidthDialog> {
     final settingsBloc = context.read<SettingsBloc>();
     settingsBloc.add(
       SettingsEvent.updateSettings(
-        imageWidth: _value,
+        newSettings: UpdateSettingsParams(
+          imageWidth: _value,
+        ),
       ),
     );
     pop(context: context);

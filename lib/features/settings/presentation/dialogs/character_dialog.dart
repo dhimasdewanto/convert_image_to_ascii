@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../core/default_values.dart';
+import '../../../../core/navigators.dart';
+import '../../domain/use_cases/update_settings.dart';
+import '../blocs/settings/settings_bloc.dart';
 
 class CharacterDialog extends StatefulWidget {
   const CharacterDialog({
     Key key,
-    @required this.initialValue,
+    @required this.indexCharacter,
+    @required this.listCharacters,
   }) : super(key: key);
 
-  final String initialValue;
+  final int indexCharacter;
+  final List<String> listCharacters;
 
   @override
   _CharacterDialogState createState() => _CharacterDialogState();
@@ -16,10 +24,12 @@ class _CharacterDialogState extends State<CharacterDialog> {
   final _formKey = GlobalKey<FormState>();
   final _fieldController = TextEditingController();
 
+  String get _initialValue => widget.listCharacters[widget.indexCharacter];
+
   @override
   void initState() {
     super.initState();
-    _fieldController.text = widget.initialValue;
+    _fieldController.text = _initialValue;
   }
 
   @override
@@ -28,9 +38,37 @@ class _CharacterDialogState extends State<CharacterDialog> {
     super.dispose();
   }
 
-  void _onConfirm() {}
+  void _onConfirm() {
+    if (_formKey.currentState.validate() == false) {
+      return;
+    }
 
-  void _onDefault() {}
+    final newCharacter = _fieldController.text;
+    _updateSettings(_getNewListCharacters(newCharacter));
+  }
+
+  void _onDefault() {
+    final defaultCharacter = defaultListCharacters[widget.indexCharacter];
+    _updateSettings(_getNewListCharacters(defaultCharacter));
+  }
+
+  void _updateSettings(List<String> listCharacters) {
+    final settingsBloc = context.read<SettingsBloc>();
+    settingsBloc.add(
+      SettingsEvent.updateSettings(
+        newSettings: UpdateSettingsParams(
+          listCharacters: listCharacters,
+        ),
+      ),
+    );
+    pop(context: context);
+  }
+
+  List<String> _getNewListCharacters(String newCharacters) {
+    final newListCharacters = List<String>.from(widget.listCharacters);
+    newListCharacters[widget.indexCharacter] = newCharacters;
+    return newListCharacters;
+  }
 
   @override
   Widget build(BuildContext context) {
