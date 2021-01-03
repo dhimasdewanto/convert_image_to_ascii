@@ -1,4 +1,4 @@
-name: ascii_image
+name: ascii_image_generator
 description: Convert Image to ASCII.
 
 # The following line prevents the package from being accidentally published to
@@ -65,23 +65,7 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: IBMPlexMono
-      fonts:
-        - asset: assets/fonts/IBMPlexMono-Regular.ttf
-          style: normal
-    - family: JetBrainsMono
-      fonts:
-        - asset: assets/fonts/JetBrainsMono-VariableFont_wght.ttf
-          style: normal
     - family: RobotoMono
       fonts:
         - asset: assets/fonts/RobotoMono-VariableFont_wght.ttf
-          style: normal
-    - family: SourceCodePro
-      fonts:
-        - asset: assets/fonts/SourceCodePro-Regular.ttf
-          style: normal
-    - family: UbuntuMono
-      fonts:
-        - asset: assets/fonts/UbuntuMono-Regular.ttf
           style: normal
