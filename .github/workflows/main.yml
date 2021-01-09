@@ -24,7 +24,7 @@ jobs:
           SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
 
       - name: Setup Flutter
-        uses: subosito/flutter-action@v1.3.2
+        uses: subosito/flutter-action@v1.4.0
 
       - name: Get Packages
         run: flutter pub get
