@@ -14,6 +14,7 @@ class SaveImage {
         pixelRatio: 1.5,
       );
       
+      // path = /data/user/0/com.dhimasdewanto.ascii_image_generator/app_flutter/2021-02-26T15:40:14.490865.png
       final isSuccess = await GallerySaver.saveImage(image.path);
 
       if (isSuccess == false) {
