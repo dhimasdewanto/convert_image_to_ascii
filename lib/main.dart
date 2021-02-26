@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
               create: (context) => getIt<SettingsBloc>(),
             ),
           ],
-          child: child!,
+          child: child ?? const Offstage(),
         );
       },
     );
