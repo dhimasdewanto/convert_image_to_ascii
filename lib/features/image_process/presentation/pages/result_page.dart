@@ -9,11 +9,11 @@ import '../widgets/ascii_image_view.dart';
 import '../widgets/bottom_sheet_scaffold.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({Key key}) : super(key: key);
+  const ResultPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final screenshotController = getIt<ScreenshotController>();
+    final ScreenshotController? screenshotController = getIt<ScreenshotController>();
 
     return BlocBuilder<ImageProcessBloc, ImageProcessState>(
       builder: (context, state) {

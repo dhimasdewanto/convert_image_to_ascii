@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 
 Future<void> push({
-  @required BuildContext context,
-  @required Widget page,
+  required BuildContext context,
+  required Widget page,
 }) async {
   final route = MaterialPageRoute(builder: (_) => page);
-  return Navigator.push(context, route);
+  await Navigator.push(context, route);
 }
 
 Future<void> pushReplacement({
-  @required BuildContext context,
-  @required Widget page,
+  required BuildContext context,
+  required Widget page,
 }) async {
   final route = MaterialPageRoute(builder: (_) => page);
-  return Navigator.pushReplacement(context, route);
+  await Navigator.pushReplacement(context, route);
 }
 
 Future<void> pushAndRemoveAll({
-  @required BuildContext context,
-  @required Widget page,
+  required BuildContext context,
+  required Widget page,
 }) async {
   final route = MaterialPageRoute(builder: (_) => page);
-  return Navigator.pushAndRemoveUntil(
+  await Navigator.pushAndRemoveUntil(
     context,
     route,
     (route) => false,
@@ -29,7 +29,7 @@ Future<void> pushAndRemoveAll({
 }
 
 void pop({
-  @required BuildContext context,
+  required BuildContext context,
 }) {
   return Navigator.pop(context);
 }

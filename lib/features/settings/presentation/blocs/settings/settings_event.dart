@@ -4,6 +4,6 @@ part of 'settings_bloc.dart';
 abstract class SettingsEvent with _$SettingsEvent {
   const factory SettingsEvent.initialize() = _InitializeEvent;
   const factory SettingsEvent.updateSettings({
-    @required UpdateSettingsParams newSettings,
+    required UpdateSettingsParams newSettings,
   }) = _UpdateSettingsEvent;
 }

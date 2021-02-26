@@ -9,17 +9,17 @@ import '../widgets/color_picker.dart';
 
 class ColorDialog extends StatelessWidget {
   const ColorDialog({
-    Key key,
-    @required this.indexValue,
-    @required this.listColorValues,
+    Key? key,
+    required this.indexValue,
+    required this.listColorValues,
   }) : super(key: key);
 
   final int indexValue;
   final List<int> listColorValues;
 
   void _onConfirm({
-    @required BuildContext context,
-    @required Color color,
+    required BuildContext context,
+    required Color color,
   }) {
     final newColorValue = color.value;
     _updateSettings(
@@ -29,7 +29,7 @@ class ColorDialog extends StatelessWidget {
   }
 
   void _onDefault({
-    @required BuildContext context,
+    required BuildContext context,
   }) {
     final defaultColorValue = defaultListColors[indexValue];
     _updateSettings(
@@ -39,8 +39,8 @@ class ColorDialog extends StatelessWidget {
   }
 
   void _updateSettings({
-    @required BuildContext context,
-    @required List<int> listColorValues,
+    required BuildContext context,
+    required List<int> listColorValues,
   }) {
     final settingsBloc = context.read<SettingsBloc>();
     settingsBloc.add(

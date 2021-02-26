@@ -17,14 +17,14 @@ part 'settings_state.dart';
 
 class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   SettingsBloc({
-    @required this.getSettings,
-    @required this.updateSettings,
+    required this.getSettings,
+    required this.updateSettings,
   }) : super(
           const SettingsState.initial(),
         );
 
-  final GetSettings getSettings;
-  final UpdateSettings updateSettings;
+  final GetSettings? getSettings;
+  final UpdateSettings? updateSettings;
 
   @override
   Stream<SettingsState> mapEventToState(
@@ -32,7 +32,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   ) async* {
     yield* event.when(
       initialize: () async* {
-        final result = await getSettings();
+        final result = await getSettings!();
         yield* result.fold(
           (failures) async* {
             yield const SettingsState.error();
@@ -48,7 +48,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
         yield* state.maybeWhen(
           orElse: () async* {},
           show: (settings) async* {
-            final result = await updateSettings(newSettings);
+            final result = await updateSettings!(newSettings);
             yield* result.fold(
               () async* {
                 add(const SettingsEvent.initialize());

@@ -5,7 +5,7 @@ import '../blocs/settings/settings_bloc.dart';
 import '../dialogs/color_dialog.dart';
 
 class ColorSettingsPage extends StatelessWidget {
-  const ColorSettingsPage({Key key}) : super(key: key);
+  const ColorSettingsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class ColorSettingsPage extends StatelessWidget {
                   return ListTile(
                     leading: Text("${index + 1}."),
                     title: Container(
-                      height: textTheme.bodyText1.fontSize,
+                      height: textTheme.bodyText1!.fontSize,
                       decoration: BoxDecoration(
                         color: Color(colorValue),
                         borderRadius: BorderRadius.circular(50),

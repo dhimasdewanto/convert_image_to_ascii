@@ -6,10 +6,10 @@ import '../../domain/use_cases/update_settings.dart';
 import '../blocs/settings/settings_bloc.dart';
 
 class DefaultSettingsDialog extends StatelessWidget {
-  const DefaultSettingsDialog({Key key}) : super(key: key);
+  const DefaultSettingsDialog({Key? key}) : super(key: key);
 
   void _toDefaultSettings({
-    @required BuildContext context,
+    required BuildContext context,
   }) {
     final settingsBloc = context.read<SettingsBloc>();
     settingsBloc.add(

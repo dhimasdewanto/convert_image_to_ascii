@@ -2,29 +2,29 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 
+import '../../../../core/default_values.dart';
+
 class SettingsModel {
   SettingsModel({
-    @required this.imageWidth,
-    @required this.isColorReversed,
-    @required this.convertToGrayscale,
-    @required this.listCharacters,
-    @required this.listColorValues,
-    @required this.repeatedCharacters,
+    required this.imageWidth,
+    required this.isColorReversed,
+    required this.convertToGrayscale,
+    required this.listCharacters,
+    required this.listColorValues,
+    required this.repeatedCharacters,
   });
 
   factory SettingsModel.fromJson(String source) =>
       SettingsModel.fromMap(json.decode(source));
 
   factory SettingsModel.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-  
     return SettingsModel(
-      imageWidth: map['imageWidth'],
-      isColorReversed: map['isColorReversed'],
-      convertToGrayscale: map['convertToGrayscale'],
-      listCharacters: List<String>.from(map['listCharacters']),
-      listColorValues: List<int>.from(map['listColorValues']),
-      repeatedCharacters: map['repeatedCharacters'],
+      imageWidth: map['imageWidth'] ?? defaultImageWidth,
+      isColorReversed: map['isColorReversed'] ?? defaultReverseColor,
+      convertToGrayscale: map['convertToGrayscale'] ?? defaultToGrayscale,
+      listCharacters: List<String>.from(map['listCharacters'] ?? defaultListCharacters),
+      listColorValues: List<int>.from(map['listColorValues'] ?? defaultListColors),
+      repeatedCharacters: map['repeatedCharacters'] ?? defaultRepeatCharacter,
     );
   }
 
@@ -64,12 +64,12 @@ class SettingsModel {
   }
 
   SettingsModel copyWith({
-    int imageWidth,
-    bool isColorReversed,
-    bool convertToGrayscale,
-    List<String> listCharacters,
-    List<int> listColorValues,
-    int repeatedCharacters,
+    int? imageWidth,
+    bool? isColorReversed,
+    bool? convertToGrayscale,
+    List<String>? listCharacters,
+    List<int>? listColorValues,
+    int? repeatedCharacters,
   }) {
     return SettingsModel(
       imageWidth: imageWidth ?? this.imageWidth,

@@ -8,9 +8,9 @@ abstract class ImageProcessState with _$ImageProcessState {
     @Default("Error") String message,
   }) = _ErrorState;
   const factory ImageProcessState.imagePicked({
-    @required File imageSource,
+    required File imageSource,
   }) = _ImagePickedState;
   const factory ImageProcessState.showResult({
-    @required ImageResultModel imageResult,
+    required ImageResultModel imageResult,
   }) = _ShowResultState;
 }

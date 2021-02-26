@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'settings_bloc.dart';
 
@@ -13,14 +13,12 @@ T _$identity<T>(T value) => value;
 class _$SettingsEventTearOff {
   const _$SettingsEventTearOff();
 
-// ignore: unused_element
   _InitializeEvent initialize() {
     return const _InitializeEvent();
   }
 
-// ignore: unused_element
   _UpdateSettingsEvent updateSettings(
-      {@required UpdateSettingsParams newSettings}) {
+      {required UpdateSettingsParams newSettings}) {
     return _UpdateSettingsEvent(
       newSettings: newSettings,
     );
@@ -28,32 +26,31 @@ class _$SettingsEventTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SettingsEvent = _$SettingsEventTearOff();
 
 /// @nodoc
 mixin _$SettingsEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialize(),
-    @required TResult updateSettings(UpdateSettingsParams newSettings),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(UpdateSettingsParams newSettings) updateSettings,
   });
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialize(),
-    TResult updateSettings(UpdateSettingsParams newSettings),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(UpdateSettingsParams newSettings)? updateSettings,
+    required TResult orElse(),
   });
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialize(_InitializeEvent value),
-    @required TResult updateSettings(_UpdateSettingsEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitializeEvent value) initialize,
+    required TResult Function(_UpdateSettingsEvent value) updateSettings,
   });
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialize(_InitializeEvent value),
-    TResult updateSettings(_UpdateSettingsEvent value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitializeEvent value)? initialize,
+    TResult Function(_UpdateSettingsEvent value)? updateSettings,
+    required TResult orElse(),
   });
 }
 
@@ -112,23 +109,20 @@ class _$_InitializeEvent implements _InitializeEvent {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialize(),
-    @required TResult updateSettings(UpdateSettingsParams newSettings),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(UpdateSettingsParams newSettings) updateSettings,
   }) {
-    assert(initialize != null);
-    assert(updateSettings != null);
     return initialize();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialize(),
-    TResult updateSettings(UpdateSettingsParams newSettings),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(UpdateSettingsParams newSettings)? updateSettings,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initialize != null) {
       return initialize();
     }
@@ -137,23 +131,20 @@ class _$_InitializeEvent implements _InitializeEvent {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialize(_InitializeEvent value),
-    @required TResult updateSettings(_UpdateSettingsEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitializeEvent value) initialize,
+    required TResult Function(_UpdateSettingsEvent value) updateSettings,
   }) {
-    assert(initialize != null);
-    assert(updateSettings != null);
     return initialize(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialize(_InitializeEvent value),
-    TResult updateSettings(_UpdateSettingsEvent value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitializeEvent value)? initialize,
+    TResult Function(_UpdateSettingsEvent value)? updateSettings,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initialize != null) {
       return initialize(this);
     }
@@ -186,7 +177,7 @@ class __$UpdateSettingsEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object newSettings = freezed,
+    Object? newSettings = freezed,
   }) {
     return _then(_UpdateSettingsEvent(
       newSettings: newSettings == freezed
@@ -198,8 +189,7 @@ class __$UpdateSettingsEventCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_UpdateSettingsEvent implements _UpdateSettingsEvent {
-  const _$_UpdateSettingsEvent({@required this.newSettings})
-      : assert(newSettings != null);
+  const _$_UpdateSettingsEvent({required this.newSettings});
 
   @override
   final UpdateSettingsParams newSettings;
@@ -222,6 +212,7 @@ class _$_UpdateSettingsEvent implements _UpdateSettingsEvent {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(newSettings);
 
+  @JsonKey(ignore: true)
   @override
   _$UpdateSettingsEventCopyWith<_UpdateSettingsEvent> get copyWith =>
       __$UpdateSettingsEventCopyWithImpl<_UpdateSettingsEvent>(
@@ -229,23 +220,20 @@ class _$_UpdateSettingsEvent implements _UpdateSettingsEvent {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialize(),
-    @required TResult updateSettings(UpdateSettingsParams newSettings),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(UpdateSettingsParams newSettings) updateSettings,
   }) {
-    assert(initialize != null);
-    assert(updateSettings != null);
     return updateSettings(newSettings);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialize(),
-    TResult updateSettings(UpdateSettingsParams newSettings),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(UpdateSettingsParams newSettings)? updateSettings,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (updateSettings != null) {
       return updateSettings(newSettings);
     }
@@ -254,23 +242,20 @@ class _$_UpdateSettingsEvent implements _UpdateSettingsEvent {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialize(_InitializeEvent value),
-    @required TResult updateSettings(_UpdateSettingsEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitializeEvent value) initialize,
+    required TResult Function(_UpdateSettingsEvent value) updateSettings,
   }) {
-    assert(initialize != null);
-    assert(updateSettings != null);
     return updateSettings(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialize(_InitializeEvent value),
-    TResult updateSettings(_UpdateSettingsEvent value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitializeEvent value)? initialize,
+    TResult Function(_UpdateSettingsEvent value)? updateSettings,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (updateSettings != null) {
       return updateSettings(this);
     }
@@ -280,9 +265,10 @@ class _$_UpdateSettingsEvent implements _UpdateSettingsEvent {
 
 abstract class _UpdateSettingsEvent implements SettingsEvent {
   const factory _UpdateSettingsEvent(
-      {@required UpdateSettingsParams newSettings}) = _$_UpdateSettingsEvent;
+      {required UpdateSettingsParams newSettings}) = _$_UpdateSettingsEvent;
 
   UpdateSettingsParams get newSettings;
+  @JsonKey(ignore: true)
   _$UpdateSettingsEventCopyWith<_UpdateSettingsEvent> get copyWith;
 }
 
@@ -290,20 +276,17 @@ abstract class _UpdateSettingsEvent implements SettingsEvent {
 class _$SettingsStateTearOff {
   const _$SettingsStateTearOff();
 
-// ignore: unused_element
   _InitialState initial() {
     return const _InitialState();
   }
 
-// ignore: unused_element
   _ErrorState error({String message = "Error"}) {
     return _ErrorState(
       message: message,
     );
   }
 
-// ignore: unused_element
-  _ShowState show({@required SettingsModel settingsModel}) {
+  _ShowState show({required SettingsModel settingsModel}) {
     return _ShowState(
       settingsModel: settingsModel,
     );
@@ -311,36 +294,35 @@ class _$SettingsStateTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SettingsState = _$SettingsStateTearOff();
 
 /// @nodoc
 mixin _$SettingsState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult error(String message),
-    @required TResult show(SettingsModel settingsModel),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String message) error,
+    required TResult Function(SettingsModel settingsModel) show,
   });
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult error(String message),
-    TResult show(SettingsModel settingsModel),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String message)? error,
+    TResult Function(SettingsModel settingsModel)? show,
+    required TResult orElse(),
   });
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_InitialState value),
-    @required TResult error(_ErrorState value),
-    @required TResult show(_ShowState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialState value) initial,
+    required TResult Function(_ErrorState value) error,
+    required TResult Function(_ShowState value) show,
   });
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_InitialState value),
-    TResult error(_ErrorState value),
-    TResult show(_ShowState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialState value)? initial,
+    TResult Function(_ErrorState value)? error,
+    TResult Function(_ShowState value)? show,
+    required TResult orElse(),
   });
 }
 
@@ -399,26 +381,22 @@ class _$_InitialState implements _InitialState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult error(String message),
-    @required TResult show(SettingsModel settingsModel),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String message) error,
+    required TResult Function(SettingsModel settingsModel) show,
   }) {
-    assert(initial != null);
-    assert(error != null);
-    assert(show != null);
     return initial();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult error(String message),
-    TResult show(SettingsModel settingsModel),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String message)? error,
+    TResult Function(SettingsModel settingsModel)? show,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial();
     }
@@ -427,26 +405,22 @@ class _$_InitialState implements _InitialState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_InitialState value),
-    @required TResult error(_ErrorState value),
-    @required TResult show(_ShowState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialState value) initial,
+    required TResult Function(_ErrorState value) error,
+    required TResult Function(_ShowState value) show,
   }) {
-    assert(initial != null);
-    assert(error != null);
-    assert(show != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_InitialState value),
-    TResult error(_ErrorState value),
-    TResult show(_ShowState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialState value)? initial,
+    TResult Function(_ErrorState value)? error,
+    TResult Function(_ShowState value)? show,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial(this);
     }
@@ -478,7 +452,7 @@ class __$ErrorStateCopyWithImpl<$Res> extends _$SettingsStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object message = freezed,
+    Object? message = freezed,
   }) {
     return _then(_ErrorState(
       message: message == freezed ? _value.message : message as String,
@@ -488,7 +462,7 @@ class __$ErrorStateCopyWithImpl<$Res> extends _$SettingsStateCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_ErrorState implements _ErrorState {
-  const _$_ErrorState({this.message = "Error"}) : assert(message != null);
+  const _$_ErrorState({this.message = "Error"});
 
   @JsonKey(defaultValue: "Error")
   @override
@@ -511,32 +485,29 @@ class _$_ErrorState implements _ErrorState {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
 
+  @JsonKey(ignore: true)
   @override
   _$ErrorStateCopyWith<_ErrorState> get copyWith =>
       __$ErrorStateCopyWithImpl<_ErrorState>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult error(String message),
-    @required TResult show(SettingsModel settingsModel),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String message) error,
+    required TResult Function(SettingsModel settingsModel) show,
   }) {
-    assert(initial != null);
-    assert(error != null);
-    assert(show != null);
     return error(message);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult error(String message),
-    TResult show(SettingsModel settingsModel),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String message)? error,
+    TResult Function(SettingsModel settingsModel)? show,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(message);
     }
@@ -545,26 +516,22 @@ class _$_ErrorState implements _ErrorState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_InitialState value),
-    @required TResult error(_ErrorState value),
-    @required TResult show(_ShowState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialState value) initial,
+    required TResult Function(_ErrorState value) error,
+    required TResult Function(_ShowState value) show,
   }) {
-    assert(initial != null);
-    assert(error != null);
-    assert(show != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_InitialState value),
-    TResult error(_ErrorState value),
-    TResult show(_ShowState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialState value)? initial,
+    TResult Function(_ErrorState value)? error,
+    TResult Function(_ShowState value)? show,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
@@ -576,6 +543,7 @@ abstract class _ErrorState implements SettingsState {
   const factory _ErrorState({String message}) = _$_ErrorState;
 
   String get message;
+  @JsonKey(ignore: true)
   _$ErrorStateCopyWith<_ErrorState> get copyWith;
 }
 
@@ -598,7 +566,7 @@ class __$ShowStateCopyWithImpl<$Res> extends _$SettingsStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object settingsModel = freezed,
+    Object? settingsModel = freezed,
   }) {
     return _then(_ShowState(
       settingsModel: settingsModel == freezed
@@ -610,8 +578,7 @@ class __$ShowStateCopyWithImpl<$Res> extends _$SettingsStateCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_ShowState implements _ShowState {
-  const _$_ShowState({@required this.settingsModel})
-      : assert(settingsModel != null);
+  const _$_ShowState({required this.settingsModel});
 
   @override
   final SettingsModel settingsModel;
@@ -634,32 +601,29 @@ class _$_ShowState implements _ShowState {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(settingsModel);
 
+  @JsonKey(ignore: true)
   @override
   _$ShowStateCopyWith<_ShowState> get copyWith =>
       __$ShowStateCopyWithImpl<_ShowState>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult error(String message),
-    @required TResult show(SettingsModel settingsModel),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String message) error,
+    required TResult Function(SettingsModel settingsModel) show,
   }) {
-    assert(initial != null);
-    assert(error != null);
-    assert(show != null);
     return show(settingsModel);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult error(String message),
-    TResult show(SettingsModel settingsModel),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String message)? error,
+    TResult Function(SettingsModel settingsModel)? show,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (show != null) {
       return show(settingsModel);
     }
@@ -668,26 +632,22 @@ class _$_ShowState implements _ShowState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_InitialState value),
-    @required TResult error(_ErrorState value),
-    @required TResult show(_ShowState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialState value) initial,
+    required TResult Function(_ErrorState value) error,
+    required TResult Function(_ShowState value) show,
   }) {
-    assert(initial != null);
-    assert(error != null);
-    assert(show != null);
     return show(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_InitialState value),
-    TResult error(_ErrorState value),
-    TResult show(_ShowState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialState value)? initial,
+    TResult Function(_ErrorState value)? error,
+    TResult Function(_ShowState value)? show,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (show != null) {
       return show(this);
     }
@@ -696,9 +656,10 @@ class _$_ShowState implements _ShowState {
 }
 
 abstract class _ShowState implements SettingsState {
-  const factory _ShowState({@required SettingsModel settingsModel}) =
+  const factory _ShowState({required SettingsModel settingsModel}) =
       _$_ShowState;
 
   SettingsModel get settingsModel;
+  @JsonKey(ignore: true)
   _$ShowStateCopyWith<_ShowState> get copyWith;
 }

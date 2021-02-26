@@ -14,14 +14,14 @@ part 'image_actions_state.dart';
 
 class ImageActionsBloc extends Bloc<ImageActionsEvent, ImageActionsState> {
   ImageActionsBloc({
-    @required this.copyTextToClipboard,
-    @required this.saveImage,
+    required this.copyTextToClipboard,
+    required this.saveImage,
   }) : super(const ImageActionsState.initial());
 
-  final CopyTextToClipboard copyTextToClipboard;
-  final SaveImage saveImage;
+  final CopyTextToClipboard? copyTextToClipboard;
+  final SaveImage? saveImage;
 
-  ImageResultModel _imageResult;
+  late ImageResultModel _imageResult;
 
   static const _delayDuration = Duration(seconds: 5);
 
@@ -43,7 +43,7 @@ class ImageActionsBloc extends Bloc<ImageActionsEvent, ImageActionsState> {
         if (state is! _LoadingCopyTextState) {
           yield const ImageActionsState.loadingCopyText();
 
-          final result = await copyTextToClipboard(
+          final result = await copyTextToClipboard!(
             _imageResult.imageStringBuffer.toString(),
           );
           yield* result.fold(
@@ -66,7 +66,7 @@ class ImageActionsBloc extends Bloc<ImageActionsEvent, ImageActionsState> {
         if (state is! _LoadingSaveImageState) {
           yield const ImageActionsState.loadingSaveImage();
 
-          final result = await saveImage(
+          final result = await saveImage!(
             SaveImageParams(
               screenshotController: screenshotController,
             ),

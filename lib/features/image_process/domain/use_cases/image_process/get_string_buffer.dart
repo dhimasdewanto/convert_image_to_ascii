@@ -16,8 +16,8 @@ class GetStringBuffer {
 
 class GetStringBufferParams {
   GetStringBufferParams({
-    @required this.imageFile,
-    @required this.settings,
+    required this.imageFile,
+    required this.settings,
   });
 
   final File imageFile;

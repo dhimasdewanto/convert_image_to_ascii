@@ -8,9 +8,9 @@ import '../blocs/settings/settings_bloc.dart';
 
 class CharacterDialog extends StatefulWidget {
   const CharacterDialog({
-    Key key,
-    @required this.indexCharacter,
-    @required this.listCharacters,
+    Key? key,
+    required this.indexCharacter,
+    required this.listCharacters,
   }) : super(key: key);
 
   final int indexCharacter;
@@ -39,7 +39,7 @@ class _CharacterDialogState extends State<CharacterDialog> {
   }
 
   void _onConfirm() {
-    if (_formKey.currentState.validate() == false) {
+    if (_formKey.currentState!.validate() == false) {
       return;
     }
 
@@ -89,13 +89,13 @@ class _CharacterDialogState extends State<CharacterDialog> {
               textAlign: TextAlign.center,
               style: textStyle,
               validator: (value) {
-                if (value.length != 1) {
+                if (value!.length != 1) {
                   return "Must 1";
                 }
                 return null;
               },
               onChanged: (value) {
-                _formKey.currentState.validate();
+                _formKey.currentState!.validate();
               },
             ),
           ),

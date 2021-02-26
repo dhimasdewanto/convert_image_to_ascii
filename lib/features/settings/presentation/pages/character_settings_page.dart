@@ -5,7 +5,7 @@ import '../blocs/settings/settings_bloc.dart';
 import '../dialogs/character_dialog.dart';
 
 class CharacterSettingsPage extends StatelessWidget {
-  const CharacterSettingsPage({Key key}) : super(key: key);
+  const CharacterSettingsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

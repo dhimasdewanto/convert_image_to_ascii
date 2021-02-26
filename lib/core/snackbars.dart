@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 void showSnackBar({
-  @required BuildContext context,
-  @required String message,
+  required BuildContext context,
+  required String message,
   Duration duration = const Duration(seconds: 4),
 }) {
   final snackBar = SnackBar(
@@ -15,10 +15,10 @@ void showSnackBar({
 }
 
 void showActionSnackBar({
-  @required BuildContext context,
-  @required String message,
-  @required String actionLabel,
-  @required void Function() onActionPressed,
+  required BuildContext context,
+  required String message,
+  required String actionLabel,
+  required void Function() onActionPressed,
   Duration duration = const Duration(seconds: 4),
   Color actionTextColor = Colors.yellow,
 }) {

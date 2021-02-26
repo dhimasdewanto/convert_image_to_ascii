@@ -35,14 +35,12 @@ class SettingsRepoImpl implements SettingsRepo {
       final settingsRaw = SettingsModel.fromJson(result);
       return right(
         SettingsModel(
-          listCharacters: settingsRaw.listCharacters ?? dListCharacters,
-          listColorValues: settingsRaw.listColorValues ?? dListColors,
-          imageWidth: settingsRaw.imageWidth ?? defaultImageWidth,
-          repeatedCharacters:
-              settingsRaw.repeatedCharacters ?? defaultRepeatCharacter,
-          isColorReversed: settingsRaw.isColorReversed ?? defaultReverseColor,
-          convertToGrayscale:
-              settingsRaw.convertToGrayscale ?? defaultToGrayscale,
+          listCharacters: settingsRaw.listCharacters,
+          listColorValues: settingsRaw.listColorValues,
+          imageWidth: settingsRaw.imageWidth,
+          repeatedCharacters: settingsRaw.repeatedCharacters,
+          isColorReversed: settingsRaw.isColorReversed,
+          convertToGrayscale: settingsRaw.convertToGrayscale,
         ),
       );
     } catch (e) {

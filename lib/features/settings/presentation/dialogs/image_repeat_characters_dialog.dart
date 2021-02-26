@@ -9,11 +9,11 @@ import '../blocs/settings/settings_bloc.dart';
 
 class ImageRepeatCharactersDialog extends StatefulWidget {
   const ImageRepeatCharactersDialog({
-    Key key,
-    @required this.initialValue,
+    Key? key,
+    required this.initialValue,
   }) : super(key: key);
 
-  final int initialValue;
+  final int? initialValue;
 
   @override
   _ImageRepeatCharactersDialogState createState() =>
@@ -36,7 +36,7 @@ class _ImageRepeatCharactersDialogState
     return int.parse(_fieldController.text);
   }
 
-  set _value(int value) {
+  set _value(int? value) {
     _fieldController.text = value.toString();
   }
 

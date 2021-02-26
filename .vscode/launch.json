@@ -1,0 +1,38 @@
+{
+    "configurations": [
+        {
+            "name": "Flutter Debug",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart",
+        },
+        {
+            "name": "Flutter Debug No Sound Null Safety",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart",
+            "args": [
+                "--no-sound-null-safety",
+            ],
+        },
+        {
+            "name": "Flutter Profile",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart",
+            "args": [
+                "--profile",
+            ],
+        },
+        {
+            "name": "Flutter Profile No Sound Null Safety",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart",
+            "args": [
+                "--profile",
+                "--no-sound-null-safety",
+            ],
+        },
+    ]
+}

@@ -8,8 +8,8 @@ import '../blocs/settings/settings_bloc.dart';
 
 class TotalCharactersDialog extends StatefulWidget {
   const TotalCharactersDialog({
-    Key key,
-    @required this.listCharacters,
+    Key? key,
+    required this.listCharacters,
   }) : super(key: key);
 
   final List<String> listCharacters;
@@ -37,7 +37,7 @@ class _TotalCharactersDialogState extends State<TotalCharactersDialog> {
   }
 
   void _onConfirm() {
-    if (_formKey.currentState.validate() == false) {
+    if (_formKey.currentState!.validate() == false) {
       return;
     }
 
@@ -85,7 +85,7 @@ class _TotalCharactersDialogState extends State<TotalCharactersDialog> {
               style: textStyle,
               keyboardType: TextInputType.number,
               validator: (value) {
-                final number = int.tryParse(value);
+                final number = int.tryParse(value!);
                 if (number == null) {
                   return "Number";
                 }
@@ -95,7 +95,7 @@ class _TotalCharactersDialogState extends State<TotalCharactersDialog> {
                 return null;
               },
               onChanged: (value) {
-                _formKey.currentState.validate();
+                _formKey.currentState!.validate();
               },
             ),
           ),

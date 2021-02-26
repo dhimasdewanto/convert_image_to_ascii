@@ -9,11 +9,11 @@ import '../blocs/settings/settings_bloc.dart';
 
 class ImageWidthDialog extends StatefulWidget {
   const ImageWidthDialog({
-    Key key,
-    @required this.initialValue,
+    Key? key,
+    required this.initialValue,
   }) : super(key: key);
 
-  final int initialValue;
+  final int? initialValue;
 
   @override
   _ImageWidthDialogState createState() => _ImageWidthDialogState();
@@ -34,7 +34,7 @@ class _ImageWidthDialogState extends State<ImageWidthDialog> {
     return int.parse(_fieldController.text);
   }
 
-  set _value(int value) {
+  set _value(int? value) {
     _fieldController.text = value.toString();
   }
 

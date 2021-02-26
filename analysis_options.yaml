@@ -27,6 +27,9 @@ analyzer:
     must_be_immutable: error
     invalid_use_of_protected_member: error
 
+    # To simplified imports.
+    import_of_legacy_library_into_null_safe: ignore
+
 linter:
   rules:
     # First world problem.
@@ -100,5 +103,5 @@ linter:
     # the return value to use it later.
     join_return_with_assignment: false
 
-    # Flutter dependency should be first.
+    # Flutter dependencies should be first.
     sort_pub_dependencies: false

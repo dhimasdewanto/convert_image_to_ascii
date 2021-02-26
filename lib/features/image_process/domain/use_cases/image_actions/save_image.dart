@@ -1,7 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:gallery_saver/gallery_saver.dart';
-
-import 'package:meta/meta.dart';
 import 'package:screenshot/screenshot.dart';
 
 import '../../../../../core/failures/failures.dart';
@@ -34,7 +32,7 @@ class SaveImage {
 
 class SaveImageParams {
   SaveImageParams({
-    @required this.screenshotController,
+    required this.screenshotController,
   });
 
   final ScreenshotController screenshotController;

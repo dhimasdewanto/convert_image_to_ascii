@@ -7,11 +7,11 @@ import '../../domain/use_cases/update_settings.dart';
 import '../blocs/settings/settings_bloc.dart';
 
 class IsReversedDialog extends StatelessWidget {
-  const IsReversedDialog({Key key}) : super(key: key);
+  const IsReversedDialog({Key? key}) : super(key: key);
 
   void _updateSettings({
-    @required BuildContext context,
-    @required bool isColorReversed,
+    required BuildContext context,
+    required bool isColorReversed,
   }) {
     final settingsBloc = context.read<SettingsBloc>();
     settingsBloc.add(

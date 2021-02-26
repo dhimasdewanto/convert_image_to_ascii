@@ -1,7 +1,5 @@
 import 'package:dartz/dartz.dart';
 
-import 'package:meta/meta.dart';
-
 import '../../../../core/default_values.dart';
 import '../../../../core/failures/failures.dart';
 import '../models/settings_model.dart';
@@ -10,10 +8,10 @@ import '../repositories/settings_repo.dart';
 
 class UpdateSettings {
   UpdateSettings({
-    @required this.settingsRepo,
+    required this.settingsRepo,
   });
 
-  final SettingsRepo settingsRepo;
+  final SettingsRepo? settingsRepo;
 
   Future<Option<Failures>> call(
     UpdateSettingsParams params,
@@ -22,7 +20,7 @@ class UpdateSettings {
       return _toDefaultSettings();
     }
 
-    final prevSettingsResult = await settingsRepo.getSettingsData();
+    final prevSettingsResult = await settingsRepo!.getSettingsData();
     return prevSettingsResult.fold(
       some,
       (prevSettings) async {
@@ -49,25 +47,25 @@ class UpdateSettings {
           listCharacters: newListCharacters,
           listColorValues: newListColorValues,
         );
-        final result = await settingsRepo.setSettingsData(currentSettings);
+        final result = await settingsRepo!.setSettingsData(currentSettings);
         return result;
       },
     );
   }
 
   List<T> _updateListWithTotalCharacters<T>({
-    @required UpdateSettingsParams params,
-    @required List<T> changedList,
+    required UpdateSettingsParams params,
+    required List<T> changedList,
   }) {
     final newList = List<T>.from(changedList);
     if (params.totalCharacters != null) {
-      if (params.totalCharacters > newList.length) {
-        final diff = params.totalCharacters - newList.length;
+      if (params.totalCharacters! > newList.length) {
+        final diff = params.totalCharacters! - newList.length;
         for (var i = 0; i < diff; i++) {
           newList.add(newList.last);
         }
-      } else if (params.totalCharacters < newList.length) {
-        final diff = newList.length - params.totalCharacters;
+      } else if (params.totalCharacters! < newList.length) {
+        final diff = newList.length - params.totalCharacters!;
         for (var i = 0; i < diff; i++) {
           newList.removeLast();
         }
@@ -89,7 +87,7 @@ class UpdateSettings {
       convertToGrayscale: defaultToGrayscale,
     );
 
-    final result = await settingsRepo.setSettingsData(defaultSettings);
+    final result = await settingsRepo!.setSettingsData(defaultSettings);
     return result;
   }
 }
@@ -105,11 +103,11 @@ class UpdateSettingsParams {
     this.isToDefault = false,
   });
 
-  final int imageWidth;
-  final bool isColorReversed;
-  final List<String> listCharacters;
-  final List<int> listColorValues;
-  final int repeatedCharacters;
-  final int totalCharacters;
+  final int? imageWidth;
+  final bool? isColorReversed;
+  final List<String>? listCharacters;
+  final List<int>? listColorValues;
+  final int? repeatedCharacters;
+  final int? totalCharacters;
   final bool isToDefault;
 }

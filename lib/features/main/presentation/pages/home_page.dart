@@ -6,7 +6,7 @@ import '../../../image_process/presentation/blocs/image_process/image_process_bl
 import '../../../settings/presentation/pages/settings_page.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: borderRadius,
                     border: Border.all(
-                      color: textTheme.bodyText1.color,
+                      color: textTheme.bodyText1!.color!,
                     ),
                   ),
                   child: Center(
@@ -84,7 +84,7 @@ class HomePage extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: borderRadius,
                     border: Border.all(
-                      color: textTheme.bodyText1.color,
+                      color: textTheme.bodyText1!.color!,
                     ),
                   ),
                   child: Center(

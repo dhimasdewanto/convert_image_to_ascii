@@ -6,11 +6,11 @@ import '../blocs/image_actions/image_actions_bloc.dart';
 
 class ActionsBottonSheet extends StatelessWidget {
   const ActionsBottonSheet({
-    Key key,
-    @required this.screenshotController,
+    Key? key,
+    required this.screenshotController,
   }) : super(key: key);
 
-  final ScreenshotController screenshotController;
+  final ScreenshotController? screenshotController;
 
   void _copyImage(BuildContext context) {
     final imageActionsBloc = context.read<ImageActionsBloc>();
@@ -23,7 +23,7 @@ class ActionsBottonSheet extends StatelessWidget {
     final imageActionBloc = context.read<ImageActionsBloc>();
     imageActionBloc.add(
       ImageActionsEvent.saveImage(
-        screenshotController: screenshotController,
+        screenshotController: screenshotController!,
       ),
     );
   }
