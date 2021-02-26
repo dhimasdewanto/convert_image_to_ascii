@@ -14,7 +14,7 @@ class SettingsRepoImpl implements SettingsRepo {
   Future<Either<Failures, SettingsModel>> getSettingsData() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      final result = prefs.getString(_keySettingsData);
+      final String? result = prefs.getString(_keySettingsData);
 
       final dListCharacters = List<String>.from(defaultListCharacters);
       final dListColors = List<int>.from(defaultListColors);

@@ -30,8 +30,9 @@ dependencies:
   get_it: ^6.0.0
   image: ^3.0.0-nullsafety.0
   image_picker: ^0.6.7+22
-  screenshot: ^0.2.0
-  shared_preferences: ^2.0.1
+  path_provider: ^1.6.27
+  screenshot: ^1.0.0-nullsafety.1
+  shared_preferences: ^0.5.12+4
 
 dev_dependencies:
   flutter_test:
