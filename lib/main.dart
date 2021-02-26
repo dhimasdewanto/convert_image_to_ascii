@@ -9,11 +9,8 @@ import 'features/main/presentation/pages/splash_page.dart';
 import 'features/settings/presentation/blocs/settings/settings_bloc.dart';
 
 void main() {
-  configureDependencies();
-
-  runApp(
-    const MyApp(),
-  );
+  inject();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -29,9 +26,15 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MultiBlocProvider(
           providers: [
-            BlocProvider(create: (context) => getIt<ImageActionsBloc>()),
-            BlocProvider(create: (context) => getIt<ImageProcessBloc>()),
-            BlocProvider(create: (context) => getIt<SettingsBloc>()),
+            BlocProvider(
+              create: (context) => getIt<ImageActionsBloc>(),
+            ),
+            BlocProvider(
+              create: (context) => getIt<ImageProcessBloc>(),
+            ),
+            BlocProvider(
+              create: (context) => getIt<SettingsBloc>(),
+            ),
           ],
           child: child,
         );

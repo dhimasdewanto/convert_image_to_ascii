@@ -5,7 +5,7 @@
 // **************************************************************************
 
 import 'package:get_it/get_it.dart';
-import 'package:injectable/injectable.dart';
+
 import 'package:image_picker/image_picker.dart';
 import 'package:screenshot/screenshot.dart';
 

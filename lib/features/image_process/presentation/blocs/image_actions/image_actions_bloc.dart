@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:injectable/injectable.dart';
 import 'package:screenshot/screenshot.dart';
 
 import '../../../domain/models/image_result_model.dart';
@@ -13,7 +12,6 @@ part 'image_actions_bloc.freezed.dart';
 part 'image_actions_event.dart';
 part 'image_actions_state.dart';
 
-@injectable
 class ImageActionsBloc extends Bloc<ImageActionsEvent, ImageActionsState> {
   ImageActionsBloc({
     @required this.copyTextToClipboard,

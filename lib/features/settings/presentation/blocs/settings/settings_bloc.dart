@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:injectable/injectable.dart';
+
 
 import '../../../../../core/navigators.dart';
 import '../../../../main/presentation/pages/home_page.dart';
@@ -15,7 +15,6 @@ part 'settings_event.dart';
 part 'settings_listeners.dart';
 part 'settings_state.dart';
 
-@injectable
 class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   SettingsBloc({
     @required this.getSettings,

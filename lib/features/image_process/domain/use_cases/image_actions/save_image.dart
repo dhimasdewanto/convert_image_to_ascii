@@ -1,12 +1,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:gallery_saver/gallery_saver.dart';
-import 'package:injectable/injectable.dart';
+
 import 'package:meta/meta.dart';
 import 'package:screenshot/screenshot.dart';
 
 import '../../../../../core/failures/failures.dart';
 
-@lazySingleton
+
 class SaveImage {
   Future<Option<Failures>> call(SaveImageParams params) async {
     try {
