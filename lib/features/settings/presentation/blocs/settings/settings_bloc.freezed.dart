@@ -280,7 +280,7 @@ class _$SettingsStateTearOff {
     return const _InitialState();
   }
 
-  _ErrorState error({String message = "Error"}) {
+  _ErrorState error({String message = "error"}) {
     return _ErrorState(
       message: message,
     );
@@ -462,9 +462,9 @@ class __$ErrorStateCopyWithImpl<$Res> extends _$SettingsStateCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_ErrorState implements _ErrorState {
-  const _$_ErrorState({this.message = "Error"});
+  const _$_ErrorState({this.message = "error"});
 
-  @JsonKey(defaultValue: "Error")
+  @JsonKey(defaultValue: "error")
   @override
   final String message;
 

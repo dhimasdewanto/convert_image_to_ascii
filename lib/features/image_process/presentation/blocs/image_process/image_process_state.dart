@@ -5,7 +5,7 @@ abstract class ImageProcessState with _$ImageProcessState {
   const factory ImageProcessState.initial() = _InitialState;
   const factory ImageProcessState.loading() = _LoadingState;
   const factory ImageProcessState.error({
-    @Default("Error") String message,
+    @Default("error") String message,
   }) = _ErrorState;
   const factory ImageProcessState.imagePicked({
     required File imageSource,

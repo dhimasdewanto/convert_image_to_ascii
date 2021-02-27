@@ -8,9 +8,9 @@ abstract class ImageActionsState with _$ImageActionsState {
   const factory ImageActionsState.successSaveImage() = _SuccessSaveImageState;
   const factory ImageActionsState.loadingSaveImage() = _LoadingSaveImageState;
   const factory ImageActionsState.success({
-    @Default("Success") String message,
+    @Default("success") String message,
   }) = _SuccessState;
   const factory ImageActionsState.error({
-    @Default("Error") String message,
+    @Default("error") String message,
   }) = _ErrorState;
 }

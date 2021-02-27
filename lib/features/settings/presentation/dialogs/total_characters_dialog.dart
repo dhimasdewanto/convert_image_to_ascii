@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -72,7 +73,7 @@ class _TotalCharactersDialogState extends State<TotalCharactersDialog> {
     return Form(
       key: _formKey,
       child: SimpleDialog(
-        title: const Text("Total Characters"),
+        title: Text(tr('total_characters')),
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(
@@ -87,10 +88,10 @@ class _TotalCharactersDialogState extends State<TotalCharactersDialog> {
               validator: (value) {
                 final number = int.tryParse(value!);
                 if (number == null) {
-                  return "Number";
+                  return tr('number');
                 }
                 if (number < 2) {
-                  return "Min 2";
+                  return tr("min_value", args: ['2']);
                 }
                 return null;
               },
@@ -104,11 +105,11 @@ class _TotalCharactersDialogState extends State<TotalCharactersDialog> {
             children: [
               TextButton(
                 onPressed: _onDefault,
-                child: const Text("Default"),
+                child: Text(tr('default')),
               ),
               OutlinedButton(
                 onPressed: _onConfirm,
-                child: const Text("Ok"),
+                child: Text(tr('ok')),
               ),
             ],
           ),

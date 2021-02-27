@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,7 +28,7 @@ class IsReversedDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(
-      title: const Text("Is Color Reversed"),
+      title: Text(tr('is_color_reserved')),
       children: [
         Padding(
           padding: const EdgeInsets.all(20),
@@ -41,7 +42,7 @@ class IsReversedDialog extends StatelessWidget {
                     isColorReversed: defaultReverseColor,
                   );
                 },
-                child: const Text("Default"),
+                child: Text(tr('default')),
               ),
               OutlinedButton(
                 onPressed: () {
@@ -50,7 +51,7 @@ class IsReversedDialog extends StatelessWidget {
                     isColorReversed: false,
                   );
                 },
-                child: const Text("False"),
+                child: Text(tr('no')),
               ),
               OutlinedButton(
                 onPressed: () {
@@ -59,7 +60,7 @@ class IsReversedDialog extends StatelessWidget {
                     isColorReversed: true,
                   );
                 },
-                child: const Text("True"),
+                child: Text(tr('yes')),
               ),
             ],
           ),

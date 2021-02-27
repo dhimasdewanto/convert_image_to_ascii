@@ -559,13 +559,13 @@ class _$ImageActionsStateTearOff {
     return const _LoadingSaveImageState();
   }
 
-  _SuccessState success({String message = "Success"}) {
+  _SuccessState success({String message = "success"}) {
     return _SuccessState(
       message: message,
     );
   }
 
-  _ErrorState error({String message = "Error"}) {
+  _ErrorState error({String message = "error"}) {
     return _ErrorState(
       message: message,
     );
@@ -1194,9 +1194,9 @@ class __$SuccessStateCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_SuccessState implements _SuccessState {
-  const _$_SuccessState({this.message = "Success"});
+  const _$_SuccessState({this.message = "success"});
 
-  @JsonKey(defaultValue: "Success")
+  @JsonKey(defaultValue: "success")
   @override
   final String message;
 
@@ -1326,9 +1326,9 @@ class __$ErrorStateCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_ErrorState implements _ErrorState {
-  const _$_ErrorState({this.message = "Error"});
+  const _$_ErrorState({this.message = "error"});
 
-  @JsonKey(defaultValue: "Error")
+  @JsonKey(defaultValue: "error")
   @override
   final String message;
 

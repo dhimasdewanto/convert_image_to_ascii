@@ -4,7 +4,7 @@ part of 'settings_bloc.dart';
 abstract class SettingsState with _$SettingsState {
   const factory SettingsState.initial() = _InitialState;
   const factory SettingsState.error({
-    @Default("Error") String message,
+    @Default("error") String message,
   }) = _ErrorState;
   const factory SettingsState.show({
     required SettingsModel settingsModel,

@@ -54,16 +54,9 @@ class HomePage extends StatelessWidget {
                           size: sizeBig / 3,
                         ),
                         Text(
-                          "Convert",
+                          tr('convert_image'),
                           style: textThemeBig,
-                        ),
-                        Text(
-                          "Image",
-                          style: textThemeBig,
-                        ),
-                        Text(
-                          "to ASCII",
-                          style: textThemeBig,
+                          textAlign: TextAlign.center,
                         ),
                       ],
                     ),

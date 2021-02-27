@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:screenshot/screenshot.dart';
@@ -42,7 +43,7 @@ class ActionsBottonSheet extends StatelessWidget {
                 children: [
                   ListTile(
                     leading: const Icon(Icons.copy_rounded),
-                    title: const Text("Copy Text"),
+                    title: Text(tr("copy_text")),
                     onTap: () => _copyImage(context),
                     trailing: state.maybeWhen(
                       orElse: () => const Offstage(),
@@ -52,7 +53,7 @@ class ActionsBottonSheet extends StatelessWidget {
                   ),
                   ListTile(
                     leading: const Icon(Icons.save_alt_rounded),
-                    title: const Text("Save Image"),
+                    title: Text(tr("save_image")),
                     onTap: () => _saveImage(context),
                     trailing: state.maybeWhen(
                       orElse: () => const Offstage(),

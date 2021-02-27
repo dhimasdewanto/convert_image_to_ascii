@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -77,7 +78,7 @@ class _CharacterDialogState extends State<CharacterDialog> {
     return Form(
       key: _formKey,
       child: SimpleDialog(
-        title: const Text("Change Character"),
+        title: Text(tr('change_character')),
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(
@@ -90,7 +91,7 @@ class _CharacterDialogState extends State<CharacterDialog> {
               style: textStyle,
               validator: (value) {
                 if (value!.length != 1) {
-                  return "Must 1";
+                  return tr('must_one');
                 }
                 return null;
               },
@@ -104,11 +105,11 @@ class _CharacterDialogState extends State<CharacterDialog> {
             children: [
               TextButton(
                 onPressed: _onDefault,
-                child: const Text("Default"),
+                child: Text(tr('default')),
               ),
               OutlinedButton(
                 onPressed: _onConfirm,
-                child: const Text("Ok"),
+                child: Text(tr('ok')),
               ),
             ],
           ),

@@ -1,3 +1,27 @@
 {
-    "settings": "Settings"
+    "settings": "Settings",
+    "convert_image": "Convert Image to ASCII",
+    "copy_text": "Copy Text",
+    "save_image": "Save Image",
+    "success": "Success",
+    "error": "Error",
+    "total_characters": "Total Characters",
+    "characters": "Characters",
+    "colors": "Colors",
+    "image_width": "Image Width",
+    "repeat_characters_count": "Repeat Characters Count",
+    "is_color_reserved": "Is Color Reversed",
+    "default_settings": "Default Settings",
+    "to_default_settings": "To Default Settings?",
+    "change_character": "Change Character",
+    "change_color": "Change Color",
+    "must_one": "Must 1",
+    "default": "Default",
+    "ok": "Ok",
+    "yes": "Yes",
+    "no": "No",
+    "number": "Number",
+    "min_value": "Min {}",
+    "min_value_is": "Min value is {} and max value is {}",
+    "min_width_is": "Min width is {} and max width is {}"
 }

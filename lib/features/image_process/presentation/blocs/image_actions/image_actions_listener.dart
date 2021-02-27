@@ -7,13 +7,13 @@ final imageActionsListener = BlocListener<ImageActionsBloc, ImageActionsState>(
       success: (message) {
         showSnackBar(
           context: context,
-          message: message,
+          message: tr(message),
         );
       },
       error: (message) {
         showSnackBar(
           context: context,
-          message: message,
+          message: tr(message),
         );
       },
     );

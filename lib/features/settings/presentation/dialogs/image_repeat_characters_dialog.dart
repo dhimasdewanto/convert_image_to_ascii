@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -74,9 +75,15 @@ class _ImageRepeatCharactersDialogState
   void _showErrorDialog() {
     showDialog(
       context: context,
-      builder: (_) => const AlertDialog(
+      builder: (_) => AlertDialog(
         content: Text(
-          "Min value is $minRepeatCharacters and max value is $maxRepeatCharacters",
+          tr(
+            'min_value_is',
+            args: [
+              '$minRepeatCharacters',
+              '$maxRepeatCharacters',
+            ],
+          ),
         ),
       ),
     );
@@ -87,7 +94,7 @@ class _ImageRepeatCharactersDialogState
     final textStyle = Theme.of(context).textTheme.headline6;
 
     return SimpleDialog(
-      title: const Text("Repeat Characters Count"),
+      title: Text(tr('repeat_characters_count')),
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(
@@ -117,11 +124,11 @@ class _ImageRepeatCharactersDialogState
           children: [
             TextButton(
               onPressed: _onDefault,
-              child: const Text("Default"),
+              child: Text(tr('default')),
             ),
             OutlinedButton(
               onPressed: _onConfirm,
-              child: const Text("Ok"),
+              child: Text(tr('ok')),
             ),
           ],
         ),

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,7 +26,7 @@ class DefaultSettingsDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(
-      title: const Text("To Default Settings?"),
+      title: Text(tr('to_default_settings')),
       children: [
         Padding(
           padding: const EdgeInsets.all(20),
@@ -36,7 +37,7 @@ class DefaultSettingsDialog extends StatelessWidget {
                 onPressed: () {
                   pop(context: context);
                 },
-                child: const Text("No"),
+                child: Text(tr('no')),
               ),
               OutlinedButton(
                 onPressed: () {
@@ -44,7 +45,7 @@ class DefaultSettingsDialog extends StatelessWidget {
                     context: context,
                   );
                 },
-                child: const Text("Yes"),
+                child: Text(tr('yes')),
               ),
             ],
           ),
