@@ -24,11 +24,11 @@ jobs:
           SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
 
       - name: Create key.properties
-          run: |
-            echo "storeFile=${{ steps.android_keystore.outputs.filePath }}" > android/key.properties
-            echo "storePassword=${{ secrets.KEY_STORE_PASSWORD }}" >> android/key.properties
-            echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> android/key.properties
-            echo "keyAlias=${{ secrets.ALIAS }}" >> android/key.properties
+        run: |
+          echo "storeFile=${{ steps.android_keystore.outputs.filePath }}" > android/key.properties
+          echo "storePassword=${{ secrets.KEY_STORE_PASSWORD }}" >> android/key.properties
+          echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> android/key.properties
+          echo "keyAlias=${{ secrets.ALIAS }}" >> android/key.properties
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v1.4.0
