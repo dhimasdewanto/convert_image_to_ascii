@@ -3,12 +3,12 @@ name: Flutter GitHub Actions
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
-  push:
-    branches: [ master ]
+  # push:
+  #   branches: [ master ]
   # pull_request:
   #   branches: [ master ]
   release:
-    types: [published]
+    types: [ published ]
 
 jobs:
   build:
