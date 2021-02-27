@@ -7,6 +7,8 @@ on:
     branches: [ master ]
   # pull_request:
   #   branches: [ master ]
+  release:
+    types: [published]
 
 jobs:
   build:
@@ -48,6 +50,12 @@ jobs:
 
       - name: Build AppBundle
         run: flutter build appbundle --obfuscate --split-debug-info=build/split_debug_info --no-sound-null-safety
+
+      - name: Get AppBundle
+        uses: actions/upload-artifact@v2
+        with:
+          name: ascii-converter
+          path: build/app/outputs/bundle/release/app-release.aab
 
       - name: Get ARM64 Obfuscate Symbols
         uses: actions/upload-artifact@v2
