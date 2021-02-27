@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -7,6 +8,7 @@ import '../dialogs/default_settings_dialog.dart';
 import '../dialogs/image_repeat_characters_dialog.dart';
 import '../dialogs/image_width_dialog.dart';
 import '../dialogs/is_reversed_dialog.dart';
+import '../dialogs/language_dialog.dart';
 import '../dialogs/total_characters_dialog.dart';
 import 'character_settings_page.dart';
 import 'color_settings_page.dart';
@@ -94,6 +96,21 @@ class SettingsPage extends StatelessWidget {
                       showDialog(
                         context: context,
                         builder: (_) => const IsReversedDialog(),
+                      );
+                    },
+                  ),
+                  const Divider(),
+                  ListTile(
+                    title: const Text("Change Language"),
+                    subtitle: Text(
+                      context.locale.toString() == "id_ID"
+                          ? "Indonesia"
+                          : "English",
+                    ),
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (_) => const LanguageDialog(),
                       );
                     },
                   ),
