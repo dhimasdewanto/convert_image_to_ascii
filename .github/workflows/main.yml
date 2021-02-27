@@ -26,17 +26,10 @@ jobs:
         with:
           channel: 'beta'
 
-      - name: Cache Pub Dependencies
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.FLUTTER_HOME }}/.pub-cache
-          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
-          restore-keys: ${{ runner.os }}-pub-
-
       - name: Download Pub Dependencies
         run: flutter pub get
 
-      - name: Download Android keystore
+      - name: Download Android Keystore
         id: android_keystore
         uses: timheuer/base64-to-file@v1.0.3
         with:
@@ -56,34 +49,28 @@ jobs:
       - name: Build AppBundle
         run: flutter build appbundle --no-sound-null-safety
 
-      # - name: Build AppBundle
-      #   run: flutter build appbundle --obfuscate --split-debug-info=build/split_debug_info --no-sound-null-safety
+      - name: Build AppBundle
+        run: flutter build appbundle --obfuscate --split-debug-info=build/split_debug_info --no-sound-null-safety
       #   env:
       #     KEY_STORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
       #     KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
       #     ALIAS: ${{ secrets.ALIAS }}
       #     KEY_PATH: key.jks
 
-      - name: Get AppBundle
+      - name: Get ARM64 Obfuscate Symbols
         uses: actions/upload-artifact@v2
         with:
-          name: aab-ascii-generator
-          path: build/app/outputs/bundle/release/app-release.aab
+          name: obfuscate-ascii-generator-arm64
+          path: build/split_debug_info/app.android-arm64.symbols
 
-      # - name: Get ARM64 Obfuscate Symbols
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: obfuscate-ascii-generator-arm64
-      #     path: build/split_debug_info/app.android-arm64.symbols
+      - name: Get ARM Obfuscate Symbols
+        uses: actions/upload-artifact@v2
+        with:
+          name: obfuscate-ascii-generator-arm
+          path: build/split_debug_info/app.android-arm.symbols
 
-      # - name: Get ARM Obfuscate Symbols
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: obfuscate-ascii-generator-arm
-      #     path: build/split_debug_info/app.android-arm.symbols
-
-      # - name: Get X86 Obfuscate Symbols
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: obfuscate-ascii-generator-x86
-      #     path: build/split_debug_info/app.android-x64.symbols
+      - name: Get X86 Obfuscate Symbols
+        uses: actions/upload-artifact@v2
+        with:
+          name: obfuscate-ascii-generator-x86
+          path: build/split_debug_info/app.android-x64.symbols
