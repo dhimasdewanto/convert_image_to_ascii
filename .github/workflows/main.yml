@@ -47,15 +47,7 @@ jobs:
       #   run: flutter test
 
       - name: Build AppBundle
-        run: flutter build appbundle --no-sound-null-safety
-
-      - name: Build AppBundle
         run: flutter build appbundle --obfuscate --split-debug-info=build/split_debug_info --no-sound-null-safety
-      #   env:
-      #     KEY_STORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
-      #     KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-      #     ALIAS: ${{ secrets.ALIAS }}
-      #     KEY_PATH: key.jks
 
       - name: Get ARM64 Obfuscate Symbols
         uses: actions/upload-artifact@v2
