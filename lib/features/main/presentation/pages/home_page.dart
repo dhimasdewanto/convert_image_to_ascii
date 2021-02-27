@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -6,7 +7,7 @@ import '../../../image_process/presentation/blocs/image_process/image_process_bl
 import '../../../settings/presentation/pages/settings_page.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,7 @@ class HomePage extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: borderRadius,
                     border: Border.all(
-                      color: textTheme.bodyText1.color,
+                      color: textTheme.bodyText1!.color!,
                     ),
                   ),
                   child: Center(
@@ -53,16 +54,9 @@ class HomePage extends StatelessWidget {
                           size: sizeBig / 3,
                         ),
                         Text(
-                          "Convert",
+                          tr('convert_image'),
                           style: textThemeBig,
-                        ),
-                        Text(
-                          "Image",
-                          style: textThemeBig,
-                        ),
-                        Text(
-                          "to ASCII",
-                          style: textThemeBig,
+                          textAlign: TextAlign.center,
                         ),
                       ],
                     ),
@@ -84,7 +78,7 @@ class HomePage extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: borderRadius,
                     border: Border.all(
-                      color: textTheme.bodyText1.color,
+                      color: textTheme.bodyText1!.color!,
                     ),
                   ),
                   child: Center(
@@ -96,7 +90,7 @@ class HomePage extends StatelessWidget {
                           size: sizeSmall / 3,
                         ),
                         Text(
-                          "Settings",
+                          tr('settings'),
                           style: textThemeSmall,
                         ),
                       ],

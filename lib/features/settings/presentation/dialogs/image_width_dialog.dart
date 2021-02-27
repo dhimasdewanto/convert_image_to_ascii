@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -9,11 +10,11 @@ import '../blocs/settings/settings_bloc.dart';
 
 class ImageWidthDialog extends StatefulWidget {
   const ImageWidthDialog({
-    Key key,
-    @required this.initialValue,
+    Key? key,
+    required this.initialValue,
   }) : super(key: key);
 
-  final int initialValue;
+  final int? initialValue;
 
   @override
   _ImageWidthDialogState createState() => _ImageWidthDialogState();
@@ -34,7 +35,7 @@ class _ImageWidthDialogState extends State<ImageWidthDialog> {
     return int.parse(_fieldController.text);
   }
 
-  set _value(int value) {
+  set _value(int? value) {
     _fieldController.text = value.toString();
   }
 
@@ -72,9 +73,15 @@ class _ImageWidthDialogState extends State<ImageWidthDialog> {
   void _showErrorDialog() {
     showDialog(
       context: context,
-      builder: (_) => const AlertDialog(
+      builder: (_) => AlertDialog(
         content: Text(
-          "Min width is $minImageWidth character and max width is $maxImageWidth character",
+          tr(
+            'min_width_is',
+            args: [
+              "$minImageWidth",
+              "$maxImageWidth",
+            ],
+          ),
         ),
       ),
     );
@@ -115,11 +122,11 @@ class _ImageWidthDialogState extends State<ImageWidthDialog> {
           children: [
             TextButton(
               onPressed: _onDefault,
-              child: const Text("Default"),
+              child: Text(tr('default')),
             ),
             OutlinedButton(
               onPressed: _onConfirm,
-              child: const Text("Ok"),
+              child: Text(tr('ok')),
             ),
           ],
         ),

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'image_process_bloc.dart';
 
@@ -13,44 +13,41 @@ T _$identity<T>(T value) => value;
 class _$ImageProcessEventTearOff {
   const _$ImageProcessEventTearOff();
 
-// ignore: unused_element
   _PickImageEvent pickImage() {
     return const _PickImageEvent();
   }
 
-// ignore: unused_element
   _ProcessImageEvent processImage() {
     return const _ProcessImageEvent();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ImageProcessEvent = _$ImageProcessEventTearOff();
 
 /// @nodoc
 mixin _$ImageProcessEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult pickImage(),
-    @required TResult processImage(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() pickImage,
+    required TResult Function() processImage,
   });
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult pickImage(),
-    TResult processImage(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pickImage,
+    TResult Function()? processImage,
+    required TResult orElse(),
   });
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult pickImage(_PickImageEvent value),
-    @required TResult processImage(_ProcessImageEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PickImageEvent value) pickImage,
+    required TResult Function(_ProcessImageEvent value) processImage,
   });
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult pickImage(_PickImageEvent value),
-    TResult processImage(_ProcessImageEvent value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PickImageEvent value)? pickImage,
+    TResult Function(_ProcessImageEvent value)? processImage,
+    required TResult orElse(),
   });
 }
 
@@ -109,23 +106,20 @@ class _$_PickImageEvent implements _PickImageEvent {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult pickImage(),
-    @required TResult processImage(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() pickImage,
+    required TResult Function() processImage,
   }) {
-    assert(pickImage != null);
-    assert(processImage != null);
     return pickImage();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult pickImage(),
-    TResult processImage(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pickImage,
+    TResult Function()? processImage,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (pickImage != null) {
       return pickImage();
     }
@@ -134,23 +128,20 @@ class _$_PickImageEvent implements _PickImageEvent {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult pickImage(_PickImageEvent value),
-    @required TResult processImage(_ProcessImageEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PickImageEvent value) pickImage,
+    required TResult Function(_ProcessImageEvent value) processImage,
   }) {
-    assert(pickImage != null);
-    assert(processImage != null);
     return pickImage(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult pickImage(_PickImageEvent value),
-    TResult processImage(_ProcessImageEvent value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PickImageEvent value)? pickImage,
+    TResult Function(_ProcessImageEvent value)? processImage,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (pickImage != null) {
       return pickImage(this);
     }
@@ -200,23 +191,20 @@ class _$_ProcessImageEvent implements _ProcessImageEvent {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult pickImage(),
-    @required TResult processImage(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() pickImage,
+    required TResult Function() processImage,
   }) {
-    assert(pickImage != null);
-    assert(processImage != null);
     return processImage();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult pickImage(),
-    TResult processImage(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pickImage,
+    TResult Function()? processImage,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (processImage != null) {
       return processImage();
     }
@@ -225,23 +213,20 @@ class _$_ProcessImageEvent implements _ProcessImageEvent {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult pickImage(_PickImageEvent value),
-    @required TResult processImage(_ProcessImageEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PickImageEvent value) pickImage,
+    required TResult Function(_ProcessImageEvent value) processImage,
   }) {
-    assert(pickImage != null);
-    assert(processImage != null);
     return processImage(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult pickImage(_PickImageEvent value),
-    TResult processImage(_ProcessImageEvent value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PickImageEvent value)? pickImage,
+    TResult Function(_ProcessImageEvent value)? processImage,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (processImage != null) {
       return processImage(this);
     }
@@ -257,32 +242,27 @@ abstract class _ProcessImageEvent implements ImageProcessEvent {
 class _$ImageProcessStateTearOff {
   const _$ImageProcessStateTearOff();
 
-// ignore: unused_element
   _InitialState initial() {
     return const _InitialState();
   }
 
-// ignore: unused_element
   _LoadingState loading() {
     return const _LoadingState();
   }
 
-// ignore: unused_element
-  _ErrorState error({String message = "Error"}) {
+  _ErrorState error({String message = "error"}) {
     return _ErrorState(
       message: message,
     );
   }
 
-// ignore: unused_element
-  _ImagePickedState imagePicked({@required File imageSource}) {
+  _ImagePickedState imagePicked({required File imageSource}) {
     return _ImagePickedState(
       imageSource: imageSource,
     );
   }
 
-// ignore: unused_element
-  _ShowResultState showResult({@required ImageResultModel imageResult}) {
+  _ShowResultState showResult({required ImageResultModel imageResult}) {
     return _ShowResultState(
       imageResult: imageResult,
     );
@@ -290,44 +270,43 @@ class _$ImageProcessStateTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ImageProcessState = _$ImageProcessStateTearOff();
 
 /// @nodoc
 mixin _$ImageProcessState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult error(String message),
-    @required TResult imagePicked(File imageSource),
-    @required TResult showResult(ImageResultModel imageResult),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String message) error,
+    required TResult Function(File imageSource) imagePicked,
+    required TResult Function(ImageResultModel imageResult) showResult,
   });
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult error(String message),
-    TResult imagePicked(File imageSource),
-    TResult showResult(ImageResultModel imageResult),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String message)? error,
+    TResult Function(File imageSource)? imagePicked,
+    TResult Function(ImageResultModel imageResult)? showResult,
+    required TResult orElse(),
   });
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_InitialState value),
-    @required TResult loading(_LoadingState value),
-    @required TResult error(_ErrorState value),
-    @required TResult imagePicked(_ImagePickedState value),
-    @required TResult showResult(_ShowResultState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialState value) initial,
+    required TResult Function(_LoadingState value) loading,
+    required TResult Function(_ErrorState value) error,
+    required TResult Function(_ImagePickedState value) imagePicked,
+    required TResult Function(_ShowResultState value) showResult,
   });
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_InitialState value),
-    TResult loading(_LoadingState value),
-    TResult error(_ErrorState value),
-    TResult imagePicked(_ImagePickedState value),
-    TResult showResult(_ShowResultState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialState value)? initial,
+    TResult Function(_LoadingState value)? loading,
+    TResult Function(_ErrorState value)? error,
+    TResult Function(_ImagePickedState value)? imagePicked,
+    TResult Function(_ShowResultState value)? showResult,
+    required TResult orElse(),
   });
 }
 
@@ -386,32 +365,26 @@ class _$_InitialState implements _InitialState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult error(String message),
-    @required TResult imagePicked(File imageSource),
-    @required TResult showResult(ImageResultModel imageResult),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String message) error,
+    required TResult Function(File imageSource) imagePicked,
+    required TResult Function(ImageResultModel imageResult) showResult,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(error != null);
-    assert(imagePicked != null);
-    assert(showResult != null);
     return initial();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult error(String message),
-    TResult imagePicked(File imageSource),
-    TResult showResult(ImageResultModel imageResult),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String message)? error,
+    TResult Function(File imageSource)? imagePicked,
+    TResult Function(ImageResultModel imageResult)? showResult,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial();
     }
@@ -420,32 +393,26 @@ class _$_InitialState implements _InitialState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_InitialState value),
-    @required TResult loading(_LoadingState value),
-    @required TResult error(_ErrorState value),
-    @required TResult imagePicked(_ImagePickedState value),
-    @required TResult showResult(_ShowResultState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialState value) initial,
+    required TResult Function(_LoadingState value) loading,
+    required TResult Function(_ErrorState value) error,
+    required TResult Function(_ImagePickedState value) imagePicked,
+    required TResult Function(_ShowResultState value) showResult,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(error != null);
-    assert(imagePicked != null);
-    assert(showResult != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_InitialState value),
-    TResult loading(_LoadingState value),
-    TResult error(_ErrorState value),
-    TResult imagePicked(_ImagePickedState value),
-    TResult showResult(_ShowResultState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialState value)? initial,
+    TResult Function(_LoadingState value)? loading,
+    TResult Function(_ErrorState value)? error,
+    TResult Function(_ImagePickedState value)? imagePicked,
+    TResult Function(_ShowResultState value)? showResult,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial(this);
     }
@@ -495,32 +462,26 @@ class _$_LoadingState implements _LoadingState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult error(String message),
-    @required TResult imagePicked(File imageSource),
-    @required TResult showResult(ImageResultModel imageResult),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String message) error,
+    required TResult Function(File imageSource) imagePicked,
+    required TResult Function(ImageResultModel imageResult) showResult,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(error != null);
-    assert(imagePicked != null);
-    assert(showResult != null);
     return loading();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult error(String message),
-    TResult imagePicked(File imageSource),
-    TResult showResult(ImageResultModel imageResult),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String message)? error,
+    TResult Function(File imageSource)? imagePicked,
+    TResult Function(ImageResultModel imageResult)? showResult,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading();
     }
@@ -529,32 +490,26 @@ class _$_LoadingState implements _LoadingState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_InitialState value),
-    @required TResult loading(_LoadingState value),
-    @required TResult error(_ErrorState value),
-    @required TResult imagePicked(_ImagePickedState value),
-    @required TResult showResult(_ShowResultState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialState value) initial,
+    required TResult Function(_LoadingState value) loading,
+    required TResult Function(_ErrorState value) error,
+    required TResult Function(_ImagePickedState value) imagePicked,
+    required TResult Function(_ShowResultState value) showResult,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(error != null);
-    assert(imagePicked != null);
-    assert(showResult != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_InitialState value),
-    TResult loading(_LoadingState value),
-    TResult error(_ErrorState value),
-    TResult imagePicked(_ImagePickedState value),
-    TResult showResult(_ShowResultState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialState value)? initial,
+    TResult Function(_LoadingState value)? loading,
+    TResult Function(_ErrorState value)? error,
+    TResult Function(_ImagePickedState value)? imagePicked,
+    TResult Function(_ShowResultState value)? showResult,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading(this);
     }
@@ -587,7 +542,7 @@ class __$ErrorStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object message = freezed,
+    Object? message = freezed,
   }) {
     return _then(_ErrorState(
       message: message == freezed ? _value.message : message as String,
@@ -597,9 +552,9 @@ class __$ErrorStateCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_ErrorState implements _ErrorState {
-  const _$_ErrorState({this.message = "Error"}) : assert(message != null);
+  const _$_ErrorState({this.message = "error"});
 
-  @JsonKey(defaultValue: "Error")
+  @JsonKey(defaultValue: "error")
   @override
   final String message;
 
@@ -620,38 +575,33 @@ class _$_ErrorState implements _ErrorState {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
 
+  @JsonKey(ignore: true)
   @override
   _$ErrorStateCopyWith<_ErrorState> get copyWith =>
       __$ErrorStateCopyWithImpl<_ErrorState>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult error(String message),
-    @required TResult imagePicked(File imageSource),
-    @required TResult showResult(ImageResultModel imageResult),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String message) error,
+    required TResult Function(File imageSource) imagePicked,
+    required TResult Function(ImageResultModel imageResult) showResult,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(error != null);
-    assert(imagePicked != null);
-    assert(showResult != null);
     return error(message);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult error(String message),
-    TResult imagePicked(File imageSource),
-    TResult showResult(ImageResultModel imageResult),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String message)? error,
+    TResult Function(File imageSource)? imagePicked,
+    TResult Function(ImageResultModel imageResult)? showResult,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(message);
     }
@@ -660,32 +610,26 @@ class _$_ErrorState implements _ErrorState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_InitialState value),
-    @required TResult loading(_LoadingState value),
-    @required TResult error(_ErrorState value),
-    @required TResult imagePicked(_ImagePickedState value),
-    @required TResult showResult(_ShowResultState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialState value) initial,
+    required TResult Function(_LoadingState value) loading,
+    required TResult Function(_ErrorState value) error,
+    required TResult Function(_ImagePickedState value) imagePicked,
+    required TResult Function(_ShowResultState value) showResult,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(error != null);
-    assert(imagePicked != null);
-    assert(showResult != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_InitialState value),
-    TResult loading(_LoadingState value),
-    TResult error(_ErrorState value),
-    TResult imagePicked(_ImagePickedState value),
-    TResult showResult(_ShowResultState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialState value)? initial,
+    TResult Function(_LoadingState value)? loading,
+    TResult Function(_ErrorState value)? error,
+    TResult Function(_ImagePickedState value)? imagePicked,
+    TResult Function(_ShowResultState value)? showResult,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
@@ -697,6 +641,7 @@ abstract class _ErrorState implements ImageProcessState {
   const factory _ErrorState({String message}) = _$_ErrorState;
 
   String get message;
+  @JsonKey(ignore: true)
   _$ErrorStateCopyWith<_ErrorState> get copyWith;
 }
 
@@ -721,7 +666,7 @@ class __$ImagePickedStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object imageSource = freezed,
+    Object? imageSource = freezed,
   }) {
     return _then(_ImagePickedState(
       imageSource:
@@ -732,8 +677,7 @@ class __$ImagePickedStateCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_ImagePickedState implements _ImagePickedState {
-  const _$_ImagePickedState({@required this.imageSource})
-      : assert(imageSource != null);
+  const _$_ImagePickedState({required this.imageSource});
 
   @override
   final File imageSource;
@@ -756,38 +700,33 @@ class _$_ImagePickedState implements _ImagePickedState {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(imageSource);
 
+  @JsonKey(ignore: true)
   @override
   _$ImagePickedStateCopyWith<_ImagePickedState> get copyWith =>
       __$ImagePickedStateCopyWithImpl<_ImagePickedState>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult error(String message),
-    @required TResult imagePicked(File imageSource),
-    @required TResult showResult(ImageResultModel imageResult),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String message) error,
+    required TResult Function(File imageSource) imagePicked,
+    required TResult Function(ImageResultModel imageResult) showResult,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(error != null);
-    assert(imagePicked != null);
-    assert(showResult != null);
     return imagePicked(imageSource);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult error(String message),
-    TResult imagePicked(File imageSource),
-    TResult showResult(ImageResultModel imageResult),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String message)? error,
+    TResult Function(File imageSource)? imagePicked,
+    TResult Function(ImageResultModel imageResult)? showResult,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (imagePicked != null) {
       return imagePicked(imageSource);
     }
@@ -796,32 +735,26 @@ class _$_ImagePickedState implements _ImagePickedState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_InitialState value),
-    @required TResult loading(_LoadingState value),
-    @required TResult error(_ErrorState value),
-    @required TResult imagePicked(_ImagePickedState value),
-    @required TResult showResult(_ShowResultState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialState value) initial,
+    required TResult Function(_LoadingState value) loading,
+    required TResult Function(_ErrorState value) error,
+    required TResult Function(_ImagePickedState value) imagePicked,
+    required TResult Function(_ShowResultState value) showResult,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(error != null);
-    assert(imagePicked != null);
-    assert(showResult != null);
     return imagePicked(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_InitialState value),
-    TResult loading(_LoadingState value),
-    TResult error(_ErrorState value),
-    TResult imagePicked(_ImagePickedState value),
-    TResult showResult(_ShowResultState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialState value)? initial,
+    TResult Function(_LoadingState value)? loading,
+    TResult Function(_ErrorState value)? error,
+    TResult Function(_ImagePickedState value)? imagePicked,
+    TResult Function(_ShowResultState value)? showResult,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (imagePicked != null) {
       return imagePicked(this);
     }
@@ -830,10 +763,11 @@ class _$_ImagePickedState implements _ImagePickedState {
 }
 
 abstract class _ImagePickedState implements ImageProcessState {
-  const factory _ImagePickedState({@required File imageSource}) =
+  const factory _ImagePickedState({required File imageSource}) =
       _$_ImagePickedState;
 
   File get imageSource;
+  @JsonKey(ignore: true)
   _$ImagePickedStateCopyWith<_ImagePickedState> get copyWith;
 }
 
@@ -858,7 +792,7 @@ class __$ShowResultStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object imageResult = freezed,
+    Object? imageResult = freezed,
   }) {
     return _then(_ShowResultState(
       imageResult: imageResult == freezed
@@ -870,8 +804,7 @@ class __$ShowResultStateCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_ShowResultState implements _ShowResultState {
-  const _$_ShowResultState({@required this.imageResult})
-      : assert(imageResult != null);
+  const _$_ShowResultState({required this.imageResult});
 
   @override
   final ImageResultModel imageResult;
@@ -894,38 +827,33 @@ class _$_ShowResultState implements _ShowResultState {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(imageResult);
 
+  @JsonKey(ignore: true)
   @override
   _$ShowResultStateCopyWith<_ShowResultState> get copyWith =>
       __$ShowResultStateCopyWithImpl<_ShowResultState>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult error(String message),
-    @required TResult imagePicked(File imageSource),
-    @required TResult showResult(ImageResultModel imageResult),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String message) error,
+    required TResult Function(File imageSource) imagePicked,
+    required TResult Function(ImageResultModel imageResult) showResult,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(error != null);
-    assert(imagePicked != null);
-    assert(showResult != null);
     return showResult(imageResult);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult error(String message),
-    TResult imagePicked(File imageSource),
-    TResult showResult(ImageResultModel imageResult),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String message)? error,
+    TResult Function(File imageSource)? imagePicked,
+    TResult Function(ImageResultModel imageResult)? showResult,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (showResult != null) {
       return showResult(imageResult);
     }
@@ -934,32 +862,26 @@ class _$_ShowResultState implements _ShowResultState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_InitialState value),
-    @required TResult loading(_LoadingState value),
-    @required TResult error(_ErrorState value),
-    @required TResult imagePicked(_ImagePickedState value),
-    @required TResult showResult(_ShowResultState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialState value) initial,
+    required TResult Function(_LoadingState value) loading,
+    required TResult Function(_ErrorState value) error,
+    required TResult Function(_ImagePickedState value) imagePicked,
+    required TResult Function(_ShowResultState value) showResult,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(error != null);
-    assert(imagePicked != null);
-    assert(showResult != null);
     return showResult(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_InitialState value),
-    TResult loading(_LoadingState value),
-    TResult error(_ErrorState value),
-    TResult imagePicked(_ImagePickedState value),
-    TResult showResult(_ShowResultState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialState value)? initial,
+    TResult Function(_LoadingState value)? loading,
+    TResult Function(_ErrorState value)? error,
+    TResult Function(_ImagePickedState value)? imagePicked,
+    TResult Function(_ShowResultState value)? showResult,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (showResult != null) {
       return showResult(this);
     }
@@ -968,9 +890,10 @@ class _$_ShowResultState implements _ShowResultState {
 }
 
 abstract class _ShowResultState implements ImageProcessState {
-  const factory _ShowResultState({@required ImageResultModel imageResult}) =
+  const factory _ShowResultState({required ImageResultModel imageResult}) =
       _$_ShowResultState;
 
   ImageResultModel get imageResult;
+  @JsonKey(ignore: true)
   _$ShowResultStateCopyWith<_ShowResultState> get copyWith;
 }

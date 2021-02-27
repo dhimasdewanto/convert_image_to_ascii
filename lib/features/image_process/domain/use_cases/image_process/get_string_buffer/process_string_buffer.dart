@@ -1,3 +1,5 @@
+import 'package:image/image.dart';
+
 import '../../../models/image_result_model.dart';
 import '../get_string_buffer.dart';
 import 'abgr_to_argb.dart';
@@ -6,7 +8,7 @@ import 'write_text_buffer.dart';
 
 Future<ImageResultModel> processStringBuffer(
     GetStringBufferParams params) async {
-  final image = await getImage(params);
+  final image = (await getImage(params)) ?? Image(0, 0);
 
   final textBuffer = StringBuffer();
   for (var y = 0; y < image.height; y++) {
@@ -22,7 +24,7 @@ Future<ImageResultModel> processStringBuffer(
         isColorReversed: params.settings.isColorReversed,
       );
     }
-    textBuffer.writeln("");
+    textBuffer.writeln();
   }
 
   return ImageResultModel(

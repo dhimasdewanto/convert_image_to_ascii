@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -5,13 +6,13 @@ import '../blocs/settings/settings_bloc.dart';
 import '../dialogs/character_dialog.dart';
 
 class CharacterSettingsPage extends StatelessWidget {
-  const CharacterSettingsPage({Key key}) : super(key: key);
+  const CharacterSettingsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Character Settings"),
+        title: Text(tr('change_character')),
       ),
       body: BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, state) {

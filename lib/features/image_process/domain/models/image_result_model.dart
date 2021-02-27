@@ -1,10 +1,9 @@
 import 'package:image/image.dart' as img;
-import 'package:meta/meta.dart';
 
 class ImageResultModel {
   ImageResultModel({
-    @required this.imageStringBuffer,
-    @required this.convertedImage,
+    required this.imageStringBuffer,
+    required this.convertedImage,
   });
 
   final img.Image convertedImage;
@@ -27,8 +26,8 @@ class ImageResultModel {
       'ImageResultModel(imageStringBuffer: $imageStringBuffer, convertedImage: $convertedImage)';
 
   ImageResultModel copyWith({
-    StringBuffer imageStringBuffer,
-    img.Image convertedImage,
+    StringBuffer? imageStringBuffer,
+    img.Image? convertedImage,
   }) {
     return ImageResultModel(
       imageStringBuffer: imageStringBuffer ?? this.imageStringBuffer,

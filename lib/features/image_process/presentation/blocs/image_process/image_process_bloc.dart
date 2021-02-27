@@ -5,7 +5,6 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:injectable/injectable.dart';
 import 'package:screenshot/screenshot.dart';
 
 import '../../../../../core/navigators.dart';
@@ -20,19 +19,18 @@ part 'image_process_event.dart';
 part 'image_process_listener.dart';
 part 'image_process_state.dart';
 
-@injectable
 class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
   ImageProcessBloc({
-    @required this.getSettings,
-    @required this.getStringBuffer,
-    @required this.imagePicker,
-    @required this.screenshotController,
+    required this.getSettings,
+    required this.getStringBuffer,
+    required this.imagePicker,
+    required this.screenshotController,
   }) : super(const ImageProcessState.initial());
 
-  final GetSettings getSettings;
-  final GetStringBuffer getStringBuffer;
-  final ImagePicker imagePicker;
-  final ScreenshotController screenshotController;
+  final GetSettings? getSettings;
+  final GetStringBuffer? getStringBuffer;
+  final ImagePicker? imagePicker;
+  final ScreenshotController? screenshotController;
 
   @override
   Stream<ImageProcessState> mapEventToState(
@@ -68,11 +66,11 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
           imagePicked: (imageSource) async* {
             yield const ImageProcessState.loading();
 
-            final resultSettings = await getSettings();
+            final resultSettings = await getSettings!();
             yield* resultSettings.fold(
               (failure) async* {},
               (settings) async* {
-                final imageResult = await getStringBuffer(
+                final imageResult = await getStringBuffer!(
                   GetStringBufferParams(
                     imageFile: imageSource,
                     settings: settings,
@@ -91,7 +89,7 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
 
   Future<Option<File>> _pickImage() async {
     try {
-      final pickedFile = await imagePicker.getImage(
+      final pickedFile = await imagePicker!.getImage(
         source: ImageSource.gallery,
       );
       return some(File(pickedFile.path));

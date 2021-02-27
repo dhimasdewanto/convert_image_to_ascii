@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'failures.dart';
 
@@ -13,53 +13,49 @@ T _$identity<T>(T value) => value;
 class _$FailuresTearOff {
   const _$FailuresTearOff();
 
-// ignore: unused_element
   _CopyClipboardFailed copyClipboardFailed() {
     return const _CopyClipboardFailed();
   }
 
-// ignore: unused_element
   _SaveImageFailed saveImageFailed() {
     return const _SaveImageFailed();
   }
 
-// ignore: unused_element
   _UnexpectedFailure unexpected() {
     return const _UnexpectedFailure();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Failures = _$FailuresTearOff();
 
 /// @nodoc
 mixin _$Failures {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult copyClipboardFailed(),
-    @required TResult saveImageFailed(),
-    @required TResult unexpected(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() copyClipboardFailed,
+    required TResult Function() saveImageFailed,
+    required TResult Function() unexpected,
   });
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult copyClipboardFailed(),
-    TResult saveImageFailed(),
-    TResult unexpected(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? copyClipboardFailed,
+    TResult Function()? saveImageFailed,
+    TResult Function()? unexpected,
+    required TResult orElse(),
   });
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult copyClipboardFailed(_CopyClipboardFailed value),
-    @required TResult saveImageFailed(_SaveImageFailed value),
-    @required TResult unexpected(_UnexpectedFailure value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CopyClipboardFailed value) copyClipboardFailed,
+    required TResult Function(_SaveImageFailed value) saveImageFailed,
+    required TResult Function(_UnexpectedFailure value) unexpected,
   });
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult copyClipboardFailed(_CopyClipboardFailed value),
-    TResult saveImageFailed(_SaveImageFailed value),
-    TResult unexpected(_UnexpectedFailure value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CopyClipboardFailed value)? copyClipboardFailed,
+    TResult Function(_SaveImageFailed value)? saveImageFailed,
+    TResult Function(_UnexpectedFailure value)? unexpected,
+    required TResult orElse(),
   });
 }
 
@@ -116,26 +112,22 @@ class _$_CopyClipboardFailed implements _CopyClipboardFailed {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult copyClipboardFailed(),
-    @required TResult saveImageFailed(),
-    @required TResult unexpected(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() copyClipboardFailed,
+    required TResult Function() saveImageFailed,
+    required TResult Function() unexpected,
   }) {
-    assert(copyClipboardFailed != null);
-    assert(saveImageFailed != null);
-    assert(unexpected != null);
     return copyClipboardFailed();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult copyClipboardFailed(),
-    TResult saveImageFailed(),
-    TResult unexpected(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? copyClipboardFailed,
+    TResult Function()? saveImageFailed,
+    TResult Function()? unexpected,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (copyClipboardFailed != null) {
       return copyClipboardFailed();
     }
@@ -144,26 +136,22 @@ class _$_CopyClipboardFailed implements _CopyClipboardFailed {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult copyClipboardFailed(_CopyClipboardFailed value),
-    @required TResult saveImageFailed(_SaveImageFailed value),
-    @required TResult unexpected(_UnexpectedFailure value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CopyClipboardFailed value) copyClipboardFailed,
+    required TResult Function(_SaveImageFailed value) saveImageFailed,
+    required TResult Function(_UnexpectedFailure value) unexpected,
   }) {
-    assert(copyClipboardFailed != null);
-    assert(saveImageFailed != null);
-    assert(unexpected != null);
     return copyClipboardFailed(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult copyClipboardFailed(_CopyClipboardFailed value),
-    TResult saveImageFailed(_SaveImageFailed value),
-    TResult unexpected(_UnexpectedFailure value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CopyClipboardFailed value)? copyClipboardFailed,
+    TResult Function(_SaveImageFailed value)? saveImageFailed,
+    TResult Function(_UnexpectedFailure value)? unexpected,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (copyClipboardFailed != null) {
       return copyClipboardFailed(this);
     }
@@ -212,26 +200,22 @@ class _$_SaveImageFailed implements _SaveImageFailed {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult copyClipboardFailed(),
-    @required TResult saveImageFailed(),
-    @required TResult unexpected(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() copyClipboardFailed,
+    required TResult Function() saveImageFailed,
+    required TResult Function() unexpected,
   }) {
-    assert(copyClipboardFailed != null);
-    assert(saveImageFailed != null);
-    assert(unexpected != null);
     return saveImageFailed();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult copyClipboardFailed(),
-    TResult saveImageFailed(),
-    TResult unexpected(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? copyClipboardFailed,
+    TResult Function()? saveImageFailed,
+    TResult Function()? unexpected,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (saveImageFailed != null) {
       return saveImageFailed();
     }
@@ -240,26 +224,22 @@ class _$_SaveImageFailed implements _SaveImageFailed {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult copyClipboardFailed(_CopyClipboardFailed value),
-    @required TResult saveImageFailed(_SaveImageFailed value),
-    @required TResult unexpected(_UnexpectedFailure value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CopyClipboardFailed value) copyClipboardFailed,
+    required TResult Function(_SaveImageFailed value) saveImageFailed,
+    required TResult Function(_UnexpectedFailure value) unexpected,
   }) {
-    assert(copyClipboardFailed != null);
-    assert(saveImageFailed != null);
-    assert(unexpected != null);
     return saveImageFailed(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult copyClipboardFailed(_CopyClipboardFailed value),
-    TResult saveImageFailed(_SaveImageFailed value),
-    TResult unexpected(_UnexpectedFailure value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CopyClipboardFailed value)? copyClipboardFailed,
+    TResult Function(_SaveImageFailed value)? saveImageFailed,
+    TResult Function(_UnexpectedFailure value)? unexpected,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (saveImageFailed != null) {
       return saveImageFailed(this);
     }
@@ -309,26 +289,22 @@ class _$_UnexpectedFailure implements _UnexpectedFailure {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult copyClipboardFailed(),
-    @required TResult saveImageFailed(),
-    @required TResult unexpected(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() copyClipboardFailed,
+    required TResult Function() saveImageFailed,
+    required TResult Function() unexpected,
   }) {
-    assert(copyClipboardFailed != null);
-    assert(saveImageFailed != null);
-    assert(unexpected != null);
     return unexpected();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult copyClipboardFailed(),
-    TResult saveImageFailed(),
-    TResult unexpected(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? copyClipboardFailed,
+    TResult Function()? saveImageFailed,
+    TResult Function()? unexpected,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unexpected != null) {
       return unexpected();
     }
@@ -337,26 +313,22 @@ class _$_UnexpectedFailure implements _UnexpectedFailure {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult copyClipboardFailed(_CopyClipboardFailed value),
-    @required TResult saveImageFailed(_SaveImageFailed value),
-    @required TResult unexpected(_UnexpectedFailure value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CopyClipboardFailed value) copyClipboardFailed,
+    required TResult Function(_SaveImageFailed value) saveImageFailed,
+    required TResult Function(_UnexpectedFailure value) unexpected,
   }) {
-    assert(copyClipboardFailed != null);
-    assert(saveImageFailed != null);
-    assert(unexpected != null);
     return unexpected(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult copyClipboardFailed(_CopyClipboardFailed value),
-    TResult saveImageFailed(_SaveImageFailed value),
-    TResult unexpected(_UnexpectedFailure value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CopyClipboardFailed value)? copyClipboardFailed,
+    TResult Function(_SaveImageFailed value)? saveImageFailed,
+    TResult Function(_UnexpectedFailure value)? unexpected,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unexpected != null) {
       return unexpected(this);
     }

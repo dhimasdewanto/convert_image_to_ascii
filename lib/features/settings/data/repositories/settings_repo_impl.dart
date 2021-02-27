@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:injectable/injectable.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/default_values.dart';
@@ -7,7 +7,6 @@ import '../../../../core/failures/failures.dart';
 import '../../domain/models/settings_model.dart';
 import '../../domain/repositories/settings_repo.dart';
 
-@LazySingleton(as: SettingsRepo)
 class SettingsRepoImpl implements SettingsRepo {
   static const _keySettingsData = "settings_data";
 
@@ -15,7 +14,7 @@ class SettingsRepoImpl implements SettingsRepo {
   Future<Either<Failures, SettingsModel>> getSettingsData() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      final result = prefs.getString(_keySettingsData);
+      final String? result = prefs.getString(_keySettingsData);
 
       final dListCharacters = List<String>.from(defaultListCharacters);
       final dListColors = List<int>.from(defaultListColors);
@@ -36,14 +35,12 @@ class SettingsRepoImpl implements SettingsRepo {
       final settingsRaw = SettingsModel.fromJson(result);
       return right(
         SettingsModel(
-          listCharacters: settingsRaw.listCharacters ?? dListCharacters,
-          listColorValues: settingsRaw.listColorValues ?? dListColors,
-          imageWidth: settingsRaw.imageWidth ?? defaultImageWidth,
-          repeatedCharacters:
-              settingsRaw.repeatedCharacters ?? defaultRepeatCharacter,
-          isColorReversed: settingsRaw.isColorReversed ?? defaultReverseColor,
-          convertToGrayscale:
-              settingsRaw.convertToGrayscale ?? defaultToGrayscale,
+          listCharacters: settingsRaw.listCharacters,
+          listColorValues: settingsRaw.listColorValues,
+          imageWidth: settingsRaw.imageWidth,
+          repeatedCharacters: settingsRaw.repeatedCharacters,
+          isColorReversed: settingsRaw.isColorReversed,
+          convertToGrayscale: settingsRaw.convertToGrayscale,
         ),
       );
     } catch (e) {

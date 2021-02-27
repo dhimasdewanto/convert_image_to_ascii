@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class ColorPicker extends StatefulWidget {
   const ColorPicker({
-    Key key,
-    @required this.initialValue,
-    @required this.onPicked,
-    @required this.onDefault,
+    Key? key,
+    required this.initialValue,
+    required this.onPicked,
+    required this.onDefault,
   }) : super(key: key);
 
   final int initialValue;

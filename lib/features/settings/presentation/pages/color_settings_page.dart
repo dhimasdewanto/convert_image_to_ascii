@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -5,7 +6,7 @@ import '../blocs/settings/settings_bloc.dart';
 import '../dialogs/color_dialog.dart';
 
 class ColorSettingsPage extends StatelessWidget {
-  const ColorSettingsPage({Key key}) : super(key: key);
+  const ColorSettingsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class ColorSettingsPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Color Settings"),
+        title: Text(tr('change_color')),
       ),
       body: BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, state) {
@@ -32,7 +33,7 @@ class ColorSettingsPage extends StatelessWidget {
                   return ListTile(
                     leading: Text("${index + 1}."),
                     title: Container(
-                      height: textTheme.bodyText1.fontSize,
+                      height: textTheme.bodyText1!.fontSize,
                       decoration: BoxDecoration(
                         color: Color(colorValue),
                         borderRadius: BorderRadius.circular(50),

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -8,9 +9,9 @@ import '../blocs/settings/settings_bloc.dart';
 
 class CharacterDialog extends StatefulWidget {
   const CharacterDialog({
-    Key key,
-    @required this.indexCharacter,
-    @required this.listCharacters,
+    Key? key,
+    required this.indexCharacter,
+    required this.listCharacters,
   }) : super(key: key);
 
   final int indexCharacter;
@@ -39,7 +40,7 @@ class _CharacterDialogState extends State<CharacterDialog> {
   }
 
   void _onConfirm() {
-    if (_formKey.currentState.validate() == false) {
+    if (_formKey.currentState!.validate() == false) {
       return;
     }
 
@@ -77,7 +78,7 @@ class _CharacterDialogState extends State<CharacterDialog> {
     return Form(
       key: _formKey,
       child: SimpleDialog(
-        title: const Text("Change Character"),
+        title: Text(tr('change_character')),
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(
@@ -89,13 +90,13 @@ class _CharacterDialogState extends State<CharacterDialog> {
               textAlign: TextAlign.center,
               style: textStyle,
               validator: (value) {
-                if (value.length != 1) {
-                  return "Must 1";
+                if (value!.length != 1) {
+                  return tr('must_one');
                 }
                 return null;
               },
               onChanged: (value) {
-                _formKey.currentState.validate();
+                _formKey.currentState!.validate();
               },
             ),
           ),
@@ -104,11 +105,11 @@ class _CharacterDialogState extends State<CharacterDialog> {
             children: [
               TextButton(
                 onPressed: _onDefault,
-                child: const Text("Default"),
+                child: Text(tr('default')),
               ),
               OutlinedButton(
                 onPressed: _onConfirm,
-                child: const Text("Ok"),
+                child: Text(tr('ok')),
               ),
             ],
           ),

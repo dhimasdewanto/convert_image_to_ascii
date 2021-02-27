@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -8,8 +9,8 @@ import '../blocs/settings/settings_bloc.dart';
 
 class TotalCharactersDialog extends StatefulWidget {
   const TotalCharactersDialog({
-    Key key,
-    @required this.listCharacters,
+    Key? key,
+    required this.listCharacters,
   }) : super(key: key);
 
   final List<String> listCharacters;
@@ -37,7 +38,7 @@ class _TotalCharactersDialogState extends State<TotalCharactersDialog> {
   }
 
   void _onConfirm() {
-    if (_formKey.currentState.validate() == false) {
+    if (_formKey.currentState!.validate() == false) {
       return;
     }
 
@@ -72,7 +73,7 @@ class _TotalCharactersDialogState extends State<TotalCharactersDialog> {
     return Form(
       key: _formKey,
       child: SimpleDialog(
-        title: const Text("Total Characters"),
+        title: Text(tr('total_characters')),
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(
@@ -85,17 +86,17 @@ class _TotalCharactersDialogState extends State<TotalCharactersDialog> {
               style: textStyle,
               keyboardType: TextInputType.number,
               validator: (value) {
-                final number = int.tryParse(value);
+                final number = int.tryParse(value!);
                 if (number == null) {
-                  return "Number";
+                  return tr('number');
                 }
                 if (number < 2) {
-                  return "Min 2";
+                  return tr("min_value", args: ['2']);
                 }
                 return null;
               },
               onChanged: (value) {
-                _formKey.currentState.validate();
+                _formKey.currentState!.validate();
               },
             ),
           ),
@@ -104,11 +105,11 @@ class _TotalCharactersDialogState extends State<TotalCharactersDialog> {
             children: [
               TextButton(
                 onPressed: _onDefault,
-                child: const Text("Default"),
+                child: Text(tr('default')),
               ),
               OutlinedButton(
                 onPressed: _onConfirm,
-                child: const Text("Ok"),
+                child: Text(tr('ok')),
               ),
             ],
           ),

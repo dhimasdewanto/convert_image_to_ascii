@@ -3,17 +3,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:screenshot/screenshot.dart';
 
 import '../../../../core/dependency_injections/configure_dependencies.dart';
+import '../blocs/image_actions/image_actions_bloc.dart';
 import '../blocs/image_process/image_process_bloc.dart';
 import '../widgets/actions_bottom_sheet.dart';
 import '../widgets/ascii_image_view.dart';
 import '../widgets/bottom_sheet_scaffold.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({Key key}) : super(key: key);
+  const ResultPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final screenshotController = getIt<ScreenshotController>();
+    final ScreenshotController? screenshotController = getIt<ScreenshotController>();
 
     return BlocBuilder<ImageProcessBloc, ImageProcessState>(
       builder: (context, state) {
@@ -43,9 +44,14 @@ class ResultPage extends StatelessWidget {
               appBar: AppBar(
                 title: const Text("Result"),
               ),
-              body: AsciiImageView(
-                screenshotController: screenshotController,
-                imageTextBuffer: imageResult.imageStringBuffer,
+              body: MultiBlocListener(
+                listeners: [
+                  imageActionsListener,
+                ],
+                child: AsciiImageView(
+                  screenshotController: screenshotController,
+                  imageTextBuffer: imageResult.imageStringBuffer,
+                ),
               ),
             );
           },

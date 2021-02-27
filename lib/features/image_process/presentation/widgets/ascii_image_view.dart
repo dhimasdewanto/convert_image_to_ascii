@@ -6,13 +6,13 @@ import '../../../settings/presentation/blocs/settings/settings_bloc.dart';
 
 class AsciiImageView extends StatelessWidget {
   const AsciiImageView({
-    Key key,
-    @required this.imageTextBuffer,
-    @required this.screenshotController,
+    Key? key,
+    required this.imageTextBuffer,
+    required this.screenshotController,
   }) : super(key: key);
 
   final StringBuffer imageTextBuffer;
-  final ScreenshotController screenshotController;
+  final ScreenshotController? screenshotController;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class AsciiImageView extends StatelessWidget {
             orElse: () => const Offstage(),
             show: (settingsModel) {
               return Screenshot(
-                controller: screenshotController,
+                controller: screenshotController!,
                 child: Container(
                   color: theme.canvasColor,
                   child: Text(

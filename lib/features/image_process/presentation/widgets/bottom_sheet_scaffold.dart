@@ -4,10 +4,10 @@ import '../../../../core/navigators.dart';
 
 class BottomSheetScaffold extends StatefulWidget {
   const BottomSheetScaffold({
-    Key key,
-    @required this.appBar,
-    @required this.body,
-    @required this.bottomSheet,
+    Key? key,
+    required this.appBar,
+    required this.body,
+    required this.bottomSheet,
   }) : super(key: key);
 
   final PreferredSizeWidget appBar;

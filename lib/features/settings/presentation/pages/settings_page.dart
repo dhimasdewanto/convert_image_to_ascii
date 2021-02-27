@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -7,18 +8,19 @@ import '../dialogs/default_settings_dialog.dart';
 import '../dialogs/image_repeat_characters_dialog.dart';
 import '../dialogs/image_width_dialog.dart';
 import '../dialogs/is_reversed_dialog.dart';
+import '../dialogs/language_dialog.dart';
 import '../dialogs/total_characters_dialog.dart';
 import 'character_settings_page.dart';
 import 'color_settings_page.dart';
 
 class SettingsPage extends StatelessWidget {
-  const SettingsPage({Key key}) : super(key: key);
+  const SettingsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Settings"),
+        title: Text(tr('settings')),
       ),
       body: BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, state) {
@@ -28,7 +30,7 @@ class SettingsPage extends StatelessWidget {
               return ListView(
                 children: [
                   ListTile(
-                    title: const Text("Total Characters"),
+                    title: Text(tr('total_characters')),
                     subtitle: Text("${settingsModel.listCharacters.length}"),
                     onTap: () {
                       showDialog(
@@ -41,7 +43,7 @@ class SettingsPage extends StatelessWidget {
                   ),
                   const Divider(),
                   ListTile(
-                    title: const Text("Characters"),
+                    title: Text(tr('characters')),
                     onTap: () {
                       push(
                         context: context,
@@ -51,7 +53,7 @@ class SettingsPage extends StatelessWidget {
                   ),
                   const Divider(),
                   ListTile(
-                    title: const Text("Colors"),
+                    title: Text(tr("colors")),
                     onTap: () {
                       push(
                         context: context,
@@ -61,7 +63,7 @@ class SettingsPage extends StatelessWidget {
                   ),
                   const Divider(),
                   ListTile(
-                    title: const Text("Image Width"),
+                    title: Text(tr('image_width')),
                     subtitle: Text("${settingsModel.imageWidth}"),
                     onTap: () {
                       showDialog(
@@ -74,7 +76,7 @@ class SettingsPage extends StatelessWidget {
                   ),
                   const Divider(),
                   ListTile(
-                    title: const Text("Repeat Characters Count"),
+                    title: Text(tr('repeat_characters_count')),
                     subtitle: Text("${settingsModel.repeatedCharacters}x"),
                     onTap: () {
                       showDialog(
@@ -87,9 +89,10 @@ class SettingsPage extends StatelessWidget {
                   ),
                   const Divider(),
                   ListTile(
-                    title: const Text("Is Color Reversed"),
-                    subtitle:
-                        Text("${settingsModel.isColorReversed}".capitalize()),
+                    title: Text(tr('is_color_reserved')),
+                    subtitle: Text(
+                      settingsModel.isColorReversed ? tr('yes') : tr('no'),
+                    ),
                     onTap: () {
                       showDialog(
                         context: context,
@@ -99,7 +102,22 @@ class SettingsPage extends StatelessWidget {
                   ),
                   const Divider(),
                   ListTile(
-                    title: const Text("Default Settings"),
+                    title: const Text("Change Language"),
+                    subtitle: Text(
+                      context.locale.toString() == "id_ID"
+                          ? "Indonesia"
+                          : "English",
+                    ),
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (_) => const LanguageDialog(),
+                      );
+                    },
+                  ),
+                  const Divider(),
+                  ListTile(
+                    title: Text(tr('default_settings')),
                     onTap: () {
                       showDialog(
                         context: context,

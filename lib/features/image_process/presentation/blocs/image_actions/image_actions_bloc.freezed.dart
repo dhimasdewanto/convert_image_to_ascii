@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'image_actions_bloc.dart';
 
@@ -13,27 +13,23 @@ T _$identity<T>(T value) => value;
 class _$ImageActionsEventTearOff {
   const _$ImageActionsEventTearOff();
 
-// ignore: unused_element
   _ResetStateEvent resetState() {
     return const _ResetStateEvent();
   }
 
-// ignore: unused_element
   _CopyImageTextEvent copyImageText() {
     return const _CopyImageTextEvent();
   }
 
-// ignore: unused_element
   _SaveImageEvent saveImage(
-      {@required ScreenshotController screenshotController}) {
+      {required ScreenshotController screenshotController}) {
     return _SaveImageEvent(
       screenshotController: screenshotController,
     );
   }
 
-// ignore: unused_element
   _ListenImageProcessEvent listenImageProcess(
-      {@required ImageResultModel imageResult}) {
+      {required ImageResultModel imageResult}) {
     return _ListenImageProcessEvent(
       imageResult: imageResult,
     );
@@ -41,40 +37,41 @@ class _$ImageActionsEventTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ImageActionsEvent = _$ImageActionsEventTearOff();
 
 /// @nodoc
 mixin _$ImageActionsEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult resetState(),
-    @required TResult copyImageText(),
-    @required TResult saveImage(ScreenshotController screenshotController),
-    @required TResult listenImageProcess(ImageResultModel imageResult),
+  TResult when<TResult extends Object?>({
+    required TResult Function() resetState,
+    required TResult Function() copyImageText,
+    required TResult Function(ScreenshotController screenshotController)
+        saveImage,
+    required TResult Function(ImageResultModel imageResult) listenImageProcess,
   });
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult resetState(),
-    TResult copyImageText(),
-    TResult saveImage(ScreenshotController screenshotController),
-    TResult listenImageProcess(ImageResultModel imageResult),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? resetState,
+    TResult Function()? copyImageText,
+    TResult Function(ScreenshotController screenshotController)? saveImage,
+    TResult Function(ImageResultModel imageResult)? listenImageProcess,
+    required TResult orElse(),
   });
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult resetState(_ResetStateEvent value),
-    @required TResult copyImageText(_CopyImageTextEvent value),
-    @required TResult saveImage(_SaveImageEvent value),
-    @required TResult listenImageProcess(_ListenImageProcessEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ResetStateEvent value) resetState,
+    required TResult Function(_CopyImageTextEvent value) copyImageText,
+    required TResult Function(_SaveImageEvent value) saveImage,
+    required TResult Function(_ListenImageProcessEvent value)
+        listenImageProcess,
   });
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult resetState(_ResetStateEvent value),
-    TResult copyImageText(_CopyImageTextEvent value),
-    TResult saveImage(_SaveImageEvent value),
-    TResult listenImageProcess(_ListenImageProcessEvent value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ResetStateEvent value)? resetState,
+    TResult Function(_CopyImageTextEvent value)? copyImageText,
+    TResult Function(_SaveImageEvent value)? saveImage,
+    TResult Function(_ListenImageProcessEvent value)? listenImageProcess,
+    required TResult orElse(),
   });
 }
 
@@ -133,29 +130,25 @@ class _$_ResetStateEvent implements _ResetStateEvent {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult resetState(),
-    @required TResult copyImageText(),
-    @required TResult saveImage(ScreenshotController screenshotController),
-    @required TResult listenImageProcess(ImageResultModel imageResult),
+  TResult when<TResult extends Object?>({
+    required TResult Function() resetState,
+    required TResult Function() copyImageText,
+    required TResult Function(ScreenshotController screenshotController)
+        saveImage,
+    required TResult Function(ImageResultModel imageResult) listenImageProcess,
   }) {
-    assert(resetState != null);
-    assert(copyImageText != null);
-    assert(saveImage != null);
-    assert(listenImageProcess != null);
     return resetState();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult resetState(),
-    TResult copyImageText(),
-    TResult saveImage(ScreenshotController screenshotController),
-    TResult listenImageProcess(ImageResultModel imageResult),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? resetState,
+    TResult Function()? copyImageText,
+    TResult Function(ScreenshotController screenshotController)? saveImage,
+    TResult Function(ImageResultModel imageResult)? listenImageProcess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (resetState != null) {
       return resetState();
     }
@@ -164,29 +157,25 @@ class _$_ResetStateEvent implements _ResetStateEvent {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult resetState(_ResetStateEvent value),
-    @required TResult copyImageText(_CopyImageTextEvent value),
-    @required TResult saveImage(_SaveImageEvent value),
-    @required TResult listenImageProcess(_ListenImageProcessEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ResetStateEvent value) resetState,
+    required TResult Function(_CopyImageTextEvent value) copyImageText,
+    required TResult Function(_SaveImageEvent value) saveImage,
+    required TResult Function(_ListenImageProcessEvent value)
+        listenImageProcess,
   }) {
-    assert(resetState != null);
-    assert(copyImageText != null);
-    assert(saveImage != null);
-    assert(listenImageProcess != null);
     return resetState(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult resetState(_ResetStateEvent value),
-    TResult copyImageText(_CopyImageTextEvent value),
-    TResult saveImage(_SaveImageEvent value),
-    TResult listenImageProcess(_ListenImageProcessEvent value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ResetStateEvent value)? resetState,
+    TResult Function(_CopyImageTextEvent value)? copyImageText,
+    TResult Function(_SaveImageEvent value)? saveImage,
+    TResult Function(_ListenImageProcessEvent value)? listenImageProcess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (resetState != null) {
       return resetState(this);
     }
@@ -236,29 +225,25 @@ class _$_CopyImageTextEvent implements _CopyImageTextEvent {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult resetState(),
-    @required TResult copyImageText(),
-    @required TResult saveImage(ScreenshotController screenshotController),
-    @required TResult listenImageProcess(ImageResultModel imageResult),
+  TResult when<TResult extends Object?>({
+    required TResult Function() resetState,
+    required TResult Function() copyImageText,
+    required TResult Function(ScreenshotController screenshotController)
+        saveImage,
+    required TResult Function(ImageResultModel imageResult) listenImageProcess,
   }) {
-    assert(resetState != null);
-    assert(copyImageText != null);
-    assert(saveImage != null);
-    assert(listenImageProcess != null);
     return copyImageText();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult resetState(),
-    TResult copyImageText(),
-    TResult saveImage(ScreenshotController screenshotController),
-    TResult listenImageProcess(ImageResultModel imageResult),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? resetState,
+    TResult Function()? copyImageText,
+    TResult Function(ScreenshotController screenshotController)? saveImage,
+    TResult Function(ImageResultModel imageResult)? listenImageProcess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (copyImageText != null) {
       return copyImageText();
     }
@@ -267,29 +252,25 @@ class _$_CopyImageTextEvent implements _CopyImageTextEvent {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult resetState(_ResetStateEvent value),
-    @required TResult copyImageText(_CopyImageTextEvent value),
-    @required TResult saveImage(_SaveImageEvent value),
-    @required TResult listenImageProcess(_ListenImageProcessEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ResetStateEvent value) resetState,
+    required TResult Function(_CopyImageTextEvent value) copyImageText,
+    required TResult Function(_SaveImageEvent value) saveImage,
+    required TResult Function(_ListenImageProcessEvent value)
+        listenImageProcess,
   }) {
-    assert(resetState != null);
-    assert(copyImageText != null);
-    assert(saveImage != null);
-    assert(listenImageProcess != null);
     return copyImageText(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult resetState(_ResetStateEvent value),
-    TResult copyImageText(_CopyImageTextEvent value),
-    TResult saveImage(_SaveImageEvent value),
-    TResult listenImageProcess(_ListenImageProcessEvent value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ResetStateEvent value)? resetState,
+    TResult Function(_CopyImageTextEvent value)? copyImageText,
+    TResult Function(_SaveImageEvent value)? saveImage,
+    TResult Function(_ListenImageProcessEvent value)? listenImageProcess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (copyImageText != null) {
       return copyImageText(this);
     }
@@ -322,7 +303,7 @@ class __$SaveImageEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object screenshotController = freezed,
+    Object? screenshotController = freezed,
   }) {
     return _then(_SaveImageEvent(
       screenshotController: screenshotController == freezed
@@ -334,8 +315,7 @@ class __$SaveImageEventCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_SaveImageEvent implements _SaveImageEvent {
-  const _$_SaveImageEvent({@required this.screenshotController})
-      : assert(screenshotController != null);
+  const _$_SaveImageEvent({required this.screenshotController});
 
   @override
   final ScreenshotController screenshotController;
@@ -359,35 +339,32 @@ class _$_SaveImageEvent implements _SaveImageEvent {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(screenshotController);
 
+  @JsonKey(ignore: true)
   @override
   _$SaveImageEventCopyWith<_SaveImageEvent> get copyWith =>
       __$SaveImageEventCopyWithImpl<_SaveImageEvent>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult resetState(),
-    @required TResult copyImageText(),
-    @required TResult saveImage(ScreenshotController screenshotController),
-    @required TResult listenImageProcess(ImageResultModel imageResult),
+  TResult when<TResult extends Object?>({
+    required TResult Function() resetState,
+    required TResult Function() copyImageText,
+    required TResult Function(ScreenshotController screenshotController)
+        saveImage,
+    required TResult Function(ImageResultModel imageResult) listenImageProcess,
   }) {
-    assert(resetState != null);
-    assert(copyImageText != null);
-    assert(saveImage != null);
-    assert(listenImageProcess != null);
     return saveImage(screenshotController);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult resetState(),
-    TResult copyImageText(),
-    TResult saveImage(ScreenshotController screenshotController),
-    TResult listenImageProcess(ImageResultModel imageResult),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? resetState,
+    TResult Function()? copyImageText,
+    TResult Function(ScreenshotController screenshotController)? saveImage,
+    TResult Function(ImageResultModel imageResult)? listenImageProcess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (saveImage != null) {
       return saveImage(screenshotController);
     }
@@ -396,29 +373,25 @@ class _$_SaveImageEvent implements _SaveImageEvent {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult resetState(_ResetStateEvent value),
-    @required TResult copyImageText(_CopyImageTextEvent value),
-    @required TResult saveImage(_SaveImageEvent value),
-    @required TResult listenImageProcess(_ListenImageProcessEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ResetStateEvent value) resetState,
+    required TResult Function(_CopyImageTextEvent value) copyImageText,
+    required TResult Function(_SaveImageEvent value) saveImage,
+    required TResult Function(_ListenImageProcessEvent value)
+        listenImageProcess,
   }) {
-    assert(resetState != null);
-    assert(copyImageText != null);
-    assert(saveImage != null);
-    assert(listenImageProcess != null);
     return saveImage(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult resetState(_ResetStateEvent value),
-    TResult copyImageText(_CopyImageTextEvent value),
-    TResult saveImage(_SaveImageEvent value),
-    TResult listenImageProcess(_ListenImageProcessEvent value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ResetStateEvent value)? resetState,
+    TResult Function(_CopyImageTextEvent value)? copyImageText,
+    TResult Function(_SaveImageEvent value)? saveImage,
+    TResult Function(_ListenImageProcessEvent value)? listenImageProcess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (saveImage != null) {
       return saveImage(this);
     }
@@ -428,10 +401,10 @@ class _$_SaveImageEvent implements _SaveImageEvent {
 
 abstract class _SaveImageEvent implements ImageActionsEvent {
   const factory _SaveImageEvent(
-          {@required ScreenshotController screenshotController}) =
-      _$_SaveImageEvent;
+      {required ScreenshotController screenshotController}) = _$_SaveImageEvent;
 
   ScreenshotController get screenshotController;
+  @JsonKey(ignore: true)
   _$SaveImageEventCopyWith<_SaveImageEvent> get copyWith;
 }
 
@@ -457,7 +430,7 @@ class __$ListenImageProcessEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object imageResult = freezed,
+    Object? imageResult = freezed,
   }) {
     return _then(_ListenImageProcessEvent(
       imageResult: imageResult == freezed
@@ -469,8 +442,7 @@ class __$ListenImageProcessEventCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_ListenImageProcessEvent implements _ListenImageProcessEvent {
-  const _$_ListenImageProcessEvent({@required this.imageResult})
-      : assert(imageResult != null);
+  const _$_ListenImageProcessEvent({required this.imageResult});
 
   @override
   final ImageResultModel imageResult;
@@ -493,6 +465,7 @@ class _$_ListenImageProcessEvent implements _ListenImageProcessEvent {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(imageResult);
 
+  @JsonKey(ignore: true)
   @override
   _$ListenImageProcessEventCopyWith<_ListenImageProcessEvent> get copyWith =>
       __$ListenImageProcessEventCopyWithImpl<_ListenImageProcessEvent>(
@@ -500,29 +473,25 @@ class _$_ListenImageProcessEvent implements _ListenImageProcessEvent {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult resetState(),
-    @required TResult copyImageText(),
-    @required TResult saveImage(ScreenshotController screenshotController),
-    @required TResult listenImageProcess(ImageResultModel imageResult),
+  TResult when<TResult extends Object?>({
+    required TResult Function() resetState,
+    required TResult Function() copyImageText,
+    required TResult Function(ScreenshotController screenshotController)
+        saveImage,
+    required TResult Function(ImageResultModel imageResult) listenImageProcess,
   }) {
-    assert(resetState != null);
-    assert(copyImageText != null);
-    assert(saveImage != null);
-    assert(listenImageProcess != null);
     return listenImageProcess(imageResult);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult resetState(),
-    TResult copyImageText(),
-    TResult saveImage(ScreenshotController screenshotController),
-    TResult listenImageProcess(ImageResultModel imageResult),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? resetState,
+    TResult Function()? copyImageText,
+    TResult Function(ScreenshotController screenshotController)? saveImage,
+    TResult Function(ImageResultModel imageResult)? listenImageProcess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (listenImageProcess != null) {
       return listenImageProcess(imageResult);
     }
@@ -531,29 +500,25 @@ class _$_ListenImageProcessEvent implements _ListenImageProcessEvent {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult resetState(_ResetStateEvent value),
-    @required TResult copyImageText(_CopyImageTextEvent value),
-    @required TResult saveImage(_SaveImageEvent value),
-    @required TResult listenImageProcess(_ListenImageProcessEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ResetStateEvent value) resetState,
+    required TResult Function(_CopyImageTextEvent value) copyImageText,
+    required TResult Function(_SaveImageEvent value) saveImage,
+    required TResult Function(_ListenImageProcessEvent value)
+        listenImageProcess,
   }) {
-    assert(resetState != null);
-    assert(copyImageText != null);
-    assert(saveImage != null);
-    assert(listenImageProcess != null);
     return listenImageProcess(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult resetState(_ResetStateEvent value),
-    TResult copyImageText(_CopyImageTextEvent value),
-    TResult saveImage(_SaveImageEvent value),
-    TResult listenImageProcess(_ListenImageProcessEvent value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ResetStateEvent value)? resetState,
+    TResult Function(_CopyImageTextEvent value)? copyImageText,
+    TResult Function(_SaveImageEvent value)? saveImage,
+    TResult Function(_ListenImageProcessEvent value)? listenImageProcess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (listenImageProcess != null) {
       return listenImageProcess(this);
     }
@@ -563,9 +528,10 @@ class _$_ListenImageProcessEvent implements _ListenImageProcessEvent {
 
 abstract class _ListenImageProcessEvent implements ImageActionsEvent {
   const factory _ListenImageProcessEvent(
-      {@required ImageResultModel imageResult}) = _$_ListenImageProcessEvent;
+      {required ImageResultModel imageResult}) = _$_ListenImageProcessEvent;
 
   ImageResultModel get imageResult;
+  @JsonKey(ignore: true)
   _$ListenImageProcessEventCopyWith<_ListenImageProcessEvent> get copyWith;
 }
 
@@ -573,40 +539,33 @@ abstract class _ListenImageProcessEvent implements ImageActionsEvent {
 class _$ImageActionsStateTearOff {
   const _$ImageActionsStateTearOff();
 
-// ignore: unused_element
   _InitialState initial() {
     return const _InitialState();
   }
 
-// ignore: unused_element
   _SuccessCopyTextState successCopyText() {
     return const _SuccessCopyTextState();
   }
 
-// ignore: unused_element
   _LoadingCopyTextState loadingCopyText() {
     return const _LoadingCopyTextState();
   }
 
-// ignore: unused_element
   _SuccessSaveImageState successSaveImage() {
     return const _SuccessSaveImageState();
   }
 
-// ignore: unused_element
   _LoadingSaveImageState loadingSaveImage() {
     return const _LoadingSaveImageState();
   }
 
-// ignore: unused_element
-  _SuccessState success({String message = "Success"}) {
+  _SuccessState success({String message = "success"}) {
     return _SuccessState(
       message: message,
     );
   }
 
-// ignore: unused_element
-  _ErrorState error({String message = "Error"}) {
+  _ErrorState error({String message = "error"}) {
     return _ErrorState(
       message: message,
     );
@@ -614,52 +573,51 @@ class _$ImageActionsStateTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ImageActionsState = _$ImageActionsStateTearOff();
 
 /// @nodoc
 mixin _$ImageActionsState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult successCopyText(),
-    @required TResult loadingCopyText(),
-    @required TResult successSaveImage(),
-    @required TResult loadingSaveImage(),
-    @required TResult success(String message),
-    @required TResult error(String message),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() successCopyText,
+    required TResult Function() loadingCopyText,
+    required TResult Function() successSaveImage,
+    required TResult Function() loadingSaveImage,
+    required TResult Function(String message) success,
+    required TResult Function(String message) error,
   });
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult successCopyText(),
-    TResult loadingCopyText(),
-    TResult successSaveImage(),
-    TResult loadingSaveImage(),
-    TResult success(String message),
-    TResult error(String message),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? successCopyText,
+    TResult Function()? loadingCopyText,
+    TResult Function()? successSaveImage,
+    TResult Function()? loadingSaveImage,
+    TResult Function(String message)? success,
+    TResult Function(String message)? error,
+    required TResult orElse(),
   });
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_InitialState value),
-    @required TResult successCopyText(_SuccessCopyTextState value),
-    @required TResult loadingCopyText(_LoadingCopyTextState value),
-    @required TResult successSaveImage(_SuccessSaveImageState value),
-    @required TResult loadingSaveImage(_LoadingSaveImageState value),
-    @required TResult success(_SuccessState value),
-    @required TResult error(_ErrorState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialState value) initial,
+    required TResult Function(_SuccessCopyTextState value) successCopyText,
+    required TResult Function(_LoadingCopyTextState value) loadingCopyText,
+    required TResult Function(_SuccessSaveImageState value) successSaveImage,
+    required TResult Function(_LoadingSaveImageState value) loadingSaveImage,
+    required TResult Function(_SuccessState value) success,
+    required TResult Function(_ErrorState value) error,
   });
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_InitialState value),
-    TResult successCopyText(_SuccessCopyTextState value),
-    TResult loadingCopyText(_LoadingCopyTextState value),
-    TResult successSaveImage(_SuccessSaveImageState value),
-    TResult loadingSaveImage(_LoadingSaveImageState value),
-    TResult success(_SuccessState value),
-    TResult error(_ErrorState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialState value)? initial,
+    TResult Function(_SuccessCopyTextState value)? successCopyText,
+    TResult Function(_LoadingCopyTextState value)? loadingCopyText,
+    TResult Function(_SuccessSaveImageState value)? successSaveImage,
+    TResult Function(_LoadingSaveImageState value)? loadingSaveImage,
+    TResult Function(_SuccessState value)? success,
+    TResult Function(_ErrorState value)? error,
+    required TResult orElse(),
   });
 }
 
@@ -718,38 +676,30 @@ class _$_InitialState implements _InitialState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult successCopyText(),
-    @required TResult loadingCopyText(),
-    @required TResult successSaveImage(),
-    @required TResult loadingSaveImage(),
-    @required TResult success(String message),
-    @required TResult error(String message),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() successCopyText,
+    required TResult Function() loadingCopyText,
+    required TResult Function() successSaveImage,
+    required TResult Function() loadingSaveImage,
+    required TResult Function(String message) success,
+    required TResult Function(String message) error,
   }) {
-    assert(initial != null);
-    assert(successCopyText != null);
-    assert(loadingCopyText != null);
-    assert(successSaveImage != null);
-    assert(loadingSaveImage != null);
-    assert(success != null);
-    assert(error != null);
     return initial();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult successCopyText(),
-    TResult loadingCopyText(),
-    TResult successSaveImage(),
-    TResult loadingSaveImage(),
-    TResult success(String message),
-    TResult error(String message),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? successCopyText,
+    TResult Function()? loadingCopyText,
+    TResult Function()? successSaveImage,
+    TResult Function()? loadingSaveImage,
+    TResult Function(String message)? success,
+    TResult Function(String message)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial();
     }
@@ -758,38 +708,30 @@ class _$_InitialState implements _InitialState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_InitialState value),
-    @required TResult successCopyText(_SuccessCopyTextState value),
-    @required TResult loadingCopyText(_LoadingCopyTextState value),
-    @required TResult successSaveImage(_SuccessSaveImageState value),
-    @required TResult loadingSaveImage(_LoadingSaveImageState value),
-    @required TResult success(_SuccessState value),
-    @required TResult error(_ErrorState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialState value) initial,
+    required TResult Function(_SuccessCopyTextState value) successCopyText,
+    required TResult Function(_LoadingCopyTextState value) loadingCopyText,
+    required TResult Function(_SuccessSaveImageState value) successSaveImage,
+    required TResult Function(_LoadingSaveImageState value) loadingSaveImage,
+    required TResult Function(_SuccessState value) success,
+    required TResult Function(_ErrorState value) error,
   }) {
-    assert(initial != null);
-    assert(successCopyText != null);
-    assert(loadingCopyText != null);
-    assert(successSaveImage != null);
-    assert(loadingSaveImage != null);
-    assert(success != null);
-    assert(error != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_InitialState value),
-    TResult successCopyText(_SuccessCopyTextState value),
-    TResult loadingCopyText(_LoadingCopyTextState value),
-    TResult successSaveImage(_SuccessSaveImageState value),
-    TResult loadingSaveImage(_LoadingSaveImageState value),
-    TResult success(_SuccessState value),
-    TResult error(_ErrorState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialState value)? initial,
+    TResult Function(_SuccessCopyTextState value)? successCopyText,
+    TResult Function(_LoadingCopyTextState value)? loadingCopyText,
+    TResult Function(_SuccessSaveImageState value)? successSaveImage,
+    TResult Function(_LoadingSaveImageState value)? loadingSaveImage,
+    TResult Function(_SuccessState value)? success,
+    TResult Function(_ErrorState value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial(this);
     }
@@ -839,38 +781,30 @@ class _$_SuccessCopyTextState implements _SuccessCopyTextState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult successCopyText(),
-    @required TResult loadingCopyText(),
-    @required TResult successSaveImage(),
-    @required TResult loadingSaveImage(),
-    @required TResult success(String message),
-    @required TResult error(String message),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() successCopyText,
+    required TResult Function() loadingCopyText,
+    required TResult Function() successSaveImage,
+    required TResult Function() loadingSaveImage,
+    required TResult Function(String message) success,
+    required TResult Function(String message) error,
   }) {
-    assert(initial != null);
-    assert(successCopyText != null);
-    assert(loadingCopyText != null);
-    assert(successSaveImage != null);
-    assert(loadingSaveImage != null);
-    assert(success != null);
-    assert(error != null);
     return successCopyText();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult successCopyText(),
-    TResult loadingCopyText(),
-    TResult successSaveImage(),
-    TResult loadingSaveImage(),
-    TResult success(String message),
-    TResult error(String message),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? successCopyText,
+    TResult Function()? loadingCopyText,
+    TResult Function()? successSaveImage,
+    TResult Function()? loadingSaveImage,
+    TResult Function(String message)? success,
+    TResult Function(String message)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successCopyText != null) {
       return successCopyText();
     }
@@ -879,38 +813,30 @@ class _$_SuccessCopyTextState implements _SuccessCopyTextState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_InitialState value),
-    @required TResult successCopyText(_SuccessCopyTextState value),
-    @required TResult loadingCopyText(_LoadingCopyTextState value),
-    @required TResult successSaveImage(_SuccessSaveImageState value),
-    @required TResult loadingSaveImage(_LoadingSaveImageState value),
-    @required TResult success(_SuccessState value),
-    @required TResult error(_ErrorState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialState value) initial,
+    required TResult Function(_SuccessCopyTextState value) successCopyText,
+    required TResult Function(_LoadingCopyTextState value) loadingCopyText,
+    required TResult Function(_SuccessSaveImageState value) successSaveImage,
+    required TResult Function(_LoadingSaveImageState value) loadingSaveImage,
+    required TResult Function(_SuccessState value) success,
+    required TResult Function(_ErrorState value) error,
   }) {
-    assert(initial != null);
-    assert(successCopyText != null);
-    assert(loadingCopyText != null);
-    assert(successSaveImage != null);
-    assert(loadingSaveImage != null);
-    assert(success != null);
-    assert(error != null);
     return successCopyText(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_InitialState value),
-    TResult successCopyText(_SuccessCopyTextState value),
-    TResult loadingCopyText(_LoadingCopyTextState value),
-    TResult successSaveImage(_SuccessSaveImageState value),
-    TResult loadingSaveImage(_LoadingSaveImageState value),
-    TResult success(_SuccessState value),
-    TResult error(_ErrorState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialState value)? initial,
+    TResult Function(_SuccessCopyTextState value)? successCopyText,
+    TResult Function(_LoadingCopyTextState value)? loadingCopyText,
+    TResult Function(_SuccessSaveImageState value)? successSaveImage,
+    TResult Function(_LoadingSaveImageState value)? loadingSaveImage,
+    TResult Function(_SuccessState value)? success,
+    TResult Function(_ErrorState value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successCopyText != null) {
       return successCopyText(this);
     }
@@ -960,38 +886,30 @@ class _$_LoadingCopyTextState implements _LoadingCopyTextState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult successCopyText(),
-    @required TResult loadingCopyText(),
-    @required TResult successSaveImage(),
-    @required TResult loadingSaveImage(),
-    @required TResult success(String message),
-    @required TResult error(String message),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() successCopyText,
+    required TResult Function() loadingCopyText,
+    required TResult Function() successSaveImage,
+    required TResult Function() loadingSaveImage,
+    required TResult Function(String message) success,
+    required TResult Function(String message) error,
   }) {
-    assert(initial != null);
-    assert(successCopyText != null);
-    assert(loadingCopyText != null);
-    assert(successSaveImage != null);
-    assert(loadingSaveImage != null);
-    assert(success != null);
-    assert(error != null);
     return loadingCopyText();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult successCopyText(),
-    TResult loadingCopyText(),
-    TResult successSaveImage(),
-    TResult loadingSaveImage(),
-    TResult success(String message),
-    TResult error(String message),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? successCopyText,
+    TResult Function()? loadingCopyText,
+    TResult Function()? successSaveImage,
+    TResult Function()? loadingSaveImage,
+    TResult Function(String message)? success,
+    TResult Function(String message)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadingCopyText != null) {
       return loadingCopyText();
     }
@@ -1000,38 +918,30 @@ class _$_LoadingCopyTextState implements _LoadingCopyTextState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_InitialState value),
-    @required TResult successCopyText(_SuccessCopyTextState value),
-    @required TResult loadingCopyText(_LoadingCopyTextState value),
-    @required TResult successSaveImage(_SuccessSaveImageState value),
-    @required TResult loadingSaveImage(_LoadingSaveImageState value),
-    @required TResult success(_SuccessState value),
-    @required TResult error(_ErrorState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialState value) initial,
+    required TResult Function(_SuccessCopyTextState value) successCopyText,
+    required TResult Function(_LoadingCopyTextState value) loadingCopyText,
+    required TResult Function(_SuccessSaveImageState value) successSaveImage,
+    required TResult Function(_LoadingSaveImageState value) loadingSaveImage,
+    required TResult Function(_SuccessState value) success,
+    required TResult Function(_ErrorState value) error,
   }) {
-    assert(initial != null);
-    assert(successCopyText != null);
-    assert(loadingCopyText != null);
-    assert(successSaveImage != null);
-    assert(loadingSaveImage != null);
-    assert(success != null);
-    assert(error != null);
     return loadingCopyText(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_InitialState value),
-    TResult successCopyText(_SuccessCopyTextState value),
-    TResult loadingCopyText(_LoadingCopyTextState value),
-    TResult successSaveImage(_SuccessSaveImageState value),
-    TResult loadingSaveImage(_LoadingSaveImageState value),
-    TResult success(_SuccessState value),
-    TResult error(_ErrorState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialState value)? initial,
+    TResult Function(_SuccessCopyTextState value)? successCopyText,
+    TResult Function(_LoadingCopyTextState value)? loadingCopyText,
+    TResult Function(_SuccessSaveImageState value)? successSaveImage,
+    TResult Function(_LoadingSaveImageState value)? loadingSaveImage,
+    TResult Function(_SuccessState value)? success,
+    TResult Function(_ErrorState value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadingCopyText != null) {
       return loadingCopyText(this);
     }
@@ -1081,38 +991,30 @@ class _$_SuccessSaveImageState implements _SuccessSaveImageState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult successCopyText(),
-    @required TResult loadingCopyText(),
-    @required TResult successSaveImage(),
-    @required TResult loadingSaveImage(),
-    @required TResult success(String message),
-    @required TResult error(String message),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() successCopyText,
+    required TResult Function() loadingCopyText,
+    required TResult Function() successSaveImage,
+    required TResult Function() loadingSaveImage,
+    required TResult Function(String message) success,
+    required TResult Function(String message) error,
   }) {
-    assert(initial != null);
-    assert(successCopyText != null);
-    assert(loadingCopyText != null);
-    assert(successSaveImage != null);
-    assert(loadingSaveImage != null);
-    assert(success != null);
-    assert(error != null);
     return successSaveImage();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult successCopyText(),
-    TResult loadingCopyText(),
-    TResult successSaveImage(),
-    TResult loadingSaveImage(),
-    TResult success(String message),
-    TResult error(String message),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? successCopyText,
+    TResult Function()? loadingCopyText,
+    TResult Function()? successSaveImage,
+    TResult Function()? loadingSaveImage,
+    TResult Function(String message)? success,
+    TResult Function(String message)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successSaveImage != null) {
       return successSaveImage();
     }
@@ -1121,38 +1023,30 @@ class _$_SuccessSaveImageState implements _SuccessSaveImageState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_InitialState value),
-    @required TResult successCopyText(_SuccessCopyTextState value),
-    @required TResult loadingCopyText(_LoadingCopyTextState value),
-    @required TResult successSaveImage(_SuccessSaveImageState value),
-    @required TResult loadingSaveImage(_LoadingSaveImageState value),
-    @required TResult success(_SuccessState value),
-    @required TResult error(_ErrorState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialState value) initial,
+    required TResult Function(_SuccessCopyTextState value) successCopyText,
+    required TResult Function(_LoadingCopyTextState value) loadingCopyText,
+    required TResult Function(_SuccessSaveImageState value) successSaveImage,
+    required TResult Function(_LoadingSaveImageState value) loadingSaveImage,
+    required TResult Function(_SuccessState value) success,
+    required TResult Function(_ErrorState value) error,
   }) {
-    assert(initial != null);
-    assert(successCopyText != null);
-    assert(loadingCopyText != null);
-    assert(successSaveImage != null);
-    assert(loadingSaveImage != null);
-    assert(success != null);
-    assert(error != null);
     return successSaveImage(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_InitialState value),
-    TResult successCopyText(_SuccessCopyTextState value),
-    TResult loadingCopyText(_LoadingCopyTextState value),
-    TResult successSaveImage(_SuccessSaveImageState value),
-    TResult loadingSaveImage(_LoadingSaveImageState value),
-    TResult success(_SuccessState value),
-    TResult error(_ErrorState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialState value)? initial,
+    TResult Function(_SuccessCopyTextState value)? successCopyText,
+    TResult Function(_LoadingCopyTextState value)? loadingCopyText,
+    TResult Function(_SuccessSaveImageState value)? successSaveImage,
+    TResult Function(_LoadingSaveImageState value)? loadingSaveImage,
+    TResult Function(_SuccessState value)? success,
+    TResult Function(_ErrorState value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successSaveImage != null) {
       return successSaveImage(this);
     }
@@ -1202,38 +1096,30 @@ class _$_LoadingSaveImageState implements _LoadingSaveImageState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult successCopyText(),
-    @required TResult loadingCopyText(),
-    @required TResult successSaveImage(),
-    @required TResult loadingSaveImage(),
-    @required TResult success(String message),
-    @required TResult error(String message),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() successCopyText,
+    required TResult Function() loadingCopyText,
+    required TResult Function() successSaveImage,
+    required TResult Function() loadingSaveImage,
+    required TResult Function(String message) success,
+    required TResult Function(String message) error,
   }) {
-    assert(initial != null);
-    assert(successCopyText != null);
-    assert(loadingCopyText != null);
-    assert(successSaveImage != null);
-    assert(loadingSaveImage != null);
-    assert(success != null);
-    assert(error != null);
     return loadingSaveImage();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult successCopyText(),
-    TResult loadingCopyText(),
-    TResult successSaveImage(),
-    TResult loadingSaveImage(),
-    TResult success(String message),
-    TResult error(String message),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? successCopyText,
+    TResult Function()? loadingCopyText,
+    TResult Function()? successSaveImage,
+    TResult Function()? loadingSaveImage,
+    TResult Function(String message)? success,
+    TResult Function(String message)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadingSaveImage != null) {
       return loadingSaveImage();
     }
@@ -1242,38 +1128,30 @@ class _$_LoadingSaveImageState implements _LoadingSaveImageState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_InitialState value),
-    @required TResult successCopyText(_SuccessCopyTextState value),
-    @required TResult loadingCopyText(_LoadingCopyTextState value),
-    @required TResult successSaveImage(_SuccessSaveImageState value),
-    @required TResult loadingSaveImage(_LoadingSaveImageState value),
-    @required TResult success(_SuccessState value),
-    @required TResult error(_ErrorState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialState value) initial,
+    required TResult Function(_SuccessCopyTextState value) successCopyText,
+    required TResult Function(_LoadingCopyTextState value) loadingCopyText,
+    required TResult Function(_SuccessSaveImageState value) successSaveImage,
+    required TResult Function(_LoadingSaveImageState value) loadingSaveImage,
+    required TResult Function(_SuccessState value) success,
+    required TResult Function(_ErrorState value) error,
   }) {
-    assert(initial != null);
-    assert(successCopyText != null);
-    assert(loadingCopyText != null);
-    assert(successSaveImage != null);
-    assert(loadingSaveImage != null);
-    assert(success != null);
-    assert(error != null);
     return loadingSaveImage(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_InitialState value),
-    TResult successCopyText(_SuccessCopyTextState value),
-    TResult loadingCopyText(_LoadingCopyTextState value),
-    TResult successSaveImage(_SuccessSaveImageState value),
-    TResult loadingSaveImage(_LoadingSaveImageState value),
-    TResult success(_SuccessState value),
-    TResult error(_ErrorState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialState value)? initial,
+    TResult Function(_SuccessCopyTextState value)? successCopyText,
+    TResult Function(_LoadingCopyTextState value)? loadingCopyText,
+    TResult Function(_SuccessSaveImageState value)? successSaveImage,
+    TResult Function(_LoadingSaveImageState value)? loadingSaveImage,
+    TResult Function(_SuccessState value)? success,
+    TResult Function(_ErrorState value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadingSaveImage != null) {
       return loadingSaveImage(this);
     }
@@ -1306,7 +1184,7 @@ class __$SuccessStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object message = freezed,
+    Object? message = freezed,
   }) {
     return _then(_SuccessState(
       message: message == freezed ? _value.message : message as String,
@@ -1316,9 +1194,9 @@ class __$SuccessStateCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_SuccessState implements _SuccessState {
-  const _$_SuccessState({this.message = "Success"}) : assert(message != null);
+  const _$_SuccessState({this.message = "success"});
 
-  @JsonKey(defaultValue: "Success")
+  @JsonKey(defaultValue: "success")
   @override
   final String message;
 
@@ -1339,44 +1217,37 @@ class _$_SuccessState implements _SuccessState {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
 
+  @JsonKey(ignore: true)
   @override
   _$SuccessStateCopyWith<_SuccessState> get copyWith =>
       __$SuccessStateCopyWithImpl<_SuccessState>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult successCopyText(),
-    @required TResult loadingCopyText(),
-    @required TResult successSaveImage(),
-    @required TResult loadingSaveImage(),
-    @required TResult success(String message),
-    @required TResult error(String message),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() successCopyText,
+    required TResult Function() loadingCopyText,
+    required TResult Function() successSaveImage,
+    required TResult Function() loadingSaveImage,
+    required TResult Function(String message) success,
+    required TResult Function(String message) error,
   }) {
-    assert(initial != null);
-    assert(successCopyText != null);
-    assert(loadingCopyText != null);
-    assert(successSaveImage != null);
-    assert(loadingSaveImage != null);
-    assert(success != null);
-    assert(error != null);
     return success(message);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult successCopyText(),
-    TResult loadingCopyText(),
-    TResult successSaveImage(),
-    TResult loadingSaveImage(),
-    TResult success(String message),
-    TResult error(String message),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? successCopyText,
+    TResult Function()? loadingCopyText,
+    TResult Function()? successSaveImage,
+    TResult Function()? loadingSaveImage,
+    TResult Function(String message)? success,
+    TResult Function(String message)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (success != null) {
       return success(message);
     }
@@ -1385,38 +1256,30 @@ class _$_SuccessState implements _SuccessState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_InitialState value),
-    @required TResult successCopyText(_SuccessCopyTextState value),
-    @required TResult loadingCopyText(_LoadingCopyTextState value),
-    @required TResult successSaveImage(_SuccessSaveImageState value),
-    @required TResult loadingSaveImage(_LoadingSaveImageState value),
-    @required TResult success(_SuccessState value),
-    @required TResult error(_ErrorState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialState value) initial,
+    required TResult Function(_SuccessCopyTextState value) successCopyText,
+    required TResult Function(_LoadingCopyTextState value) loadingCopyText,
+    required TResult Function(_SuccessSaveImageState value) successSaveImage,
+    required TResult Function(_LoadingSaveImageState value) loadingSaveImage,
+    required TResult Function(_SuccessState value) success,
+    required TResult Function(_ErrorState value) error,
   }) {
-    assert(initial != null);
-    assert(successCopyText != null);
-    assert(loadingCopyText != null);
-    assert(successSaveImage != null);
-    assert(loadingSaveImage != null);
-    assert(success != null);
-    assert(error != null);
     return success(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_InitialState value),
-    TResult successCopyText(_SuccessCopyTextState value),
-    TResult loadingCopyText(_LoadingCopyTextState value),
-    TResult successSaveImage(_SuccessSaveImageState value),
-    TResult loadingSaveImage(_LoadingSaveImageState value),
-    TResult success(_SuccessState value),
-    TResult error(_ErrorState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialState value)? initial,
+    TResult Function(_SuccessCopyTextState value)? successCopyText,
+    TResult Function(_LoadingCopyTextState value)? loadingCopyText,
+    TResult Function(_SuccessSaveImageState value)? successSaveImage,
+    TResult Function(_LoadingSaveImageState value)? loadingSaveImage,
+    TResult Function(_SuccessState value)? success,
+    TResult Function(_ErrorState value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (success != null) {
       return success(this);
     }
@@ -1428,6 +1291,7 @@ abstract class _SuccessState implements ImageActionsState {
   const factory _SuccessState({String message}) = _$_SuccessState;
 
   String get message;
+  @JsonKey(ignore: true)
   _$SuccessStateCopyWith<_SuccessState> get copyWith;
 }
 
@@ -1452,7 +1316,7 @@ class __$ErrorStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object message = freezed,
+    Object? message = freezed,
   }) {
     return _then(_ErrorState(
       message: message == freezed ? _value.message : message as String,
@@ -1462,9 +1326,9 @@ class __$ErrorStateCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_ErrorState implements _ErrorState {
-  const _$_ErrorState({this.message = "Error"}) : assert(message != null);
+  const _$_ErrorState({this.message = "error"});
 
-  @JsonKey(defaultValue: "Error")
+  @JsonKey(defaultValue: "error")
   @override
   final String message;
 
@@ -1485,44 +1349,37 @@ class _$_ErrorState implements _ErrorState {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
 
+  @JsonKey(ignore: true)
   @override
   _$ErrorStateCopyWith<_ErrorState> get copyWith =>
       __$ErrorStateCopyWithImpl<_ErrorState>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult successCopyText(),
-    @required TResult loadingCopyText(),
-    @required TResult successSaveImage(),
-    @required TResult loadingSaveImage(),
-    @required TResult success(String message),
-    @required TResult error(String message),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() successCopyText,
+    required TResult Function() loadingCopyText,
+    required TResult Function() successSaveImage,
+    required TResult Function() loadingSaveImage,
+    required TResult Function(String message) success,
+    required TResult Function(String message) error,
   }) {
-    assert(initial != null);
-    assert(successCopyText != null);
-    assert(loadingCopyText != null);
-    assert(successSaveImage != null);
-    assert(loadingSaveImage != null);
-    assert(success != null);
-    assert(error != null);
     return error(message);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult successCopyText(),
-    TResult loadingCopyText(),
-    TResult successSaveImage(),
-    TResult loadingSaveImage(),
-    TResult success(String message),
-    TResult error(String message),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? successCopyText,
+    TResult Function()? loadingCopyText,
+    TResult Function()? successSaveImage,
+    TResult Function()? loadingSaveImage,
+    TResult Function(String message)? success,
+    TResult Function(String message)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(message);
     }
@@ -1531,38 +1388,30 @@ class _$_ErrorState implements _ErrorState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_InitialState value),
-    @required TResult successCopyText(_SuccessCopyTextState value),
-    @required TResult loadingCopyText(_LoadingCopyTextState value),
-    @required TResult successSaveImage(_SuccessSaveImageState value),
-    @required TResult loadingSaveImage(_LoadingSaveImageState value),
-    @required TResult success(_SuccessState value),
-    @required TResult error(_ErrorState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialState value) initial,
+    required TResult Function(_SuccessCopyTextState value) successCopyText,
+    required TResult Function(_LoadingCopyTextState value) loadingCopyText,
+    required TResult Function(_SuccessSaveImageState value) successSaveImage,
+    required TResult Function(_LoadingSaveImageState value) loadingSaveImage,
+    required TResult Function(_SuccessState value) success,
+    required TResult Function(_ErrorState value) error,
   }) {
-    assert(initial != null);
-    assert(successCopyText != null);
-    assert(loadingCopyText != null);
-    assert(successSaveImage != null);
-    assert(loadingSaveImage != null);
-    assert(success != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_InitialState value),
-    TResult successCopyText(_SuccessCopyTextState value),
-    TResult loadingCopyText(_LoadingCopyTextState value),
-    TResult successSaveImage(_SuccessSaveImageState value),
-    TResult loadingSaveImage(_LoadingSaveImageState value),
-    TResult success(_SuccessState value),
-    TResult error(_ErrorState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialState value)? initial,
+    TResult Function(_SuccessCopyTextState value)? successCopyText,
+    TResult Function(_LoadingCopyTextState value)? loadingCopyText,
+    TResult Function(_SuccessSaveImageState value)? successSaveImage,
+    TResult Function(_LoadingSaveImageState value)? loadingSaveImage,
+    TResult Function(_SuccessState value)? success,
+    TResult Function(_ErrorState value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
@@ -1574,5 +1423,6 @@ abstract class _ErrorState implements ImageActionsState {
   const factory _ErrorState({String message}) = _$_ErrorState;
 
   String get message;
+  @JsonKey(ignore: true)
   _$ErrorStateCopyWith<_ErrorState> get copyWith;
 }
