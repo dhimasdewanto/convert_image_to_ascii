@@ -1,6 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../blocs/helper/helper_bloc.dart';
 
 /// Information in settings page.
 /// Can't use default localization.
@@ -38,7 +41,11 @@ class InfoCharactersDialog extends StatelessWidget {
                         color: color,
                       ),
                   recognizer: TapGestureRecognizer()
-                    ..onTap = () {},
+                    ..onTap = () {
+                      context
+                          .read<HelperBloc>()
+                          .add(HelperStatus.totalCharacters);
+                    },
                 ),
                 const TextSpan(
                   text: ".",
@@ -59,7 +66,11 @@ class InfoCharactersDialog extends StatelessWidget {
                         color: color,
                       ),
                   recognizer: TapGestureRecognizer()
-                    ..onTap = () {},
+                    ..onTap = () {
+                      context
+                          .read<HelperBloc>()
+                          .add(HelperStatus.totalCharacters);
+                    },
                 ),
                 const TextSpan(
                   text: ".",

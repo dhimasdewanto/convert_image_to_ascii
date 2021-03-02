@@ -11,6 +11,7 @@ import '../../features/settings/data/repositories/settings_repo_impl.dart';
 import '../../features/settings/domain/repositories/settings_repo.dart';
 import '../../features/settings/domain/use_cases/get_settings.dart';
 import '../../features/settings/domain/use_cases/update_settings.dart';
+import '../../features/settings/presentation/blocs/helper/helper_bloc.dart';
 import '../../features/settings/presentation/blocs/settings/settings_bloc.dart';
 
 final getIt = GetIt.instance;
@@ -37,6 +38,7 @@ void registerBloc() {
         getSettings: getIt<GetSettings>(),
         updateSettings: getIt<UpdateSettings>(),
       ));
+  getIt.registerFactory<HelperBloc>(() => HelperBloc());
 }
 
 void registerUseCases() {

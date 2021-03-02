@@ -8,6 +8,7 @@ import 'core/theme_data.dart';
 import 'features/image_process/presentation/blocs/image_actions/image_actions_bloc.dart';
 import 'features/image_process/presentation/blocs/image_process/image_process_bloc.dart';
 import 'features/main/presentation/pages/splash_page.dart';
+import 'features/settings/presentation/blocs/helper/helper_bloc.dart';
 import 'features/settings/presentation/blocs/settings/settings_bloc.dart';
 
 void main() {
@@ -46,6 +47,9 @@ class MyApp extends StatelessWidget {
             ),
             BlocProvider(
               create: (context) => getIt<SettingsBloc>(),
+            ),
+            BlocProvider(
+              create: (context) => getIt<HelperBloc>(),
             ),
           ],
           child: child ?? const Offstage(),
