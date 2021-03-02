@@ -7,6 +7,7 @@ import '../blocs/settings/settings_bloc.dart';
 import '../dialogs/default_settings_dialog.dart';
 import '../dialogs/image_repeat_characters_dialog.dart';
 import '../dialogs/image_width_dialog.dart';
+import '../dialogs/info_total_characters_dialog.dart';
 import '../dialogs/is_reversed_dialog.dart';
 import '../dialogs/language_dialog.dart';
 import '../dialogs/total_characters_dialog.dart';
@@ -20,7 +21,7 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(tr('settings')),
+        title: const Text('settings').tr(),
       ),
       body: BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, state) {
@@ -40,6 +41,15 @@ class SettingsPage extends StatelessWidget {
                         ),
                       );
                     },
+                    trailing: IconButton(
+                      icon: const Icon(Icons.info_outline),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (_) => const InfoTotalCharactersDialog(),
+                        );
+                      },
+                    ),
                   ),
                   const Divider(),
                   ListTile(
