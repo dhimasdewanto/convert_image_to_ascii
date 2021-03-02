@@ -7,6 +7,7 @@ import '../blocs/settings/settings_bloc.dart';
 import '../dialogs/default_settings_dialog.dart';
 import '../dialogs/image_repeat_characters_dialog.dart';
 import '../dialogs/image_width_dialog.dart';
+import '../dialogs/info_characters_dialog.dart';
 import '../dialogs/info_total_characters_dialog.dart';
 import '../dialogs/is_reversed_dialog.dart';
 import '../dialogs/language_dialog.dart';
@@ -97,6 +98,15 @@ class SettingsPage extends StatelessWidget {
                         page: const CharacterSettingsPage(),
                       );
                     },
+                    trailing: IconButton(
+                      icon: const Icon(Icons.info_outline),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (_) => const InfoCharactersDialog(),
+                        );
+                      },
+                    ),
                   ),
                   const Divider(),
                   ListTile(
