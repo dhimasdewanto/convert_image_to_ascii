@@ -19,10 +19,11 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final headline6 =
+        Theme.of(context).textTheme.headline6 ?? const TextStyle();
+    final borderRadius = BorderRadius.circular(100);
+
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('settings').tr(),
-      ),
       body: BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, state) {
           return state.maybeWhen(
@@ -30,6 +31,42 @@ class SettingsPage extends StatelessWidget {
             show: (settingsModel) {
               return ListView(
                 children: [
+                  const SizedBox(height: 10),
+                  Center(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: borderRadius,
+                        border: Border.all(
+                          color: headline6.color ?? Colors.white,
+                        ),
+                      ),
+                      child: InkWell(
+                        borderRadius: borderRadius,
+                        onTap: () {
+                          pop(context: context);
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 10,
+                            horizontal: 20,
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                tr('settings'),
+                                style: headline6,
+                              ),
+                              const SizedBox(width: 10),
+                              const Icon(Icons.close),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  const Divider(),
                   ListTile(
                     title: Text(tr('total_characters')),
                     subtitle: Text("${settingsModel.listCharacters.length}"),
