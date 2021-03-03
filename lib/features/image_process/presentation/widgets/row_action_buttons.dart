@@ -35,14 +35,37 @@ class RowActionButtons extends StatelessWidget {
         return Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            OutlinedButton(
-              onPressed: () => _copyImage(context),
-              child: const Text("Copy to Clipboard"),
+            Expanded(
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: OutlinedButton(
+                  onPressed: () => _copyImage(context),
+                  child: state.maybeWhen(
+                    orElse: () => const Text("Copy to Clipboard"),
+                    successCopyText: () => const Text("Copied in Clipboard"),
+                  ),
+                ),
+              ),
             ),
-            const SizedBox(width: 10),
-            OutlinedButton(
-              onPressed: () => _saveImage(context),
-              child: const Text("Save to Gallery"),
+            const SizedBox(width: 15),
+            Container(
+              width: 1,
+              height: 20,
+              color: DefaultTextStyle.of(context).style.color,
+            ),
+            const SizedBox(width: 15),
+            Expanded(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: OutlinedButton(
+                  onPressed: () => _saveImage(context),
+                  child: state.maybeWhen(
+                    orElse: () => const Text("Save to Gallery"),
+                    loadingSaveImage: () => const Text("Saving to Gallery..."),
+                    successSaveImage: () => const Text("Saved in Gallery"),
+                  ),
+                ),
+              ),
             ),
           ],
         );
