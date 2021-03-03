@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/navigators.dart';
 
+@Deprecated("No longer use this. Use [AppBar] instead.")
 class SettingsTitleButton extends StatelessWidget {
   const SettingsTitleButton({
     Key? key,

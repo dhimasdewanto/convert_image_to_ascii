@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
-final themeDark = ThemeData.dark().copyWith(
+final _themeDataDark = ThemeData.dark();
+
+final themeDark = _themeDataDark.copyWith(
+  appBarTheme: _themeDataDark.appBarTheme.copyWith(
+    backgroundColor: _themeDataDark.canvasColor,
+    elevation: 0,
+  ),
   outlinedButtonTheme: OutlinedButtonThemeData(
     style: ButtonStyle(
       foregroundColor: MaterialStateProperty.resolveWith<Color>(

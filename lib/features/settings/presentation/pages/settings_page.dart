@@ -15,7 +15,6 @@ import '../dialogs/is_reversed_dialog.dart';
 import '../dialogs/language_dialog.dart';
 import '../dialogs/total_characters_dialog.dart';
 import '../widgets/settings_page_builder.dart';
-import '../widgets/settings_title_button.dart';
 import 'character_settings_page.dart';
 import 'color_settings_page.dart';
 
@@ -25,16 +24,14 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(tr('settings')),
+      ),
       body: SettingsPageBuilder(
         builder: (context, settings, showHelperArrow) {
           return ListView(
+            physics: const BouncingScrollPhysics(),
             children: [
-              const SizedBox(height: 10),
-              SettingsTitleButton(
-                textTitle: tr('settings'),
-              ),
-              const SizedBox(height: 5),
-              const Divider(),
               ListTile(
                 title: Text(tr('total_characters')),
                 subtitle: Text("${settings.listCharacters.length}"),
@@ -181,7 +178,6 @@ class SettingsPage extends StatelessWidget {
                   );
                 },
               ),
-              const Divider(),
             ],
           );
         },

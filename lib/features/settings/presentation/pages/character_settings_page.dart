@@ -4,17 +4,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../blocs/settings/settings_bloc.dart';
 import '../dialogs/character_dialog.dart';
-import '../widgets/settings_title_button.dart';
 
 class CharacterSettingsPage extends StatelessWidget {
-  const CharacterSettingsPage({Key? key}) : super(key: key);
+  const CharacterSettingsPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // For title widget.
-    const indexAdder = 1;
-
     return Scaffold(
+      appBar: AppBar(
+        title: Text(tr('change_character')),
+      ),
       body: BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, state) {
           return state.maybeWhen(
@@ -22,25 +23,15 @@ class CharacterSettingsPage extends StatelessWidget {
             show: (settingsModel) {
               final listCharacters = settingsModel.listCharacters;
               return ListView.separated(
-                itemCount: listCharacters.length + 1,
+                physics: const BouncingScrollPhysics(),
+                itemCount: listCharacters.length,
                 separatorBuilder: (context, index) {
                   return const Divider();
                 },
                 itemBuilder: (context, index) {
-                  if (index == 0) {
-                    return Padding(
-                      padding: const EdgeInsets.only(
-                        top: 10,
-                      ),
-                      child: SettingsTitleButton(
-                        textTitle: tr('change_character'),
-                      ),
-                    );
-                  }
-
-                  final character = listCharacters[index - indexAdder];
+                  final character = listCharacters[index];
                   return ListTile(
-                    leading: Text("$index."),
+                    leading: Text("${index + 1}."),
                     title: Text('" $character "'),
                     onTap: () {
                       showDialog(
