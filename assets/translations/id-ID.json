@@ -24,6 +24,11 @@
     "result": "Hasil",
     "dark_screen": "Layar Gelap",
     "light_screen": "Layar Terang",
+    "copy_to_clipboard": "Salin Teks",
+    "copied_to_clipboard": "Teks Tersalin",
+    "save_to_gallery": "Simpan Galeri",
+    "saving_to_gallery": "Sedang Menyimpan",
+    "saved_in_gallery": "Gambar Tersimpan",
     "min_value": "Minimal {}",
     "min_value_is": "Minimal jumlah {} dan maksimalnya {}",
     "min_width_is": "Minimal lebar {} dan maksimalnya {}"

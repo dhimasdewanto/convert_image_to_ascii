@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 final _themeDataDark = ThemeData.dark();
+final _textColor = (_themeDataDark.textTheme.bodyText1 ?? const TextStyle()).color ?? Colors.white;
 
 final themeDark = _themeDataDark.copyWith(
   appBarTheme: _themeDataDark.appBarTheme.copyWith(
@@ -23,6 +24,16 @@ final themeDark = _themeDataDark.copyWith(
       shape: MaterialStateProperty.resolveWith<OutlinedBorder>(
         (states) => RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(50),
+        ),
+      ),
+    ),
+  ),
+  tabBarTheme: _themeDataDark.tabBarTheme.copyWith(
+    indicator: BoxDecoration(
+      border: Border(
+        bottom: BorderSide(
+          width: 2,
+          color: _textColor,
         ),
       ),
     ),

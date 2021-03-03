@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:screenshot/screenshot.dart';
@@ -41,8 +42,8 @@ class RowActionButtons extends StatelessWidget {
                 child: OutlinedButton(
                   onPressed: () => _copyImage(context),
                   child: state.maybeWhen(
-                    orElse: () => const Text("Copy to Clipboard"),
-                    successCopyText: () => const Text("Copied in Clipboard"),
+                    orElse: () => Text(tr('copy_to_clipboard')),
+                    successCopyText: () => Text(tr('copied_to_clipboard')),
                   ),
                 ),
               ),
@@ -60,9 +61,10 @@ class RowActionButtons extends StatelessWidget {
                 child: OutlinedButton(
                   onPressed: () => _saveImage(context),
                   child: state.maybeWhen(
-                    orElse: () => const Text("Save to Gallery"),
-                    loadingSaveImage: () => const Text("Saving to Gallery..."),
-                    successSaveImage: () => const Text("Saved in Gallery"),
+                    orElse: () => Text(tr('save_to_gallery')),
+                    loadingSaveImage: () =>
+                        Text("${tr('saving_to_gallery')}..."),
+                    successSaveImage: () => Text(tr('saved_in_gallery')),
                   ),
                 ),
               ),

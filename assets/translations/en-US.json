@@ -24,6 +24,11 @@
     "result": "Result",
     "dark_screen": "Dark Screen",
     "light_screen": "Light Screen",
+    "copy_to_clipboard": "Copy to Clipboard",
+    "copied_to_clipboard": "Copied to Clipboard",
+    "save_to_gallery": "Save to Gallery",
+    "saving_to_gallery": "Saving to Gallery",
+    "saved_in_gallery": "Saved in Gallery",
     "min_value": "Min {}",
     "min_value_is": "Min value is {} and max value is {}",
     "min_width_is": "Min width is {} and max width is {}"
