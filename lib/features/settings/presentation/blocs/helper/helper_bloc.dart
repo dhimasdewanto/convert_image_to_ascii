@@ -5,6 +5,8 @@ enum HelperStatus {
   totalCharacters,
   characters,
   colors,
+  imageWidth,
+  repeatCharacters,
 }
 
 class HelperBloc extends Bloc<HelperStatus, HelperStatus> {

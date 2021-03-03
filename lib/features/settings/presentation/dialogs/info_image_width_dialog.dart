@@ -1,0 +1,75 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../core/navigators.dart';
+import '../blocs/helper/helper_bloc.dart';
+
+/// Information in settings page.
+/// Can't use default localization.
+class InfoImageWidthDialog extends StatelessWidget {
+  const InfoImageWidthDialog({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final color = Theme.of(context).accentColor;
+
+    return SimpleDialog(
+      contentPadding: const EdgeInsets.all(20),
+      title: Text(tr('image_width')),
+      children: [
+        if (context.locale == const Locale('en', 'US'))
+          RichText(
+            text: TextSpan(
+              text:
+                  "Base of image width. Total image width = base width x",
+              style: DefaultTextStyle.of(context).style,
+              children: <TextSpan>[
+                TextSpan(
+                  text: " number of characters repeated",
+                  style: DefaultTextStyle.of(context).style.copyWith(
+                        color: color,
+                      ),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      context.read<HelperBloc>().add(HelperStatus.repeatCharacters);
+                      pop(context: context);
+                    },
+                ),
+                const TextSpan(
+                  text: ".",
+                ),
+              ],
+            ),
+          ),
+        if (context.locale == const Locale('id', 'ID'))
+          RichText(
+            text: TextSpan(
+              text:
+                  "Basis dari hasil lebar gambar. Total lebar gambar = basis lebar x",
+              style: DefaultTextStyle.of(context).style,
+              children: <TextSpan>[
+                TextSpan(
+                  text: " jumlah karakter yang diulang",
+                  style: DefaultTextStyle.of(context).style.copyWith(
+                        color: color,
+                      ),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      context.read<HelperBloc>().add(HelperStatus.repeatCharacters);
+                      pop(context: context);
+                    },
+                ),
+                const TextSpan(
+                  text: ".",
+                ),
+              ],
+            ),
+          ),
+      ],
+    );
+  }
+}
