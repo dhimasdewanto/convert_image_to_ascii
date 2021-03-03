@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/navigators.dart';
 import '../blocs/helper/helper_bloc.dart';
 
 /// Information in settings page.
@@ -10,15 +11,7 @@ import '../blocs/helper/helper_bloc.dart';
 class InfoCharactersDialog extends StatelessWidget {
   const InfoCharactersDialog({
     Key? key,
-    // required this.toTotalCharacters,
   }) : super(key: key);
-
-  // final Future<void> Function() toTotalCharacters;
-
-  // Future<void> _toTotalCharacters(BuildContext context) async {
-  //   pop(context: context);
-  //   await toTotalCharacters();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +38,7 @@ class InfoCharactersDialog extends StatelessWidget {
                       context
                           .read<HelperBloc>()
                           .add(HelperStatus.totalCharacters);
+                      pop(context: context);
                     },
                 ),
                 const TextSpan(
@@ -70,6 +64,7 @@ class InfoCharactersDialog extends StatelessWidget {
                       context
                           .read<HelperBloc>()
                           .add(HelperStatus.totalCharacters);
+                      pop(context: context);
                     },
                 ),
                 const TextSpan(

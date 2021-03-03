@@ -14,7 +14,7 @@ class HelperBloc extends Bloc<HelperStatus, HelperStatus> {
   Stream<HelperStatus> mapEventToState(HelperStatus event) async* {
     yield event;
 
-    await Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 3));
 
     yield HelperStatus.initial;
   }

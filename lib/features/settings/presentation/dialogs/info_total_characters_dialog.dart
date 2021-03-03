@@ -1,10 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/navigators.dart';
-import '../pages/character_settings_page.dart';
-import '../pages/color_settings_page.dart';
+import '../blocs/helper/helper_bloc.dart';
 
 /// Information in settings page.
 /// Can't use default localization.
@@ -34,10 +34,10 @@ class InfoTotalCharactersDialog extends StatelessWidget {
                         color: color,
                       ),
                   recognizer: TapGestureRecognizer()
-                    ..onTap = () => push(
-                          context: context,
-                          page: const CharacterSettingsPage(),
-                        ),
+                    ..onTap = () {
+                      context.read<HelperBloc>().add(HelperStatus.characters);
+                      pop(context: context);
+                    },
                 ),
                 const TextSpan(
                   text: " and",
@@ -48,10 +48,10 @@ class InfoTotalCharactersDialog extends StatelessWidget {
                         color: color,
                       ),
                   recognizer: TapGestureRecognizer()
-                    ..onTap = () => push(
-                          context: context,
-                          page: const ColorSettingsPage(),
-                        ),
+                    ..onTap = () {
+                      context.read<HelperBloc>().add(HelperStatus.colors);
+                      pop(context: context);
+                    },
                 ),
                 const TextSpan(
                   text: ".",
@@ -72,10 +72,10 @@ class InfoTotalCharactersDialog extends StatelessWidget {
                         color: color,
                       ),
                   recognizer: TapGestureRecognizer()
-                    ..onTap = () => push(
-                          context: context,
-                          page: const CharacterSettingsPage(),
-                        ),
+                    ..onTap = () {
+                      context.read<HelperBloc>().add(HelperStatus.characters);
+                      pop(context: context);
+                    },
                 ),
                 const TextSpan(
                   text: " dan",
@@ -86,10 +86,10 @@ class InfoTotalCharactersDialog extends StatelessWidget {
                         color: color,
                       ),
                   recognizer: TapGestureRecognizer()
-                    ..onTap = () => push(
-                          context: context,
-                          page: const ColorSettingsPage(),
-                        ),
+                    ..onTap = () {
+                      context.read<HelperBloc>().add(HelperStatus.colors);
+                      pop(context: context);
+                    },
                 ),
                 const TextSpan(
                   text: ".",
