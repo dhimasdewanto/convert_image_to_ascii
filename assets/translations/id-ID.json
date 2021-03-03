@@ -21,6 +21,9 @@
     "yes": "Ya",
     "no": "Tidak",
     "number": "Angka",
+    "result": "Hasil",
+    "dark_screen": "Layar Gelap",
+    "light_screen": "Layar Terang",
     "min_value": "Minimal {}",
     "min_value_is": "Minimal jumlah {} dan maksimalnya {}",
     "min_width_is": "Minimal lebar {} dan maksimalnya {}"

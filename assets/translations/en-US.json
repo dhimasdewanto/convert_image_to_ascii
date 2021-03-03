@@ -21,6 +21,9 @@
     "yes": "Yes",
     "no": "No",
     "number": "Number",
+    "result": "Result",
+    "dark_screen": "Dark Screen",
+    "light_screen": "Light Screen",
     "min_value": "Min {}",
     "min_value_is": "Min value is {} and max value is {}",
     "min_width_is": "Min width is {} and max width is {}"

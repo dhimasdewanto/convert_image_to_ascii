@@ -5,6 +5,7 @@ import 'package:screenshot/screenshot.dart';
 
 import '../blocs/image_actions/image_actions_bloc.dart';
 
+@Deprecated("Not use bottom sheet anymore.")
 class ActionsBottonSheet extends StatelessWidget {
   const ActionsBottonSheet({
     Key? key,
