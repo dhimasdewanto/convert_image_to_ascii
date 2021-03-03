@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../blocs/settings/settings_bloc.dart';
 import '../dialogs/color_dialog.dart';
+import '../widgets/settings_title_button.dart';
 
 class ColorSettingsPage extends StatelessWidget {
   const ColorSettingsPage({Key? key}) : super(key: key);
@@ -12,11 +13,10 @@ class ColorSettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
+    // For title widget.
+    const indexAdder = 1;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(tr('change_color')),
-      ),
       body: BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, state) {
           return state.maybeWhen(
@@ -24,14 +24,25 @@ class ColorSettingsPage extends StatelessWidget {
             show: (settingsModel) {
               final listColorValues = settingsModel.listColorValues;
               return ListView.separated(
-                itemCount: listColorValues.length,
+                itemCount: listColorValues.length + indexAdder,
                 separatorBuilder: (context, index) {
                   return const Divider();
                 },
                 itemBuilder: (context, index) {
-                  final colorValue = listColorValues[index];
+                  if (index == 0) {
+                    return Padding(
+                      padding: const EdgeInsets.only(
+                        top: 10,
+                      ),
+                      child: SettingsTitleButton(
+                        textTitle: tr('change_color'),
+                      ),
+                    );
+                  }
+
+                  final colorValue = listColorValues[index - indexAdder];
                   return ListTile(
-                    leading: Text("${index + 1}."),
+                    leading: Text("$index."),
                     title: Container(
                       height: textTheme.bodyText1!.fontSize,
                       decoration: BoxDecoration(

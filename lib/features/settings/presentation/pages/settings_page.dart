@@ -12,56 +12,23 @@ import '../dialogs/is_reversed_dialog.dart';
 import '../dialogs/language_dialog.dart';
 import '../dialogs/total_characters_dialog.dart';
 import '../widgets/settings_page_builder.dart';
+import '../widgets/settings_title_button.dart';
 import 'character_settings_page.dart';
 import 'color_settings_page.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
-    final headline6 =
-        Theme.of(context).textTheme.headline6 ?? const TextStyle();
-    final borderRadius = BorderRadius.circular(100);
-
     return Scaffold(
       body: SettingsPageBuilder(
         builder: (context, settings, showHelperArrow) {
           return ListView(
             children: [
               const SizedBox(height: 10),
-              Center(
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: borderRadius,
-                    border: Border.all(
-                      color: headline6.color ?? Colors.white,
-                    ),
-                  ),
-                  child: InkWell(
-                    borderRadius: borderRadius,
-                    onTap: () {
-                      pop(context: context);
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 10,
-                        horizontal: 20,
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            tr('settings'),
-                            style: headline6,
-                          ),
-                          const SizedBox(width: 10),
-                          const Icon(Icons.close),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+              SettingsTitleButton(
+                textTitle: tr('settings'),
               ),
               const SizedBox(height: 5),
               const Divider(),
