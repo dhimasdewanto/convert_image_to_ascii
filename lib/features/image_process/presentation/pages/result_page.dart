@@ -72,23 +72,6 @@ class ResultPage extends StatelessWidget {
                 ),
               ),
             );
-            // return BottomSheetScaffold(
-            //   bottomSheet: ActionsBottonSheet(
-            //     screenshotController: screenshotController,
-            //   ),
-            //   appBar: AppBar(
-            //     title: const Text("Result"),
-            //   ),
-            //   body: MultiBlocListener(
-            //     listeners: [
-            //       imageActionsListener,
-            //     ],
-            //     child: AsciiImageView(
-            //       screenshotController: screenshotController,
-            //       imageTextBuffer: imageResult.imageStringBuffer,
-            //     ),
-            //   ),
-            // );
           },
         );
       },
