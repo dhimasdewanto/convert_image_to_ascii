@@ -9,6 +9,7 @@ import '../dialogs/image_width_dialog.dart';
 import '../dialogs/info_characters_dialog.dart';
 import '../dialogs/info_colors_dialog.dart';
 import '../dialogs/info_image_width_dialog.dart';
+import '../dialogs/info_repeat_characters_dialog.dart';
 import '../dialogs/info_total_characters_dialog.dart';
 import '../dialogs/is_reversed_dialog.dart';
 import '../dialogs/language_dialog.dart';
@@ -132,6 +133,15 @@ class SettingsPage extends StatelessWidget {
                   );
                 },
                 leading: showHelperArrow(HelperStatus.repeatCharacters),
+                trailing: IconButton(
+                  icon: const Icon(Icons.info_outline),
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (_) => const InfoRepeatCharactersDialog(),
+                    );
+                  },
+                ),
               ),
               const Divider(),
               ListTile(
