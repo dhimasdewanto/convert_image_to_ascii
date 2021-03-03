@@ -13,8 +13,9 @@ class SaveImage {
       final imagePath = await params.screenshotController.captureAndSave(
         path,
         pixelRatio: 1.5,
+        fileName: "ascii_image_${DateTime.now().millisecondsSinceEpoch}.png",
       );
-      
+
       // path = /data/user/0/com.dhimasdewanto.ascii_image_generator/app_flutter/2021-02-26T15:40:14.490865.png
       final isSuccess = await GallerySaver.saveImage(imagePath);
 
