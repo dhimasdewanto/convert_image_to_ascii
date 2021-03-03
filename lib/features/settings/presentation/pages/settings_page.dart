@@ -7,6 +7,7 @@ import '../dialogs/default_settings_dialog.dart';
 import '../dialogs/image_repeat_characters_dialog.dart';
 import '../dialogs/image_width_dialog.dart';
 import '../dialogs/info_characters_dialog.dart';
+import '../dialogs/info_colors_dialog.dart';
 import '../dialogs/info_total_characters_dialog.dart';
 import '../dialogs/is_reversed_dialog.dart';
 import '../dialogs/language_dialog.dart';
@@ -77,13 +78,22 @@ class SettingsPage extends StatelessWidget {
               const Divider(),
               ListTile(
                 title: Text(tr("colors")),
-                leading: showHelperArrow(HelperStatus.colors),
                 onTap: () {
                   push(
                     context: context,
                     page: const ColorSettingsPage(),
                   );
                 },
+                leading: showHelperArrow(HelperStatus.colors),
+                trailing: IconButton(
+                  icon: const Icon(Icons.info_outline),
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (_) => const InfoColorsDialog(),
+                    );
+                  },
+                ),
               ),
               const Divider(),
               ListTile(

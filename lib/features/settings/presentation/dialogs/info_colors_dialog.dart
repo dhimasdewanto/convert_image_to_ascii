@@ -8,8 +8,8 @@ import '../blocs/helper/helper_bloc.dart';
 
 /// Information in settings page.
 /// Can't use default localization.
-class InfoCharactersDialog extends StatelessWidget {
-  const InfoCharactersDialog({
+class InfoColorsDialog extends StatelessWidget {
+  const InfoColorsDialog({
     Key? key,
   }) : super(key: key);
 
@@ -19,17 +19,31 @@ class InfoCharactersDialog extends StatelessWidget {
 
     return SimpleDialog(
       contentPadding: const EdgeInsets.all(20),
-      title: Text(tr('characters')),
+      title: Text(tr('colors')),
       children: [
         if (context.locale == const Locale('en', 'US'))
           RichText(
             text: TextSpan(
               text:
-                  "This is to set the characters that appear in the image results. The number of characters can be set",
+                  "This is to set the processed color of an image. Corresponds to the",
               style: DefaultTextStyle.of(context).style,
               children: <TextSpan>[
                 TextSpan(
-                  text: " here",
+                  text: " selected characters",
+                  style: DefaultTextStyle.of(context).style.copyWith(
+                        color: color,
+                      ),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      context.read<HelperBloc>().add(HelperStatus.characters);
+                      pop(context: context);
+                    },
+                ),
+                const TextSpan(
+                  text: " and the",
+                ),
+                TextSpan(
+                  text: " total characters",
                   style: DefaultTextStyle.of(context).style.copyWith(
                         color: color,
                       ),
@@ -51,11 +65,25 @@ class InfoCharactersDialog extends StatelessWidget {
           RichText(
             text: TextSpan(
               text:
-                  "Untuk mengatur karakter yang muncul di hasil gambar. Jumlah karakter dapat diatur di ",
+                  "Untuk mengatur warna yang diproses dari sebuah gambar. Berhubungan dengan",
               style: DefaultTextStyle.of(context).style,
               children: <TextSpan>[
                 TextSpan(
-                  text: " sini",
+                  text: " karakter yang dipilih",
+                  style: DefaultTextStyle.of(context).style.copyWith(
+                        color: color,
+                      ),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      context.read<HelperBloc>().add(HelperStatus.characters);
+                      pop(context: context);
+                    },
+                ),
+                const TextSpan(
+                  text: " dan",
+                ),
+                TextSpan(
+                  text: " jumlah karakter",
                   style: DefaultTextStyle.of(context).style.copyWith(
                         color: color,
                       ),
