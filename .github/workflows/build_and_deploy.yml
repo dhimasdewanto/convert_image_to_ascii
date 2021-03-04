@@ -1,4 +1,4 @@
-name: Build App Bundle
+name: Build and Deploy to Play Store
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -12,7 +12,7 @@ on:
 
 jobs:
   build:
-    name: Build Application
+    name: Build and Deploy to Play Store
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -74,3 +74,17 @@ jobs:
         with:
           name: obfuscate-ascii-generator-x86
           path: build/split_debug_info/app.android-x64.symbols
+
+      - name: Create service_account.json
+        id: createServiceAccount
+        run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
+
+      - name: Deploy to Play Store (BETA)
+        id: deploy
+        uses: r0adkll/upload-google-play@v1
+        with: 
+          serviceAccountJson: service_account.json
+          packageName: com.dhimasdewanto
+          releaseFile: build/app/outputs/bundle/release/app-release.aab
+          track: beta
+          whatsNewDirectory: whatsnew/
