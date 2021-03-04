@@ -1,0 +1,88 @@
+name: Build APK
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  # pull_request:
+  #   branches: [ master ]
+  # release:
+  #   types: [ published ]
+
+jobs:
+  build:
+    name: Build Application
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v1.4.0
+        with:
+          channel: 'beta'
+
+      - name: Download Pub Dependencies
+        run: flutter pub get
+
+      - name: Download Android Keystore
+        id: android_keystore
+        uses: timheuer/base64-to-file@v1.0.3
+        with:
+          fileName: key.jks
+          encodedString: ${{ secrets.SIGNING_KEY }}
+
+      - name: Create key.properties
+        run: |
+          echo "storeFile=${{ steps.android_keystore.outputs.filePath }}" > android/key.properties
+          echo "storePassword=${{ secrets.KEY_STORE_PASSWORD }}" >> android/key.properties
+          echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> android/key.properties
+          echo "keyAlias=${{ secrets.ALIAS }}" >> android/key.properties
+
+      # - name: Run Unit Test
+      #   run: flutter test
+
+      - name: Build APK
+        run: flutter build apk --split-per-abi --obfuscate --split-debug-info=build/split_debug_info --no-sound-null-safety
+
+      - name: Get ARM64 APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: apk-solubis-arm64
+          path: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+
+      - name: Get ARM APK (Old Android)
+        uses: actions/upload-artifact@v2
+        with:
+          name: apk-solubis-arm-old
+          path: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+
+      - name: Get X86 APK (Old Android)
+        uses: actions/upload-artifact@v2
+        with:
+          name: apk-solubis-x86-old
+          path: build/app/outputs/flutter-apk/app-x86_64-release.apk
+
+      - name: Get ARM64 Obfuscate Symbols
+        uses: actions/upload-artifact@v2
+        with:
+          name: obfuscate-solubis-arm64
+          path: build/split_debug_info/app.android-arm64.symbols
+
+      - name: Get ARM Obfuscate Symbols (Old Android)
+        uses: actions/upload-artifact@v2
+        with:
+          name: obfuscate-solubis-arm-old
+          path: build/split_debug_info/app.android-arm.symbols
+          
+      - name: Get X86 Obfuscate Symbols (Old Android)
+        uses: actions/upload-artifact@v2
+        with:
+          name: obfuscate-solubis-x86-old
+          path: build/split_debug_info/app.android-x64.symbols
