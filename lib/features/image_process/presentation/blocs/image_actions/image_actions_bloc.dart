@@ -48,7 +48,7 @@ class ImageActionsBloc extends Bloc<ImageActionsEvent, ImageActionsState> {
           yield const ImageActionsState.loadingCopyText();
 
           final result = await copyTextToClipboard!(
-            _imageResult.imageStringBuffer.toString(),
+            _imageResult.imageStringBufferDark.toString(),
           );
           yield* result.fold(
             () async* {

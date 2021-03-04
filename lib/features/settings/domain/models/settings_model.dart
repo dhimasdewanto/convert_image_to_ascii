@@ -7,7 +7,6 @@ import '../../../../core/default_values.dart';
 class SettingsModel {
   SettingsModel({
     required this.imageWidth,
-    required this.isColorReversed,
     required this.convertToGrayscale,
     required this.listCharacters,
     required this.listColorValues,
@@ -20,7 +19,6 @@ class SettingsModel {
   factory SettingsModel.fromMap(Map<String, dynamic> map) {
     return SettingsModel(
       imageWidth: map['imageWidth'] ?? defaultImageWidth,
-      isColorReversed: map['isColorReversed'] ?? defaultReverseColor,
       convertToGrayscale: map['convertToGrayscale'] ?? defaultToGrayscale,
       listCharacters: List<String>.from(map['listCharacters'] ?? defaultListCharacters),
       listColorValues: List<int>.from(map['listColorValues'] ?? defaultListColors),
@@ -29,7 +27,6 @@ class SettingsModel {
   }
 
   final int imageWidth;
-  final bool isColorReversed;
   final bool convertToGrayscale;
   final List<String> listCharacters;
   final List<int> listColorValues;
@@ -38,7 +35,6 @@ class SettingsModel {
   @override
   int get hashCode {
     return imageWidth.hashCode ^
-      isColorReversed.hashCode ^
       convertToGrayscale.hashCode ^
       listCharacters.hashCode ^
       listColorValues.hashCode ^
@@ -51,7 +47,6 @@ class SettingsModel {
   
     return o is SettingsModel &&
       o.imageWidth == imageWidth &&
-      o.isColorReversed == isColorReversed &&
       o.convertToGrayscale == convertToGrayscale &&
       listEquals(o.listCharacters, listCharacters) &&
       listEquals(o.listColorValues, listColorValues) &&
@@ -60,12 +55,11 @@ class SettingsModel {
 
   @override
   String toString() {
-    return 'SettingsModel(imageWidth: $imageWidth, isColorReversed: $isColorReversed, convertToGrayscale: $convertToGrayscale, listCharacters: $listCharacters, listColorValues: $listColorValues, repeatedCharacters: $repeatedCharacters)';
+    return 'SettingsModel(imageWidth: $imageWidth, convertToGrayscale: $convertToGrayscale, listCharacters: $listCharacters, listColorValues: $listColorValues, repeatedCharacters: $repeatedCharacters)';
   }
 
   SettingsModel copyWith({
     int? imageWidth,
-    bool? isColorReversed,
     bool? convertToGrayscale,
     List<String>? listCharacters,
     List<int>? listColorValues,
@@ -73,7 +67,6 @@ class SettingsModel {
   }) {
     return SettingsModel(
       imageWidth: imageWidth ?? this.imageWidth,
-      isColorReversed: isColorReversed ?? this.isColorReversed,
       convertToGrayscale: convertToGrayscale ?? this.convertToGrayscale,
       listCharacters: listCharacters ?? this.listCharacters,
       listColorValues: listColorValues ?? this.listColorValues,
@@ -84,7 +77,6 @@ class SettingsModel {
   Map<String, dynamic> toMap() {
     return {
       'imageWidth': imageWidth,
-      'isColorReversed': isColorReversed,
       'convertToGrayscale': convertToGrayscale,
       'listCharacters': listCharacters,
       'listColorValues': listColorValues,

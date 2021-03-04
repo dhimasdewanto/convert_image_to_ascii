@@ -11,7 +11,6 @@ import '../dialogs/info_colors_dialog.dart';
 import '../dialogs/info_image_width_dialog.dart';
 import '../dialogs/info_repeat_characters_dialog.dart';
 import '../dialogs/info_total_characters_dialog.dart';
-import '../dialogs/is_reversed_dialog.dart';
 import '../dialogs/language_dialog.dart';
 import '../dialogs/total_characters_dialog.dart';
 import '../widgets/settings_page_builder.dart';
@@ -139,19 +138,6 @@ class SettingsPage extends StatelessWidget {
                     );
                   },
                 ),
-              ),
-              const Divider(),
-              ListTile(
-                title: Text(tr('is_color_reserved')),
-                subtitle: Text(
-                  settings.isColorReversed ? tr('yes') : tr('no'),
-                ),
-                onTap: () {
-                  showDialog(
-                    context: context,
-                    builder: (_) => const IsReversedDialog(),
-                  );
-                },
               ),
               const Divider(),
               ListTile(

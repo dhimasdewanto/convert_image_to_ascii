@@ -42,8 +42,6 @@ class UpdateSettings {
           imageWidth: params.imageWidth ?? prevSettings.imageWidth,
           repeatedCharacters:
               params.repeatedCharacters ?? prevSettings.repeatedCharacters,
-          isColorReversed:
-              params.isColorReversed ?? prevSettings.isColorReversed,
           listCharacters: newListCharacters,
           listColorValues: newListColorValues,
         );
@@ -83,7 +81,6 @@ class UpdateSettings {
       listColorValues: dListColors,
       imageWidth: defaultImageWidth,
       repeatedCharacters: defaultRepeatCharacter,
-      isColorReversed: defaultReverseColor,
       convertToGrayscale: defaultToGrayscale,
     );
 
@@ -96,7 +93,6 @@ class UpdateSettingsParams {
   UpdateSettingsParams({
     this.imageWidth,
     this.repeatedCharacters,
-    this.isColorReversed,
     this.listCharacters,
     this.listColorValues,
     this.totalCharacters,
@@ -104,7 +100,6 @@ class UpdateSettingsParams {
   });
 
   final int? imageWidth;
-  final bool? isColorReversed;
   final List<String>? listCharacters;
   final List<int>? listColorValues;
   final int? repeatedCharacters;

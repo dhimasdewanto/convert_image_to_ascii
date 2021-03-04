@@ -61,11 +61,13 @@ class ResultPage extends StatelessWidget {
                     children: [
                       AsciiImageView(
                         screenshotController: screenshotController,
-                        imageTextBuffer: imageResult.imageStringBuffer,
+                        imageResult: imageResult,
+                        isDarkScreen: true,
                       ),
                       AsciiImageView(
                         screenshotController: screenshotController,
-                        imageTextBuffer: imageResult.imageStringBuffer,
+                        imageResult: imageResult,
+                        isDarkScreen: false,
                       ),
                     ],
                   ),

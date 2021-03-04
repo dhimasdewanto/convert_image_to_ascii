@@ -10,6 +10,29 @@ Future<ImageResultModel> processStringBuffer(
     GetStringBufferParams params) async {
   final image = (await getImage(params)) ?? Image(0, 0);
 
+  final darkTextBuffer = _getTextBuffer(
+    image: image,
+    params: params,
+    isColorReversed: true, // DARK SCREEN
+  );
+  final lightTextBuffer = _getTextBuffer(
+    image: image,
+    params: params,
+    isColorReversed: false, // LIGHT SCREEN
+  );
+
+  return ImageResultModel(
+    imageStringBufferDark: darkTextBuffer,
+    imageStringBufferLight: lightTextBuffer,
+    convertedImage: image,
+  );
+}
+
+StringBuffer _getTextBuffer({
+  required Image image,
+  required GetStringBufferParams params,
+  required bool isColorReversed,
+}) {
   final textBuffer = StringBuffer();
   for (var y = 0; y < image.height; y++) {
     for (var x = 0; x < image.width; x++) {
@@ -21,14 +44,10 @@ Future<ImageResultModel> processStringBuffer(
         listCharacters: params.settings.listCharacters,
         listColorValues: params.settings.listColorValues,
         repeatedCharacters: params.settings.repeatedCharacters,
-        isColorReversed: params.settings.isColorReversed,
+        isColorReversed: isColorReversed,
       );
     }
     textBuffer.writeln();
   }
-
-  return ImageResultModel(
-    imageStringBuffer: textBuffer,
-    convertedImage: image,
-  );
+  return textBuffer;
 }
