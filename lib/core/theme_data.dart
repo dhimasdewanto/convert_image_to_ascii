@@ -8,6 +8,15 @@ final themeDark = _themeDataDark.copyWith(
     backgroundColor: _themeDataDark.canvasColor,
     elevation: 0,
   ),
+  dialogTheme: _themeDataDark.dialogTheme.copyWith(
+    backgroundColor: _themeDataDark.canvasColor,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10),
+      side: BorderSide(
+        color: _textColor,
+      ),
+    ),
+  ),
   outlinedButtonTheme: OutlinedButtonThemeData(
     style: ButtonStyle(
       foregroundColor: MaterialStateProperty.resolveWith<Color>(
