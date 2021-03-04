@@ -48,8 +48,29 @@ jobs:
       # - name: Run Unit Test
       #   run: flutter test
 
+      - name: Build APK
+        run: flutter build apk --split-per-abi --obfuscate --split-debug-info=build/split_debug_info --no-sound-null-safety
+
       - name: Build AppBundle
         run: flutter build appbundle --obfuscate --split-debug-info=build/split_debug_info --no-sound-null-safety
+
+      - name: Get ARM64 APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: apk-ascii-arm64
+          path: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+
+      - name: Get ARM APK (Old Android)
+        uses: actions/upload-artifact@v2
+        with:
+          name: apk-ascii-arm-old
+          path: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+
+      - name: Get X86 APK (Old Android)
+        uses: actions/upload-artifact@v2
+        with:
+          name: apk-ascii-x86-old
+          path: build/app/outputs/flutter-apk/app-x86_64-release.apk
 
       - name: Get AppBundle
         uses: actions/upload-artifact@v2
