@@ -105,7 +105,7 @@ jobs:
         uses: r0adkll/upload-google-play@v1
         with: 
           serviceAccountJson: service_account.json
-          packageName: com.dhimasdewanto
-          releaseFile: build/app/outputs/bundle/release/app-release.aab
+          packageName: com.dhimasdewanto.ascii_image_generator
+          releaseFiles: build/app/outputs/bundle/release/app-release.aab
           track: beta
           whatsNewDirectory: whatsnew/
