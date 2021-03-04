@@ -15,8 +15,6 @@ class InfoColorsDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = Theme.of(context).accentColor;
-
     return SimpleDialog(
       contentPadding: const EdgeInsets.all(20),
       title: Text(tr('colors')),
@@ -25,13 +23,13 @@ class InfoColorsDialog extends StatelessWidget {
           RichText(
             text: TextSpan(
               text:
-                  "This is to set the processed color of an image. Corresponds to the",
+                  "This is to set the processed color of an image. Corresponds to the ",
               style: DefaultTextStyle.of(context).style,
               children: <TextSpan>[
                 TextSpan(
-                  text: " selected characters",
+                  text: "selected characters",
                   style: DefaultTextStyle.of(context).style.copyWith(
-                        color: color,
+                        decoration: TextDecoration.underline,
                       ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
@@ -40,12 +38,12 @@ class InfoColorsDialog extends StatelessWidget {
                     },
                 ),
                 const TextSpan(
-                  text: " and the",
+                  text: " and the ",
                 ),
                 TextSpan(
-                  text: " total characters",
+                  text: "total characters",
                   style: DefaultTextStyle.of(context).style.copyWith(
-                        color: color,
+                        decoration: TextDecoration.underline,
                       ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
@@ -65,13 +63,13 @@ class InfoColorsDialog extends StatelessWidget {
           RichText(
             text: TextSpan(
               text:
-                  "Untuk mengatur warna yang diproses dari sebuah gambar. Berhubungan dengan",
+                  "Untuk mengatur warna yang diproses dari sebuah gambar. Berhubungan dengan ",
               style: DefaultTextStyle.of(context).style,
               children: <TextSpan>[
                 TextSpan(
-                  text: " karakter yang dipilih",
+                  text: "karakter yang dipilih",
                   style: DefaultTextStyle.of(context).style.copyWith(
-                        color: color,
+                        decoration: TextDecoration.underline,
                       ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
@@ -80,12 +78,12 @@ class InfoColorsDialog extends StatelessWidget {
                     },
                 ),
                 const TextSpan(
-                  text: " dan",
+                  text: " dan ",
                 ),
                 TextSpan(
-                  text: " jumlah karakter",
+                  text: "jumlah karakter",
                   style: DefaultTextStyle.of(context).style.copyWith(
-                        color: color,
+                        decoration: TextDecoration.underline,
                       ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {

@@ -15,8 +15,6 @@ class InfoImageWidthDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = Theme.of(context).accentColor;
-
     return SimpleDialog(
       contentPadding: const EdgeInsets.all(20),
       title: Text(tr('image_width')),
@@ -25,13 +23,13 @@ class InfoImageWidthDialog extends StatelessWidget {
           RichText(
             text: TextSpan(
               text:
-                  "Base of image width. Total image width = base width x",
+                  "Base of image width. Total image width = base width x ",
               style: DefaultTextStyle.of(context).style,
               children: <TextSpan>[
                 TextSpan(
-                  text: " number of characters repeated",
+                  text: "number of characters repeated",
                   style: DefaultTextStyle.of(context).style.copyWith(
-                        color: color,
+                        decoration: TextDecoration.underline,
                       ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
@@ -49,13 +47,13 @@ class InfoImageWidthDialog extends StatelessWidget {
           RichText(
             text: TextSpan(
               text:
-                  "Basis dari hasil lebar gambar. Total lebar gambar = basis lebar x",
+                  "Basis dari hasil lebar gambar. Total lebar gambar = basis lebar x ",
               style: DefaultTextStyle.of(context).style,
               children: <TextSpan>[
                 TextSpan(
-                  text: " jumlah karakter yang diulang",
+                  text: "jumlah karakter yang diulang",
                   style: DefaultTextStyle.of(context).style.copyWith(
-                        color: color,
+                        decoration: TextDecoration.underline,
                       ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {

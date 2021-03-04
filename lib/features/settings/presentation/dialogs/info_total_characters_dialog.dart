@@ -15,8 +15,6 @@ class InfoTotalCharactersDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = Theme.of(context).accentColor;
-
     return SimpleDialog(
       contentPadding: const EdgeInsets.all(20),
       title: Text(tr('total_characters')),
@@ -25,13 +23,13 @@ class InfoTotalCharactersDialog extends StatelessWidget {
           RichText(
             text: TextSpan(
               text:
-                  "Represents the total number of ASCII characters. This affects the settings in",
+                  "Represents the total number of ASCII characters. This affects the settings in ",
               style: DefaultTextStyle.of(context).style,
               children: <TextSpan>[
                 TextSpan(
-                  text: " characters",
+                  text: "characters",
                   style: DefaultTextStyle.of(context).style.copyWith(
-                        color: color,
+                        decoration: TextDecoration.underline,
                       ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
@@ -40,12 +38,12 @@ class InfoTotalCharactersDialog extends StatelessWidget {
                     },
                 ),
                 const TextSpan(
-                  text: " and",
+                  text: " and ",
                 ),
                 TextSpan(
-                  text: " colors",
+                  text: "colors",
                   style: DefaultTextStyle.of(context).style.copyWith(
-                        color: color,
+                        decoration: TextDecoration.underline,
                       ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
@@ -63,13 +61,13 @@ class InfoTotalCharactersDialog extends StatelessWidget {
           RichText(
             text: TextSpan(
               text:
-                  "Merupakan jumlah keseluruhan ASCII karakter. Ini mempengaruhi pengaturan di",
+                  "Merupakan jumlah keseluruhan ASCII karakter. Ini mempengaruhi pengaturan di ",
               style: DefaultTextStyle.of(context).style,
               children: <TextSpan>[
                 TextSpan(
-                  text: " karakter",
+                  text: "karakter",
                   style: DefaultTextStyle.of(context).style.copyWith(
-                        color: color,
+                        decoration: TextDecoration.underline,
                       ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
@@ -78,12 +76,12 @@ class InfoTotalCharactersDialog extends StatelessWidget {
                     },
                 ),
                 const TextSpan(
-                  text: " dan",
+                  text: " dan ",
                 ),
                 TextSpan(
-                  text: " warna",
+                  text: "warna",
                   style: DefaultTextStyle.of(context).style.copyWith(
-                        color: color,
+                        decoration: TextDecoration.underline,
                       ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {

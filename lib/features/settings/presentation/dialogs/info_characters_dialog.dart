@@ -15,8 +15,6 @@ class InfoCharactersDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = Theme.of(context).accentColor;
-
     return SimpleDialog(
       contentPadding: const EdgeInsets.all(20),
       title: Text(tr('characters')),
@@ -25,13 +23,13 @@ class InfoCharactersDialog extends StatelessWidget {
           RichText(
             text: TextSpan(
               text:
-                  "This is to set the characters that appear in the image results. The number of characters can be set",
+                  "This is to set the characters that appear in the image results. The number of characters can be set ",
               style: DefaultTextStyle.of(context).style,
               children: <TextSpan>[
                 TextSpan(
-                  text: " here",
+                  text: "here",
                   style: DefaultTextStyle.of(context).style.copyWith(
-                        color: color,
+                        decoration: TextDecoration.underline,
                       ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
@@ -55,9 +53,9 @@ class InfoCharactersDialog extends StatelessWidget {
               style: DefaultTextStyle.of(context).style,
               children: <TextSpan>[
                 TextSpan(
-                  text: " sini",
+                  text: "sini",
                   style: DefaultTextStyle.of(context).style.copyWith(
-                        color: color,
+                        decoration: TextDecoration.underline,
                       ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
