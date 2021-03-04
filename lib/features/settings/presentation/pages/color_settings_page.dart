@@ -24,6 +24,7 @@ class ColorSettingsPage extends StatelessWidget {
             show: (settingsModel) {
               final listColorValues = settingsModel.listColorValues;
               return ListView.separated(
+                physics: const BouncingScrollPhysics(),
                 itemCount: listColorValues.length,
                 separatorBuilder: (context, index) {
                   return const Divider();

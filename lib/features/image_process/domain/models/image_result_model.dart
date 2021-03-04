@@ -2,36 +2,46 @@ import 'package:image/image.dart' as img;
 
 class ImageResultModel {
   ImageResultModel({
-    required this.imageStringBuffer,
     required this.convertedImage,
+    required this.imageStringBufferDark,
+    required this.imageStringBufferLight,
   });
 
   final img.Image convertedImage;
-  final StringBuffer imageStringBuffer;
+  final StringBuffer imageStringBufferDark;
+  final StringBuffer imageStringBufferLight;
+
+  ImageResultModel copyWith({
+    img.Image? convertedImage,
+    StringBuffer? imageStringBufferDark,
+    StringBuffer? imageStringBufferLight,
+  }) {
+    return ImageResultModel(
+      convertedImage: convertedImage ?? this.convertedImage,
+      imageStringBufferDark:
+          imageStringBufferDark ?? this.imageStringBufferDark,
+      imageStringBufferLight:
+          imageStringBufferLight ?? this.imageStringBufferLight,
+    );
+  }
 
   @override
-  int get hashCode => imageStringBuffer.hashCode ^ convertedImage.hashCode;
+  String toString() =>
+      'ImageResultModel(convertedImage: $convertedImage, imageStringBufferDark: $imageStringBufferDark, imageStringBufferLight: $imageStringBufferLight)';
 
   @override
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
 
     return o is ImageResultModel &&
-        o.imageStringBuffer == imageStringBuffer &&
-        o.convertedImage == convertedImage;
+        o.convertedImage == convertedImage &&
+        o.imageStringBufferDark == imageStringBufferDark &&
+        o.imageStringBufferLight == imageStringBufferLight;
   }
 
   @override
-  String toString() =>
-      'ImageResultModel(imageStringBuffer: $imageStringBuffer, convertedImage: $convertedImage)';
-
-  ImageResultModel copyWith({
-    StringBuffer? imageStringBuffer,
-    img.Image? convertedImage,
-  }) {
-    return ImageResultModel(
-      imageStringBuffer: imageStringBuffer ?? this.imageStringBuffer,
-      convertedImage: convertedImage ?? this.convertedImage,
-    );
-  }
+  int get hashCode =>
+      convertedImage.hashCode ^
+      imageStringBufferDark.hashCode ^
+      imageStringBufferLight.hashCode;
 }

@@ -26,6 +26,7 @@ class ImageActionsBloc extends Bloc<ImageActionsEvent, ImageActionsState> {
 
   late ImageResultModel _imageResult;
 
+  /// Delay is for reset state, after something error or success.
   static const _delayDuration = Duration(seconds: 5);
 
   @override
@@ -47,7 +48,7 @@ class ImageActionsBloc extends Bloc<ImageActionsEvent, ImageActionsState> {
           yield const ImageActionsState.loadingCopyText();
 
           final result = await copyTextToClipboard!(
-            _imageResult.imageStringBuffer.toString(),
+            _imageResult.imageStringBufferDark.toString(),
           );
           yield* result.fold(
             () async* {

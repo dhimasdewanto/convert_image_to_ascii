@@ -1,4 +1,4 @@
-name: Flutter GitHub Actions
+name: Build App Bundle
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -54,7 +54,7 @@ jobs:
       - name: Get AppBundle
         uses: actions/upload-artifact@v2
         with:
-          name: ascii-converter
+          name: ascii-generator
           path: build/app/outputs/bundle/release/app-release.aab
 
       - name: Get ARM64 Obfuscate Symbols

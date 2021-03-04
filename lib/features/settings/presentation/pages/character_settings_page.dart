@@ -6,7 +6,9 @@ import '../blocs/settings/settings_bloc.dart';
 import '../dialogs/character_dialog.dart';
 
 class CharacterSettingsPage extends StatelessWidget {
-  const CharacterSettingsPage({Key? key}) : super(key: key);
+  const CharacterSettingsPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +23,7 @@ class CharacterSettingsPage extends StatelessWidget {
             show: (settingsModel) {
               final listCharacters = settingsModel.listCharacters;
               return ListView.separated(
+                physics: const BouncingScrollPhysics(),
                 itemCount: listCharacters.length,
                 separatorBuilder: (context, index) {
                   return const Divider();

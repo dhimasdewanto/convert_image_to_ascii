@@ -16,6 +16,12 @@ final imageActionsListener = BlocListener<ImageActionsBloc, ImageActionsState>(
           message: tr(message),
         );
       },
+      successCopyText: () {
+        showSnackBar(
+          context: context,
+          message: tr("monofont_warning"),
+        );
+      },
     );
   },
 );

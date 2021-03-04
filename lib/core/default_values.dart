@@ -2,8 +2,6 @@ const defaultImageWidth = 100;
 
 const defaultRepeatCharacter = 2;
 
-const defaultReverseColor = true;
-
 const defaultToGrayscale = true;
 
 /// Length must be equals [defaultListCharacters]

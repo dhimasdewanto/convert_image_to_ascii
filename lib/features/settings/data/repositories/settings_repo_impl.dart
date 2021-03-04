@@ -26,7 +26,6 @@ class SettingsRepoImpl implements SettingsRepo {
             listColorValues: dListColors,
             imageWidth: defaultImageWidth,
             repeatedCharacters: defaultRepeatCharacter,
-            isColorReversed: defaultReverseColor,
             convertToGrayscale: defaultToGrayscale,
           ),
         );
@@ -39,7 +38,6 @@ class SettingsRepoImpl implements SettingsRepo {
           listColorValues: settingsRaw.listColorValues,
           imageWidth: settingsRaw.imageWidth,
           repeatedCharacters: settingsRaw.repeatedCharacters,
-          isColorReversed: settingsRaw.isColorReversed,
           convertToGrayscale: settingsRaw.convertToGrayscale,
         ),
       );
