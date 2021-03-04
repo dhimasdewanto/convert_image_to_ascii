@@ -29,6 +29,7 @@
     "save_to_gallery": "Simpan Galeri",
     "saving_to_gallery": "Sedang Menyimpan",
     "saved_in_gallery": "Gambar Tersimpan",
+    "monofont_warning": "Pastikan paste ke dalam font monospaced",
     "min_value": "Minimal {}",
     "min_value_is": "Minimal jumlah {} dan maksimalnya {}",
     "min_width_is": "Minimal lebar {} dan maksimalnya {}"

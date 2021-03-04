@@ -29,6 +29,7 @@
     "save_to_gallery": "Save to Gallery",
     "saving_to_gallery": "Saving to Gallery",
     "saved_in_gallery": "Saved in Gallery",
+    "monofont_warning": "Make sure you paste it in monospaced font",
     "min_value": "Min {}",
     "min_value_is": "Min value is {} and max value is {}",
     "min_width_is": "Min width is {} and max width is {}"
