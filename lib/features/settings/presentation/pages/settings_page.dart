@@ -141,7 +141,7 @@ class SettingsPage extends StatelessWidget {
               ),
               const Divider(),
               ListTile(
-                title: const Text("Change Language"),
+                title: Text(tr('change_language')),
                 subtitle: Text(
                   context.locale.toString() == "id_ID"
                       ? "Indonesia"

@@ -44,6 +44,7 @@ class SaveImage {
     }
   }
 
+  // Need to re-check permission (if not saving image will stuck, but saving).
   Future<bool> _checkPermission() async {
     final bool? permission = await Permission.storage.isGranted;
 
