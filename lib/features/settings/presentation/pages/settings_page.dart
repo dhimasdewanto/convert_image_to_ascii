@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/navigators.dart';
 import '../blocs/helper/helper_bloc.dart';
+import '../dialogs/about_app_dialog.dart';
 import '../dialogs/default_settings_dialog.dart';
 import '../dialogs/image_repeat_characters_dialog.dart';
 import '../dialogs/image_width_dialog.dart';
@@ -161,6 +162,16 @@ class SettingsPage extends StatelessWidget {
                   showDialog(
                     context: context,
                     builder: (_) => const DefaultSettingsDialog(),
+                  );
+                },
+              ),
+              const Divider(),
+              ListTile(
+                title: Text(tr('about')),
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (_) => const AboutAppDialog(),
                   );
                 },
               ),
