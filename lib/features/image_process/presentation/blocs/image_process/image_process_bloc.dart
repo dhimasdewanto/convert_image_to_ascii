@@ -27,10 +27,10 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
     required this.screenshotController,
   }) : super(const ImageProcessState.initial());
 
-  final GetSettings? getSettings;
-  final GetStringBuffer? getStringBuffer;
-  final ImagePicker? imagePicker;
-  final ScreenshotController? screenshotController;
+  final GetSettings getSettings;
+  final GetStringBuffer getStringBuffer;
+  final ImagePicker imagePicker;
+  final ScreenshotController screenshotController;
 
   @override
   Stream<ImageProcessState> mapEventToState(
@@ -66,11 +66,11 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
           imagePicked: (imageSource) async* {
             yield const ImageProcessState.loading();
 
-            final resultSettings = await getSettings!();
+            final resultSettings = await getSettings();
             yield* resultSettings.fold(
               (failure) async* {},
               (settings) async* {
-                final imageResult = await getStringBuffer!(
+                final imageResult = await getStringBuffer(
                   GetStringBufferParams(
                     imageFile: imageSource,
                     settings: settings,
@@ -89,7 +89,7 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
 
   Future<Option<File>> _pickImage() async {
     try {
-      final pickedFile = await imagePicker!.getImage(
+      final pickedFile = await imagePicker.getImage(
         source: ImageSource.gallery,
       );
       return some(File(pickedFile.path));

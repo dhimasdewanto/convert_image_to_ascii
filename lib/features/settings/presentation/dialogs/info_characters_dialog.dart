@@ -23,7 +23,7 @@ class InfoCharactersDialog extends StatelessWidget {
           RichText(
             text: TextSpan(
               text:
-                  "This is to set the characters that appear in the image results. The number of characters can be set ",
+                  "This is to set the characters that appear in the image results. The number of character variations can be set ",
               style: DefaultTextStyle.of(context).style,
               children: <TextSpan>[
                 TextSpan(
@@ -49,7 +49,7 @@ class InfoCharactersDialog extends StatelessWidget {
           RichText(
             text: TextSpan(
               text:
-                  "Untuk mengatur karakter yang muncul di hasil gambar. Jumlah karakter dapat diatur di ",
+                  "Untuk mengatur karakter yang muncul di hasil gambar. Jumlah variasi karakter dapat diatur di ",
               style: DefaultTextStyle.of(context).style,
               children: <TextSpan>[
                 TextSpan(

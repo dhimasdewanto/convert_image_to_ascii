@@ -41,7 +41,7 @@ class InfoColorsDialog extends StatelessWidget {
                   text: " and the ",
                 ),
                 TextSpan(
-                  text: "total characters",
+                  text: "total character variations",
                   style: DefaultTextStyle.of(context).style.copyWith(
                         decoration: TextDecoration.underline,
                       ),
@@ -81,7 +81,7 @@ class InfoColorsDialog extends StatelessWidget {
                   text: " dan ",
                 ),
                 TextSpan(
-                  text: "jumlah karakter",
+                  text: "jumlah variasi karakter",
                   style: DefaultTextStyle.of(context).style.copyWith(
                         decoration: TextDecoration.underline,
                       ),

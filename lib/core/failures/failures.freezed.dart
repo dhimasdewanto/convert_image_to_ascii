@@ -21,6 +21,10 @@ class _$FailuresTearOff {
     return const _SaveImageFailed();
   }
 
+  _PermissionStorateNotGranted permissionStorateNotGranted() {
+    return const _PermissionStorateNotGranted();
+  }
+
   _UnexpectedFailure unexpected() {
     return const _UnexpectedFailure();
   }
@@ -35,12 +39,14 @@ mixin _$Failures {
   TResult when<TResult extends Object?>({
     required TResult Function() copyClipboardFailed,
     required TResult Function() saveImageFailed,
+    required TResult Function() permissionStorateNotGranted,
     required TResult Function() unexpected,
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? copyClipboardFailed,
     TResult Function()? saveImageFailed,
+    TResult Function()? permissionStorateNotGranted,
     TResult Function()? unexpected,
     required TResult orElse(),
   });
@@ -48,12 +54,16 @@ mixin _$Failures {
   TResult map<TResult extends Object?>({
     required TResult Function(_CopyClipboardFailed value) copyClipboardFailed,
     required TResult Function(_SaveImageFailed value) saveImageFailed,
+    required TResult Function(_PermissionStorateNotGranted value)
+        permissionStorateNotGranted,
     required TResult Function(_UnexpectedFailure value) unexpected,
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CopyClipboardFailed value)? copyClipboardFailed,
     TResult Function(_SaveImageFailed value)? saveImageFailed,
+    TResult Function(_PermissionStorateNotGranted value)?
+        permissionStorateNotGranted,
     TResult Function(_UnexpectedFailure value)? unexpected,
     required TResult orElse(),
   });
@@ -115,6 +125,7 @@ class _$_CopyClipboardFailed implements _CopyClipboardFailed {
   TResult when<TResult extends Object?>({
     required TResult Function() copyClipboardFailed,
     required TResult Function() saveImageFailed,
+    required TResult Function() permissionStorateNotGranted,
     required TResult Function() unexpected,
   }) {
     return copyClipboardFailed();
@@ -125,6 +136,7 @@ class _$_CopyClipboardFailed implements _CopyClipboardFailed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? copyClipboardFailed,
     TResult Function()? saveImageFailed,
+    TResult Function()? permissionStorateNotGranted,
     TResult Function()? unexpected,
     required TResult orElse(),
   }) {
@@ -139,6 +151,8 @@ class _$_CopyClipboardFailed implements _CopyClipboardFailed {
   TResult map<TResult extends Object?>({
     required TResult Function(_CopyClipboardFailed value) copyClipboardFailed,
     required TResult Function(_SaveImageFailed value) saveImageFailed,
+    required TResult Function(_PermissionStorateNotGranted value)
+        permissionStorateNotGranted,
     required TResult Function(_UnexpectedFailure value) unexpected,
   }) {
     return copyClipboardFailed(this);
@@ -149,6 +163,8 @@ class _$_CopyClipboardFailed implements _CopyClipboardFailed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CopyClipboardFailed value)? copyClipboardFailed,
     TResult Function(_SaveImageFailed value)? saveImageFailed,
+    TResult Function(_PermissionStorateNotGranted value)?
+        permissionStorateNotGranted,
     TResult Function(_UnexpectedFailure value)? unexpected,
     required TResult orElse(),
   }) {
@@ -203,6 +219,7 @@ class _$_SaveImageFailed implements _SaveImageFailed {
   TResult when<TResult extends Object?>({
     required TResult Function() copyClipboardFailed,
     required TResult Function() saveImageFailed,
+    required TResult Function() permissionStorateNotGranted,
     required TResult Function() unexpected,
   }) {
     return saveImageFailed();
@@ -213,6 +230,7 @@ class _$_SaveImageFailed implements _SaveImageFailed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? copyClipboardFailed,
     TResult Function()? saveImageFailed,
+    TResult Function()? permissionStorateNotGranted,
     TResult Function()? unexpected,
     required TResult orElse(),
   }) {
@@ -227,6 +245,8 @@ class _$_SaveImageFailed implements _SaveImageFailed {
   TResult map<TResult extends Object?>({
     required TResult Function(_CopyClipboardFailed value) copyClipboardFailed,
     required TResult Function(_SaveImageFailed value) saveImageFailed,
+    required TResult Function(_PermissionStorateNotGranted value)
+        permissionStorateNotGranted,
     required TResult Function(_UnexpectedFailure value) unexpected,
   }) {
     return saveImageFailed(this);
@@ -237,6 +257,8 @@ class _$_SaveImageFailed implements _SaveImageFailed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CopyClipboardFailed value)? copyClipboardFailed,
     TResult Function(_SaveImageFailed value)? saveImageFailed,
+    TResult Function(_PermissionStorateNotGranted value)?
+        permissionStorateNotGranted,
     TResult Function(_UnexpectedFailure value)? unexpected,
     required TResult orElse(),
   }) {
@@ -249,6 +271,104 @@ class _$_SaveImageFailed implements _SaveImageFailed {
 
 abstract class _SaveImageFailed implements Failures {
   const factory _SaveImageFailed() = _$_SaveImageFailed;
+}
+
+/// @nodoc
+abstract class _$PermissionStorateNotGrantedCopyWith<$Res> {
+  factory _$PermissionStorateNotGrantedCopyWith(
+          _PermissionStorateNotGranted value,
+          $Res Function(_PermissionStorateNotGranted) then) =
+      __$PermissionStorateNotGrantedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$PermissionStorateNotGrantedCopyWithImpl<$Res>
+    extends _$FailuresCopyWithImpl<$Res>
+    implements _$PermissionStorateNotGrantedCopyWith<$Res> {
+  __$PermissionStorateNotGrantedCopyWithImpl(
+      _PermissionStorateNotGranted _value,
+      $Res Function(_PermissionStorateNotGranted) _then)
+      : super(_value, (v) => _then(v as _PermissionStorateNotGranted));
+
+  @override
+  _PermissionStorateNotGranted get _value =>
+      super._value as _PermissionStorateNotGranted;
+}
+
+/// @nodoc
+class _$_PermissionStorateNotGranted implements _PermissionStorateNotGranted {
+  const _$_PermissionStorateNotGranted();
+
+  @override
+  String toString() {
+    return 'Failures.permissionStorateNotGranted()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _PermissionStorateNotGranted);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() copyClipboardFailed,
+    required TResult Function() saveImageFailed,
+    required TResult Function() permissionStorateNotGranted,
+    required TResult Function() unexpected,
+  }) {
+    return permissionStorateNotGranted();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? copyClipboardFailed,
+    TResult Function()? saveImageFailed,
+    TResult Function()? permissionStorateNotGranted,
+    TResult Function()? unexpected,
+    required TResult orElse(),
+  }) {
+    if (permissionStorateNotGranted != null) {
+      return permissionStorateNotGranted();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CopyClipboardFailed value) copyClipboardFailed,
+    required TResult Function(_SaveImageFailed value) saveImageFailed,
+    required TResult Function(_PermissionStorateNotGranted value)
+        permissionStorateNotGranted,
+    required TResult Function(_UnexpectedFailure value) unexpected,
+  }) {
+    return permissionStorateNotGranted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CopyClipboardFailed value)? copyClipboardFailed,
+    TResult Function(_SaveImageFailed value)? saveImageFailed,
+    TResult Function(_PermissionStorateNotGranted value)?
+        permissionStorateNotGranted,
+    TResult Function(_UnexpectedFailure value)? unexpected,
+    required TResult orElse(),
+  }) {
+    if (permissionStorateNotGranted != null) {
+      return permissionStorateNotGranted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PermissionStorateNotGranted implements Failures {
+  const factory _PermissionStorateNotGranted() = _$_PermissionStorateNotGranted;
 }
 
 /// @nodoc
@@ -292,6 +412,7 @@ class _$_UnexpectedFailure implements _UnexpectedFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() copyClipboardFailed,
     required TResult Function() saveImageFailed,
+    required TResult Function() permissionStorateNotGranted,
     required TResult Function() unexpected,
   }) {
     return unexpected();
@@ -302,6 +423,7 @@ class _$_UnexpectedFailure implements _UnexpectedFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? copyClipboardFailed,
     TResult Function()? saveImageFailed,
+    TResult Function()? permissionStorateNotGranted,
     TResult Function()? unexpected,
     required TResult orElse(),
   }) {
@@ -316,6 +438,8 @@ class _$_UnexpectedFailure implements _UnexpectedFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(_CopyClipboardFailed value) copyClipboardFailed,
     required TResult Function(_SaveImageFailed value) saveImageFailed,
+    required TResult Function(_PermissionStorateNotGranted value)
+        permissionStorateNotGranted,
     required TResult Function(_UnexpectedFailure value) unexpected,
   }) {
     return unexpected(this);
@@ -326,6 +450,8 @@ class _$_UnexpectedFailure implements _UnexpectedFailure {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CopyClipboardFailed value)? copyClipboardFailed,
     TResult Function(_SaveImageFailed value)? saveImageFailed,
+    TResult Function(_PermissionStorateNotGranted value)?
+        permissionStorateNotGranted,
     TResult Function(_UnexpectedFailure value)? unexpected,
     required TResult orElse(),
   }) {

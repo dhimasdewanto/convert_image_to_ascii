@@ -12,7 +12,7 @@ class LanguageDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(
-      title: const Text("Change Language"),
+      title: Text(tr('change_language')),
       children: [
         ListTile(
           title: const Text("English"),
