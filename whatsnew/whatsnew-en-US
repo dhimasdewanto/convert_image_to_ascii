@@ -1,3 +1,3 @@
-- Update some theme
-- Remove is color reversed, replace with dark and light screen
-- Add some info dialog
+- Fix saving to gallery stuck in the first run
+- Add new folder when saving to gallery
+- Add about dialog
