@@ -1,9 +1,7 @@
-import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
-
+import 'package:fpdart/fpdart.dart';
 
 import '../../../../../core/failures/failures.dart';
-
 
 class CopyTextToClipboard {
   Future<Option<Failures>> call(String text) async {

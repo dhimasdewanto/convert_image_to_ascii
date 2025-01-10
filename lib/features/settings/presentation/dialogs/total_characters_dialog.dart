@@ -68,7 +68,7 @@ class _TotalCharactersDialogState extends State<TotalCharactersDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = Theme.of(context).textTheme.headline6;
+    final textStyle = Theme.of(context).textTheme.titleLarge;
 
     return Form(
       key: _formKey,

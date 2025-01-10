@@ -22,7 +22,7 @@ class AsciiImageView extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final defaultCanvasColor = theme.canvasColor;
-    final defaultTextColor = theme.textTheme.bodyText1?.color ?? Colors.white;
+    final defaultTextColor = theme.textTheme.bodyLarge?.color ?? Colors.white;
 
     final imageTextBuffer = isDarkScreen
         ? imageResult.imageStringBufferDark

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 final _themeDataDark = ThemeData.dark();
-final _textColor = (_themeDataDark.textTheme.bodyText1 ?? const TextStyle()).color ?? Colors.white;
+final _textColor = (_themeDataDark.textTheme.bodyLarge ?? const TextStyle()).color ?? Colors.white;
 
 final themeDark = _themeDataDark.copyWith(
   appBarTheme: _themeDataDark.appBarTheme.copyWith(
@@ -19,18 +19,18 @@ final themeDark = _themeDataDark.copyWith(
   ),
   outlinedButtonTheme: OutlinedButtonThemeData(
     style: ButtonStyle(
-      foregroundColor: MaterialStateProperty.resolveWith<Color>(
+      foregroundColor: WidgetStateProperty.resolveWith<Color>(
         (states) => Colors.white,
       ),
-      overlayColor: MaterialStateProperty.resolveWith<Color>(
-        (states) => Colors.white.withOpacity(0.1),
+      overlayColor: WidgetStateProperty.resolveWith<Color>(
+        (states) => Colors.white.withValues(alpha: 0.1),
       ),
-      side: MaterialStateProperty.resolveWith<BorderSide>(
+      side: WidgetStateProperty.resolveWith<BorderSide>(
         (states) => const BorderSide(
           color: Colors.white,
         ),
       ),
-      shape: MaterialStateProperty.resolveWith<OutlinedBorder>(
+      shape: WidgetStateProperty.resolveWith<OutlinedBorder>(
         (states) => RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(50),
         ),
@@ -49,13 +49,13 @@ final themeDark = _themeDataDark.copyWith(
   ),
   textButtonTheme: TextButtonThemeData(
     style: ButtonStyle(
-      foregroundColor: MaterialStateProperty.resolveWith<Color>(
+      foregroundColor: WidgetStateProperty.resolveWith<Color>(
         (states) => Colors.white,
       ),
-      overlayColor: MaterialStateProperty.resolveWith<Color>(
-        (states) => Colors.white.withOpacity(0.1),
+      overlayColor: WidgetStateProperty.resolveWith<Color>(
+        (states) => Colors.white.withValues(alpha: 0.1),
       ),
-      shape: MaterialStateProperty.resolveWith<OutlinedBorder>(
+      shape: WidgetStateProperty.resolveWith<OutlinedBorder>(
         (states) => RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(50),
         ),

@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:package_info/package_info.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AboutAppDialog extends StatelessWidget {
@@ -22,10 +22,11 @@ class AboutAppDialog extends StatelessWidget {
 
   Future<void> _launchLicense() async {
     try {
-      const url =
+      const link =
           'https://github.com/dhimasdewanto/convert_image_to_ascii/blob/master/LICENSE';
-      if (await canLaunch(url)) {
-        await launch(url);
+      final url = Uri.parse(link);
+      if (await canLaunchUrl(url)) {
+        await launchUrl(url);
       }
     } catch (e) {
       print(e);
@@ -34,8 +35,8 @@ class AboutAppDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bodyText1 =
-        Theme.of(context).textTheme.bodyText1 ?? const TextStyle();
+    final bodyLarge =
+        Theme.of(context).textTheme.bodyLarge ?? const TextStyle();
 
     return FutureBuilder<PackageInfo>(
       future: PackageInfo.fromPlatform(),
@@ -55,14 +56,14 @@ class AboutAppDialog extends StatelessWidget {
           children: [
             Text(
               "v${packageInfo.version}+${packageInfo.buildNumber}",
-              style: bodyText1,
+              style: bodyLarge,
             ),
             const SizedBox(height: 24),
             InkWell(
               onTap: _launchGitHub,
               child: Text(
                 "GitHub",
-                style: bodyText1.copyWith(
+                style: bodyLarge.copyWith(
                   decoration: TextDecoration.underline,
                 ),
               ),
@@ -72,7 +73,7 @@ class AboutAppDialog extends StatelessWidget {
               onTap: _launchLicense,
               child: Text(
                 "BSD 3-Clause License",
-                style: bodyText1.copyWith(
+                style: bodyLarge.copyWith(
                   decoration: TextDecoration.underline,
                 ),
               ),

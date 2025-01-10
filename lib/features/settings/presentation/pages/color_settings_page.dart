@@ -34,7 +34,7 @@ class ColorSettingsPage extends StatelessWidget {
                   return ListTile(
                     leading: Text("${index + 1}."),
                     title: Container(
-                      height: textTheme.bodyText1!.fontSize,
+                      height: textTheme.bodyLarge!.fontSize,
                       decoration: BoxDecoration(
                         color: Color(colorValue),
                         borderRadius: BorderRadius.circular(50),

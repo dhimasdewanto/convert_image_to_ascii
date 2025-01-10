@@ -1,4 +1,4 @@
-import 'package:dartz/dartz.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:gallery_saver/gallery_saver.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -23,6 +23,11 @@ class SaveImage {
         pixelRatio: 1.5,
         fileName: "ascii_image_${DateTime.now().millisecondsSinceEpoch}.png",
       );
+      if (imagePath == null || imagePath.isEmpty) {
+        return some(
+          const Failures.saveImageFailed(),
+        );
+      }
 
       // path = /data/user/0/com.dhimasdewanto.ascii_image_generator/app_flutter/2021-02-26T15:40:14.490865.png
       final isSuccess = await GallerySaver.saveImage(

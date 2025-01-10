@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:screenshot/screenshot.dart';
@@ -89,9 +89,12 @@ class ImageProcessBloc extends Bloc<ImageProcessEvent, ImageProcessState> {
 
   Future<Option<File>> _pickImage() async {
     try {
-      final pickedFile = await imagePicker.getImage(
+      final pickedFile = await imagePicker.pickImage(
         source: ImageSource.gallery,
       );
+      if (pickedFile == null) {
+        return none();
+      }
       return some(File(pickedFile.path));
     } catch (e) {
       return none();

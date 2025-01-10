@@ -91,7 +91,7 @@ class _ImageRepeatCharactersDialogState
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = Theme.of(context).textTheme.headline6;
+    final textStyle = Theme.of(context).textTheme.titleLarge;
 
     return SimpleDialog(
       title: Text(tr('repeat_characters_count')),

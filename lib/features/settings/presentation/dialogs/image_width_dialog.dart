@@ -89,7 +89,7 @@ class _ImageWidthDialogState extends State<ImageWidthDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = Theme.of(context).textTheme.headline6;
+    final textStyle = Theme.of(context).textTheme.titleLarge;
 
     return SimpleDialog(
       title: const Text("Image Width"),

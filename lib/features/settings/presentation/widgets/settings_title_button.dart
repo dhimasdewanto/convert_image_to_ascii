@@ -15,8 +15,8 @@ class SettingsTitleButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final headline6 =
-        Theme.of(context).textTheme.headline6 ?? const TextStyle();
+    final titleLarge =
+        Theme.of(context).textTheme.titleLarge ?? const TextStyle();
     final borderRadius = BorderRadius.circular(100);
 
     return Center(
@@ -24,7 +24,7 @@ class SettingsTitleButton extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: borderRadius,
           border: Border.all(
-            color: headline6.color ?? Colors.white,
+            color: titleLarge.color ?? Colors.white,
           ),
         ),
         child: InkWell(
@@ -40,7 +40,7 @@ class SettingsTitleButton extends StatelessWidget {
               children: [
                 Text(
                   textTitle,
-                  style: headline6,
+                  style: titleLarge,
                 ),
                 const SizedBox(width: 10),
                 const Icon(Icons.close),

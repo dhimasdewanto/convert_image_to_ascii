@@ -1,5 +1,4 @@
-import 'package:dartz/dartz.dart';
-
+import 'package:fpdart/fpdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/default_values.dart';
@@ -14,7 +13,7 @@ class SettingsRepoImpl implements SettingsRepo {
   Future<Either<Failures, SettingsModel>> getSettingsData() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      final String? result = prefs.getString(_keySettingsData);
+      final result = prefs.getString(_keySettingsData);
 
       final dListCharacters = List<String>.from(defaultListCharacters);
       final dListColors = List<int>.from(defaultListColors);

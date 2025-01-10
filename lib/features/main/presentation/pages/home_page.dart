@@ -16,8 +16,8 @@ class HomePage extends StatelessWidget {
     final borderRadius = BorderRadius.circular(100);
     const sizeBig = 200.0;
     const sizeSmall = 100.0;
-    final textThemeBig = textTheme.headline6;
-    final textThemeSmall = textTheme.bodyText1;
+    final textThemeBig = textTheme.titleLarge;
+    final textThemeSmall = textTheme.bodyLarge;
 
     return Scaffold(
       body: MultiBlocListener(
@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: borderRadius,
                     border: Border.all(
-                      color: textTheme.bodyText1!.color!,
+                      color: textTheme.bodyLarge!.color!,
                     ),
                   ),
                   child: Center(
@@ -78,7 +78,7 @@ class HomePage extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: borderRadius,
                     border: Border.all(
-                      color: textTheme.bodyText1!.color!,
+                      color: textTheme.bodyLarge!.color!,
                     ),
                   ),
                   child: Center(

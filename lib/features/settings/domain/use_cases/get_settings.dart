@@ -1,4 +1,4 @@
-import 'package:dartz/dartz.dart';
+import 'package:fpdart/fpdart.dart';
 
 import '../../../../core/failures/failures.dart';
 import '../models/settings_model.dart';
